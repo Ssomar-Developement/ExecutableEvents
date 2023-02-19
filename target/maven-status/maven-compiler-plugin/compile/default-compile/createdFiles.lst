@@ -26,7 +26,6 @@ com\ssomar\executableevents\events\entity\custom\EntityPortalEnterListener.class
 com\ssomar\executableevents\executableevents\ExecutableEventLoader.class
 com\ssomar\executableevents\events\player\custom\PlayerDesactiveFlyEvent.class
 com\ssomar\executableevents\events\player\custom\PlayerTrampleCropEvent.class
-com\ssomar\executableevents\configs\usedPlugins\HeadDatabase.class
 com\ssomar\executableevents\executableevents\activators\ActivatorEEFeatureEditorManager.class
 com\ssomar\executableevents\events\player\custom\PlayerAllClickEvent.class
 com\ssomar\executableevents\events\player\custom\PlayerReceiveHitByPlayerEvent.class
