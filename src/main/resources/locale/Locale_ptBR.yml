@@ -1,0 +1,31 @@
+receiveItem: '&a&l[ExecutableItems] &aVocê recebeu &e%quantity% &ax &e%item%'
+fullInventory: '&c&l[ExecutableItems] &cSeu inventário está cheio, o item &6%item% &chas
+  foi jogado no chão próximo a você'
+timeLeft: '&c&l[ExecutableItems] &cVocê não pode usar a ativação %activator% &cof deste item por:
+  &e%time%'
+requirePermission: '&c&l[ExecutableItems] &cVocê não tem permissão para usar este item!'
+giveMessage: '&a&l[ExecutableItems] &aVocê deu a &e%player% &6%quantity% &aof
+  &e%item%'
+use: '&7&oUso restante: '
+noHit: '&c&l[ExecutableItems] &cNenhum jogador foi atingido'
+confirmMessage: '&8&l[ExecutableItems] &7➤ Clique novamente para confirmar o uso deste
+  item'
+cancelCraft: '&4&l[ExecutableItems] &cVocê não pode craftar este item'
+pickupLimitMessage: '&4&l[ExecutableItems] &cVocê não pode usar mais do que %limit% deste ExecutableItems'
+disableWorld: '&4&l[ExecutableItems] &cVocê não pode usar este ExecutableItem neste mundo'
+requiredEIFirstPart: '&4Requer ExecutableItem(s): '
+requiredEIQuantity: ' &cx &6'
+requiredEISeparator: '&c | '
+requiredItemsFirstPart: '&4Requer Item(s): '
+requiredItemsQuantity: ' &cx &6'
+requiredItemsSeparator: '&c | '
+requiredLevel: '&4&l[ExecutableItems] &cNível necessário para uso: &6%level% '
+noEntityHit: '&c&l[ExecutableItems] &cNenhuma entidade foi atingida'
+waitProjectile: '&cVocê precisa esperar, este projétil não atingiu nada neste momento
+  !'
+invalidOwner: '&4&l[ExecutableItems] &cVocê não pode usar este item. Ele só pode ser usado
+  pelo seu dono !'
+errorUPDItem: '&4&l[ExecutableItems] &cErro! Você chegou ao máximo de (%max_use_per_day_item%) usos diários deste item: %item%'
+errorUPDActivator: '&4&l[ExecutableItems] &cErro! Você chegou ao máximo de (%max_use_per_day_activator%) usos diários deste ativador: %activator%'
+customCommandDamageKillMessage: '%player% destruiu %target% com %item%'
+noOwner: "&cNo owner"
