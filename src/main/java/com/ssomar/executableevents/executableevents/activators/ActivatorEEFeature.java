@@ -67,7 +67,7 @@ import java.util.*;
 @Setter
 public class ActivatorEEFeature extends NewSActivator<ActivatorEEFeature, ActivatorEEFeatureEditor, ActivatorEEFeatureEditorManager> implements NewSActivatorWithLoopFeature {
 
-    private final static boolean DEBUG = false;
+    private final static boolean DEBUG = true;
     private ColoredStringFeature displayName;
     private SOptionFeature optionFeature;
     /**
@@ -410,18 +410,22 @@ public class ActivatorEEFeature extends NewSActivator<ActivatorEEFeature, Activa
             if (!targetEntityConditions.verifConditions(targetEntity, optionalPlayer, sm, eSrc)) return;
         }
 
-        SsomarDev.testMsg("Activator 7.5", DEBUG);
+        SsomarDev.testMsg("Activator 7.5 player null ? "+(player == null), DEBUG);
 
         if (Option.getOptionWithPlayerSt().contains(optionFeature.getValue()) && player != null) {
+            SsomarDev.testMsg("Activator 8", DEBUG);
             /* Verification of the required ExecutableItems option  */
             if (!requiredGroup.verify(player, eSrc)) return;
 
             /* Verif use per day for the activator  */ // TODO can be adapted to entities
             if (!this.usePerDayFeature.verify(player, eSrc, sp)) return;
 
+            SsomarDev.testMsg("Activator 8.1", DEBUG);
+
             /* Check if the activator is in cooldown for the player or not  */
             if (!globalCooldown.checkCooldown(player, eSrc, sp, executableEvent, true)) return;
             if (!cooldown.checkCooldown(player, eSrc, sp, executableEvent, false)) return;
+            SsomarDev.testMsg("Activator 8.2", DEBUG);
         }
 
         if (Option.getOptionWithEntitySt().contains(optionFeature.getValue()) && entity != null) {
@@ -430,7 +434,7 @@ public class ActivatorEEFeature extends NewSActivator<ActivatorEEFeature, Activa
             if (!cooldown.checkCooldown(entity, eSrc, sp, executableEvent, false)) return;
         }
 
-        SsomarDev.testMsg("Activator 8-9", DEBUG);
+        SsomarDev.testMsg("Activator 9", DEBUG);
 
         /* Feature to cancel an activator before his complete activation */
         if (eInfo.isMustDoNothing()) {
