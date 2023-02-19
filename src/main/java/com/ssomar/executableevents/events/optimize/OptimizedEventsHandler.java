@@ -221,6 +221,11 @@ public class OptimizedEventsHandler {
                     DynamicRegistration.getInstance().register(EventName.PLAYER_KILL_PLAYER_EVENT, ExecutableEvents.plugin);
                     mainListerner = new PlayerKillPlayerEvent();
                     break;
+
+                case PLAYER_MOUNT:
+                    mainListerner = new PlayerMountEvent();
+                    break;
+
                 case PLAYER_WRITE_COMMAND:
                     mainListerner = new PlayerWriteCommandEvent();
                     break;
@@ -270,6 +275,7 @@ public class OptimizedEventsHandler {
                 case PLAYER_TELEPORT:
                     mainListerner = new PlayerTeleportListener();
                     break;
+
 
                 case PLAYER_WALK:
                     mainListerner = new PlayerWalkEvent();

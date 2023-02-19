@@ -30,6 +30,7 @@ public enum Option implements SOption, Serializable {
     PLAYER_DISABLE_SNEAK("PLAYER_DISABLE_SNEAK"),
     PLAYER_DISABLE_SPRINT("PLAYER_DISABLE_SPRINT"),
     PLAYER_DISMOUNT("PLAYER_DISMOUNT"),
+    PLAYER_MOUNT("PLAYER_MOUNT"),
     PLAYER_DROP_ITEM("PLAYER_DROP_ITEM"),
     PLAYER_EDIT_BOOK("PLAYER_EDIT_BOOK"),
     PLAYER_ENTER_IN_HIS_LAND("PLAYER_ENTER_IN_HIS_LAND"),
@@ -201,6 +202,7 @@ public enum Option implements SOption, Serializable {
         result.add(Option.PLAYER_FISH_ENTITY);
         result.add(Option.PLAYER_FISH_FISH);
         result.add(Option.PLAYER_SHEAR_ENTITY);
+        result.add(Option.PLAYER_MOUNT);
         result.add(Option.PLAYER_DISMOUNT);
         result.add(Option.PLAYER_TARGETED_BY_AN_ENTITY);
         result.add(Option.PLAYER_HIT_ENTITY);
@@ -317,6 +319,7 @@ public enum Option implements SOption, Serializable {
         result.add(Option.PLAYER_LEAVE_HIS_LAND);
         result.add(Option.PLAYER_LEAVE_HIS_PLOT);
         result.add(Option.PLAYER_LEFT_CLICK);
+        result.add(Option.PLAYER_MOUNT);
         result.add(Option.PLAYER_WALK);
         result.add(Option.PLAYER_WRITE_COMMAND);
         result.add(Option.PLAYER_RECEIVE_HIT_BY_ENTITY);
