@@ -14,6 +14,7 @@ import com.ssomar.sevents.EventName;
 import com.ssomar.sevents.registration.DynamicRegistration;
 import org.bukkit.event.HandlerList;
 import org.bukkit.event.Listener;
+import org.bukkit.event.player.PlayerTeleportEvent;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -264,6 +265,10 @@ public class OptimizedEventsHandler {
 
                 case PLAYER_LEAVE_HIS_LAND:
                     if (SCore.hasLands) mainListerner = new PlayerLeaveLandsEventEI();
+                    break;
+
+                case PLAYER_TELEPORT:
+                    mainListerner = new PlayerTeleportListener();
                     break;
 
                 case PLAYER_WALK:

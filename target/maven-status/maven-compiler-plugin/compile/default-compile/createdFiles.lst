@@ -13,6 +13,7 @@ com\ssomar\executableevents\events\EventsHandler.class
 com\ssomar\executableevents\events\player\custom\PlayerDeconnectionEvent.class
 com\ssomar\executableevents\events\player\custom\PlayerDesactiveSprintEvent.class
 com\ssomar\executableevents\events\player\custom\PlayerFishPlayerEvent.class
+com\ssomar\executableevents\events\player\custom\PlayerTeleportListener.class
 com\ssomar\executableevents\events\entity\custom\EntityDamageByEntityListener.class
 com\ssomar\executableevents\events\entity\custom\EntityEnterLoveModeListener.class
 com\ssomar\executableevents\checkversion\CheckVersion.class

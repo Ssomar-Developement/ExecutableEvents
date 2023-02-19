@@ -62,6 +62,8 @@ public enum Option implements SOption, Serializable {
     PLAYER_TARGETED_BY_AN_ENTITY("PLAYER_TARGETED_BY_AN_ENTITY"),
     PLAYER_TRAMPLE_CROP("PLAYER_TRAMPLE_CROP"),
 
+    PLAYER_TELEPORT("PLAYER_TELEPORT"),
+
     ENTITY_SPAWN("ENTITY_SPAWN"),
     ENTITY_BREAK_DOOR("ENTITY_BREAK_DOOR"),
     ENTITY_BREED("ENTITY_BREED"),
@@ -325,6 +327,7 @@ public enum Option implements SOption, Serializable {
         result.add(Option.PLAYER_SHEAR_ENTITY);
         result.add(Option.PLAYER_TARGETED_BY_AN_ENTITY);
         result.add(Option.PLAYER_TRAMPLE_CROP);
+        result.add(Option.PLAYER_TELEPORT);
 
 
         return result;

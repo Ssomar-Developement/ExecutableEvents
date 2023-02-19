@@ -107,7 +107,7 @@
                         <!--_AUTO_UPDATE_START_COMMENT_-->
                         <configuration>
                             <createDependencyReducedPom>false</createDependencyReducedPom>
-                            <outputFile>C:\serveur local 1.19\plugins\EE.jar</outputFile>
+                            <outputFile>C:\Users\benja\Desktop\AlertaGamma\AlertaGammaServer\plugins\EE.jar</outputFile>
                         </configuration>
                         <!--_AUTO_UPDATE_END_COMMENT_-->
                     </execution>
@@ -120,7 +120,7 @@
                         </goals>
                         <configuration>
                             <createDependencyReducedPom>false</createDependencyReducedPom>
-                            <outputFile>C:\Users\octav\Documents\GitHub\SCore\src\main\resources\ExecutableEvents.jar</outputFile>
+                            <outputFile>C:\Users\benja\Desktop\ExecutableEvents.jar</outputFile>
                         </configuration>
                     </execution>
                     <!--_AUTO_UPDATE_END_COMMENT_-->
