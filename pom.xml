@@ -263,12 +263,6 @@
             <version>2.7.1</version>
             <scope>provided</scope>
         </dependency>
-        <dependency>
-            <groupId>com.github.Ssomar-Developement</groupId>
-            <artifactId>ExecutableBlocks</artifactId>
-            <version>main-3ab1b3ba32-1</version>
-            <scope>provided</scope>
-        </dependency>
 
         <dependency>
             <groupId>com.comphenix.protocol</groupId>
