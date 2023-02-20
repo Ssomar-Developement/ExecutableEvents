@@ -60,6 +60,7 @@ com\ssomar\executableevents\events\player\custom\PlayerBeforeDeathEvent.class
 com\ssomar\executableevents\MetricsLite.class
 com\ssomar\executableevents\events\entity\custom\EntityDamageByPlayerListener.class
 com\ssomar\executableevents\events\player\custom\PlayerActiveSprintEvent.class
+com\ssomar\executableevents\events\block\custom\CropGrow.class
 com\ssomar\executableevents\events\entity\custom\EnderdragonChangePhaseListener.class
 com\ssomar\executableevents\executableevents\ExecutableEvent.class
 com\ssomar\executableevents\events\player\custom\PlayerLeftClickEvent.class

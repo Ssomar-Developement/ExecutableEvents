@@ -11,6 +11,7 @@ public enum Option implements SOption, Serializable {
 
     ITEMSADDER_PLAYER_BLOCK_BREAK("ITEMSADDER_PLAYER_BLOCK_BREAK"),
     LOOP("LOOP"),
+    CROP_GROW("CROP_GROW"),
     PLAYER_ACTIVE_FLY("PLAYER_ACTIVE_FLY"),
     PLAYER_ACTIVE_SNEAK("PLAYER_ACTIVE_SNEAK"),
     PLAYER_ACTIVE_SPRINT("PLAYER_ACTIVE_SPRINT"),
@@ -190,6 +191,8 @@ public enum Option implements SOption, Serializable {
         result.add(ENTITY_COMBUST_BY_BLOCK);
         result.add(ENTITY_DAMAGE_BY_BLOCK);
         result.add(ENTITY_ENTER_BLOCK);
+
+        result.add(CROP_GROW);
 
         return result;
     }

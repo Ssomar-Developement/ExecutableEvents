@@ -2,6 +2,7 @@ package com.ssomar.executableevents.events.optimize;
 
 
 import com.ssomar.executableevents.ExecutableEvents;
+import com.ssomar.executableevents.events.block.custom.CropGrow;
 import com.ssomar.executableevents.events.entity.custom.*;
 import com.ssomar.executableevents.events.player.custom.*;
 import com.ssomar.executableevents.events.player.itemsadder.ItemsAdderPlayerBlockBreakListener;
@@ -64,6 +65,11 @@ public class OptimizedEventsHandler {
                 case ITEMSADDER_PLAYER_BLOCK_BREAK:
                     if(SCore.hasItemsAdder) mainListerner = new ItemsAdderPlayerBlockBreakListener();
                     break;
+
+                case CROP_GROW:
+                    mainListerner = new CropGrow();
+                    break;
+
                 case PLAYER_RIGHT_CLICK:
                     eventsName.add(EventName.PLAYER_RIGHT_CLICK_EVENT);
                     DynamicRegistration.getInstance().register(EventName.PLAYER_RIGHT_CLICK_EVENT, ExecutableEvents.plugin);
