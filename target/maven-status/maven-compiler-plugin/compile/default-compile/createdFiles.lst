@@ -57,6 +57,7 @@ com\ssomar\executableevents\configs\Config.class
 com\ssomar\executableevents\events\entity\custom\EntityTeleportListener.class
 com\ssomar\executableevents\events\entity\custom\EntityBreakDoorListener.class
 com\ssomar\executableevents\events\player\custom\PlayerBeforeDeathEvent.class
+com\ssomar\executableevents\events\player\custom\PlayerFoodChange.class
 com\ssomar\executableevents\MetricsLite.class
 com\ssomar\executableevents\events\entity\custom\EntityDamageByPlayerListener.class
 com\ssomar\executableevents\events\player\custom\PlayerActiveSprintEvent.class

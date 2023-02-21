@@ -31,6 +31,7 @@ public enum Option implements SOption, Serializable {
     PLAYER_DISABLE_SNEAK("PLAYER_DISABLE_SNEAK"),
     PLAYER_DISABLE_SPRINT("PLAYER_DISABLE_SPRINT"),
     PLAYER_DISMOUNT("PLAYER_DISMOUNT"),
+    PLAYER_FOOD_CHANGE("PLAYER_FOOD_CHANGE"),
     PLAYER_MOUNT("PLAYER_MOUNT"),
     PLAYER_DROP_ITEM("PLAYER_DROP_ITEM"),
     PLAYER_EDIT_BOOK("PLAYER_EDIT_BOOK"),
@@ -296,6 +297,7 @@ public enum Option implements SOption, Serializable {
         result.add(Option.PLAYER_CLICK_ON_PLAYER);
         result.add(Option.PLAYER_CONNECTION);
         result.add(Option.PLAYER_CONSUME);
+        result.add(Option.PLAYER_FOOD_CHANGE);
         result.add(Option.PLAYER_DEATH);
         result.add(Option.PLAYER_DISCONNECTION);
         result.add(Option.PLAYER_DISABLE_SNEAK);
