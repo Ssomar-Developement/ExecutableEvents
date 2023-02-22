@@ -14,20 +14,19 @@ import java.util.Optional;
 public class PlayerProjectileHitBlock implements Listener {
 
     @EventHandler
-    public void projectileHitBlock(org.bukkit.event.entity.ProjectileHitEvent e) {
-        if (!(e.getEntity().getShooter() instanceof Player)) return;
+    public void projectileHitBlock(com.ssomar.sevents.events.projectile.hitblock.ProjectileHitBlockEvent e) {
 
-        if (e.getHitBlock() == null) return;
+        Projectile arrow = (Projectile) e.getEntity();
 
-        Projectile arrow = e.getEntity();
+        if (!(arrow.getShooter() instanceof Player)) return;
 
         EventInfo eInfo = new EventInfo(e);
 
         eInfo.setPlayer(Optional.of((Player) arrow.getShooter()));
 
-        eInfo.setTargetBlock(Optional.ofNullable(e.getHitBlock()));
-        eInfo.setBlockface(Optional.ofNullable(e.getHitBlockFace().toString()));
-        eInfo.setOldMaterialBlock(Optional.of(e.getHitBlock().getBlockData().getMaterial()));
+        eInfo.setTargetBlock(Optional.ofNullable(e.getBlock()));
+        eInfo.setBlockface(Optional.ofNullable(e.getBlockFace().toString()));
+        eInfo.setOldMaterialBlock(Optional.of(e.getBlock().getBlockData().getMaterial()));
 
         eInfo.setProjectile(Optional.of(arrow));
 

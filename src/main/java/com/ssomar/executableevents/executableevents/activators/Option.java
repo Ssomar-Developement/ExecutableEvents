@@ -355,6 +355,7 @@ public enum Option implements SOption, Serializable {
         result.add(Option.PLAYER_SHEAR_ENTITY);
         result.add(Option.PLAYER_TARGETED_BY_AN_ENTITY);
         result.add(Option.PLAYER_TRAMPLE_CROP);
+        result.add(Option.PLAYER_TELEPORT);
 
         result.add(Option.PLAYER_PROJECTILE_HIT_BLOCK);
         result.add(Option.PLAYER_PROJECTILE_HIT_PLAYER);

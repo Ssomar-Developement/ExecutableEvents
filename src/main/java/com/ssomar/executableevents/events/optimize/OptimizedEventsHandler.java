@@ -62,7 +62,7 @@ public class OptimizedEventsHandler {
             switch (option) {
 
                 case ITEMSADDER_PLAYER_BLOCK_BREAK:
-                    if(SCore.hasItemsAdder) mainListerner = new ItemsAdderPlayerBlockBreakListener();
+                    if (SCore.hasItemsAdder) mainListerner = new ItemsAdderPlayerBlockBreakListener();
                     break;
 
                 case CROP_GROW:
@@ -292,21 +292,35 @@ public class OptimizedEventsHandler {
                     break;
 
                 case PLAYER_PROJECTILE_HIT_BLOCK:
+                    eventsName.add(EventName.PROJECTILE_HIT_BLOCK);
+                    DynamicRegistration.getInstance().register(EventName.PROJECTILE_HIT_BLOCK, ExecutableEvents.plugin);
                     mainListerner = new PlayerProjectileHitBlock();
                     break;
                 case PLAYER_PROJECTILE_HIT_ENTITY:
+                    eventsName.add(EventName.PROJECTILE_HIT_ENTITY);
+                    DynamicRegistration.getInstance().register(EventName.PROJECTILE_HIT_ENTITY, ExecutableEvents.plugin);
                     mainListerner = new PlayerProjectileHitEntity();
                     break;
+
                 case PLAYER_PROJECTILE_HIT_PLAYER:
+                    eventsName.add(EventName.PROJECTILE_HIT_PLAYER);
+                    DynamicRegistration.getInstance().register(EventName.PROJECTILE_HIT_PLAYER, ExecutableEvents.plugin);
                     mainListerner = new PlayerProjectileHitPlayer();
                     break;
+
                 case ENTITY_PROJECTILE_HIT_BLOCK:
+                    eventsName.add(EventName.PROJECTILE_HIT_BLOCK);
+                    DynamicRegistration.getInstance().register(EventName.PROJECTILE_HIT_BLOCK, ExecutableEvents.plugin);
                     mainListerner = new EntityProjectileHitBlock();
                     break;
                 case ENTITY_PROJECTILE_HIT_ENTITY:
+                    eventsName.add(EventName.PROJECTILE_HIT_ENTITY);
+                    DynamicRegistration.getInstance().register(EventName.PROJECTILE_HIT_ENTITY, ExecutableEvents.plugin);
                     mainListerner = new EntityProjectileHitEntity();
                     break;
                 case ENTITY_PROJECTILE_HIT_PLAYER:
+                    eventsName.add(EventName.PROJECTILE_HIT_PLAYER);
+                    DynamicRegistration.getInstance().register(EventName.PROJECTILE_HIT_PLAYER, ExecutableEvents.plugin);
                     mainListerner = new EntityProjectileHitPlayer();
                     break;
 

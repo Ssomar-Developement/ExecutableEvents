@@ -15,21 +15,16 @@ import java.util.Optional;
 public class EntityProjectileHitPlayer implements Listener {
 
     @EventHandler
-    public void projectileHitPlayer(org.bukkit.event.entity.ProjectileHitEvent e) {
-        if ((e.getEntity().getShooter() instanceof Player)) return;
-        if (!(e.getEntity() instanceof Entity)) return;
+    public void projectileHitPlayer(com.ssomar.sevents.events.projectile.hitplayer.ProjectileHitPlayerEvent e) {
 
-        if (e.getHitEntity() == null) return;
-        if (!(e.getHitEntity() instanceof Player)) return;
+        Projectile arrow = (Projectile) e.getEntity();
 
-        Projectile arrow = e.getEntity();
+        if (arrow.getShooter() instanceof Player) return;
 
         EventInfo eInfo = new EventInfo(e);
 
         eInfo.setEntity(Optional.of((Entity) arrow.getShooter()));
-
-        eInfo.setTargetPlayer(Optional.ofNullable(((Player) e.getHitEntity()).getPlayer()));
-
+        eInfo.setTargetPlayer(Optional.ofNullable((e.getTarget()).getPlayer()));
         eInfo.setProjectile(Optional.of(arrow));
 
         EventsManager.getInstance().activeOption(Option.ENTITY_PROJECTILE_HIT_PLAYER, eInfo, new ArrayList<>());
