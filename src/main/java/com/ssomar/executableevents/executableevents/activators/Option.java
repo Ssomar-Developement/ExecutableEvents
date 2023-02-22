@@ -66,6 +66,12 @@ public enum Option implements SOption, Serializable {
     PLAYER_TRAMPLE_CROP("PLAYER_TRAMPLE_CROP"),
 
     PLAYER_TELEPORT("PLAYER_TELEPORT"),
+    PLAYER_PROJECTILE_HIT_BLOCK("PLAYER_PROJECTILE_HIT_BLOCK"),
+    PLAYER_PROJECTILE_HIT_ENTITY("PLAYER_PROJECTILE_HIT_ENTITY"),
+    PLAYER_PROJECTILE_HIT_PLAYER("PLAYER_PROJECTILE_HIT_PLAYER"),
+    ENTITY_PROJECTILE_HIT_BLOCK("ENTITY_PROJECTILE_HIT_BLOCK"),
+    ENTITY_PROJECTILE_HIT_ENTITY("ENTITY_PROJECTILE_HIT_ENTITY"),
+    ENTITY_PROJECTILE_HIT_PLAYER("ENTITY_PROJECTILE_HIT_PLAYER"),
 
     ENTITY_SPAWN("ENTITY_SPAWN"),
     ENTITY_BREAK_DOOR("ENTITY_BREAK_DOOR"),
@@ -187,6 +193,9 @@ public enum Option implements SOption, Serializable {
         result.add(PLAYER_FISH_BLOCK);
         result.add(PLAYER_TRAMPLE_CROP);
 
+        result.add(PLAYER_PROJECTILE_HIT_BLOCK);
+        result.add(ENTITY_PROJECTILE_HIT_BLOCK);
+
         result.add(ENTITY_BREAK_DOOR);
         result.add(ENTITY_CHANGE_BLOCK);
         result.add(ENTITY_COMBUST_BY_BLOCK);
@@ -214,6 +223,9 @@ public enum Option implements SOption, Serializable {
         /* The entity is the blop of the fishhook */
         result.add(Option.PLAYER_FISH_NOTHING);
 
+        result.add(Option.PLAYER_PROJECTILE_HIT_ENTITY);
+        result.add(Option.ENTITY_PROJECTILE_HIT_ENTITY);
+
         result.add(Option.ENTITY_COMBUST_BY_ENTITY);
         result.add(Option.ENTITY_DAMAGE_BY_ENTITY);
         result.add(Option.ENTITY_TAME_BY_ENTITY);
@@ -230,6 +242,9 @@ public enum Option implements SOption, Serializable {
         result.add(Option.PLAYER_FISH_PLAYER);
         result.add(Option.PLAYER_HIT_PLAYER);
 
+        result.add(Option.PLAYER_PROJECTILE_HIT_PLAYER);
+        result.add(Option.ENTITY_PROJECTILE_HIT_PLAYER);
+
         result.add(Option.ENTITY_TARGET_PLAYER);
         result.add(Option.ENTITY_DAMAGE_BY_PLAYER);
         result.add(Option.ENTITY_TAME_BY_PLAYER);
@@ -239,6 +254,11 @@ public enum Option implements SOption, Serializable {
 
     public static List<SOption> getOptionWithEntitySt() {
         List<SOption> result = new ArrayList<>();
+
+        result.add(Option.ENTITY_PROJECTILE_HIT_ENTITY);
+        result.add(Option.ENTITY_PROJECTILE_HIT_PLAYER);
+        result.add(Option.ENTITY_PROJECTILE_HIT_BLOCK);
+
 
         result.add(Option.ENTITY_SPAWN);
         result.add(Option.ENTITY_BREAK_DOOR);
@@ -335,7 +355,10 @@ public enum Option implements SOption, Serializable {
         result.add(Option.PLAYER_SHEAR_ENTITY);
         result.add(Option.PLAYER_TARGETED_BY_AN_ENTITY);
         result.add(Option.PLAYER_TRAMPLE_CROP);
-        result.add(Option.PLAYER_TELEPORT);
+
+        result.add(Option.PLAYER_PROJECTILE_HIT_BLOCK);
+        result.add(Option.PLAYER_PROJECTILE_HIT_PLAYER);
+        result.add(Option.PLAYER_PROJECTILE_HIT_ENTITY);
 
 
         return result;

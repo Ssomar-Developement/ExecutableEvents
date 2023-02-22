@@ -1,4 +1,5 @@
 com\ssomar\executableevents\configs\Message.class
+com\ssomar\executableevents\events\entity\custom\PlayerProjectileHitBlock.class
 com\ssomar\executableevents\events\player\custom\PlayerTargetedByAnEntityEvent.class
 com\ssomar\executableevents\events\player\custom\PlayerHitEntityEvent.class
 com\ssomar\executableevents\events\entity\custom\EntityDeathListener.class
@@ -16,12 +17,14 @@ com\ssomar\executableevents\events\player\custom\PlayerFishPlayerEvent.class
 com\ssomar\executableevents\events\player\custom\PlayerTeleportListener.class
 com\ssomar\executableevents\events\entity\custom\EntityDamageByEntityListener.class
 com\ssomar\executableevents\events\entity\custom\EntityEnterLoveModeListener.class
+com\ssomar\executableevents\events\entity\custom\EntityProjectileHitEntity.class
 com\ssomar\executableevents\checkversion\CheckVersion.class
 com\ssomar\executableevents\events\player\custom\PlayerKillEntityEvent.class
 com\ssomar\executableevents\events\player\custom\PlayerJumpEvent.class
 com\ssomar\executableevents\events\entity\custom\EntityTransformListener.class
 com\ssomar\executableevents\events\player\custom\PlayerFishFishEvent.class
 com\ssomar\executableevents\commands\CommandsClass.class
+com\ssomar\executableevents\events\entity\custom\PlayerProjectileHitPlayer.class
 com\ssomar\executableevents\events\player\custom\PlayerFirstConnectionEvent.class
 com\ssomar\executableevents\events\entity\custom\EntityPortalEnterListener.class
 com\ssomar\executableevents\executableevents\ExecutableEventLoader.class
@@ -41,6 +44,7 @@ com\ssomar\executableevents\events\entity\custom\EntityCombustByEntityListener.c
 com\ssomar\executableevents\events\entity\custom\EntityPortalExitListener.class
 com\ssomar\executableevents\events\player\custom\PlayerBedEnterEvent.class
 com\ssomar\executableevents\events\player\custom\PlayerFishNothingEvent.class
+com\ssomar\executableevents\events\entity\custom\EntityProjectileHitPlayer.class
 com\ssomar\executableevents\events\player\custom\PlayerConsumeEvent.class
 com\ssomar\executableevents\events\player\lands\PlayerEnterLandsEventEI.class
 com\ssomar\executableevents\configs\api\PlaceholderAPI.class
@@ -55,6 +59,7 @@ com\ssomar\executableevents\events\entity\custom\EntityExplodeListener.class
 com\ssomar\executableevents\events\player\custom\PlayerReceiveHitGlobalEvent.class
 com\ssomar\executableevents\configs\Config.class
 com\ssomar\executableevents\events\entity\custom\EntityTeleportListener.class
+com\ssomar\executableevents\events\entity\custom\PlayerProjectileHitEntity.class
 com\ssomar\executableevents\events\entity\custom\EntityBreakDoorListener.class
 com\ssomar\executableevents\events\player\custom\PlayerBeforeDeathEvent.class
 com\ssomar\executableevents\events\player\custom\PlayerFoodChange.class
@@ -85,6 +90,7 @@ com\ssomar\executableevents\executableevents\activators\Option.class
 com\ssomar\executableevents\events\entity\custom\EntityEnterBlockListener.class
 com\ssomar\executableevents\events\optimize\OptimizedEventsHandler$1.class
 com\ssomar\executableevents\events\entity\custom\EntityBreedListener.class
+com\ssomar\executableevents\events\entity\custom\EntityProjectileHitBlock.class
 com\ssomar\executableevents\commands\DebugMode.class
 com\ssomar\executableevents\events\player\custom\PlayerDeathEvent.class
 com\ssomar\executableevents\events\entity\custom\EntityPickupItemListener.class

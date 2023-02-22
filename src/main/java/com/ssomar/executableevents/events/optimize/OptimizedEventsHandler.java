@@ -15,7 +15,6 @@ import com.ssomar.sevents.EventName;
 import com.ssomar.sevents.registration.DynamicRegistration;
 import org.bukkit.event.HandlerList;
 import org.bukkit.event.Listener;
-import org.bukkit.event.player.PlayerTeleportEvent;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -290,6 +289,25 @@ public class OptimizedEventsHandler {
 
                 case PLAYER_WALK:
                     mainListerner = new PlayerWalkEvent();
+                    break;
+
+                case PLAYER_PROJECTILE_HIT_BLOCK:
+                    mainListerner = new PlayerProjectileHitBlock();
+                    break;
+                case PLAYER_PROJECTILE_HIT_ENTITY:
+                    mainListerner = new PlayerProjectileHitEntity();
+                    break;
+                case PLAYER_PROJECTILE_HIT_PLAYER:
+                    mainListerner = new PlayerProjectileHitPlayer();
+                    break;
+                case ENTITY_PROJECTILE_HIT_BLOCK:
+                    mainListerner = new EntityProjectileHitBlock();
+                    break;
+                case ENTITY_PROJECTILE_HIT_ENTITY:
+                    mainListerner = new EntityProjectileHitEntity();
+                    break;
+                case ENTITY_PROJECTILE_HIT_PLAYER:
+                    mainListerner = new EntityProjectileHitPlayer();
                     break;
 
                 case LOOP:
