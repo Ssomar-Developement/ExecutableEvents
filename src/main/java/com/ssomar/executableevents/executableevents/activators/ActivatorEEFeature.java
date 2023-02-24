@@ -67,7 +67,7 @@ import java.util.*;
 @Setter
 public class ActivatorEEFeature extends NewSActivator<ActivatorEEFeature, ActivatorEEFeatureEditor, ActivatorEEFeatureEditorManager> implements NewSActivatorWithLoopFeature {
 
-    private final static boolean DEBUG = true;
+    private final static boolean DEBUG = false;
     private ColoredStringFeature displayName;
     private SOptionFeature optionFeature;
     /**
