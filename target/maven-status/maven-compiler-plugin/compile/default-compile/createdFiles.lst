@@ -1,6 +1,7 @@
 com\ssomar\executableevents\configs\Message.class
 com\ssomar\executableevents\events\entity\custom\PlayerProjectileHitBlock.class
 com\ssomar\executableevents\events\player\custom\PlayerTargetedByAnEntityEvent.class
+com\ssomar\executableevents\events\player\custom\PlayerPickupItem.class
 com\ssomar\executableevents\events\player\custom\PlayerHitEntityEvent.class
 com\ssomar\executableevents\events\entity\custom\EntityDeathListener.class
 com\ssomar\executableevents\events\player\custom\PlayerKillPlayerEvent.class
