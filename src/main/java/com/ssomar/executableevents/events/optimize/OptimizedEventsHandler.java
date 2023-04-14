@@ -10,6 +10,7 @@ import com.ssomar.executableevents.events.player.lands.PlayerEnterLandsEventEI;
 import com.ssomar.executableevents.events.player.lands.PlayerLeaveLandsEventEI;
 import com.ssomar.executableevents.executableevents.activators.Option;
 import com.ssomar.score.SCore;
+import com.ssomar.score.sobject.sactivator.SOption;
 import com.ssomar.score.utils.Couple;
 import com.ssomar.sevents.EventName;
 import com.ssomar.sevents.registration.DynamicRegistration;
@@ -55,11 +56,13 @@ public class OptimizedEventsHandler {
         init();
     }
 
-    public void read(Option option) {
+    public void read(SOption option) {
+        if(!(option instanceof Option)) return;
+        Option o = (Option) option;
         if (!registered.containsKey(option)) {
             List<EventName> eventsName = new ArrayList<>();
             Listener mainListerner = null;
-            switch (option) {
+            switch (o) {
 
                 case ITEMSADDER_PLAYER_BLOCK_BREAK:
                     if (SCore.hasItemsAdder) mainListerner = new ItemsAdderPlayerBlockBreakListener();
@@ -327,13 +330,6 @@ public class OptimizedEventsHandler {
                     DynamicRegistration.getInstance().register(EventName.PROJECTILE_HIT_PLAYER, ExecutableEvents.plugin);
                     mainListerner = new EntityProjectileHitPlayer();
                     break;
-
-                case LOOP:
-                    /* Not registered here
-                     * But add it to registered for the checkevents command */
-                    registered.put(option, null);
-                    break;
-
                 case ENTITY_SPAWN:
                     mainListerner = new EntitySpawnListener();
                     break;
@@ -441,7 +437,7 @@ public class OptimizedEventsHandler {
             }
             if (mainListerner != null) {
                 ExecutableEvents.plugin.getServer().getPluginManager().registerEvents(mainListerner, ExecutableEvents.plugin);
-                registered.put(option, new Couple<>(eventsName, mainListerner));
+                registered.put(o, new Couple<>(eventsName, mainListerner));
             }
         }
     }

@@ -1,5 +1,5 @@
 name: ExecutableEvents
-version: 42.42.42
+version: 1.1.59
 main: com.ssomar.executableevents.ExecutableEvents
 api-version: 1.13
 author: Ssomar
@@ -10,3 +10,4 @@ commands:
   ee:
     description: ee command
     usage: /<command> [ reload | give | giveusage | givealluage | giveslot | giveall | show | editor | edit | actionbar | refresh | create | take | drop | clear | delete ]
+folia-supported: true

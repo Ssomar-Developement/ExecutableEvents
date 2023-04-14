@@ -22,9 +22,9 @@ public class PlayerBucketFillEvent implements Listener {
 
         EventInfo eInfos = new EventInfo(e);
         eInfos.setPlayer(Optional.of(p));
-        eInfos.setTargetBlock(Optional.of(b));
-        eInfos.setOldMaterialBlock(Optional.of(b.getType()));
-        if (!SCore.is1v12Less()) eInfos.setOldStatesBlock(Optional.of(e.getBlock().getBlockData().getAsString(true)));
+        eInfos.setTargetBlock(Optional.of(e.getBlock()));
+        eInfos.setOldMaterialTargetBlock(Optional.of(e.getBlock().getType()));
+        if (!SCore.is1v12Less()) eInfos.setOldStatesTargetBlock(Optional.of(e.getBlock().getBlockData().getAsString(true)));
         EventsManager.getInstance().activeOption(Option.PLAYER_FILL_BUCKET, eInfos, new ArrayList<>());
     }
 }

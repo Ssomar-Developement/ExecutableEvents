@@ -21,6 +21,7 @@ public class PlayerPickupItem implements Listener {
 
         EventInfo eInfo = new EventInfo(e);
         eInfo.setPlayer(Optional.of(((Player) e.getEntity()).getPlayer()));
+        eInfo.setItem(Optional.of(e.getItem().getItemStack()));
 
         EventsManager.getInstance().activeOption(Option.PLAYER_PICKUP_ITEM, eInfo, new ArrayList<>());
     }

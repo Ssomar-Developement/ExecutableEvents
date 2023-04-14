@@ -20,8 +20,7 @@ public class EntityEnterBlockListener implements Listener {
         eInfo.setEntity(Optional.of(e.getEntity()));
         eInfo.setTargetBlock(Optional.of(e.getBlock()));
         eInfo.setOldMaterialTargetBlock(Optional.of(e.getBlock().getType()));
-        if (!SCore.is1v12Less())
-            eInfo.setOldStatesTargetBlock(Optional.of(e.getBlock().getBlockData().getAsString(true)));
+        if (!SCore.is1v12Less()) eInfo.setOldStatesTargetBlock(Optional.of(e.getBlock().getBlockData().getAsString(true)));
         EventsManager.getInstance().activeOption(Option.ENTITY_ENTER_BLOCK, eInfo, new ArrayList<>());
     }
 }

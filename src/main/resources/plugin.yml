@@ -10,3 +10,4 @@ commands:
   ee:
     description: ee command
     usage: /<command> [ reload | give | giveusage | givealluage | giveslot | giveall | show | editor | edit | actionbar | refresh | create | take | drop | clear | delete ]
+folia-supported: true

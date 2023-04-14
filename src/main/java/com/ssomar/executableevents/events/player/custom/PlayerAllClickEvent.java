@@ -4,7 +4,7 @@ import com.ssomar.executableevents.executableevents.activators.Option;
 import com.ssomar.executableevents.events.EventsManager;
 import com.ssomar.score.SCore;
 import com.ssomar.score.sobject.sactivator.EventInfo;
-import com.ssomar.score.utils.DetailedInteraction;
+import com.ssomar.score.utils.emums.DetailedInteraction;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 

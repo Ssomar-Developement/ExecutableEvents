@@ -4,7 +4,7 @@ import com.ssomar.executableevents.events.EventsManager;
 import com.ssomar.executableevents.executableevents.activators.Option;
 import com.ssomar.score.SCore;
 import com.ssomar.score.sobject.sactivator.EventInfo;
-import com.ssomar.score.utils.DetailedInteraction;
+import com.ssomar.score.utils.emums.DetailedInteraction;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 
@@ -19,10 +19,10 @@ public class PlayerLeftClickEvent implements Listener {
         eInfo.setPlayer(Optional.of(e.getPlayer()));
         if (e.hasBlock()) {
             eInfo.setTargetBlock(Optional.of(e.getBlock()));
-            eInfo.setOldMaterialBlock(Optional.of(e.getBlock().getType()));
+            eInfo.setOldMaterialTargetBlock(Optional.of(e.getBlock().getType()));
+            if (!SCore.is1v12Less()) eInfo.setOldStatesTargetBlock(Optional.of(e.getBlock().getBlockData().getAsString(true)));
+
             eInfo.setDetailedInteraction(Optional.of(DetailedInteraction.BLOCK));
-            if (!SCore.is1v12Less())
-                eInfo.setOldStatesBlock(Optional.of(e.getBlock().getBlockData().getAsString(true)));
         } else eInfo.setDetailedInteraction(Optional.of(DetailedInteraction.AIR));
         EventsManager.getInstance().activeOption(Option.PLAYER_LEFT_CLICK, eInfo, new ArrayList<>());
     }

@@ -13,7 +13,7 @@ import com.ssomar.score.api.executableitems.load.ExecutableItemsPostLoadEvent;
 import com.ssomar.score.configs.messages.MessageInterface;
 import com.ssomar.score.configs.messages.MessageMain;
 import com.ssomar.score.splugin.SPlugin;
-import com.ssomar.score.utils.Utils;
+import com.ssomar.score.utils.logging.Utils;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;

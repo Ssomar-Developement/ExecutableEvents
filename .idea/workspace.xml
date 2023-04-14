@@ -5,10 +5,209 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="78b6b443-d76b-4b1c-85fa-0ca312706db9" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ssomar/executableevents/events/player/custom/PlayerPickupItem.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ssomar/executableevents/events/world/custom/PortalCreateListener.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ssomar/executableevents/events/world/custom/SpawnChangeListener.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ssomar/executableevents/events/world/custom/StructureGrowListener.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ssomar/executableevents/events/world/custom/WorldDayListener.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ssomar/executableevents/events/world/custom/WorldNightListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__aopalliance_aopalliance_1_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__cloud_commandframework_cloud_services_1_6_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_comphenix_protocol_ProtocolLib_4_7_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_github_LoneDev6_api_itemsadder_3_2_3c.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_github_Th0rgal_Oraxen_2ddf3c68b7.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_github_angeschossen_LandsAPI_6_28_11.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_code_findbugs_annotations_3_0_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_code_findbugs_jsr305_2_0_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_code_gson_gson_2_8_8.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_errorprone_error_prone_annotations_2_7_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_guava_failureaccess_1_0_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_guava_guava_31_0_1_jre.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_guava_listenablefuture_9999_0_empty_to_avoid_conflict_with_guava.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_inject_extensions_guice_assistedinject_5_1_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_inject_guice_5_1_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_j2objc_j2objc_annotations_1_3.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_googlecode_json_simple_json_simple_1_1_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_intellectualsites_arkitektonika_Arkitektonika_Client_2_1_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_intellectualsites_http_HTTP4J_1_3.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_intellectualsites_paster_Paster_1_1_4.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_intellectualsites_prtree_PRTree_2_0_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_mojang_authlib_1_5_21.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_plotsquared_PlotSquared_Core_6_5_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__commons_codec_commons_codec_1_9.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__commons_io_commons_io_2_4.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__commons_lang_commons_lang_2_6.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__de_tr7zw_item_nbt_api_plugin_2_7_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_leangen_geantyref_geantyref_1_3_13.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__javax_inject_javax_inject_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__junit_junit_4_10.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__me_clip_placeholderapi_2_10_9.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__net_bytebuddy_byte_buddy_1_11_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__net_jcip_jcip_annotations_1_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__net_kyori_adventure_api_4_9_3.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__net_kyori_adventure_key_4_9_3.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__net_kyori_adventure_text_minimessage_4_1_0_SNAPSHOT.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__net_kyori_examination_api_1_3_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__net_kyori_examination_string_1_3_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__net_md_5_bungeecord_chat_1_16_R0_4.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_commons_commons_lang3_3_3_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_logging_log4j_log4j_api_2_0_beta9.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_logging_log4j_log4j_core_2_0_beta9.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_bstats_bstats_base_2_2_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_bstats_bstats_bukkit_2_2_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_checkerframework_checker_qual_3_12_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_hamcrest_hamcrest_core_1_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_jetbrains_annotations_19_0_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_projectlombok_lombok_1_18_20.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_spigotmc_spigot_api_1_18_R0_1_SNAPSHOT.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_yaml_snakeyaml_1_28.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ExecutableEvents.iml" beforeDir="false" afterPath="$PROJECT_DIR$/ExecutableEvents.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dependency-reduced-pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/dependency-reduced-pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ssomar/executableevents/ExecutableEvents.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ssomar/executableevents/ExecutableEvents.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ssomar/executableevents/commands/CommandsClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ssomar/executableevents/commands/CommandsClass.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ssomar/executableevents/events/EventsManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ssomar/executableevents/events/EventsManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ssomar/executableevents/events/entity/custom/EntityBreakDoorListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ssomar/executableevents/events/entity/custom/EntityBreakDoorListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ssomar/executableevents/events/entity/custom/EntityCombustByBlockListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ssomar/executableevents/events/entity/custom/EntityCombustByBlockListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ssomar/executableevents/events/entity/custom/EntityDamageByBlockListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ssomar/executableevents/events/entity/custom/EntityDamageByBlockListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ssomar/executableevents/events/entity/custom/EntityEnterBlockListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ssomar/executableevents/events/entity/custom/EntityEnterBlockListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ssomar/executableevents/events/entity/custom/EntityProjectileHitBlock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ssomar/executableevents/events/entity/custom/EntityProjectileHitBlock.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ssomar/executableevents/events/entity/custom/EntityTameByEntityListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ssomar/executableevents/events/entity/custom/EntityTameByEntityListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ssomar/executableevents/events/entity/custom/PlayerProjectileHitBlock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ssomar/executableevents/events/entity/custom/PlayerProjectileHitBlock.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/ssomar/executableevents/events/optimize/OptimizedEventsHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ssomar/executableevents/events/optimize/OptimizedEventsHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ssomar/executableevents/events/player/custom/PlayerAllClickEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ssomar/executableevents/events/player/custom/PlayerAllClickEvent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ssomar/executableevents/events/player/custom/PlayerBlockBreakEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ssomar/executableevents/events/player/custom/PlayerBlockBreakEvent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ssomar/executableevents/events/player/custom/PlayerBlockPlaceEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ssomar/executableevents/events/player/custom/PlayerBlockPlaceEvent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ssomar/executableevents/events/player/custom/PlayerBucketFillEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ssomar/executableevents/events/player/custom/PlayerBucketFillEvent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ssomar/executableevents/events/player/custom/PlayerClickOnEntityEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ssomar/executableevents/events/player/custom/PlayerClickOnEntityEvent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ssomar/executableevents/events/player/custom/PlayerClickOnPlayerEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ssomar/executableevents/events/player/custom/PlayerClickOnPlayerEvent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ssomar/executableevents/events/player/custom/PlayerConsumeEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ssomar/executableevents/events/player/custom/PlayerConsumeEvent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ssomar/executableevents/events/player/custom/PlayerDropItemEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ssomar/executableevents/events/player/custom/PlayerDropItemEvent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ssomar/executableevents/events/player/custom/PlayerFertilizeBlockEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ssomar/executableevents/events/player/custom/PlayerFertilizeBlockEvent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ssomar/executableevents/events/player/custom/PlayerFirstConnectionEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ssomar/executableevents/events/player/custom/PlayerFirstConnectionEvent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ssomar/executableevents/events/player/custom/PlayerFishBlockEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ssomar/executableevents/events/player/custom/PlayerFishBlockEvent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ssomar/executableevents/events/player/custom/PlayerLeftClickEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ssomar/executableevents/events/player/custom/PlayerLeftClickEvent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ssomar/executableevents/events/player/custom/PlayerPickupItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ssomar/executableevents/events/player/custom/PlayerPickupItem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ssomar/executableevents/events/player/custom/PlayerRightClickEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ssomar/executableevents/events/player/custom/PlayerRightClickEvent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ssomar/executableevents/events/player/custom/PlayerTrampleCropEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ssomar/executableevents/events/player/custom/PlayerTrampleCropEvent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ssomar/executableevents/executableevents/ExecutableEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ssomar/executableevents/executableevents/ExecutableEvent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ssomar/executableevents/executableevents/ExecutableEventEditor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ssomar/executableevents/executableevents/ExecutableEventEditor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ssomar/executableevents/executableevents/ExecutableEventLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ssomar/executableevents/executableevents/ExecutableEventLoader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ssomar/executableevents/executableevents/activators/ActivatorEEFeature.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ssomar/executableevents/executableevents/activators/ActivatorEEFeature.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ssomar/executableevents/executableevents/activators/ActivatorEEFeatureEditor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ssomar/executableevents/executableevents/activators/ActivatorEEFeatureEditor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/ssomar/executableevents/executableevents/activators/Option.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ssomar/executableevents/executableevents/activators/Option.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ssomar/executableevents/executableevents/manager/ExecutableEventsManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ssomar/executableevents/executableevents/manager/ExecutableEventsManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/SCore.jar" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/SCore.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/ExecutableEvents-42.42.42.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/ExecutableEvents-42.42.42.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/ExecutableEvents.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/ExecutableEvents.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/commands/CommandsClass.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/commands/CommandsClass.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/configs/usedPlugins/HeadDatabase.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/events/EventsManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/events/EventsManager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/events/block/custom/CropGrow.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/events/block/custom/CropGrow.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/events/entity/custom/EnderdragonChangePhaseListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/events/entity/custom/EnderdragonChangePhaseListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/events/entity/custom/EntityBreakDoorListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/events/entity/custom/EntityBreakDoorListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/events/entity/custom/EntityBreedListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/events/entity/custom/EntityBreedListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/events/entity/custom/EntityChangeBlockListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/events/entity/custom/EntityChangeBlockListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/events/entity/custom/EntityCombustByBlockListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/events/entity/custom/EntityCombustByBlockListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/events/entity/custom/EntityCombustByEntityListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/events/entity/custom/EntityCombustByEntityListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/events/entity/custom/EntityDamageByBlockListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/events/entity/custom/EntityDamageByBlockListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/events/entity/custom/EntityDamageByEntityListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/events/entity/custom/EntityDamageByEntityListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/events/entity/custom/EntityDamageByPlayerListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/events/entity/custom/EntityDamageByPlayerListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/events/entity/custom/EntityDeathListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/events/entity/custom/EntityDeathListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/events/entity/custom/EntityDropItemListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/events/entity/custom/EntityDropItemListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/events/entity/custom/EntityEnterBlockListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/events/entity/custom/EntityEnterBlockListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/events/entity/custom/EntityEnterLoveModeListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/events/entity/custom/EntityEnterLoveModeListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/events/entity/custom/EntityExplodeListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/events/entity/custom/EntityExplodeListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/events/entity/custom/EntityPickupItemListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/events/entity/custom/EntityPickupItemListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/events/entity/custom/EntityPortalEnterListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/events/entity/custom/EntityPortalEnterListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/events/entity/custom/EntityPortalExitListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/events/entity/custom/EntityPortalExitListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/events/entity/custom/EntityProjectileHitBlock.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/events/entity/custom/EntityProjectileHitBlock.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/events/entity/custom/EntityProjectileHitEntity.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/events/entity/custom/EntityProjectileHitEntity.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/events/entity/custom/EntityProjectileHitPlayer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/events/entity/custom/EntityProjectileHitPlayer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/events/entity/custom/EntityRegainHealthListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/events/entity/custom/EntityRegainHealthListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/events/entity/custom/EntityResurrectListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/events/entity/custom/EntityResurrectListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/events/entity/custom/EntitySpawnListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/events/entity/custom/EntitySpawnListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/events/entity/custom/EntityTameByEntityListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/events/entity/custom/EntityTameByEntityListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/events/entity/custom/EntityTameByPlayerListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/events/entity/custom/EntityTameByPlayerListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/events/entity/custom/EntityTargetEntityListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/events/entity/custom/EntityTargetEntityListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/events/entity/custom/EntityTargetPlayerListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/events/entity/custom/EntityTargetPlayerListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/events/entity/custom/EntityTeleportListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/events/entity/custom/EntityTeleportListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/events/entity/custom/EntityTransformListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/events/entity/custom/EntityTransformListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/events/entity/custom/PlayerProjectileHitBlock.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/events/entity/custom/PlayerProjectileHitBlock.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/events/entity/custom/PlayerProjectileHitEntity.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/events/entity/custom/PlayerProjectileHitEntity.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/events/entity/custom/PlayerProjectileHitPlayer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/events/entity/custom/PlayerProjectileHitPlayer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/events/optimize/OptimizedEventsHandler$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/events/optimize/OptimizedEventsHandler$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/events/optimize/OptimizedEventsHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/events/optimize/OptimizedEventsHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/events/player/custom/PlayerActiveFlyEvent.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/events/player/custom/PlayerActiveFlyEvent.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/events/player/custom/PlayerActiveSneakEvent.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/events/player/custom/PlayerActiveSneakEvent.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/events/player/custom/PlayerActiveSprintEvent.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/events/player/custom/PlayerActiveSprintEvent.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/events/player/custom/PlayerAllClickEvent.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/events/player/custom/PlayerAllClickEvent.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/events/player/custom/PlayerBedEnterEvent.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/events/player/custom/PlayerBedEnterEvent.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/events/player/custom/PlayerBeforeDeathEvent.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/events/player/custom/PlayerBeforeDeathEvent.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/events/player/custom/PlayerBlockBreakEvent.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/events/player/custom/PlayerBlockBreakEvent.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/events/player/custom/PlayerBlockPlaceEvent.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/events/player/custom/PlayerBlockPlaceEvent.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/events/player/custom/PlayerBucketFillEvent.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/events/player/custom/PlayerBucketFillEvent.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/events/player/custom/PlayerChangeWorldEvent.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/events/player/custom/PlayerChangeWorldEvent.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/events/player/custom/PlayerClickOnEntityEvent.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/events/player/custom/PlayerClickOnEntityEvent.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/events/player/custom/PlayerClickOnPlayerEvent.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/events/player/custom/PlayerClickOnPlayerEvent.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/events/player/custom/PlayerConnectionEvent.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/events/player/custom/PlayerConnectionEvent.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/events/player/custom/PlayerConsumeEvent.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/events/player/custom/PlayerConsumeEvent.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/events/player/custom/PlayerDeathEvent.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/events/player/custom/PlayerDeathEvent.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/events/player/custom/PlayerDeconnectionEvent.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/events/player/custom/PlayerDeconnectionEvent.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/events/player/custom/PlayerDesactiveSneakEvent.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/events/player/custom/PlayerDesactiveSneakEvent.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/events/player/custom/PlayerDesactiveSprintEvent.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/events/player/custom/PlayerDesactiveSprintEvent.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/events/player/custom/PlayerDismountEvent.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/events/player/custom/PlayerDismountEvent.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/events/player/custom/PlayerDropItemEvent.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/events/player/custom/PlayerDropItemEvent.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/events/player/custom/PlayerEditBookEvent.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/events/player/custom/PlayerEditBookEvent.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/events/player/custom/PlayerFertilizeBlockEvent.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/events/player/custom/PlayerFertilizeBlockEvent.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/events/player/custom/PlayerFirstConnectionEvent.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/events/player/custom/PlayerFirstConnectionEvent.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/events/player/custom/PlayerFishBlockEvent.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/events/player/custom/PlayerFishBlockEvent.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/events/player/custom/PlayerFishEntityEvent.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/events/player/custom/PlayerFishEntityEvent.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/events/player/custom/PlayerFishFishEvent.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/events/player/custom/PlayerFishFishEvent.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/events/player/custom/PlayerFishNothingEvent.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/events/player/custom/PlayerFishNothingEvent.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/events/player/custom/PlayerFishPlayerEvent.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/events/player/custom/PlayerFishPlayerEvent.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/events/player/custom/PlayerFoodChange.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/events/player/custom/PlayerFoodChange.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/events/player/custom/PlayerHitEntityEvent.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/events/player/custom/PlayerHitEntityEvent.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/events/player/custom/PlayerHitPlayerEvent.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/events/player/custom/PlayerHitPlayerEvent.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/events/player/custom/PlayerItemBreakEvent.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/events/player/custom/PlayerItemBreakEvent.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/events/player/custom/PlayerJumpEvent.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/events/player/custom/PlayerJumpEvent.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/events/player/custom/PlayerKillEntityEvent.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/events/player/custom/PlayerKillEntityEvent.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/events/player/custom/PlayerKillPlayerEvent.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/events/player/custom/PlayerKillPlayerEvent.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/events/player/custom/PlayerLeaveBedEvent.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/events/player/custom/PlayerLeaveBedEvent.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/events/player/custom/PlayerLeftClickEvent.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/events/player/custom/PlayerLeftClickEvent.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/events/player/custom/PlayerMountEvent.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/events/player/custom/PlayerMountEvent.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/events/player/custom/PlayerPickupItem.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/events/player/custom/PlayerPickupItem.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/events/player/custom/PlayerReceiveHitByEntityEvent.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/events/player/custom/PlayerReceiveHitByEntityEvent.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/events/player/custom/PlayerReceiveHitByPlayerEvent.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/events/player/custom/PlayerReceiveHitByPlayerEvent.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/events/player/custom/PlayerReceiveHitGlobalEvent.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/events/player/custom/PlayerReceiveHitGlobalEvent.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/events/player/custom/PlayerRespawnListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/events/player/custom/PlayerRespawnListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/events/player/custom/PlayerRightClickEvent.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/events/player/custom/PlayerRightClickEvent.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/events/player/custom/PlayerShearEntityEvent.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/events/player/custom/PlayerShearEntityEvent.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/events/player/custom/PlayerTargetedByAnEntityEvent.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/events/player/custom/PlayerTargetedByAnEntityEvent.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/events/player/custom/PlayerTeleportListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/events/player/custom/PlayerTeleportListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/events/player/custom/PlayerTrampleCropEvent.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/events/player/custom/PlayerTrampleCropEvent.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/events/player/custom/PlayerWalkEvent.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/events/player/custom/PlayerWalkEvent.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/events/player/custom/PlayerWriteCommandEvent.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/events/player/custom/PlayerWriteCommandEvent.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/events/player/itemsadder/ItemsAdderPlayerBlockBreakListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/events/player/itemsadder/ItemsAdderPlayerBlockBreakListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/events/player/lands/PlayerEnterLandsEventEI.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/events/player/lands/PlayerEnterLandsEventEI.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/events/player/lands/PlayerLeaveLandsEventEI.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/events/player/lands/PlayerLeaveLandsEventEI.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/events/player/plot/PlayerEnterPlotEventEI.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/events/player/plot/PlayerEnterPlotEventEI.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/events/player/plot/PlayerLeavePlotEventEI.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/events/player/plot/PlayerLeavePlotEventEI.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/executableevents/ExecutableEvent.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/executableevents/ExecutableEvent.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/executableevents/ExecutableEventEditor.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/executableevents/ExecutableEventEditor.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/executableevents/ExecutableEventLoader.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/executableevents/ExecutableEventLoader.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/executableevents/activators/ActivatorEEFeature.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/executableevents/activators/ActivatorEEFeature.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/executableevents/activators/ActivatorEEFeatureEditor.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/executableevents/activators/ActivatorEEFeatureEditor.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/executableevents/activators/Option.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/executableevents/activators/Option.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/executableevents/manager/ExecutableEventsManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/executableevents/manager/ExecutableEventsManager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/plugin.yml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/plugin.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,6 +257,9 @@
       </MavenGeneralSettings>
     </option>
   </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="ProjectErrors" />
+  </component>
   <component name="ProjectCodeStyleSettingsMigration">
     <option name="version" value="2" />
   </component>
@@ -67,14 +269,21 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/benja/Documents/GitHub/ExecutableEvents/src/main/java/com/ssomar/executableevents/events/entity/custom&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "C:/Users/octav/Documents/GitHub/ExecutableEvents",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\benja\Documents\GitHub\ExecutableEvents\src\main\java\com\ssomar\executableevents\events\entity\custom" />
@@ -591,6 +800,30 @@
       <workItem from="1676576795645" duration="1729000" />
       <workItem from="1676815121944" duration="1122000" />
       <workItem from="1676817681287" duration="3044000" />
+      <workItem from="1678044123587" duration="725000" />
+      <workItem from="1678531441311" duration="1695000" />
+      <workItem from="1678726876832" duration="599000" />
+      <workItem from="1678814826754" duration="599000" />
+      <workItem from="1678910548436" duration="298000" />
+      <workItem from="1678990835841" duration="599000" />
+      <workItem from="1679065351116" duration="599000" />
+      <workItem from="1679129934387" duration="3291000" />
+      <workItem from="1679220627176" duration="1194000" />
+      <workItem from="1679429246945" duration="349000" />
+      <workItem from="1679598948036" duration="595000" />
+      <workItem from="1679672868561" duration="2031000" />
+      <workItem from="1679946837965" duration="599000" />
+      <workItem from="1680022416924" duration="1241000" />
+      <workItem from="1680344903859" duration="5786000" />
+      <workItem from="1680420296291" duration="1435000" />
+      <workItem from="1680453980436" duration="43000" />
+      <workItem from="1680454114666" duration="599000" />
+      <workItem from="1680455843393" duration="89000" />
+      <workItem from="1680455950108" duration="597000" />
+      <workItem from="1680722526492" duration="1295000" />
+      <workItem from="1680892750000" duration="3804000" />
+      <workItem from="1680949968148" duration="5019000" />
+      <workItem from="1681233674501" duration="751000" />
     </task>
     <servers />
   </component>
@@ -657,6 +890,17 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>jar://$PROJECT_DIR$/src/main/resources/SCore.jar!/com/ssomar/score/features/custom/enchantments/group/EnchantmentsGroupFeature.class</url>
+          <line>38</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

@@ -11,6 +11,7 @@ import com.ssomar.score.features.FeatureInterface;
 import com.ssomar.score.features.FeatureParentInterface;
 import com.ssomar.score.features.custom.activators.activator.NewSActivator;
 import com.ssomar.score.features.custom.activators.group.ActivatorsFeature;
+import com.ssomar.score.features.types.BooleanFeature;
 import com.ssomar.score.features.types.ColoredStringFeature;
 import com.ssomar.score.features.types.MaterialFeature;
 import com.ssomar.score.features.types.list.ListWorldFeature;
@@ -20,8 +21,8 @@ import com.ssomar.score.sobject.NewSObject;
 import com.ssomar.score.sobject.menu.NewSObjectsManagerEditor;
 import com.ssomar.score.splugin.SPlugin;
 import com.ssomar.score.utils.FixedMaterial;
-import com.ssomar.score.utils.SendMessage;
-import com.ssomar.score.utils.StringConverter;
+import com.ssomar.score.utils.messages.SendMessage;
+import com.ssomar.score.utils.strings.StringConverter;
 import lombok.Getter;
 import lombok.Setter;
 import org.bukkit.Location;
@@ -46,6 +47,7 @@ public class ExecutableEvent extends NewSObject<ExecutableEvent, ExecutableEvent
     /**
      * Features
      **/
+    BooleanFeature enabled;
     ColoredStringFeature displayName;
     private String id;
     private String path;
@@ -99,6 +101,8 @@ public class ExecutableEvent extends NewSObject<ExecutableEvent, ExecutableEvent
     public List<String> getDescription() {
         List<String> description = new ArrayList<>();
         description.add("§7ID: §f" + id);
+        description.add("§7Enabled: §f" + enabled.getValue());
+        ;
         description.add("§7Path: §f" + path);
         description.add("§7Activators: ");
         for (NewSActivator activator : activatorsFeature.getActivators().values()) {
@@ -109,7 +113,7 @@ public class ExecutableEvent extends NewSObject<ExecutableEvent, ExecutableEvent
 
     @Override
     public List<FeatureInterface> getFeatures() {
-        List<FeatureInterface> features = new ArrayList<FeatureInterface>(Arrays.asList(editorIcon, displayName, disabledWorlds, activatorsFeature));
+        List<FeatureInterface> features = new ArrayList<FeatureInterface>(Arrays.asList(enabled, editorIcon, displayName, disabledWorlds, activatorsFeature));
 
         return features;
     }
@@ -145,6 +149,7 @@ public class ExecutableEvent extends NewSObject<ExecutableEvent, ExecutableEvent
     public void reload() {
         if (getParent() instanceof ExecutableEvent) {
             ExecutableEvent item = (ExecutableEvent) getParent();
+            item.setEnabled(enabled);
             item.setEditorIcon(editorIcon);
             item.setActivatorsFeature(activatorsFeature);
             item.setDisplayName(displayName);
@@ -155,7 +160,8 @@ public class ExecutableEvent extends NewSObject<ExecutableEvent, ExecutableEvent
     @Override
     public ExecutableEvent clone(FeatureParentInterface parent) {
         ExecutableEvent clone = new ExecutableEvent(this, id, path);
-        clone.setEditorIcon(editorIcon);
+        clone.setEnabled(enabled.clone(clone));
+        clone.setEditorIcon(editorIcon.clone(clone));
         clone.setActivatorsFeature(activatorsFeature.clone(clone));
         clone.setDisplayName(displayName.clone(clone));
         clone.setDisabledWorlds(disabledWorlds.clone(clone));
@@ -208,6 +214,8 @@ public class ExecutableEvent extends NewSObject<ExecutableEvent, ExecutableEvent
 
     @Override
     public void reset() {
+        this.enabled = new BooleanFeature(this, "enabled", true, "Enabled", new String[]{"&7&oIf the event is enabled"}, Material.LEVER, false, false);
+
         this.editorIcon = new MaterialFeature(this, "editorIcon", Optional.of(Material.LEVER), "Icon Editor", new String[]{}, Material.LEVER, false, true);
 
         this.activatorsFeature = new ActivatorsFeature(this, new ActivatorEEFeature(null, "null"));

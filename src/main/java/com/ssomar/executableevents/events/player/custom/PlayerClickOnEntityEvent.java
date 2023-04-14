@@ -3,7 +3,7 @@ package com.ssomar.executableevents.events.player.custom;
 import com.ssomar.executableevents.executableevents.activators.Option;
 import com.ssomar.executableevents.events.EventsManager;
 import com.ssomar.score.sobject.sactivator.EventInfo;
-import com.ssomar.score.utils.DetailedClick;
+import com.ssomar.score.utils.emums.DetailedClick;
 import com.ssomar.sevents.events.player.click.onentity.left.PlayerLeftClickOnEntityEvent;
 import com.ssomar.sevents.events.player.click.onentity.right.PlayerRightClickOnEntityEvent;
 import org.bukkit.event.EventHandler;

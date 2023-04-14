@@ -9,8 +9,5 @@
         <module name="ExecutableEvents" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="ExecutableEvents" target="1.8" />
-    </bytecodeTargetLevel>
   </component>
 </project>

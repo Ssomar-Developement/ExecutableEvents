@@ -13,7 +13,7 @@ import com.ssomar.score.actionbar.ActionbarCommands;
 import com.ssomar.score.commands.score.clear.ClearCommand;
 import com.ssomar.score.commands.score.clear.ClearType;
 import com.ssomar.score.sobject.menu.NewSObjectsManagerEditor;
-import com.ssomar.score.utils.StringConverter;
+import com.ssomar.score.utils.strings.StringConverter;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;

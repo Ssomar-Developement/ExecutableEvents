@@ -1,5 +1,6 @@
 package com.ssomar.executableevents.executableevents.activators;
 
+import com.ssomar.score.sobject.sactivator.OptionGlobal;
 import com.ssomar.score.sobject.sactivator.SOption;
 
 import java.io.Serializable;
@@ -10,7 +11,6 @@ import java.util.List;
 public enum Option implements SOption, Serializable {
 
     ITEMSADDER_PLAYER_BLOCK_BREAK("ITEMSADDER_PLAYER_BLOCK_BREAK"),
-    LOOP("LOOP"),
     CROP_GROW("CROP_GROW"),
     PLAYER_ACTIVE_FLY("PLAYER_ACTIVE_FLY"),
     PLAYER_ACTIVE_SNEAK("PLAYER_ACTIVE_SNEAK"),
@@ -113,7 +113,7 @@ public enum Option implements SOption, Serializable {
     public static List<SOption> getPremiumOptionSt() {
         List<SOption> result = new ArrayList<>();
         for (Option option : values()) {
-            if(getOptionWithPlayerSt().contains(option) || option.equals(Option.LOOP)) continue;
+            if (getOptionWithPlayerSt().contains(option) || option.isLoopOption()) continue;
             else result.add(option);
         }
         return result;
@@ -136,6 +136,15 @@ public enum Option implements SOption, Serializable {
         result.add(Option.PLAYER_RECEIVE_HIT_GLOBAL);
         result.add(Option.PLAYER_DEATH);
         result.add(Option.ENTITY_DEATH);
+
+        return result;
+    }
+
+    public static List<Option> getOptionWithDetailedItems() {
+        List<Option> result = new ArrayList<>();
+        result.add(Option.PLAYER_PICKUP_ITEM);
+        result.add(Option.PLAYER_DROP_ITEM);
+        result.add(Option.PLAYER_CONSUME);
 
         return result;
     }
@@ -302,9 +311,9 @@ public enum Option implements SOption, Serializable {
 
     public static List<SOption> getOptionWithPlayerSt() {
         List<SOption> result = new ArrayList<>();
+        result.add(OptionGlobal.LOOP);
 
         result.add(Option.ITEMSADDER_PLAYER_BLOCK_BREAK);
-        result.add(Option.LOOP);
         result.add(Option.PLAYER_ALL_CLICK);
         result.add(Option.PLAYER_ACTIVE_FLY);
         result.add(Option.PLAYER_ACTIVE_SNEAK);
@@ -382,32 +391,7 @@ public enum Option implements SOption, Serializable {
                 }
             }
         }
-        return false;
-    }
-
-    public Option getPrev() {
-        Option opt = values()[values().length - 1];
-        for (Option o : values()) {
-            if (this.equals(o)) {
-                return opt;
-            } else opt = o;
-        }
-        return opt;
-    }
-
-    public Option getNext() {
-        Option opt = values()[0];
-        boolean next = false;
-        for (Option o : values()) {
-            if (next) {
-                opt = o;
-                break;
-            }
-            if (this.equals(o)) {
-                next = true;
-            }
-        }
-        return opt;
+        return SOption.super.isValidOption(entry);
     }
 
     @Override
@@ -419,12 +403,14 @@ public enum Option implements SOption, Serializable {
                 }
             }
         }
-        return null;
+        return SOption.super.getOption(entry);
     }
 
     @Override
     public List<SOption> getValues() {
-        return new ArrayList<>(Arrays.asList(Option.values()));
+        List<SOption> result = SOption.super.getValues();
+        result.addAll(Arrays.asList(Option.values()));
+        return result;
     }
 
     @Override
@@ -437,7 +423,7 @@ public enum Option implements SOption, Serializable {
             if (name.equalsIgnoreCase(entry))
                 return true;
         }
-        return false;
+        return SOption.super.containsThisName(entry);
     }
 
     public String[] getNames() {
@@ -450,58 +436,69 @@ public enum Option implements SOption, Serializable {
 
     @Override
     public List<SOption> getOptionWithBlock() {
-        return getOptionWithBlockSt();
+        List<SOption> result = SOption.super.getOptionWithBlock();
+        result.addAll(getOptionWithBlockSt());
+        return result;
     }
 
 
     @Override
     public List<SOption> getOptionWithOwner() {
-        List<SOption> result = new ArrayList<>();
+        List<SOption> result = SOption.super.getOptionWithOwner();
         return result;
     }
 
     @Override
     public List<SOption> getOptionWithPlayer() {
-        return getOptionWithPlayerSt();
+        List<SOption> result = SOption.super.getOptionWithPlayer();
+        result.addAll(getOptionWithPlayerSt());
+        return result;
     }
 
     @Override
     public List<SOption> getOptionWithEntity() {
-        return getOptionWithEntitySt();
+        List<SOption> result = SOption.super.getOptionWithEntity();
+        result.addAll(getOptionWithEntitySt());
+        return result;
     }
 
     @Override
     public List<SOption> getOptionWithTargetBlock() {
-        return getOptionWithTargetBlockSt();
+        List<SOption> result = SOption.super.getOptionWithTargetBlock();
+        result.addAll(getOptionWithTargetBlockSt());
+        return result;
     }
 
     @Override
     public List<SOption> getOptionWithTargetEntity() {
-        return getOptionWithTargetEntitySt();
+        List<SOption> result = SOption.super.getOptionWithTargetEntity();
+        result.addAll(getOptionWithTargetEntitySt());
+        return result;
     }
 
     @Override
     public List<SOption> getOptionWithTargetPlayer() {
-        return getOptionWithTargetPlayerSt();
+        List<SOption> result = SOption.super.getOptionWithTargetPlayer();
+        result.addAll(getOptionWithTargetPlayerSt());
+        return result;
     }
 
     @Override
     public List<SOption> getOptionWithWorld() {
-        List<SOption> result = new ArrayList<>();
-        result.addAll(Arrays.asList(values()));
+        List<SOption> result = SOption.super.getOptionWithWorld();
+        result.addAll(getValues());
         return result;
     }
 
     @Override
     public List<SOption> getOptionWithItem() {
-        List<SOption> result = new ArrayList<>();
-
+        List<SOption> result = SOption.super.getOptionWithItem();
         return result;
     }
 
     @Override
     public boolean isLoopOption() {
-        return this.equals(Option.LOOP);
+        return SOption.super.isLoopOption();
     }
 
-    }
+}

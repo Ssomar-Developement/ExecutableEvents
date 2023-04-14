@@ -17,9 +17,8 @@ public class PlayerTrampleCropEvent implements Listener {
         EventInfo eInfo = new EventInfo(event);
         eInfo.setPlayer(Optional.of(event.getPlayer()));
         eInfo.setTargetBlock(Optional.of(event.getBlock()));
-        eInfo.setOldMaterialBlock(Optional.of(event.getBlock().getType()));
-        if (!SCore.is1v12Less())
-            eInfo.setOldStatesBlock(Optional.of(event.getBlock().getBlockData().getAsString(true)));
+        eInfo.setOldMaterialTargetBlock(Optional.of(event.getBlock().getType()));
+        if (!SCore.is1v12Less()) eInfo.setOldStatesTargetBlock(Optional.of(event.getBlock().getBlockData().getAsString(true)));
         EventsManager.getInstance().activeOption(Option.PLAYER_TRAMPLE_CROP, eInfo, new ArrayList<>());
     }
 

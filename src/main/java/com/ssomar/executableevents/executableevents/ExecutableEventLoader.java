@@ -38,7 +38,7 @@ public class ExecutableEventLoader extends NewSObjectLoader<ExecutableEvent> {
 
     @Override
     public void load() {
-        LoopManager.getInstance().resetLoopActivatorsEE();
+        LoopManager.getInstance().resetLoopActivators(ExecutableEvents.plugin);
         ExecutableEventsManager.getInstance().setDefaultObjects(new ArrayList<>());
         //if (!GeneralConfig.getInstance().isDisableTestItems()) {
             if (PlaceholderAPI.isLotOfWork()) {

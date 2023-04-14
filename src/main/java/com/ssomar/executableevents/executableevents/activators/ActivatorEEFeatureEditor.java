@@ -2,7 +2,7 @@ package com.ssomar.executableevents.executableevents.activators;
 
 import com.ssomar.score.features.editor.FeatureEditorInterface;
 import com.ssomar.score.menu.GUI;
-import com.ssomar.score.utils.TypeTarget;
+import com.ssomar.score.utils.emums.TypeTarget;
 
 public class ActivatorEEFeatureEditor extends FeatureEditorInterface<ActivatorEEFeature> {
 
@@ -24,7 +24,7 @@ public class ActivatorEEFeatureEditor extends FeatureEditorInterface<ActivatorEE
         activator.getCooldown().initAndUpdateItemParentEditor(this, 2);
         activator.getUsePerDayFeature().initAndUpdateItemParentEditor(this, 4);
 
-        if (activator.getOption().equals(Option.LOOP))
+        if (activator.getOption().isLoopOption())
             activator.getLoopFeatures().initAndUpdateItemParentEditor(this, 5);
 
         if (Option.getOptionWithDrops().contains(activator.getOption()))
@@ -34,18 +34,18 @@ public class ActivatorEEFeatureEditor extends FeatureEditorInterface<ActivatorEE
             activator.getDetailedDamageCauses().initAndUpdateItemParentEditor(this, 14);
         } else if (Option.getOptionWithCommand().contains(activator.getOption())) {
             activator.getDetailedCommands().initAndUpdateItemParentEditor(this, 14);
+        } else if (Option.getOptionWithDetailedItems().contains(activator.getOption())) {
+            activator.getDetailedItems().initAndUpdateItemParentEditor(this, 14);
         }
 
-        if(Option.getOptionWithPlayerSt().contains(activator.getOption())) {
+        if (Option.getOptionWithPlayerSt().contains(activator.getOption())) {
             activator.getPlayerConditions().initAndUpdateItemParentEditor(this, 7);
             activator.getPlayerCommands().initAndUpdateItemParentEditor(this, 8);
-        }
-        else if(Option.getOptionWithEntitySt().contains(activator.getOption())){
+        } else if (Option.getOptionWithEntitySt().contains(activator.getOption())) {
             activator.getEntityConditions().initAndUpdateItemParentEditor(this, 7);
             activator.getEntityCommands().initAndUpdateItemParentEditor(this, 8);
             activator.getDetailedEntities().initAndUpdateItemParentEditor(this, 6);
-        }
-        else if(Option.getOptionWithBlockSt().contains(activator.getOption())){
+        } else if (Option.getOptionWithBlockSt().contains(activator.getOption())) {
             activator.getBlockConditions().initAndUpdateItemParentEditor(this, 7);
             activator.getBlockCommands().initAndUpdateItemParentEditor(this, 8);
             activator.getDetailedBlocks().initAndUpdateItemParentEditor(this, 6);

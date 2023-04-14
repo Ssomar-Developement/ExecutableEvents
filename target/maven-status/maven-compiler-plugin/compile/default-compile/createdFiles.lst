@@ -41,6 +41,7 @@ com\ssomar\executableevents\events\entity\custom\EntityTargetEntityListener.clas
 com\ssomar\executableevents\events\player\custom\PlayerClickOnPlayerEvent.class
 com\ssomar\executableevents\events\player\custom\PlayerEditBookEvent.class
 com\ssomar\executableevents\utils\ZipUtility.class
+com\ssomar\executableevents\events\world\custom\StructureGrowListener.class
 com\ssomar\executableevents\events\entity\custom\EntityCombustByEntityListener.class
 com\ssomar\executableevents\events\entity\custom\EntityPortalExitListener.class
 com\ssomar\executableevents\events\player\custom\PlayerBedEnterEvent.class
@@ -57,6 +58,7 @@ com\ssomar\executableevents\configs\GeneralConfig.class
 com\ssomar\executableevents\events\entity\custom\EntityChangeBlockListener.class
 com\ssomar\executableevents\executableevents\ExecutableEventEditorManager.class
 com\ssomar\executableevents\events\entity\custom\EntityExplodeListener.class
+com\ssomar\executableevents\events\world\custom\WorldDayListener.class
 com\ssomar\executableevents\events\player\custom\PlayerReceiveHitGlobalEvent.class
 com\ssomar\executableevents\configs\Config.class
 com\ssomar\executableevents\events\entity\custom\EntityTeleportListener.class
@@ -66,11 +68,13 @@ com\ssomar\executableevents\events\player\custom\PlayerBeforeDeathEvent.class
 com\ssomar\executableevents\events\player\custom\PlayerFoodChange.class
 com\ssomar\executableevents\MetricsLite.class
 com\ssomar\executableevents\events\entity\custom\EntityDamageByPlayerListener.class
+com\ssomar\executableevents\events\world\custom\WorldNightListener.class
 com\ssomar\executableevents\events\player\custom\PlayerActiveSprintEvent.class
 com\ssomar\executableevents\events\block\custom\CropGrow.class
 com\ssomar\executableevents\events\entity\custom\EnderdragonChangePhaseListener.class
 com\ssomar\executableevents\executableevents\ExecutableEvent.class
 com\ssomar\executableevents\events\player\custom\PlayerLeftClickEvent.class
+com\ssomar\executableevents\events\world\custom\PortalCreateListener.class
 com\ssomar\executableevents\events\player\custom\PlayerDesactiveSneakEvent.class
 com\ssomar\executableevents\events\player\custom\PlayerLeaveBedEvent.class
 com\ssomar\executableevents\events\player\custom\PlayerBlockPlaceEvent.class
@@ -87,6 +91,7 @@ com\ssomar\executableevents\events\player\custom\PlayerChangeWorldEvent.class
 com\ssomar\executableevents\executableevents\manager\ExecutableEventsManager.class
 com\ssomar\executableevents\events\player\custom\PlayerDismountEvent.class
 com\ssomar\executableevents\events\player\custom\PlayerReceiveHitByEntityEvent.class
+com\ssomar\executableevents\events\world\custom\SpawnChangeListener.class
 com\ssomar\executableevents\executableevents\activators\Option.class
 com\ssomar\executableevents\events\entity\custom\EntityEnterBlockListener.class
 com\ssomar\executableevents\events\optimize\OptimizedEventsHandler$1.class

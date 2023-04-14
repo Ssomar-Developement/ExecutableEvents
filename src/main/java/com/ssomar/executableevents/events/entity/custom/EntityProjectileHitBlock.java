@@ -2,6 +2,7 @@ package com.ssomar.executableevents.events.entity.custom;
 
 import com.ssomar.executableevents.events.EventsManager;
 import com.ssomar.executableevents.executableevents.activators.Option;
+import com.ssomar.score.SCore;
 import com.ssomar.score.sobject.sactivator.EventInfo;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
@@ -25,9 +26,11 @@ public class EntityProjectileHitBlock implements Listener {
 
         eInfo.setEntity(Optional.of((Entity) arrow.getShooter()));
 
-        eInfo.setTargetBlock(Optional.ofNullable(e.getBlock()));
         eInfo.setBlockface(Optional.ofNullable(e.getBlockFace().toString()));
-        eInfo.setOldMaterialBlock(Optional.of(e.getBlock().getBlockData().getMaterial()));
+        eInfo.setTargetBlock(Optional.of(e.getBlock()));
+        eInfo.setOldMaterialTargetBlock(Optional.of(e.getBlock().getType()));
+        if (!SCore.is1v12Less()) eInfo.setOldStatesTargetBlock(Optional.of(e.getBlock().getBlockData().getAsString(true)));
+
 
         eInfo.setProjectile(Optional.of(arrow));
 

@@ -8,9 +8,11 @@ import com.ssomar.executableevents.executableevents.manager.ExecutableEventsMana
 import com.ssomar.score.SsomarDev;
 import com.ssomar.score.features.custom.activators.activator.NewSActivator;
 import com.ssomar.score.sobject.sactivator.EventInfo;
+import com.ssomar.score.sobject.sactivator.SOption;
 import com.ssomar.score.usedapi.AllWorldManager;
 import org.bukkit.Bukkit;
 import org.bukkit.World;
+import org.bukkit.entity.Player;
 
 import java.util.List;
 import java.util.Optional;
@@ -26,10 +28,20 @@ public class EventsManager {
         return instance;
     }
 
-    public void activeOption(Option o, EventInfo eInfo, List<ActivatorEEFeature> optionalWhitelist) {
+    public void activeOptionAllPlayer(SOption o, EventInfo eInfo, List<ActivatorEEFeature> optionalWhitelist) {
+
+       for (Player p : Bukkit.getOnlinePlayers()) {
+            eInfo.setPlayer(Optional.of(p));
+            eInfo.setWorld(Optional.of(p.getWorld()));
+            activeOption(o, eInfo, optionalWhitelist);
+        }
+    }
+
+    public void activeOption(SOption o, EventInfo eInfo, List<ActivatorEEFeature> optionalWhitelist) {
 
        // SsomarDev.testMsg("activeOption", true);
         for (ExecutableEvent executableEvent : ExecutableEventsManager.getInstance().getAllObjects()) {
+            if(!executableEvent.getEnabled().getValue()) continue;
 
             World world = Bukkit.getWorlds().get(0);
             if(eInfo.getPlayer().isPresent()) world = eInfo.getPlayer().get().getWorld();

@@ -16,13 +16,16 @@ public class ExecutableEventEditor extends FeatureEditorInterface<ExecutableEven
     @Override
     public void load() {
         clearAndSetBackground();
-        newExecutableEvent.getEditorIcon().initAndUpdateItemParentEditor(this, 0);
-
-        newExecutableEvent.getDisplayName().initAndUpdateItemParentEditor(this, 1);
-
-        newExecutableEvent.getActivatorsFeature().initAndUpdateItemParentEditor(this, 2);
-
-        newExecutableEvent.getDisabledWorlds().initAndUpdateItemParentEditor(this, 3);
+        int i = 0;
+        newExecutableEvent.getEnabled().initAndUpdateItemParentEditor(this, i);
+        i++;
+        newExecutableEvent.getEditorIcon().initAndUpdateItemParentEditor(this, i);
+        i++;
+        newExecutableEvent.getDisplayName().initAndUpdateItemParentEditor(this, i);
+        i++;
+        newExecutableEvent.getActivatorsFeature().initAndUpdateItemParentEditor(this, i);
+        i++;
+        newExecutableEvent.getDisabledWorlds().initAndUpdateItemParentEditor(this, i);
 
 
         //Reset menu

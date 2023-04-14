@@ -3,6 +3,7 @@ package com.ssomar.executableevents.executableevents.activators;
 import com.ssomar.executableevents.ExecutableEvents;
 import com.ssomar.executableevents.commands.DebugMode;
 import com.ssomar.executableevents.configs.GeneralConfig;
+import com.ssomar.executableevents.events.EventsManager;
 import com.ssomar.executableevents.events.optimize.OptimizedEventsHandler;
 import com.ssomar.executableevents.executableevents.ExecutableEvent;
 import com.ssomar.score.SCore;
@@ -25,6 +26,7 @@ import com.ssomar.score.features.custom.conditions.player.parent.PlayerCondition
 import com.ssomar.score.features.custom.conditions.world.parent.WorldConditionsFeature;
 import com.ssomar.score.features.custom.cooldowns.NewCooldownFeature;
 import com.ssomar.score.features.custom.detailedblocks.DetailedBlocks;
+import com.ssomar.score.features.custom.detaileditems.DetailedItems;
 import com.ssomar.score.features.custom.detailedslots.DetailedSlots;
 import com.ssomar.score.features.custom.loop.LoopFeatures;
 import com.ssomar.score.features.custom.required.parent.RequiredGroup;
@@ -39,7 +41,12 @@ import com.ssomar.score.sobject.sactivator.EventInfo;
 import com.ssomar.score.sobject.sactivator.SOption;
 import com.ssomar.score.splugin.SPlugin;
 import com.ssomar.score.utils.*;
+import com.ssomar.score.utils.emums.DetailedClick;
+import com.ssomar.score.utils.emums.DetailedInteraction;
+import com.ssomar.score.utils.emums.TypeTarget;
+import com.ssomar.score.utils.messages.SendMessage;
 import com.ssomar.score.utils.placeholders.StringPlaceholder;
+import com.ssomar.score.utils.strings.StringConverter;
 import com.ssomar.sevents.events.player.fish.fish.PlayerFishFishEvent;
 import com.ssomar.sevents.events.projectile.hitentity.ProjectileHitEntityEvent;
 import com.ssomar.sevents.events.projectile.hitplayer.ProjectileHitPlayerEvent;
@@ -115,6 +122,8 @@ public class ActivatorEEFeature extends NewSActivator<ActivatorEEFeature, Activa
     private BlockConditionsFeature targetBlockConditions;
     private DetailedBlocks detailedTargetBlocks;
 
+    private DetailedItems detailedItems;
+
 
     private WorldConditionsFeature worldConditions;
     //private ItemConditionsFeature itemConditions;
@@ -125,7 +134,7 @@ public class ActivatorEEFeature extends NewSActivator<ActivatorEEFeature, Activa
     private LoopFeatures loopFeatures;
 
     public ActivatorEEFeature(FeatureParentInterface parent, String id) {
-        super(parent, id);
+        super(ExecutableEvents.plugin, parent, id);
         reset();
     }
 
@@ -204,8 +213,9 @@ public class ActivatorEEFeature extends NewSActivator<ActivatorEEFeature, Activa
         Player player = null;
         /* Target Player if there is one */
         Player targetPlayer = null;
-        /* World when this event occurs*/
-        World world = eInfo.getWorld().orElse(Bukkit.getWorlds().get(0));
+        /* World when this event occurs */
+        World world = null;
+        World defautlWorld = Bukkit.getWorlds().get(0);
 
         /* Placeholders init */
         StringPlaceholder sp = new StringPlaceholder();
@@ -293,19 +303,26 @@ public class ActivatorEEFeature extends NewSActivator<ActivatorEEFeature, Activa
                 sp.setBlockPlcHldr(block, materialOpt.get());
                 oldMaterial = materialOpt.get();
             } else sp.setBlockPlcHldr(block);
+
+            defautlWorld = block.getWorld();
         }
 
         /* Target Block init */
         Optional<Block> targetBlockOpt = eInfo.getTargetBlock();
+
         if (targetBlockOpt.isPresent()) {
             targetBlock = targetBlockOpt.get();
             actionInfo.setBlock(targetBlock);
 
-            Optional<Material> materialOpt = eInfo.getOldMaterialBlock();
+            Optional<Material> materialOpt = eInfo.getOldMaterialTargetBlock();
             if (materialOpt.isPresent()) {
                 sp.setTargetBlockPlcHldr(targetBlock, materialOpt.get());
                 oldMaterialTarget = materialOpt.get();
-            } else sp.setTargetBlockPlcHldr(targetBlock);
+            }
+            else {
+                return;
+                //sp.setTargetBlockPlcHldr(targetBlock);
+            }
         }
 
         SsomarDev.testMsg("Activator 4", DEBUG);
@@ -315,6 +332,8 @@ public class ActivatorEEFeature extends NewSActivator<ActivatorEEFeature, Activa
         if (entityOpt.isPresent()) {
             entity = entityOpt.get();
             sp.setEntityPlcHldr(entity);
+
+            defautlWorld = entity.getWorld();
         }
 
         /* Target entity init */
@@ -332,6 +351,8 @@ public class ActivatorEEFeature extends NewSActivator<ActivatorEEFeature, Activa
         if (playerOpt.isPresent()) {
             player = playerOpt.get();
             sp.setPlayerPlcHldr(player.getUniqueId(), 0);
+
+            defautlWorld = player.getWorld();
         }
 
         /* Target player init */
@@ -347,7 +368,14 @@ public class ActivatorEEFeature extends NewSActivator<ActivatorEEFeature, Activa
         sm.setSp(sp);
         Optional<Player> optionalPlayer = Optional.ofNullable(player);
 
+
+        /* Verification detailedItems */
+        if (Option.getOptionWithDetailedItems().contains(optionFeature.getValue()) && eInfo.getItem().isPresent()) {
+            if (!this.detailedItems.isValid(eInfo.getItem().get(), optionalPlayer, eSrc, sp)) return;
+        }
+
         /* Verification of the world conditions */
+        world = eInfo.getWorld().orElse(defautlWorld);
         if (!worldConditions.verifCondition(world, optionalPlayer, sm, eSrc)) return;
 
         /* Verification of the block conditions */
@@ -359,8 +387,10 @@ public class ActivatorEEFeature extends NewSActivator<ActivatorEEFeature, Activa
         }
 
         /* Verification of the target block conditions */
+        SsomarDev.testMsg("Activator 6.5 "+(targetBlock != null), DEBUG);
         if (Option.getOptionWithTargetBlockSt().contains(optionFeature.getValue()) && targetBlock != null) {
-            if (!detailedTargetBlocks.isValid(block ,oldMaterialTarget, eInfo.getOldStatesTargetBlock(), optionalPlayer, eSrc, sp))
+            SsomarDev.testMsg("Activator 6.6", DEBUG);
+            if (!detailedTargetBlocks.isValid(targetBlock, oldMaterialTarget, eInfo.getOldStatesTargetBlock(), optionalPlayer, eSrc, sp))
                 return;
 
             if (!targetBlockConditions.verifConditions(targetBlock, optionalPlayer, sm, eSrc)) return;
@@ -583,7 +613,7 @@ public class ActivatorEEFeature extends NewSActivator<ActivatorEEFeature, Activa
 
         features.addAll(Arrays.asList(worldConditions, placeholderConditions));
 
-        if (optionFeature.getValue().equals(Option.LOOP)) {
+        if (optionFeature.getValue().isLoopOption()) {
             features.add(loopFeatures);
         }
 
@@ -593,6 +623,10 @@ public class ActivatorEEFeature extends NewSActivator<ActivatorEEFeature, Activa
 
         if (Option.getOptionWithCommand().contains(optionFeature.getValue())) {
             features.add(detailedCommands);
+        }
+
+        if (Option.getOptionWithDetailedItems().contains(optionFeature.getValue())) {
+            features.add(detailedItems);
         }
 
         if (Option.getOptionWithPlayerSt().contains(optionFeature.getValue())) {
@@ -679,6 +713,7 @@ public class ActivatorEEFeature extends NewSActivator<ActivatorEEFeature, Activa
                     a.setDetailedTargetEntities(detailedTargetEntities);
                     a.setDetailedDamageCauses(detailedDamageCauses);
                     a.setDetailedCommands(detailedCommands);
+                    a.setDetailedItems(detailedItems);
 
                     a.setPlayerCommands(playerCommands);
                     a.setTargetPlayerCommands(targetPlayerCommands);
@@ -731,6 +766,7 @@ public class ActivatorEEFeature extends NewSActivator<ActivatorEEFeature, Activa
 
         clone.setDetailedDamageCauses(detailedDamageCauses.clone(clone));
         clone.setDetailedCommands(detailedCommands.clone(clone));
+        clone.setDetailedItems(detailedItems.clone(clone));
 
         clone.setPlayerCommands(playerCommands.clone(clone));
         clone.setTargetPlayerCommands(targetPlayerCommands.clone(clone));
@@ -788,7 +824,7 @@ public class ActivatorEEFeature extends NewSActivator<ActivatorEEFeature, Activa
                 errors.addAll(desactiveDrops.load(sPlugin, section, premiumLoading));
             }
 
-            if (optionFeature.getValue().equals(Option.LOOP)) {
+            if (optionFeature.getValue().isLoopOption()) {
                 errors.addAll(loopFeatures.load(sPlugin, section, premiumLoading));
             }
 
@@ -798,6 +834,10 @@ public class ActivatorEEFeature extends NewSActivator<ActivatorEEFeature, Activa
 
             if (Option.getOptionWithCommand().contains(optionFeature.getValue())) {
                 errors.addAll(detailedCommands.load(sPlugin, section, premiumLoading));
+            }
+
+            if (Option.getOptionWithDetailedItems().contains(optionFeature.getValue())) {
+                errors.addAll(detailedItems.load(sPlugin, section, premiumLoading));
             }
 
             if (Option.getOptionWithCommand().contains(optionFeature.getValue())) {
@@ -848,12 +888,12 @@ public class ActivatorEEFeature extends NewSActivator<ActivatorEEFeature, Activa
         ConfigurationSection attributeConfig = config.createSection(getId());
 
         /* Add the activator to the LOOP Manager if its a LOOP activator and if it is not present (new activator) */
-        if (optionFeature.getValue().equals(Option.LOOP)) {
+        if (optionFeature.getValue().isLoopOption()) {
             SsomarDev.testMsg("delay >> " + loopFeatures.getDelay().getValue().get(), DEBUG);
             LoopManager.getInstance().addLoopActivator(this);
         } else LoopManager.getInstance().removeLoopActivator(this);
 
-        OptimizedEventsHandler.getInstance().read((Option) optionFeature.getValue());
+        OptimizedEventsHandler.getInstance().read(optionFeature.getValue());
 
         for (FeatureInterface feature : getFeatures()) {
             feature.save(attributeConfig);
@@ -924,6 +964,8 @@ public class ActivatorEEFeature extends NewSActivator<ActivatorEEFeature, Activa
 
         this.detailedCommands = new ListUncoloredStringFeature(this, "detailedCommands", new ArrayList<>(), "Detailed Commands", new String[]{"&7&oSpecify a list of commands that", "&7&ocan be affected", "&7&oempty = no command", "&7Example: &agamemode creative"}, GUI.WRITABLE_BOOK, false, false, Optional.empty());
 
+        this.detailedItems = new DetailedItems(this);
+
         this.playerCommands = new PlayerCommandsFeature(this, "commands", "Player Commands", new String[]{"&7&oThe player commands to execute"}, FixedMaterial.getMaterial(Arrays.asList("COMMAND_BLOCK", "COMMAND")), false);
 
         this.targetPlayerCommands = new PlayerCommandsFeature(this, "targetPlayerCommands", "Target Player Commands", new String[]{"&7&oThe target commands to execute"}, FixedMaterial.getMaterial(Arrays.asList("COMMAND_BLOCK", "COMMAND")), false);
@@ -953,5 +995,28 @@ public class ActivatorEEFeature extends NewSActivator<ActivatorEEFeature, Activa
        // this.itemConditions = new ItemConditionsFeature(this, "itemConditions", "Item Conditions", new String[]{});
 
         this.placeholderConditions = new PlaceholderConditionGroupFeature(this);
+    }
+
+    @Override
+    public List<ActivatorEEFeature> extractActivatorsSameClass(List<NewSActivator> list) {
+        List<ActivatorEEFeature> activators = new ArrayList<>();
+        for (NewSActivator activator : list) {
+            if (activator instanceof ActivatorEEFeature) {
+                activators.add((ActivatorEEFeature) activator);
+            }
+        }
+        list.removeAll(activators);
+        return activators;
+    }
+
+    @Override
+    public void activateOptionGlobal(SOption sOption, EventInfo eventInfo, List<NewSActivator> list) {
+        List<ActivatorEEFeature> activators = new ArrayList<>();
+        for (NewSActivator activator : list) {
+            if (activator instanceof ActivatorEEFeature) {
+                activators.add((ActivatorEEFeature) activator);
+            }
+        }
+        EventsManager.getInstance().activeOptionAllPlayer(sOption, eventInfo, activators);
     }
 }

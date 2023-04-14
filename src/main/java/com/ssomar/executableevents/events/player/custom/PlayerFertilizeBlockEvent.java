@@ -19,9 +19,8 @@ public class PlayerFertilizeBlockEvent implements Listener {
             EventInfo eInfo = new EventInfo(e);
             eInfo.setPlayer(Optional.of(e.getPlayer()));
             eInfo.setTargetBlock(Optional.of(e.getBlock()));
-            eInfo.setOldMaterialBlock(Optional.of(e.getBlock().getType()));
-            if (!SCore.is1v12Less())
-                eInfo.setOldStatesBlock(Optional.of(e.getBlock().getBlockData().getAsString(true)));
+            eInfo.setOldMaterialTargetBlock(Optional.of(e.getBlock().getType()));
+            if (!SCore.is1v12Less()) eInfo.setOldStatesTargetBlock(Optional.of(e.getBlock().getBlockData().getAsString(true)));
             EventsManager.getInstance().activeOption(Option.PLAYER_FERTILIZE_BLOCK, eInfo, new ArrayList<>());
         }
     }

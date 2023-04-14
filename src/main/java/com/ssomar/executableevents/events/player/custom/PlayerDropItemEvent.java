@@ -25,6 +25,8 @@ public class PlayerDropItemEvent implements Listener {
         // Force mainhand because we can't detect from which slot the item has been dropped
         eInfo.setForceMainHand(true);
 
+        eInfo.setItem(Optional.of(e.getItemDrop().getItemStack()));
+
         EventsManager.getInstance().activeOption(Option.PLAYER_DROP_ITEM, eInfo, new ArrayList<>());
 
     }
