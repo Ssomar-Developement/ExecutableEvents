@@ -289,6 +289,10 @@ public class OptimizedEventsHandler {
                     mainListerner = new PlayerTeleportListener();
                     break;
 
+                case PLAYER_PORTAL:
+                    mainListerner = new PlayerPortalEvent();
+                    break;
+
                 case PLAYER_PICKUP_ITEM:
                     mainListerner = new PlayerPickupItem();
                     break;
