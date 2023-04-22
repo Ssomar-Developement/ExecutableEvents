@@ -10,6 +10,7 @@ import java.util.List;
 
 public enum Option implements SOption, Serializable {
 
+    BLOCK_DRY("BLOCK_DRY"),
     ITEMSADDER_PLAYER_BLOCK_BREAK("ITEMSADDER_PLAYER_BLOCK_BREAK"),
     CROP_GROW("CROP_GROW"),
     PLAYER_ACTIVE_FLY("PLAYER_ACTIVE_FLY"),
@@ -26,6 +27,7 @@ public enum Option implements SOption, Serializable {
     PLAYER_CLICK_ON_PLAYER("PLAYER_CLICK_ON_PLAYER"),
     PLAYER_CONNECTION("PLAYER_CONNECTION"),
     PLAYER_CONSUME("PLAYER_CONSUME"),
+    PLAYER_CUSTOM_LAUNCH("PLAYER_CUSTOM_LAUNCH"),
     PLAYER_DEATH("PLAYER_DEATH"),
     PLAYER_DISCONNECTION("PLAYER_DISCONNECTION"),
     PLAYER_DISABLE_SNEAK("PLAYER_DISABLE_SNEAK"),
@@ -67,10 +69,16 @@ public enum Option implements SOption, Serializable {
 
     PLAYER_TELEPORT("PLAYER_TELEPORT"),
 
+    PLAYER_PARTICIPATE_KILL_ENTITY("PLAYER_PARTICIPATE_KILL_ENTITY"),
+    PLAYER_PARTICIPATE_KILL_PLAYER("PLAYER_PARTICIPATE_KILL_PLAYER"),
+
     PLAYER_PICKUP_ITEM("PLAYER_PICKUP_ITEM"),
     PLAYER_PROJECTILE_HIT_BLOCK("PLAYER_PROJECTILE_HIT_BLOCK"),
     PLAYER_PROJECTILE_HIT_ENTITY("PLAYER_PROJECTILE_HIT_ENTITY"),
     PLAYER_PROJECTILE_HIT_PLAYER("PLAYER_PROJECTILE_HIT_PLAYER"),
+
+    ENTITY_PARTICIPATE_KILL_ENTITY("ENTITY_PARTICIPATE_KILL_ENTITY"),
+    ENTITY_PARTICIPATE_KILL_PLAYER("ENTITY_PARTICIPATE_KILL_PLAYER"),
     ENTITY_PROJECTILE_HIT_BLOCK("ENTITY_PROJECTILE_HIT_BLOCK"),
     ENTITY_PROJECTILE_HIT_ENTITY("ENTITY_PROJECTILE_HIT_ENTITY"),
     ENTITY_PROJECTILE_HIT_PLAYER("ENTITY_PROJECTILE_HIT_PLAYER"),
@@ -222,6 +230,7 @@ public enum Option implements SOption, Serializable {
         List<SOption> result = new ArrayList<>();
         result.add(Option.PLAYER_KILL_ENTITY);
         result.add(Option.PLAYER_CLICK_ON_ENTITY);
+        result.add(Option.PLAYER_CUSTOM_LAUNCH);
         result.add(Option.PLAYER_RECEIVE_HIT_BY_ENTITY);
         result.add(Option.PLAYER_FISH_ENTITY);
         result.add(Option.PLAYER_FISH_FISH);
@@ -230,6 +239,7 @@ public enum Option implements SOption, Serializable {
         result.add(Option.PLAYER_DISMOUNT);
         result.add(Option.PLAYER_TARGETED_BY_AN_ENTITY);
         result.add(Option.PLAYER_HIT_ENTITY);
+        result.add(Option.PLAYER_PARTICIPATE_KILL_ENTITY);
 
         /* The entity is the blop of the fishhook */
         result.add(Option.PLAYER_FISH_NOTHING);
@@ -239,6 +249,7 @@ public enum Option implements SOption, Serializable {
 
         result.add(Option.ENTITY_COMBUST_BY_ENTITY);
         result.add(Option.ENTITY_DAMAGE_BY_ENTITY);
+        result.add(Option.ENTITY_PARTICIPATE_KILL_ENTITY);
         result.add(Option.ENTITY_TAME_BY_ENTITY);
         result.add(Option.ENTITY_TRANSFORM);
 
@@ -256,6 +267,9 @@ public enum Option implements SOption, Serializable {
         result.add(Option.PLAYER_PROJECTILE_HIT_PLAYER);
         result.add(Option.ENTITY_PROJECTILE_HIT_PLAYER);
 
+        result.add(Option.ENTITY_PARTICIPATE_KILL_PLAYER);
+        result.add(Option.PLAYER_PARTICIPATE_KILL_PLAYER);
+
         result.add(Option.ENTITY_TARGET_PLAYER);
         result.add(Option.ENTITY_DAMAGE_BY_PLAYER);
         result.add(Option.ENTITY_TAME_BY_PLAYER);
@@ -265,6 +279,9 @@ public enum Option implements SOption, Serializable {
 
     public static List<SOption> getOptionWithEntitySt() {
         List<SOption> result = new ArrayList<>();
+
+        result.add(Option.ENTITY_PARTICIPATE_KILL_PLAYER);
+        result.add(Option.ENTITY_PARTICIPATE_KILL_ENTITY);
 
         result.add(Option.ENTITY_PROJECTILE_HIT_ENTITY);
         result.add(Option.ENTITY_PROJECTILE_HIT_PLAYER);
@@ -313,6 +330,9 @@ public enum Option implements SOption, Serializable {
         List<SOption> result = new ArrayList<>();
         result.add(OptionGlobal.LOOP);
 
+        result.add(Option.PLAYER_PARTICIPATE_KILL_PLAYER);
+        result.add(Option.PLAYER_PARTICIPATE_KILL_ENTITY);
+
         result.add(Option.ITEMSADDER_PLAYER_BLOCK_BREAK);
         result.add(Option.PLAYER_ALL_CLICK);
         result.add(Option.PLAYER_ACTIVE_FLY);
@@ -328,6 +348,7 @@ public enum Option implements SOption, Serializable {
         result.add(Option.PLAYER_CLICK_ON_PLAYER);
         result.add(Option.PLAYER_CONNECTION);
         result.add(Option.PLAYER_CONSUME);
+        result.add(Option.PLAYER_CUSTOM_LAUNCH);
         result.add(Option.PLAYER_FOOD_CHANGE);
         result.add(Option.PLAYER_DEATH);
         result.add(Option.PLAYER_DISCONNECTION);

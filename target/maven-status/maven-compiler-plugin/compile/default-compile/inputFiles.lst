@@ -24,6 +24,8 @@ C:\Users\octav\Documents\GitHub\ExecutableEvents\src\main\java\com\ssomar\execut
 C:\Users\octav\Documents\GitHub\ExecutableEvents\src\main\java\com\ssomar\executableevents\events\player\lands\PlayerEnterLandsEventEI.java
 C:\Users\octav\Documents\GitHub\ExecutableEvents\src\main\java\com\ssomar\executableevents\events\player\custom\PlayerFishPlayerEvent.java
 C:\Users\octav\Documents\GitHub\ExecutableEvents\src\main\java\com\ssomar\executableevents\events\player\custom\PlayerConnectionEvent.java
+C:\Users\octav\Documents\GitHub\ExecutableEvents\src\main\java\com\ssomar\executableevents\events\block\custom\BlockDryListener.java
+C:\Users\octav\Documents\GitHub\ExecutableEvents\src\main\java\com\ssomar\executableevents\events\player\custom\PlayerParticipateKillPlayerListener.java
 C:\Users\octav\Documents\GitHub\ExecutableEvents\src\main\java\com\ssomar\executableevents\events\entity\custom\EntitySpawnListener.java
 C:\Users\octav\Documents\GitHub\ExecutableEvents\src\main\java\com\ssomar\executableevents\events\player\custom\PlayerPickupItem.java
 C:\Users\octav\Documents\GitHub\ExecutableEvents\src\main\java\com\ssomar\executableevents\events\entity\custom\EntityDamageByPlayerListener.java
@@ -41,6 +43,7 @@ C:\Users\octav\Documents\GitHub\ExecutableEvents\src\main\java\com\ssomar\execut
 C:\Users\octav\Documents\GitHub\ExecutableEvents\src\main\java\com\ssomar\executableevents\MetricsLite.java
 C:\Users\octav\Documents\GitHub\ExecutableEvents\src\main\java\com\ssomar\executableevents\events\player\lands\PlayerLeaveLandsEventEI.java
 C:\Users\octav\Documents\GitHub\ExecutableEvents\src\main\java\com\ssomar\executableevents\configs\Config.java
+C:\Users\octav\Documents\GitHub\ExecutableEvents\src\main\java\com\ssomar\executableevents\events\entity\custom\EntityParticipateKillPlayerListener.java
 C:\Users\octav\Documents\GitHub\ExecutableEvents\src\main\java\com\ssomar\executableevents\events\player\custom\PlayerFishBlockEvent.java
 C:\Users\octav\Documents\GitHub\ExecutableEvents\src\main\java\com\ssomar\executableevents\executableevents\ExecutableEventEditorManager.java
 C:\Users\octav\Documents\GitHub\ExecutableEvents\src\main\java\com\ssomar\executableevents\events\player\custom\PlayerFirstConnectionEvent.java
@@ -90,6 +93,7 @@ C:\Users\octav\Documents\GitHub\ExecutableEvents\src\main\java\com\ssomar\execut
 C:\Users\octav\Documents\GitHub\ExecutableEvents\src\main\java\com\ssomar\executableevents\events\entity\custom\PlayerProjectileHitEntity.java
 C:\Users\octav\Documents\GitHub\ExecutableEvents\src\main\java\com\ssomar\executableevents\events\player\custom\PlayerMountEvent.java
 C:\Users\octav\Documents\GitHub\ExecutableEvents\src\main\java\com\ssomar\executableevents\events\player\custom\PlayerBlockPlaceEvent.java
+C:\Users\octav\Documents\GitHub\ExecutableEvents\src\main\java\com\ssomar\executableevents\events\player\custom\PlayerCustomLaunchEvent.java
 C:\Users\octav\Documents\GitHub\ExecutableEvents\src\main\java\com\ssomar\executableevents\events\player\custom\PlayerRespawnListener.java
 C:\Users\octav\Documents\GitHub\ExecutableEvents\src\main\java\com\ssomar\executableevents\configs\Message.java
 C:\Users\octav\Documents\GitHub\ExecutableEvents\src\main\java\com\ssomar\executableevents\events\player\custom\PlayerTargetedByAnEntityEvent.java
@@ -97,6 +101,7 @@ C:\Users\octav\Documents\GitHub\ExecutableEvents\src\main\java\com\ssomar\execut
 C:\Users\octav\Documents\GitHub\ExecutableEvents\src\main\java\com\ssomar\executableevents\utils\ZipUtility.java
 C:\Users\octav\Documents\GitHub\ExecutableEvents\src\main\java\com\ssomar\executableevents\events\player\custom\PlayerReceiveHitByEntityEvent.java
 C:\Users\octav\Documents\GitHub\ExecutableEvents\src\main\java\com\ssomar\executableevents\events\entity\custom\EntityEnterBlockListener.java
+C:\Users\octav\Documents\GitHub\ExecutableEvents\src\main\java\com\ssomar\executableevents\events\player\custom\PlayerParticipateKillEntityListener.java
 C:\Users\octav\Documents\GitHub\ExecutableEvents\src\main\java\com\ssomar\executableevents\events\EventsManager.java
 C:\Users\octav\Documents\GitHub\ExecutableEvents\src\main\java\com\ssomar\executableevents\events\player\custom\PlayerClickOnEntityEvent.java
 C:\Users\octav\Documents\GitHub\ExecutableEvents\src\main\java\com\ssomar\executableevents\executableevents\activators\Option.java
@@ -116,5 +121,6 @@ C:\Users\octav\Documents\GitHub\ExecutableEvents\src\main\java\com\ssomar\execut
 C:\Users\octav\Documents\GitHub\ExecutableEvents\src\main\java\com\ssomar\executableevents\events\entity\custom\EntityResurrectListener.java
 C:\Users\octav\Documents\GitHub\ExecutableEvents\src\main\java\com\ssomar\executableevents\events\optimize\OptimizedEventsHandler.java
 C:\Users\octav\Documents\GitHub\ExecutableEvents\src\main\java\com\ssomar\executableevents\events\entity\custom\EntityEnterLoveModeListener.java
+C:\Users\octav\Documents\GitHub\ExecutableEvents\src\main\java\com\ssomar\executableevents\events\entity\custom\EntityParticipateKillEntityListener.java
 C:\Users\octav\Documents\GitHub\ExecutableEvents\src\main\java\com\ssomar\executableevents\events\player\custom\PlayerReceiveHitByPlayerEvent.java
 C:\Users\octav\Documents\GitHub\ExecutableEvents\src\main\java\com\ssomar\executableevents\events\world\custom\StructureGrowListener.java

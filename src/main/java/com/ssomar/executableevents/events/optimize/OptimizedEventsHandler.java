@@ -2,6 +2,7 @@ package com.ssomar.executableevents.events.optimize;
 
 
 import com.ssomar.executableevents.ExecutableEvents;
+import com.ssomar.executableevents.events.block.custom.BlockDryListener;
 import com.ssomar.executableevents.events.block.custom.CropGrow;
 import com.ssomar.executableevents.events.entity.custom.*;
 import com.ssomar.executableevents.events.player.custom.*;
@@ -64,14 +65,17 @@ public class OptimizedEventsHandler {
             Listener mainListerner = null;
             switch (o) {
 
+                case BLOCK_DRY:
+                    eventsName.add(EventName.BLOCK_DRY);
+                    DynamicRegistration.getInstance().register(EventName.BLOCK_DRY, ExecutableEvents.plugin);
+                    mainListerner = new BlockDryListener();
+                    break;
                 case ITEMSADDER_PLAYER_BLOCK_BREAK:
                     if (SCore.hasItemsAdder) mainListerner = new ItemsAdderPlayerBlockBreakListener();
                     break;
-
                 case CROP_GROW:
                     mainListerner = new CropGrow();
                     break;
-
                 case PLAYER_RIGHT_CLICK:
                     eventsName.add(EventName.PLAYER_RIGHT_CLICK_EVENT);
                     DynamicRegistration.getInstance().register(EventName.PLAYER_RIGHT_CLICK_EVENT, ExecutableEvents.plugin);
@@ -91,6 +95,9 @@ public class OptimizedEventsHandler {
                     break;
                 case PLAYER_CONSUME:
                     mainListerner = new PlayerConsumeEvent();
+                    break;
+                case PLAYER_CUSTOM_LAUNCH:
+                    mainListerner = new PlayerCustomLaunchEvent();
                     break;
                 case PLAYER_DROP_ITEM:
                     mainListerner = new PlayerDropItemEvent();
@@ -239,6 +246,18 @@ public class OptimizedEventsHandler {
                     mainListerner = new PlayerMountEvent();
                     break;
 
+                case PLAYER_PARTICIPATE_KILL_ENTITY:
+                    eventsName.add(EventName.PLAYER_PARTICIPATE_KILL_ENTITY_EVENT);
+                    DynamicRegistration.getInstance().register(EventName.PLAYER_PARTICIPATE_KILL_ENTITY_EVENT, ExecutableEvents.plugin);
+                    mainListerner = new PlayerParticipateKillEntityListener();
+                    break;
+
+                case PLAYER_PARTICIPATE_KILL_PLAYER:
+                    eventsName.add(EventName.PLAYER_PARTICIPATE_KILL_PLAYER_EVENT);
+                    DynamicRegistration.getInstance().register(EventName.PLAYER_PARTICIPATE_KILL_PLAYER_EVENT, ExecutableEvents.plugin);
+                    mainListerner = new PlayerParticipateKillPlayerListener();
+                    break;
+
                 case PLAYER_WRITE_COMMAND:
                     mainListerner = new PlayerWriteCommandEvent();
                     break;
@@ -384,6 +403,18 @@ public class OptimizedEventsHandler {
 
                 case ENTITY_EXPLODE:
                     mainListerner = new EntityExplodeListener();
+                    break;
+
+                case ENTITY_PARTICIPATE_KILL_ENTITY:
+                    eventsName.add(EventName.ENTITY_PARTICIPATE_KILL_ENTITY_EVENT);
+                    DynamicRegistration.getInstance().register(EventName.ENTITY_PARTICIPATE_KILL_ENTITY_EVENT, ExecutableEvents.plugin);
+                    mainListerner = new EntityParticipateKillEntityListener();
+                    break;
+
+                case ENTITY_PARTICIPATE_KILL_PLAYER:
+                    eventsName.add(EventName.ENTITY_PARTICIPATE_KILL_PLAYER_EVENT);
+                    DynamicRegistration.getInstance().register(EventName.ENTITY_PARTICIPATE_KILL_PLAYER_EVENT, ExecutableEvents.plugin);
+                    mainListerner = new EntityParticipateKillPlayerListener();
                     break;
 
                 case ENTITY_PICKUP_ITEM:
