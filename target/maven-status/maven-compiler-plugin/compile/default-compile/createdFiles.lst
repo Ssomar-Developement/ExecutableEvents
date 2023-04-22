@@ -19,6 +19,7 @@ com\ssomar\executableevents\events\player\custom\PlayerTeleportListener.class
 com\ssomar\executableevents\events\entity\custom\EntityDamageByEntityListener.class
 com\ssomar\executableevents\events\entity\custom\EntityEnterLoveModeListener.class
 com\ssomar\executableevents\events\entity\custom\EntityProjectileHitEntity.class
+com\ssomar\executableevents\events\player\custom\PlayerPortalEvent.class
 com\ssomar\executableevents\checkversion\CheckVersion.class
 com\ssomar\executableevents\events\player\custom\PlayerKillEntityEvent.class
 com\ssomar\executableevents\events\player\custom\PlayerJumpEvent.class

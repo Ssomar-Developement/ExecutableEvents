@@ -66,6 +66,7 @@ public enum Option implements SOption, Serializable {
     PLAYER_SHEAR_ENTITY("PLAYER_SHEAR_ENTITY"),
     PLAYER_TARGETED_BY_AN_ENTITY("PLAYER_TARGETED_BY_AN_ENTITY"),
     PLAYER_TRAMPLE_CROP("PLAYER_TRAMPLE_CROP"),
+    PLAYER_PORTAL("PLAYER_PORTAL"),
 
     PLAYER_TELEPORT("PLAYER_TELEPORT"),
 
@@ -389,6 +390,7 @@ public enum Option implements SOption, Serializable {
         result.add(Option.PLAYER_TRAMPLE_CROP);
         result.add(Option.PLAYER_TELEPORT);
         result.add(Option.PLAYER_PICKUP_ITEM);
+        result.add(Option.PLAYER_PORTAL);
 
         result.add(Option.PLAYER_PROJECTILE_HIT_BLOCK);
         result.add(Option.PLAYER_PROJECTILE_HIT_PLAYER);
