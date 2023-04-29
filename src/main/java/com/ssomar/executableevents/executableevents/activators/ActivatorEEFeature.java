@@ -96,6 +96,8 @@ public class ActivatorEEFeature extends NewSActivator<ActivatorEEFeature, Activa
 
     private ListDamageCauseFeature detailedDamageCauses;
     private ListUncoloredStringFeature detailedCommands;
+    private ListUncoloredStringFeature detailedMessagesContains;
+    private ListUncoloredStringFeature detailedMessagesEquals;
 
     /* Player parts */
     private PlayerCommandsFeature playerCommands;
@@ -293,6 +295,41 @@ public class ActivatorEEFeature extends NewSActivator<ActivatorEEFeature, Activa
             }
         }
 
+        /* Verification of detailedMessages option for the activator that have it */
+        if (Option.getOptionWithMessage().contains(optionFeature.getValue())) {
+
+            //SsomarDev.testMsg("Command activator " + eInfo.getCommand());
+            String[] split = eInfo.getCommand().get().split(" ");
+            int i = 0;
+            Map<String, String> map = sp.getExtraPlaceholders();
+            for (String arg : split) {
+                map.put("%arg" + i + "%", arg);
+                i++;
+            }
+
+            if (!this.detailedMessagesContains.getValue().isEmpty()) {
+                boolean invalid = true;
+                for (String s : this.detailedMessagesContains.getValue()) {
+                    if (eInfo.getCommand().get().contains(s)) {
+                        invalid = false;
+                        break;
+                    }
+                }
+                if (invalid) return;
+            }
+
+            if (!this.detailedMessagesEquals.getValue().isEmpty()) {
+                boolean invalid = true;
+                for (String s : this.detailedMessagesEquals.getValue()) {
+                    if (StringConverter.decoloredString(eInfo.getCommand().get()).equals(StringConverter.decoloredString(s))) {
+                        invalid = false;
+                        break;
+                    }
+                }
+                if (invalid) return;
+            }
+        }
+
         /* Block init */
         Optional<Block> blockOpt = eInfo.getBlock();
         if (blockOpt.isPresent()) {
@@ -380,7 +417,7 @@ public class ActivatorEEFeature extends NewSActivator<ActivatorEEFeature, Activa
 
         /* Verification of the block conditions */
         if (Option.getOptionWithBlockSt().contains(optionFeature.getValue()) && block != null) {
-            if (!detailedBlocks.isValid(block, oldMaterial, eInfo.getOldStatesBlock(), optionalPlayer, eSrc, sp))
+            if (!detailedBlocks.isValid(block, optionalPlayer, eSrc, sp, oldMaterial, eInfo.getOldStatesBlock()))
                 return;
 
             if (!blockConditions.verifConditions(block, optionalPlayer, sm, eSrc)) return;
@@ -390,7 +427,7 @@ public class ActivatorEEFeature extends NewSActivator<ActivatorEEFeature, Activa
         SsomarDev.testMsg("Activator 6.5 "+(targetBlock != null), DEBUG);
         if (Option.getOptionWithTargetBlockSt().contains(optionFeature.getValue()) && targetBlock != null) {
             SsomarDev.testMsg("Activator 6.6", DEBUG);
-            if (!detailedTargetBlocks.isValid(targetBlock, oldMaterialTarget, eInfo.getOldStatesTargetBlock(), optionalPlayer, eSrc, sp))
+            if (!detailedTargetBlocks.isValid(targetBlock, optionalPlayer, eSrc, sp, oldMaterialTarget, eInfo.getOldStatesTargetBlock()))
                 return;
 
             if (!targetBlockConditions.verifConditions(targetBlock, optionalPlayer, sm, eSrc)) return;
@@ -625,6 +662,11 @@ public class ActivatorEEFeature extends NewSActivator<ActivatorEEFeature, Activa
             features.add(detailedCommands);
         }
 
+        if (Option.getOptionWithMessage().contains(optionFeature.getValue())) {
+            features.add(detailedMessagesEquals);
+            features.add(detailedMessagesContains);
+        }
+
         if (Option.getOptionWithDetailedItems().contains(optionFeature.getValue())) {
             features.add(detailedItems);
         }
@@ -713,6 +755,8 @@ public class ActivatorEEFeature extends NewSActivator<ActivatorEEFeature, Activa
                     a.setDetailedTargetEntities(detailedTargetEntities);
                     a.setDetailedDamageCauses(detailedDamageCauses);
                     a.setDetailedCommands(detailedCommands);
+                    a.setDetailedMessagesContains(detailedMessagesContains);
+                    a.setDetailedMessagesEquals(detailedMessagesEquals);
                     a.setDetailedItems(detailedItems);
 
                     a.setPlayerCommands(playerCommands);
@@ -766,6 +810,8 @@ public class ActivatorEEFeature extends NewSActivator<ActivatorEEFeature, Activa
 
         clone.setDetailedDamageCauses(detailedDamageCauses.clone(clone));
         clone.setDetailedCommands(detailedCommands.clone(clone));
+        clone.setDetailedMessagesContains(detailedMessagesContains.clone(clone));
+        clone.setDetailedMessagesEquals(detailedMessagesEquals.clone(clone));
         clone.setDetailedItems(detailedItems.clone(clone));
 
         clone.setPlayerCommands(playerCommands.clone(clone));
@@ -834,6 +880,11 @@ public class ActivatorEEFeature extends NewSActivator<ActivatorEEFeature, Activa
 
             if (Option.getOptionWithCommand().contains(optionFeature.getValue())) {
                 errors.addAll(detailedCommands.load(sPlugin, section, premiumLoading));
+            }
+
+            if (Option.getOptionWithMessage().contains(optionFeature.getValue())) {
+                errors.addAll(detailedMessagesContains.load(sPlugin, section, premiumLoading));
+                errors.addAll(detailedMessagesEquals.load(sPlugin, section, premiumLoading));
             }
 
             if (Option.getOptionWithDetailedItems().contains(optionFeature.getValue())) {
@@ -963,6 +1014,9 @@ public class ActivatorEEFeature extends NewSActivator<ActivatorEEFeature, Activa
         this.detailedDamageCauses = new ListDamageCauseFeature(this, "detailedDamageCauses", new ArrayList<>(), "Detailed DamageCauses", new String[]{"&7&oSpecify a list of damageCauses that", "&7&ocan be affected", "&7&oempty = all causes"}, Material.BONE, false, false);
 
         this.detailedCommands = new ListUncoloredStringFeature(this, "detailedCommands", new ArrayList<>(), "Detailed Commands", new String[]{"&7&oSpecify a list of commands that", "&7&ocan be affected", "&7&oempty = no command", "&7Example: &agamemode creative"}, GUI.WRITABLE_BOOK, false, false, Optional.empty());
+
+        this.detailedMessagesContains = new ListUncoloredStringFeature(this, "detailedMessagesContains", new ArrayList<>(), "Detailed Messages Contains", new String[]{"&7&oSpecify a list of messages accepted", "&7&o(Contains)", "&7&oempty = no command", "&7Example: &afriend"}, GUI.WRITABLE_BOOK, false, false, Optional.empty());
+        this.detailedMessagesEquals = new ListUncoloredStringFeature(this, "detailedMessagesEquals", new ArrayList<>(), "Detailed Messages Equals", new String[]{"&7&oSpecify a list of messages acceptes", "&7&o(Equals)", "&7&oempty = no command", "&7Example: &aHello my friend"}, GUI.WRITABLE_BOOK, false, false, Optional.empty());
 
         this.detailedItems = new DetailedItems(this);
 

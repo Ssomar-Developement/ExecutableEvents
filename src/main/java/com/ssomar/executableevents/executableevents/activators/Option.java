@@ -63,6 +63,7 @@ public enum Option implements SOption, Serializable {
     PLAYER_RECEIVE_HIT_GLOBAL("PLAYER_RECEIVE_HIT_GLOBAL"),
     PLAYER_RESPAWN("PLAYER_RESPAWN"),
     PLAYER_RIGHT_CLICK("PLAYER_RIGHT_CLICK"),
+    PLAYER_SEND_MESSAGE("PLAYER_SEND_MESSAGE"),
     PLAYER_SHEAR_ENTITY("PLAYER_SHEAR_ENTITY"),
     PLAYER_TARGETED_BY_AN_ENTITY("PLAYER_TARGETED_BY_AN_ENTITY"),
     PLAYER_TRAMPLE_CROP("PLAYER_TRAMPLE_CROP"),
@@ -161,6 +162,13 @@ public enum Option implements SOption, Serializable {
     public static List<Option> getOptionWithCommand() {
         List<Option> result = new ArrayList<>();
         result.add(Option.PLAYER_WRITE_COMMAND);
+
+        return result;
+    }
+
+    public static List<Option> getOptionWithMessage() {
+        List<Option> result = new ArrayList<>();
+        result.add(Option.PLAYER_SEND_MESSAGE);
 
         return result;
     }
@@ -380,6 +388,7 @@ public enum Option implements SOption, Serializable {
         result.add(Option.PLAYER_MOUNT);
         result.add(Option.PLAYER_WALK);
         result.add(Option.PLAYER_WRITE_COMMAND);
+        result.add(Option.PLAYER_SEND_MESSAGE);
         result.add(Option.PLAYER_RECEIVE_HIT_BY_ENTITY);
         result.add(Option.PLAYER_RECEIVE_HIT_BY_PLAYER);
         result.add(Option.PLAYER_RECEIVE_HIT_GLOBAL);

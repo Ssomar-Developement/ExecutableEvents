@@ -261,6 +261,9 @@ public class OptimizedEventsHandler {
                 case PLAYER_WRITE_COMMAND:
                     mainListerner = new PlayerWriteCommandEvent();
                     break;
+                case PLAYER_SEND_MESSAGE:
+                    mainListerner = new PlayerSendMessageEvent();
+                    break;
                 case PLAYER_RECEIVE_HIT_BY_ENTITY:
                     eventsName.add(EventName.PLAYER_RECEIVE_HIT_BY_ENTITY_EVENT);
                     eventsName.add(EventName.PROJECTILE_HIT_PLAYER);
