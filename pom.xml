@@ -124,19 +124,6 @@
                         </configuration>
                         <!--_AUTO_UPDATE_END_COMMENT_-->
                     </execution>
-                    <!--_AUTO_UPDATE_START_COMMENT_-->
-                    <execution>
-                        <id>build_dep_score</id>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>shade</goal>
-                        </goals>
-                        <configuration>
-                            <createDependencyReducedPom>false</createDependencyReducedPom>
-                            <outputFile>C:\Users\benja\OneDrive\Desktop\.jar\1.19.2 default\plugins\ExecutableEvents.jar</outputFile>
-                        </configuration>
-                    </execution>
-                    <!--_AUTO_UPDATE_END_COMMENT_-->
                 </executions>
             </plugin>
         </plugins>

@@ -528,7 +528,7 @@ public class ActivatorEEFeature extends NewSActivator<ActivatorEEFeature, Activa
 
         if (Option.getOptionWithPlayerSt().contains(optionFeature.getValue()) && player != null) {
             /* Add cooldown */ //
-            cooldown.addCooldown(player, executableEvent);
+            cooldown.addCooldown(player, executableEvent, sp);
             globalCooldown.addGlobalCooldown(executableEvent);
 
             /* Take required Things */ // TODO can be adapted to entities
@@ -538,7 +538,7 @@ public class ActivatorEEFeature extends NewSActivator<ActivatorEEFeature, Activa
 
         if (Option.getOptionWithEntitySt().contains(optionFeature.getValue()) && entity != null) {
             /* Add cooldown */
-            cooldown.addCooldown(entity, executableEvent);
+            cooldown.addCooldown(entity, executableEvent, sp);
             globalCooldown.addGlobalCooldown(executableEvent);
         }
 

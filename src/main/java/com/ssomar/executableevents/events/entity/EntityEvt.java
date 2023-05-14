@@ -1,13 +1,21 @@
 package com.ssomar.executableevents.events.entity;
 
 import com.ssomar.score.SsomarDev;
+import com.ssomar.sevents.events.player.kill.entity.PlayerKillEntityEvent;
+import org.bukkit.Bukkit;
+import org.bukkit.entity.ArmorStand;
+import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
+import org.bukkit.event.entity.EntityDamageByEntityEvent;
+import org.bukkit.event.entity.EntityDeathEvent;
 import org.bukkit.event.entity.EntityResurrectEvent;
+import org.bukkit.event.hanging.HangingBreakByEntityEvent;
 import org.bukkit.event.player.PlayerRespawnEvent;
 
 public class EntityEvt implements Listener {
+
 
     /*
      * @EventHandler public void
