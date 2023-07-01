@@ -5,25 +5,32 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="78b6b443-d76b-4b1c-85fa-0ca312706db9" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ssomar/executableevents/events/player/custom/PlayerPortalEvent.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ssomar/executableevents/events/optimize/OptimizedEventsHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ssomar/executableevents/events/optimize/OptimizedEventsHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ssomar/executableevents/executableevents/activators/Option.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ssomar/executableevents/executableevents/activators/Option.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/ExecutableEvents-1.1.59-shaded.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dependency-reduced-pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/dependency-reduced-pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/SCore.jar" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/SCore.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/ExecutableEvents-1.1.62-shaded.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/ExecutableEvents-42.42.42.jar" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/commands/CommandsClass.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/commands/CommandsClass.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/events/EventsHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/events/EventsHandler.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/events/EventsManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/events/EventsManager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/events/block/custom/CropGrow.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/events/block/custom/CropGrow.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/events/entity/EntityEvt.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/events/entity/EntityEvt.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/events/optimize/OptimizedEventsHandler$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/events/optimize/OptimizedEventsHandler$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/events/optimize/OptimizedEventsHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/events/optimize/OptimizedEventsHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/events/player/custom/PlayerAllClickEvent.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/events/player/custom/PlayerAllClickEvent.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/events/player/custom/PlayerHitEntityEvent.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/events/player/custom/PlayerHitEntityEvent.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/events/player/custom/PlayerHitPlayerEvent.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/events/player/custom/PlayerHitPlayerEvent.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/events/player/itemsadder/ItemsAdderPlayerBlockBreakListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/events/player/itemsadder/ItemsAdderPlayerBlockBreakListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/executableevents/ExecutableEventLoader.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/executableevents/ExecutableEventLoader.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/executableevents/activators/ActivatorEEFeature.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/executableevents/activators/ActivatorEEFeature.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/executableevents/activators/ActivatorEEFeatureEditor.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/executableevents/activators/ActivatorEEFeatureEditor.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/executableevents/activators/Option.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/executableevents/activators/Option.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/plugin.yml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/plugin.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/original-ExecutableEvents-1.1.59.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/original-ExecutableEvents-1.1.62.jar" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -85,24 +92,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "C:/Users/octav/Documents/GitHub/ExecutableEvents",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/octav/Documents/GitHub/ExecutableEvents&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\benja\Documents\GitHub\ExecutableEvents\src\main\java\com\ssomar\executableevents\events\entity\custom" />
@@ -643,6 +650,25 @@
       <workItem from="1680892750000" duration="3804000" />
       <workItem from="1680949968148" duration="5019000" />
       <workItem from="1681233674501" duration="751000" />
+      <workItem from="1682176233559" duration="853000" />
+      <workItem from="1682261877422" duration="599000" />
+      <workItem from="1682538737508" duration="3234000" />
+      <workItem from="1682612691718" duration="1379000" />
+      <workItem from="1683046951140" duration="1006000" />
+      <workItem from="1683130384371" duration="835000" />
+      <workItem from="1683134694623" duration="853000" />
+      <workItem from="1683368526112" duration="3041000" />
+      <workItem from="1683465592229" duration="728000" />
+      <workItem from="1683909763724" duration="5287000" />
+      <workItem from="1684167558502" duration="1610000" />
+      <workItem from="1684249229228" duration="5000" />
+      <workItem from="1684254355825" duration="672000" />
+      <workItem from="1685897110837" duration="645000" />
+      <workItem from="1686388084669" duration="1210000" />
+      <workItem from="1686669924381" duration="1204000" />
+      <workItem from="1686844749199" duration="2386000" />
+      <workItem from="1686984948589" duration="671000" />
+      <workItem from="1687857684858" duration="834000" />
     </task>
     <servers />
   </component>

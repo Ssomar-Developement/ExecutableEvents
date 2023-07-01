@@ -4,7 +4,7 @@
   <groupId>com.ssomar</groupId>
   <artifactId>ExecutableEvents</artifactId>
   <name>ExecutableEvents</name>
-  <version>1.1.59</version>
+  <version>1.1.94</version>
   <build>
     <sourceDirectory>${basedir}/src/main/java</sourceDirectory>
     <resources>

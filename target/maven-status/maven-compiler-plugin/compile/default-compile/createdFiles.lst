@@ -1,4 +1,5 @@
 com\ssomar\executableevents\configs\Message.class
+com\ssomar\executableevents\events\block\custom\BlockDryListener.class
 com\ssomar\executableevents\events\entity\custom\PlayerProjectileHitBlock.class
 com\ssomar\executableevents\events\player\custom\PlayerTargetedByAnEntityEvent.class
 com\ssomar\executableevents\events\player\custom\PlayerPickupItem.class
@@ -37,6 +38,7 @@ com\ssomar\executableevents\executableevents\activators\ActivatorEEFeatureEditor
 com\ssomar\executableevents\events\player\custom\PlayerAllClickEvent.class
 com\ssomar\executableevents\events\player\custom\PlayerReceiveHitByPlayerEvent.class
 com\ssomar\executableevents\events\entity\custom\EntityTameByEntityListener.class
+com\ssomar\executableevents\events\player\custom\ToDeleteTestMMOLIB.class
 com\ssomar\executableevents\ExecutableEvents.class
 com\ssomar\executableevents\events\entity\custom\EntityTargetEntityListener.class
 com\ssomar\executableevents\events\player\custom\PlayerClickOnPlayerEvent.class
@@ -80,13 +82,17 @@ com\ssomar\executableevents\events\player\custom\PlayerDesactiveSneakEvent.class
 com\ssomar\executableevents\events\player\custom\PlayerLeaveBedEvent.class
 com\ssomar\executableevents\events\player\custom\PlayerBlockPlaceEvent.class
 com\ssomar\executableevents\events\player\custom\PlayerConnectionEvent.class
+com\ssomar\executableevents\events\player\custom\PlayerSendMessageEvent.class
 com\ssomar\executableevents\events\entity\custom\EntityResurrectListener.class
 com\ssomar\executableevents\events\entity\custom\EntitySpawnListener.class
 com\ssomar\executableevents\executableevents\activators\ActivatorEEFeatureEditor.class
 com\ssomar\executableevents\executableevents\activators\ActivatorEEFeature.class
 com\ssomar\executableevents\events\player\custom\PlayerDropItemEvent.class
+com\ssomar\executableevents\events\entity\custom\EntityParticipateKillPlayerListener.class
 com\ssomar\executableevents\events\player\custom\PlayerRespawnListener.class
 com\ssomar\executableevents\events\entity\custom\EntityTargetPlayerListener.class
+com\ssomar\executableevents\events\player\custom\PlayerCustomLaunchEvent.class
+com\ssomar\executableevents\events\player\custom\PlayerParticipateKillPlayerListener.class
 com\ssomar\executableevents\executableevents\ExecutableEventEditor.class
 com\ssomar\executableevents\events\player\custom\PlayerChangeWorldEvent.class
 com\ssomar\executableevents\executableevents\manager\ExecutableEventsManager.class
@@ -95,8 +101,10 @@ com\ssomar\executableevents\events\player\custom\PlayerReceiveHitByEntityEvent.c
 com\ssomar\executableevents\events\world\custom\SpawnChangeListener.class
 com\ssomar\executableevents\executableevents\activators\Option.class
 com\ssomar\executableevents\events\entity\custom\EntityEnterBlockListener.class
+com\ssomar\executableevents\events\player\custom\PlayerParticipateKillEntityListener.class
 com\ssomar\executableevents\events\optimize\OptimizedEventsHandler$1.class
 com\ssomar\executableevents\events\entity\custom\EntityBreedListener.class
+com\ssomar\executableevents\events\entity\custom\EntityParticipateKillEntityListener.class
 com\ssomar\executableevents\events\entity\custom\EntityProjectileHitBlock.class
 com\ssomar\executableevents\commands\DebugMode.class
 com\ssomar\executableevents\events\player\custom\PlayerDeathEvent.class

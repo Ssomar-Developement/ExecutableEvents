@@ -413,7 +413,7 @@ public class ActivatorEEFeature extends NewSActivator<ActivatorEEFeature, Activa
 
         /* Verification of the world conditions */
         world = eInfo.getWorld().orElse(defautlWorld);
-        if (!worldConditions.verifCondition(world, optionalPlayer, sm, eSrc)) return;
+        if (!worldConditions.verifConditions(world, optionalPlayer, sm, eSrc)) return;
 
         /* Verification of the block conditions */
         if (Option.getOptionWithBlockSt().contains(optionFeature.getValue()) && block != null) {
@@ -437,7 +437,7 @@ public class ActivatorEEFeature extends NewSActivator<ActivatorEEFeature, Activa
 
         /* Verification of the player conditions */
         if (Option.getOptionWithPlayerSt().contains(optionFeature.getValue()) && player != null) {
-            if (!playerConditions.verifCondition(player, optionalPlayer, sm, eSrc)) return;
+            if (!playerConditions.verifConditions(player, optionalPlayer, sm, eSrc)) return;
         }
 
         /* This part was made for activator that doesnt contain a player, it allows the m to verify the placeholder conditions */
@@ -456,7 +456,7 @@ public class ActivatorEEFeature extends NewSActivator<ActivatorEEFeature, Activa
 
         /* Verification of the target player conditions */
         if (Option.getOptionWithTargetPlayerSt().contains(optionFeature.getValue()) && targetPlayer != null) {
-            if (!targetPlayerConditions.verifCondition(targetPlayer, optionalPlayer, sm, eSrc)) return;
+            if (!targetPlayerConditions.verifConditions(targetPlayer, optionalPlayer, sm, eSrc)) return;
         }
 
         SsomarDev.testMsg("Activator 7", DEBUG);
