@@ -11,7 +11,7 @@ import org.bukkit.event.Listener;
 import java.util.ArrayList;
 import java.util.Optional;
 
-public class PlayerCustomLaunchEvent implements Listener {
+public class PlayerCustomLaunchListener implements Listener {
 
     private static final Boolean DEBUG = false;
 

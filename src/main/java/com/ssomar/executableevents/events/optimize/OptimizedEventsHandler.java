@@ -88,6 +88,36 @@ public class OptimizedEventsHandler {
                     DynamicRegistration.getInstance().register(EventName.PLAYER_LEFT_CLICK_EVENT, ExecutableEvents.plugin);
                     mainListerner = new PlayerAllClickEvent();
                     break;
+                case PLAYER_BRUSH_BLOCK:
+                    mainListerner = new PlayerBrushBlockListener();
+                    break;
+                case PLAYER_BUCKET_ENTITY:
+                    mainListerner = new PlayerBucketEntityListener();
+                    break;
+                case PLAYER_HARVEST_BLOCK:
+                    mainListerner = new PlayerHarvestBlockListener();
+                    break;
+                case PLAYER_KICK:
+                    mainListerner = new PlayerKickListener();
+                    break;
+                case PLAYER_LAUNCH_PROJECTILE:
+                    mainListerner = new ProjectileLaunchListener();
+                    break;
+                case PLAYER_OPEN_INVENTORY:
+                    mainListerner = new PlayerOpenInventoryListener();
+                    break;
+                case PLAYER_RECEIVE_EFFECT:
+                    mainListerner = new PlayerReceiveEffectListener();
+                    break;
+                case PLAYER_REGAIN_HEALTH:
+                    mainListerner = new PlayerRegainHealthListener();
+                    break;
+                case PLAYER_RIPTIDE:
+                    mainListerner = new PlayerRiptideListener();
+                    break;
+                case PLAYER_SPAWN_CHANGE:
+                    mainListerner = new PlayerSpawnChangeListener();
+                    break;
                 case PLAYER_LEFT_CLICK:
                     eventsName.add(EventName.PLAYER_LEFT_CLICK_EVENT);
                     DynamicRegistration.getInstance().register(EventName.PLAYER_LEFT_CLICK_EVENT, ExecutableEvents.plugin);
@@ -97,7 +127,7 @@ public class OptimizedEventsHandler {
                     mainListerner = new PlayerConsumeEvent();
                     break;
                 case PLAYER_CUSTOM_LAUNCH:
-                    mainListerner = new PlayerCustomLaunchEvent();
+                    mainListerner = new PlayerCustomLaunchListener();
                     break;
                 case PLAYER_DROP_ITEM:
                     mainListerner = new PlayerDropItemEvent();
@@ -312,7 +342,7 @@ public class OptimizedEventsHandler {
                     break;
 
                 case PLAYER_PORTAL:
-                    mainListerner = new PlayerPortalEvent();
+                    mainListerner = new PlayerPortalListener();
                     break;
 
                 case PLAYER_PICKUP_ITEM:

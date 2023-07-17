@@ -20,14 +20,14 @@ public class PlayerBlockBreakEvent implements Listener {
     public void onBlockBreakEvent(BlockBreakEvent e) {
         boolean fromMineInCube = false;
         if (e instanceof BlockBreakEventExtension) {
-            fromMineInCube = ((BlockBreakEventExtension) e).isMineInCubeCommand();
+            fromMineInCube = ((BlockBreakEventExtension) e).isFromCustomBreakCommand();
         }
         EventInfo eInfo = new EventInfo(e);
         eInfo.setPlayer(Optional.of(e.getPlayer()));
         eInfo.setTargetBlock(Optional.of(e.getBlock()));
         eInfo.setOldMaterialTargetBlock(Optional.of(e.getBlock().getType()));
         if (!SCore.is1v12Less()) eInfo.setOldStatesTargetBlock(Optional.of(e.getBlock().getBlockData().getAsString(true)));
-        eInfo.setEventCallByMineinCube(fromMineInCube);
+        eInfo.setFromCustomBreakCommand(fromMineInCube);
         EventsManager.getInstance().activeOption(Option.PLAYER_BLOCK_BREAK, eInfo, new ArrayList<>());
     }
 }

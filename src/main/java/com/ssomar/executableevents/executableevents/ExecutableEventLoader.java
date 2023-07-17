@@ -100,7 +100,7 @@ public class ExecutableEventLoader extends NewSObjectLoader<ExecutableEvent> {
 
     @Override
     public void configVersionsConverter(File file) {
-
+        ConfigConverter.updateTo(file);
     }
 
     @Override

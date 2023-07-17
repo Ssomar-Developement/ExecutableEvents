@@ -15,7 +15,7 @@ import java.util.Optional;
 public class PlayerMountEvent implements Listener {
 
     @EventHandler
-    public void entityDismountEvent(EntityMountEvent e) {
+    public void entityMountEvent(EntityMountEvent e) {
         if (e.getEntity() instanceof Player) {
             EventInfo eInfo = new EventInfo(e);
             eInfo.setPlayer(Optional.of((Player) e.getEntity()));

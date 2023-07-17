@@ -236,7 +236,7 @@ public class ActivatorEEFeature extends NewSActivator<ActivatorEEFeature, Activa
 
         /* ActionInfo init */
         ActionInfo actionInfo = new ActionInfo(executableEvent.getDisplayName().getValue().orElse(""), sp);
-        actionInfo.setEventCallByMineInCube(eInfo.isEventCallByMineinCube());
+        actionInfo.setEventFromCustomBreakCommand(eInfo.isFromCustomBreakCommand());
         actionInfo.setSilenceOutput(silenceOutput.getValue());
         actionInfo.setVelocity(eInfo.getVelocity());
 
