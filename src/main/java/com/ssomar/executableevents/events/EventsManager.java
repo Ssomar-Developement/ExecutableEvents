@@ -39,7 +39,7 @@ public class EventsManager {
 
     public void activeOption(SOption o, EventInfo eInfo, List<ActivatorEEFeature> optionalWhitelist) {
 
-        SsomarDev.testMsg("activeOption", true);
+        SsomarDev.testMsg("activeOption", DEBUG);
         for (ExecutableEvent executableEvent : ExecutableEventsManager.getInstance().getAllObjects()) {
             if(!executableEvent.getEnabled().getValue()) continue;
 
@@ -48,13 +48,23 @@ public class EventsManager {
 
             if (!isValidWorld(eInfo.getWorld().orElse(world), executableEvent)) continue;
 
-            SsomarDev.testMsg("activeOption - isValidWorld >> "+executableEvent.getId(), true);
+            SsomarDev.testMsg("activeOption - isValidWorld >> "+executableEvent.getId(), DEBUG);
 
 
             for (NewSActivator activator : executableEvent.getActivators().getActivators().values()) {
-                if(!optionalWhitelist.isEmpty() && !optionalWhitelist.contains(activator)) continue;
+                if(!optionalWhitelist.isEmpty()) {
+                    if (activator.getOption().isLoopOption()) {
+                        boolean valid = false;
+                        for (ActivatorEEFeature activatorEE : optionalWhitelist) {
+                            if (activatorEE.isEqualsOrAClone(activator)) {
+                                valid = true;
+                            }
+                        }
+                        if (!valid) continue;
+                    }
+                }
                 if (activator.getOption().equals(o)) {
-                    SsomarDev.testMsg("activeOption - activator.getOption().equals(o)", true);
+                    SsomarDev.testMsg("activeOption - activator.getOption().equals(o)", DEBUG);
                     activator.run(executableEvent, eInfo);
                 }
             }

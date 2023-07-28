@@ -1,4 +1,4 @@
-errorMoney: "&4&l[ExecutableItems] &cYou dont have: &6%amount%$ &con your account ! &6(&eActually: &a%balance%$&6)"
+errorMoney: "&4&l[ExecutableItems] &cYou dont have: &6%amount%$ &con your account ! &6(&eCurrently: &a%balance%$&6)"
 newBalance: "&6&l[ExecutableItems] &eTransaction: &c-%amount%$ &eNew balance: &a%balance%$"
 receiveItem: "&8[&aExecutable&7Items&8] &aYou have received &a%quantity%x &e%item%"
 fullInventory: "&8[&4Executable&7Items&8] &cYour inventory is full, &e%item% &cgot dropped."

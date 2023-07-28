@@ -48,6 +48,8 @@ import com.ssomar.score.utils.messages.SendMessage;
 import com.ssomar.score.utils.placeholders.StringPlaceholder;
 import com.ssomar.score.utils.strings.StringConverter;
 import com.ssomar.sevents.events.player.fish.fish.PlayerFishFishEvent;
+import com.ssomar.sevents.events.player.kill.entity.PlayerKillEntityEvent;
+import com.ssomar.sevents.events.player.kill.player.PlayerKillPlayerEvent;
 import com.ssomar.sevents.events.projectile.hitentity.ProjectileHitEntityEvent;
 import com.ssomar.sevents.events.projectile.hitplayer.ProjectileHitPlayerEvent;
 import lombok.Getter;
@@ -143,6 +145,7 @@ public class ActivatorEEFeature extends NewSActivator<ActivatorEEFeature, Activa
     static void cancelEvent(Event e, boolean condition) {
         if (e != null && condition && e instanceof Cancellable) {
             if (e instanceof ProjectileHitEntityEvent) {
+
                 ((ProjectileHitEntityEvent) e).getEntity().remove();
             } else if (e instanceof ProjectileHitPlayerEvent) {
                 ((ProjectileHitPlayerEvent) e).getEntity().remove();
@@ -564,6 +567,15 @@ public class ActivatorEEFeature extends NewSActivator<ActivatorEEFeature, Activa
                 PlayerDeathEvent pDE = (PlayerDeathEvent) eSrc;
                 pDE.setDroppedExp(0);
                 pDE.getDrops().clear();
+            } else if (eSrc instanceof PlayerKillEntityEvent) {
+                PlayerKillEntityEvent pDE = (PlayerKillEntityEvent) eSrc;
+                pDE.setDroppedExp(0);
+                //SsomarDev.testMsg("KILL ENTITY "+pDE.getDrops(), true);
+                pDE.getDrops().clear();
+            } else if (eSrc instanceof PlayerKillPlayerEvent) {
+                PlayerKillPlayerEvent pDE = (PlayerKillPlayerEvent) eSrc;
+                pDE.setDroppedExp(0);
+                pDE.getDrops().clear();
             }
         }
 
@@ -940,7 +952,7 @@ public class ActivatorEEFeature extends NewSActivator<ActivatorEEFeature, Activa
 
         /* Add the activator to the LOOP Manager if its a LOOP activator and if it is not present (new activator) */
         if (optionFeature.getValue().isLoopOption()) {
-            SsomarDev.testMsg("delay >> " + loopFeatures.getDelay().getValue().get(), DEBUG);
+            SsomarDev.testMsg("delay >> " + loopFeatures.getDelay().getValue().get(), true);
             LoopManager.getInstance().addLoopActivator(this);
         } else LoopManager.getInstance().removeLoopActivator(this);
 
@@ -1066,11 +1078,18 @@ public class ActivatorEEFeature extends NewSActivator<ActivatorEEFeature, Activa
     @Override
     public void activateOptionGlobal(SOption sOption, EventInfo eventInfo, List<NewSActivator> list) {
         List<ActivatorEEFeature> activators = new ArrayList<>();
+        //SsomarDev.testMsg("activateOptionGlobal", true);
         for (NewSActivator activator : list) {
             if (activator instanceof ActivatorEEFeature) {
                 activators.add((ActivatorEEFeature) activator);
             }
         }
+
+        /*for (ActivatorEEFeature activator : activators) {
+            SsomarDev.testMsg("activator: "+activator.getId(), true);
+        }*/
+
+
         EventsManager.getInstance().activeOptionAllPlayer(sOption, eventInfo, activators);
     }
 }

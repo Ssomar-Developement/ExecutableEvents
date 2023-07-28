@@ -36,7 +36,7 @@ public class ExecutableEventsManager extends NewSObjectManager<ExecutableEvent> 
             /* Register only the activators from EI*/
             SOption option = activator.getOption();
             if (activator instanceof ActivatorEEFeature) {
-                ActivatorEEFeature activatorEI = (ActivatorEEFeature) activator;
+                ActivatorEEFeature activatorEE = (ActivatorEEFeature) activator;
                 OptimizedEventsHandler.getInstance().read(option);
             }
         }

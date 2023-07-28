@@ -1,5 +1,5 @@
 name: ExecutableEvents
-version: 2.0.0
+version: 2.0.3
 main: com.ssomar.executableevents.ExecutableEvents
 api-version: 1.13
 author: Ssomar

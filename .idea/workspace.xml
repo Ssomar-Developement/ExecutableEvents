@@ -5,43 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="78b6b443-d76b-4b1c-85fa-0ca312706db9" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ssomar/executableevents/events/player/custom/PlayerBrushBlockListener.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ssomar/executableevents/events/player/custom/PlayerBucketEntityListener.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ssomar/executableevents/events/player/custom/PlayerHarvestBlockListener.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ssomar/executableevents/events/player/custom/PlayerKickListener.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ssomar/executableevents/events/player/custom/PlayerOpenInventoryListener.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ssomar/executableevents/events/player/custom/PlayerReceiveEffectListener.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ssomar/executableevents/events/player/custom/PlayerRegainHealthListener.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ssomar/executableevents/events/player/custom/PlayerRiptideListener.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ssomar/executableevents/events/player/custom/PlayerSpawnChangeListener.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ssomar/executableevents/events/player/custom/ProjectileLaunchListener.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ssomar/executableevents/executableevents/ConfigConverter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.name" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dependency-reduced-pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/dependency-reduced-pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/ssomar/executableevents/events/EventsManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ssomar/executableevents/events/EventsManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ssomar/executableevents/events/optimize/OptimizedEventsHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ssomar/executableevents/events/optimize/OptimizedEventsHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ssomar/executableevents/events/player/custom/PlayerBlockBreakEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ssomar/executableevents/events/player/custom/PlayerBlockBreakEvent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ssomar/executableevents/events/player/custom/PlayerCustomLaunchEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ssomar/executableevents/events/player/custom/PlayerCustomLaunchListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ssomar/executableevents/events/player/custom/PlayerMountEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ssomar/executableevents/events/player/custom/PlayerMountEvent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ssomar/executableevents/events/player/custom/PlayerPortalEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ssomar/executableevents/events/player/custom/PlayerPortalListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ssomar/executableevents/executableevents/ExecutableEventLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ssomar/executableevents/executableevents/ExecutableEventLoader.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/ssomar/executableevents/executableevents/activators/ActivatorEEFeature.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ssomar/executableevents/executableevents/activators/ActivatorEEFeature.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ssomar/executableevents/executableevents/activators/Option.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ssomar/executableevents/executableevents/activators/Option.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ssomar/executableevents/executableevents/manager/ExecutableEventsManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ssomar/executableevents/executableevents/manager/ExecutableEventsManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/SCore.jar" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/SCore.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/ExecutableEvents-42.42.42.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/events/optimize/OptimizedEventsHandler$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/events/optimize/OptimizedEventsHandler$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/events/optimize/OptimizedEventsHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/events/optimize/OptimizedEventsHandler.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/events/player/custom/PlayerBlockBreakEvent.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/events/player/custom/PlayerBlockBreakEvent.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/events/player/custom/PlayerCustomLaunchEvent.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/events/player/custom/PlayerPortalEvent.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/executableevents/ExecutableEventLoader.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/executableevents/ExecutableEventLoader.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/locale/Locale_EN.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/locale/Locale_EN.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/ExecutableEvents-2.0.0-shaded.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/configs/locale/Locale_EN.yml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/configs/locale/Locale_EN.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/events/EventsManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/events/EventsManager.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/executableevents/activators/ActivatorEEFeature.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/executableevents/activators/ActivatorEEFeature.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/executableevents/activators/Option.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ssomar/executableevents/executableevents/activators/Option.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/plugin.yml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/plugin.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/original-ExecutableEvents-2.0.0.jar" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -689,6 +666,10 @@
       <workItem from="1689449264476" duration="170000" />
       <workItem from="1689449463725" duration="36000" />
       <workItem from="1689449504508" duration="3042000" />
+      <workItem from="1689968164780" duration="2852000" />
+      <workItem from="1690124982396" duration="1154000" />
+      <workItem from="1690296264613" duration="1351000" />
+      <workItem from="1690529334911" duration="3473000" />
     </task>
     <servers />
   </component>
