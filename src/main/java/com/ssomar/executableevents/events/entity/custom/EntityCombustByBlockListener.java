@@ -20,6 +20,7 @@ public class EntityCombustByBlockListener implements Listener {
         EventInfo eInfo = new EventInfo(e);
         eInfo.setEntity(Optional.of(e.getEntity()));
         Block block = e.getCombuster();
+        if (block == null) return;
         eInfo.setTargetBlock(Optional.of(block));
         eInfo.setOldMaterialTargetBlock(Optional.of(block.getType()));
         if (!SCore.is1v12Less()) eInfo.setOldStatesTargetBlock(Optional.of(block.getBlockData().getAsString(true)));

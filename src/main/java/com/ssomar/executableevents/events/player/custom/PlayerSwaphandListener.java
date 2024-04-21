@@ -5,17 +5,19 @@ import com.ssomar.executableevents.executableevents.activators.Option;
 import com.ssomar.score.sobject.sactivator.EventInfo;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
-import org.bukkit.event.player.PlayerQuitEvent;
+import org.bukkit.event.player.PlayerSpawnChangeEvent;
+import org.bukkit.event.player.PlayerSwapHandItemsEvent;
 
 import java.util.ArrayList;
 import java.util.Optional;
 
-public class PlayerDeconnectionEvent implements Listener {
+public class PlayerSwaphandListener implements Listener {
 
     @EventHandler
-    public void onPlayerQuitEvent(PlayerQuitEvent e) {
+    public void onPlayerSwapHandItemsEvent(PlayerSwapHandItemsEvent e) {
+
         EventInfo eInfo = new EventInfo(e);
         eInfo.setPlayer(Optional.of(e.getPlayer()));
-        EventsManager.getInstance().activeOption(Option.PLAYER_DISCONNECTION, eInfo, new ArrayList<>());
+        EventsManager.getInstance().activeOption(Option.PLAYER_SWAP_HAND, eInfo, new ArrayList<>());
     }
 }

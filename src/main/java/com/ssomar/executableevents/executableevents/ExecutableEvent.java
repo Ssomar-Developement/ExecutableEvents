@@ -9,15 +9,16 @@ import com.ssomar.score.api.executableitems.config.ExecutableItemInterface;
 import com.ssomar.score.configs.messages.MessageMain;
 import com.ssomar.score.features.FeatureInterface;
 import com.ssomar.score.features.FeatureParentInterface;
-import com.ssomar.score.features.custom.activators.activator.NewSActivator;
+import com.ssomar.score.features.custom.activators.activator.SActivator;
 import com.ssomar.score.features.custom.activators.group.ActivatorsFeature;
 import com.ssomar.score.features.types.BooleanFeature;
 import com.ssomar.score.features.types.ColoredStringFeature;
 import com.ssomar.score.features.types.MaterialFeature;
 import com.ssomar.score.features.types.list.ListWorldFeature;
 import com.ssomar.score.menu.GUI;
-import com.ssomar.score.sobject.HigherFormSObject;
-import com.ssomar.score.sobject.NewSObject;
+import com.ssomar.score.sobject.SObjectWithActivators;
+import com.ssomar.score.sobject.SObjectWithFile;
+import com.ssomar.score.sobject.SObjectWithFileEditable;
 import com.ssomar.score.sobject.menu.NewSObjectsManagerEditor;
 import com.ssomar.score.splugin.SPlugin;
 import com.ssomar.score.utils.FixedMaterial;
@@ -42,15 +43,13 @@ import java.util.*;
 
 @Getter
 @Setter
-public class ExecutableEvent extends NewSObject<ExecutableEvent, ExecutableEventEditor, ExecutableEventEditorManager> implements ExecutableItemInterface, HigherFormSObject {
+public class ExecutableEvent extends SObjectWithFileEditable<ExecutableEvent, ExecutableEventEditor, ExecutableEventEditorManager> implements ExecutableItemInterface, SObjectWithActivators {
 
     /**
      * Features
      **/
     BooleanFeature enabled;
     ColoredStringFeature displayName;
-    private String id;
-    private String path;
     private MaterialFeature editorIcon;
     /**
      * Activators / triggers
@@ -64,16 +63,12 @@ public class ExecutableEvent extends NewSObject<ExecutableEvent, ExecutableEvent
      * For the clone method, the parent is the real instance
      **/
     public ExecutableEvent(FeatureParentInterface parent, String id, String path) {
-        super(parent, "EE", "EE", new String[]{}, Material.EMERALD);
-        this.id = id;
-        this.path = path;
+        super(id, parent, "EE", "EE", new String[]{}, Material.EMERALD, path, ExecutableEventLoader.getInstance());
         reset();
     }
 
     public ExecutableEvent(String id, String path) {
-        super("EE", "EE", new String[]{}, Material.EMERALD);
-        this.id = id;
-        this.path = path;
+        super(id, null, "EE", "EE", new String[]{}, Material.EMERALD, path, ExecutableEventLoader.getInstance());
         reset();
     }
 
@@ -83,29 +78,19 @@ public class ExecutableEvent extends NewSObject<ExecutableEvent, ExecutableEvent
     }
 
     @Override
-    public String getId() {
-        return id;
-    }
-
-    @Override
-    public void setId(String s) {
-        this.id = s;
-    }
-
-    @Override
-    public String getPath() {
-        return path;
+    public ItemStack getIconItem() {
+        return new ItemStack(editorIcon.getValue().get());
     }
 
     @Override
     public List<String> getDescription() {
         List<String> description = new ArrayList<>();
-        description.add("§7ID: §f" + id);
+        description.add("§7ID: §f" + getId());
         description.add("§7Enabled: §f" + enabled.getValue());
         ;
-        description.add("§7Path: §f" + path);
+        description.add("§7Path: §f" + getPath());
         description.add("§7Activators: ");
-        for (NewSActivator activator : activatorsFeature.getActivators().values()) {
+        for (SActivator activator : activatorsFeature.getActivators().values()) {
             description.add("§7- " + activator.getId());
         }
         return description;
@@ -120,30 +105,9 @@ public class ExecutableEvent extends NewSObject<ExecutableEvent, ExecutableEvent
 
     @Override
     public String getParentInfo() {
-        return "(Event: " + id + ")";
+        return "(Event: " + getId() + ")";
     }
 
-    @Override
-    public ConfigurationSection getConfigurationSection() {
-        File file = getFile();
-
-        FileConfiguration config = (FileConfiguration) YamlConfiguration.loadConfiguration(file);
-        return config;
-    }
-
-    @Override
-    public File getFile() {
-        File file = new File(path);
-        if (!file.exists()) {
-            try {
-                new File(path).createNewFile();
-                file = ExecutableEventLoader.getInstance().searchFileOfObject(id);
-            } catch (IOException ignored) {
-                return null;
-            }
-        }
-        return file;
-    }
 
     @Override
     public void reload() {
@@ -159,7 +123,7 @@ public class ExecutableEvent extends NewSObject<ExecutableEvent, ExecutableEvent
 
     @Override
     public ExecutableEvent clone(FeatureParentInterface parent) {
-        ExecutableEvent clone = new ExecutableEvent(this, id, path);
+        ExecutableEvent clone = new ExecutableEvent(this, getId(), getPath());
         clone.setEnabled(enabled.clone(clone));
         clone.setEditorIcon(editorIcon.clone(clone));
         clone.setActivatorsFeature(activatorsFeature.clone(clone));
@@ -235,14 +199,14 @@ public class ExecutableEvent extends NewSObject<ExecutableEvent, ExecutableEvent
         if (player.isOp()) return true;
 
         if (PlaceholderAPI.isLotOfWork()) {
-            if (!(player.hasPermission("ExecutableItems.item." + id) || player.hasPermission("ei.item." + id) || player.hasPermission("ExecutableItems.item.*") || player.hasPermission("ei.item.*") || player.hasPermission("*"))) {
+            if (!(player.hasPermission("ExecutableItems.item." + getId()) || player.hasPermission("ei.item." + getId()) || player.hasPermission("ExecutableItems.item.*") || player.hasPermission("ei.item.*") || player.hasPermission("*"))) {
                 if (showError)
                     new SendMessage().sendMessage(player, StringConverter.replaceVariable(MessageMain.getInstance().getMessage(ExecutableEvents.plugin, Message.REQUIRE_PERMISSION), player.getName(), displayName.getValue().get(), "", 0));
                 return false;
             }
         } else {
             if (player.hasPermission("*")) return true;
-            if (!(player.hasPermission("ExecutableItems.item." + id) || player.hasPermission("ei.item." + id) || player.hasPermission("ExecutableItems.item.*") || player.hasPermission("ei.item.*")) || player.hasPermission("-ei.item." + id)) {
+            if (!(player.hasPermission("ExecutableItems.item." + getId()) || player.hasPermission("ei.item." + getId()) || player.hasPermission("ExecutableItems.item.*") || player.hasPermission("ei.item.*")) || player.hasPermission("-ei.item." + getId())) {
                 if (showError)
                     new SendMessage().sendMessage(player, StringConverter.replaceVariable(MessageMain.getInstance().getMessage(ExecutableEvents.plugin, Message.REQUIRE_PERMISSION), player.getName(), displayName.getValue().get(), "", 0));
                 return false;
@@ -273,9 +237,14 @@ public class ExecutableEvent extends NewSObject<ExecutableEvent, ExecutableEvent
     }
 
     @Override
-    public @Nullable NewSActivator getActivator(String s) {
-        for (NewSActivator acti : activatorsFeature.getActivators().values()) {
-            if (acti.getId().equalsIgnoreCase(id)) {
+    public ItemStack buildItem(int i, Optional<Player> optional, Map<String, Object> map) {
+        return new ItemStack(editorIcon.getValue().get());
+    }
+
+    @Override
+    public @Nullable SActivator getActivator(String s) {
+        for (SActivator acti : activatorsFeature.getActivators().values()) {
+            if (acti.getId().equalsIgnoreCase(getId())) {
                 return acti;
             }
         }
@@ -298,23 +267,49 @@ public class ExecutableEvent extends NewSObject<ExecutableEvent, ExecutableEvent
     }
 
     @Override
-    public void addCooldown(Player player, int i, boolean b) {
-
+    public void addCooldown(Player player,int cooldown, boolean isInTicks) {
+        for (SActivator activator : activatorsFeature.getActivators().values()) {
+            if (activator instanceof ActivatorEEFeature) {
+                ActivatorEEFeature activatorEE = (ActivatorEEFeature) activator;
+                activatorEE.getCooldown().addCooldown(player, this, cooldown, isInTicks);
+            }
+        }
     }
 
     @Override
-    public void addCooldown(Player player, int i, boolean b, String s) {
-
+    public void addCooldown(Player player, int cooldown, boolean isInTicks, String activatorId) {
+        for (SActivator activator : activatorsFeature.getActivators().values()) {
+            if (activator instanceof ActivatorEEFeature) {
+                if (activatorId.equalsIgnoreCase(activator.getId())) {
+                    ActivatorEEFeature activatorEE = (ActivatorEEFeature) activator;
+                    activatorEE.getCooldown().addCooldown(player, this, cooldown, isInTicks);
+                    break;
+                }
+            }
+        }
     }
 
     @Override
     public void addGlobalCooldown(int i, boolean b) {
-
+        for (SActivator activator : activatorsFeature.getActivators().values()) {
+            if (activator instanceof ActivatorEEFeature) {
+                ActivatorEEFeature activatorEI = (ActivatorEEFeature) activator;
+                activatorEI.getCooldown().addGlobalCooldown(i, b);
+            }
+        }
     }
 
     @Override
-    public void addGlobalCooldown(int i, boolean b, String s) {
-
+    public void addGlobalCooldown(int i, boolean b, String activatorId) {
+        for (SActivator activator : activatorsFeature.getActivators().values()) {
+            if (activator instanceof ActivatorEEFeature) {
+                if (activatorId.equalsIgnoreCase(activator.getId())) {
+                    ActivatorEEFeature activatorEE = (ActivatorEEFeature) activator;
+                    activatorEE.getCooldown().addGlobalCooldown(i, b);
+                    break;
+                }
+            }
+        }
     }
 
     public boolean hasCustomModel() {

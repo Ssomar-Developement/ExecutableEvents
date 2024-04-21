@@ -6,7 +6,7 @@ import com.ssomar.executableevents.executableevents.activators.ActivatorEEFeatur
 import com.ssomar.executableevents.executableevents.activators.Option;
 import com.ssomar.executableevents.executableevents.manager.ExecutableEventsManager;
 import com.ssomar.score.SsomarDev;
-import com.ssomar.score.features.custom.activators.activator.NewSActivator;
+import com.ssomar.score.features.custom.activators.activator.SActivator;
 import com.ssomar.score.sobject.sactivator.EventInfo;
 import com.ssomar.score.sobject.sactivator.SOption;
 import com.ssomar.score.usedapi.AllWorldManager;
@@ -29,7 +29,6 @@ public class EventsManager {
     }
 
     public void activeOptionAllPlayer(SOption o, EventInfo eInfo, List<ActivatorEEFeature> optionalWhitelist) {
-
        for (Player p : Bukkit.getOnlinePlayers()) {
             eInfo.setPlayer(Optional.of(p));
             eInfo.setWorld(Optional.of(p.getWorld()));
@@ -37,10 +36,12 @@ public class EventsManager {
         }
     }
 
+
     public void activeOption(SOption o, EventInfo eInfo, List<ActivatorEEFeature> optionalWhitelist) {
 
         SsomarDev.testMsg("activeOption", DEBUG);
         for (ExecutableEvent executableEvent : ExecutableEventsManager.getInstance().getAllObjects()) {
+
             if(!executableEvent.getEnabled().getValue()) continue;
 
             World world = Bukkit.getWorlds().get(0);
@@ -51,12 +52,14 @@ public class EventsManager {
             SsomarDev.testMsg("activeOption - isValidWorld >> "+executableEvent.getId(), DEBUG);
 
 
-            for (NewSActivator activator : executableEvent.getActivators().getActivators().values()) {
+            for (SActivator activator : executableEvent.getActivators().getActivators().values()) {
                 if(!optionalWhitelist.isEmpty()) {
+                    SsomarDev.testMsg("activeOption - !optionalWhitelist.isEmpty() >is loop tion ??? "+activator.getOption().isLoopOption(), DEBUG);
                     if (activator.getOption().isLoopOption()) {
                         boolean valid = false;
                         for (ActivatorEEFeature activatorEE : optionalWhitelist) {
                             if (activatorEE.isEqualsOrAClone(activator)) {
+                                SsomarDev.testMsg("activeOption - activatorEE.isEqualsOrAClone(activator)", DEBUG);
                                 valid = true;
                             }
                         }

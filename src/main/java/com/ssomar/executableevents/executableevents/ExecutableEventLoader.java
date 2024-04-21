@@ -5,9 +5,10 @@ import com.ssomar.executableevents.configs.GeneralConfig;
 import com.ssomar.executableevents.configs.api.PlaceholderAPI;
 import com.ssomar.executableevents.executableevents.manager.ExecutableEventsManager;
 import com.ssomar.executableevents.utils.ZipUtility;
-import com.ssomar.score.SCore;
 import com.ssomar.score.events.loop.LoopManager;
-import com.ssomar.score.sobject.NewSObjectLoader;
+import com.ssomar.score.sobject.SObjectWithFileLoader;
+import com.ssomar.score.utils.logging.Utils;
+import com.ssomar.score.utils.strings.StringConverter;
 import lombok.Getter;
 import lombok.Setter;
 import org.bukkit.configuration.file.FileConfiguration;
@@ -17,7 +18,7 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
 
-public class ExecutableEventLoader extends NewSObjectLoader<ExecutableEvent> {
+public class ExecutableEventLoader extends SObjectWithFileLoader<ExecutableEvent> {
 
     private final static String DEFAULT = "Default";
     private static ExecutableEventLoader instance;
@@ -41,10 +42,10 @@ public class ExecutableEventLoader extends NewSObjectLoader<ExecutableEvent> {
         LoopManager.getInstance().resetLoopActivators(ExecutableEvents.plugin);
         ExecutableEventsManager.getInstance().setDefaultObjects(new ArrayList<>());
         //if (!GeneralConfig.getInstance().isDisableTestItems()) {
-            if (PlaceholderAPI.isLotOfWork()) {
-                this.loadDefaultPremiumObjects(this.getPremiumDefaultObjectsName());
-            }
-            this.loadDefaultEncodedPremiumObjects(this.getPremiumPackObjectsName());
+        if (PlaceholderAPI.isLotOfWork()) {
+            this.loadDefaultPremiumObjects(this.getPremiumDefaultObjectsName());
+        }
+        this.loadDefaultEncodedPremiumObjects(this.getPremiumPackObjectsName());
         //}
 
         // ITEMS CONFIG
@@ -54,7 +55,7 @@ public class ExecutableEventLoader extends NewSObjectLoader<ExecutableEvent> {
         File itemsDirectory;
         if ((itemsDirectory = new File(ExecutableEvents.getPluginSt().getDataFolder() + "/events")).exists()) {
             /* create backup at each restart / reload but not at /ei reload */
-            if (createBackup && !GeneralConfig.getInstance().isDisableBackup()) {
+            if (createBackup && !GeneralConfig.getInstance().getBooleanSetting(GeneralConfig.Setting.disableBackup.name())) {
                 ZipUtility zipUtility = new ZipUtility();
                 try {
                     DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy_MM_dd-HH_mm_ss");
@@ -68,6 +69,7 @@ public class ExecutableEventLoader extends NewSObjectLoader<ExecutableEvent> {
             }
 
             this.loadObjectsInFolder(itemsDirectory, !PlaceholderAPI.isLotOfWork());
+            Utils.sendConsoleMsg(ExecutableEvents.NAME_COLOR + " &7Amount of Executable Events configurations loaded: &e" + getCpt());
         } else {
             this.createDefaultObjectsFile(!PlaceholderAPI.isLotOfWork());
             this.load();
@@ -100,7 +102,8 @@ public class ExecutableEventLoader extends NewSObjectLoader<ExecutableEvent> {
 
     @Override
     public void configVersionsConverter(File file) {
-        ConfigConverter.updateTo(file);
+        // disabled
+        // ConfigConverter.updateTo(file);
     }
 
     @Override
@@ -112,7 +115,7 @@ public class ExecutableEventLoader extends NewSObjectLoader<ExecutableEvent> {
 
         if (showError) {
             for (String s : errors) {
-                ExecutableEvents.plugin.getServer().getLogger().severe(s);
+                Utils.sendConsoleMsg(ExecutableEvents.NAME_COLOR + " " + StringConverter.coloredString(s));
             }
         }
         return Optional.ofNullable(item);

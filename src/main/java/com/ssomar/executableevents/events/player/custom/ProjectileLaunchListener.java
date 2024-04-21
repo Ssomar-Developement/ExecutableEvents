@@ -24,30 +24,17 @@ public class ProjectileLaunchListener implements Listener {
     @EventHandler
     public void onProjectileLaunch(EntityShootBowEvent e) {
         SsomarDev.testMsg("LAUNCH ARROW", DEBUG);
-        /* e.getconsummalbe is not in 1.15 */
-        if (e.getEntity() instanceof Player && SCore.is1v16Plus()) {
-
+        if (e.getEntity() instanceof Player) {
             /* add bow force to the entity */
             e.getProjectile().setMetadata("bowForce", new FixedMetadataValue(ExecutableEvents.plugin, e.getForce()));
-
-            Player p = (Player) e.getEntity();
-            Projectile projectile = (Projectile) e.getProjectile();
-
-            EventInfo eInfo = new EventInfo(e);
-            eInfo.setPlayer(Optional.of(p));
-            eInfo.setProjectile(Optional.of(projectile));
-            if (projectile.hasMetadata("bowForce")) {
-                eInfo.setBowForce(Optional.of(projectile.getMetadata("bowForce").get(0).asFloat()));
-            }
-            eInfo.setVelocity(Optional.of(projectile.getVelocity()));
-            eInfo.setTargetEntity(Optional.of(projectile));
-            EventsManager.getInstance().activeOption(Option.PLAYER_LAUNCH_PROJECTILE, eInfo, new ArrayList<>());
         }
     }
 
 
     @EventHandler
     public void onProjectileLaunchEvent(ProjectileLaunchEvent e) {
+
+        SsomarDev.testMsg("LAUNCH PROJECTILE", DEBUG);
 
         if (e.getEntity().getShooter() instanceof Player) {
 

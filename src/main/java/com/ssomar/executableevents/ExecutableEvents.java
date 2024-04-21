@@ -1,6 +1,7 @@
 package com.ssomar.executableevents;
 
 
+import com.ssomar.executableevents.api.load.ExecutableEventsPostLoadEvent;
 import com.ssomar.executableevents.commands.CommandsClass;
 import com.ssomar.executableevents.configs.GeneralConfig;
 import com.ssomar.executableevents.configs.Message;
@@ -9,7 +10,7 @@ import com.ssomar.executableevents.events.EventsHandler;
 import com.ssomar.executableevents.events.optimize.OptimizedEventsHandler;
 import com.ssomar.executableevents.executableevents.ExecutableEventLoader;
 import com.ssomar.score.SCore;
-import com.ssomar.score.api.executableitems.load.ExecutableItemsPostLoadEvent;
+import com.ssomar.score.config.Config;
 import com.ssomar.score.configs.messages.MessageInterface;
 import com.ssomar.score.configs.messages.MessageMain;
 import com.ssomar.score.splugin.SPlugin;
@@ -91,7 +92,7 @@ public class ExecutableEvents extends JavaPlugin implements SPlugin {
                         String name = f.getName();
                         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy_MM_dd-HH_mm_ss");
                         LocalDateTime now = LocalDateTime.now();
-                        if (LocalDateTime.from(dtf.parse(name)).plusDays(GeneralConfig.getInstance().getDeleteBackupsAfterDays()).isBefore(now)) {
+                        if (LocalDateTime.from(dtf.parse(name)).plusDays(GeneralConfig.getInstance().getIntSetting(GeneralConfig.Setting.deleteBackupsAfterDays.name(), 30)).isBefore(now)) {
                             //System.out.println("DELETE BACKUP: " + f.getName());
                             for (File f2 : f.listFiles()) {
                                 f2.delete();
@@ -123,7 +124,7 @@ public class ExecutableEvents extends JavaPlugin implements SPlugin {
 
         sendPluginName();
 
-        Bukkit.getPluginManager().callEvent(new ExecutableItemsPostLoadEvent());
+        Bukkit.getPluginManager().callEvent(new ExecutableEventsPostLoadEvent());
     }
 
     public void onReload(boolean PluginCommand) {
@@ -167,7 +168,12 @@ public class ExecutableEvents extends JavaPlugin implements SPlugin {
 
     @Override
     public String getNameDesign() {
-        return "[ExecutableEvents]";
+        return NAME_COLOR;
+    }
+
+    @Override
+    public String getNameDesignWithBrackets() {
+        return "&d[" + NAME_COLOR + "]";
     }
 
     @Override
@@ -186,6 +192,11 @@ public class ExecutableEvents extends JavaPlugin implements SPlugin {
         return "EE";
     }
 
+    @Override
+    public String getNameWithBrackets() {
+        return "["+NAME+"]";
+    }
+
 
     @Override
     public boolean isLotOfWork() {
@@ -195,6 +206,11 @@ public class ExecutableEvents extends JavaPlugin implements SPlugin {
     @Override
     public int getMaxSObjectsLimit() {
         return 8;
+    }
+
+    @Override
+    public Config getPluginConfig() {
+        return GeneralConfig.getInstance();
     }
 
 

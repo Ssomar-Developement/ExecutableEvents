@@ -9,6 +9,7 @@ import org.bukkit.Bukkit;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
+import org.bukkit.scheduler.BukkitRunnable;
 
 import java.util.ArrayList;
 import java.util.Optional;
@@ -17,12 +18,16 @@ public class PlayerFirstConnectionEvent implements Listener {
 
     @EventHandler
     public void onPlayerJoinEvent(PlayerJoinEvent e) {
-        Bukkit.getScheduler().runTaskLater(SCore.plugin, () -> {
-            //SsomarDev.testMsg("onPlayerJoinEvent >> "+e.getPlayer().hasPlayedBefore(), true);
-            if(e.getPlayer().hasPlayedBefore()) return;
-            EventInfo eInfo = new EventInfo(e);
-            eInfo.setPlayer(Optional.of(e.getPlayer()));
-            EventsManager.getInstance().activeOption(Option.PLAYER_FIRST_CONNECTION, eInfo, new ArrayList<>());
-        }, 5);
+        BukkitRunnable r = new BukkitRunnable() {
+            @Override
+            public void run() {
+                //SsomarDev.testMsg("onPlayerJoinEvent >> "+e.getPlayer().hasPlayedBefore(), true);
+                if(e.getPlayer().hasPlayedBefore()) return;
+                EventInfo eInfo = new EventInfo(e);
+                eInfo.setPlayer(Optional.of(e.getPlayer()));
+                EventsManager.getInstance().activeOption(Option.PLAYER_FIRST_CONNECTION, eInfo, new ArrayList<>());
+            }
+        };
+        SCore.schedulerHook.runEntityTask(r, null, e.getPlayer(), 5);
     }
 }

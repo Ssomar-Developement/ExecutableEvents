@@ -5,16 +5,17 @@ import com.ssomar.executableevents.executableevents.activators.Option;
 import com.ssomar.score.sobject.sactivator.EventInfo;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
+import org.bukkit.event.player.PlayerQuitEvent;
 
 import java.util.ArrayList;
 import java.util.Optional;
 
-public class PlayerDesactiveSneakEvent implements Listener {
+public class PlayerDisconnectionEvent implements Listener {
 
     @EventHandler
-    public void playerDesactiveSneakEvent(com.ssomar.sevents.events.player.sneak.desactive.PlayerDesactiveSneakEvent e) {
+    public void onPlayerQuitEvent(PlayerQuitEvent e) {
         EventInfo eInfo = new EventInfo(e);
         eInfo.setPlayer(Optional.of(e.getPlayer()));
-        EventsManager.getInstance().activeOption(Option.PLAYER_DISABLE_SNEAK, eInfo, new ArrayList<>());
+        EventsManager.getInstance().activeOption(Option.PLAYER_DISCONNECTION, eInfo, new ArrayList<>());
     }
 }

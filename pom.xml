@@ -112,6 +112,19 @@
                         <!--_AUTO_UPDATE_END_COMMENT_-->
                     </execution>
                     <execution>
+                        <id>build_dep_score</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>shade</goal>
+                        </goals>
+                        <!--_AUTO_UPDATE_START_COMMENT_-->
+                        <configuration>
+                            <createDependencyReducedPom>false</createDependencyReducedPom>
+                            <outputFile> C:\Users\octav\Documents\GitHub\SCore\src\main\resources\ExecutableEvents.jar</outputFile>
+                        </configuration>
+                        <!--_AUTO_UPDATE_END_COMMENT_-->
+                    </execution>
+                    <execution>
                         <id>build_folia</id>
                         <phase>package</phase>
                         <goals>

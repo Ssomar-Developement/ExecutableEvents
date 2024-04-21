@@ -21,8 +21,8 @@ public class PlayerLeftClickEvent implements Listener {
             eInfo.setTargetBlock(Optional.of(e.getBlock()));
             eInfo.setOldMaterialTargetBlock(Optional.of(e.getBlock().getType()));
             if (!SCore.is1v12Less()) eInfo.setOldStatesTargetBlock(Optional.of(e.getBlock().getBlockData().getAsString(true)));
-
             eInfo.setDetailedInteraction(Optional.of(DetailedInteraction.BLOCK));
+            eInfo.setBlockface(Optional.of(e.getBlockFace().name()));
         } else eInfo.setDetailedInteraction(Optional.of(DetailedInteraction.AIR));
         EventsManager.getInstance().activeOption(Option.PLAYER_LEFT_CLICK, eInfo, new ArrayList<>());
     }

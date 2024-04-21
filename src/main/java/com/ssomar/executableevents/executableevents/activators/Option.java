@@ -13,18 +13,15 @@ public enum Option implements SOption, Serializable {
     BLOCK_DRY("BLOCK_DRY"),
     ITEMSADDER_PLAYER_BLOCK_BREAK("ITEMSADDER_PLAYER_BLOCK_BREAK"),
     CROP_GROW("CROP_GROW"),
-    PLAYER_ACTIVE_FLY("PLAYER_ACTIVE_FLY"),
-    PLAYER_ACTIVE_SNEAK("PLAYER_ACTIVE_SNEAK"),
-    PLAYER_ACTIVE_SPRINT("PLAYER_ACTIVE_SPRINT"),
+
+    LOOP_SERVER("LOOP_SERVER"),
     PLAYER_ALL_CLICK("PLAYER_ALL_CLICK"),
     PLAYER_BED_ENTER("PLAYER_BED_ENTER"),
     PLAYER_BED_LEAVE("PLAYER_BED_LEAVE"),
     PLAYER_BEFORE_DEATH("PLAYER_BEFORE_DEATH"),
     PLAYER_BLOCK_BREAK("PLAYER_BLOCK_BREAK"),
     PLAYER_BLOCK_PLACE("PLAYER_BLOCK_PLACE"),
-
     PLAYER_BRUSH_BLOCK("PLAYER_BRUSH_BLOCK"),
-
     PLAYER_BUCKET_ENTITY("PLAYER_BUCKET_ENTITY"),
     PLAYER_CHANGE_WORLD("PLAYER_CHANGE_WORLD"),
     PLAYER_CLICK_ON_ENTITY("PLAYER_CLICK_ON_ENTITY"),
@@ -34,6 +31,8 @@ public enum Option implements SOption, Serializable {
     PLAYER_CUSTOM_LAUNCH("PLAYER_CUSTOM_LAUNCH"),
     PLAYER_DEATH("PLAYER_DEATH"),
     PLAYER_DISCONNECTION("PLAYER_DISCONNECTION"),
+    PLAYER_DISABLE_FLY("PLAYER_DISABLE_FLY"),
+    PLAYER_DISABLE_GLIDE("PLAYER_DISABLE_GLIDE"),
     PLAYER_DISABLE_SNEAK("PLAYER_DISABLE_SNEAK"),
     PLAYER_DISABLE_SPRINT("PLAYER_DISABLE_SPRINT"),
     PLAYER_DISMOUNT("PLAYER_DISMOUNT"),
@@ -41,8 +40,13 @@ public enum Option implements SOption, Serializable {
     PLAYER_MOUNT("PLAYER_MOUNT"),
     PLAYER_DROP_ITEM("PLAYER_DROP_ITEM"),
     PLAYER_EDIT_BOOK("PLAYER_EDIT_BOOK"),
+    PLAYER_ENABLE_FLY("PLAYER_ENABLE_FLY", "PLAYER_ACTIVE_FLY"),
+    PLAYER_ENABLE_GLIDE("PLAYER_ENABLE_GLIDE"),
+    PLAYER_ENABLE_SNEAK("PLAYER_ENABLE_SNEAK", "PLAYER_ACTIVE_SNEAK"),
+    PLAYER_ENABLE_SPRINT("PLAYER_ENABLE_SPRINT", "PLAYER_ACTIVE_SPRINT"),
     PLAYER_ENTER_IN_HIS_LAND("PLAYER_ENTER_IN_HIS_LAND"),
     PLAYER_ENTER_IN_HIS_PLOT("PLAYER_ENTER_IN_HIS_PLOT"),
+    PLAYER_ENTITY_PLACE("PLAYER_ENTITY_PLACE"),
     PLAYER_FERTILIZE_BLOCK("PLAYER_FERTILIZE_BLOCK"), /* NOT COMPATIBLE 1.12 */
     PLAYER_FILL_BUCKET("PLAYER_FILL_BUCKET"),
     PLAYER_FIRST_CONNECTION("PLAYER_FIRST_CONNECTION"),
@@ -79,6 +83,7 @@ public enum Option implements SOption, Serializable {
     PLAYER_SEND_MESSAGE("PLAYER_SEND_MESSAGE"),
     PLAYER_SHEAR_ENTITY("PLAYER_SHEAR_ENTITY"),
     PLAYER_SPAWN_CHANGE("PLAYER_SPAWN_CHANGE"),
+    PLAYER_SWAP_HAND("PLAYER_SWAP_HAND"),
     PLAYER_TARGETED_BY_AN_ENTITY("PLAYER_TARGETED_BY_AN_ENTITY"),
 
     PLAYER_TELEPORT("PLAYER_TELEPORT"),
@@ -101,6 +106,7 @@ public enum Option implements SOption, Serializable {
     ENTITY_PROJECTILE_HIT_PLAYER("ENTITY_PROJECTILE_HIT_PLAYER"),
 
     ENTITY_SPAWN("ENTITY_SPAWN"),
+    ENTITY_BEFORE_DEATH("ENTITY_BEFORE_DEATH"),
     ENTITY_BREAK_DOOR("ENTITY_BREAK_DOOR"),
     ENTITY_BREED("ENTITY_BREED"),
     ENTITY_CHANGE_BLOCK("ENTITY_CHANGE_BLOCK"),
@@ -177,6 +183,7 @@ public enum Option implements SOption, Serializable {
     public static List<Option> getOptionWithCommand() {
         List<Option> result = new ArrayList<>();
         result.add(Option.PLAYER_WRITE_COMMAND);
+
 
         return result;
     }
@@ -256,6 +263,7 @@ public enum Option implements SOption, Serializable {
     public static List<SOption> getOptionWithTargetEntitySt() {
         List<SOption> result = new ArrayList<>();
         result.add(Option.PLAYER_BUCKET_ENTITY);
+        result.add(Option.PLAYER_ENTITY_PLACE);
         result.add(Option.PLAYER_KILL_ENTITY);
         result.add(Option.PLAYER_CLICK_ON_ENTITY);
         result.add(Option.PLAYER_CUSTOM_LAUNCH);
@@ -318,6 +326,7 @@ public enum Option implements SOption, Serializable {
 
 
         result.add(Option.ENTITY_SPAWN);
+        result.add(Option.ENTITY_BEFORE_DEATH);
         result.add(Option.ENTITY_BREAK_DOOR);
         result.add(Option.ENTITY_BREED);
         result.add(Option.ENTITY_CHANGE_BLOCK);
@@ -351,7 +360,15 @@ public enum Option implements SOption, Serializable {
 
     public static List<SOption> getOptionWithBlockSt() {
         List<SOption> result = new ArrayList<>();
-        //TODO : Add all options with player
+        //TODO : Add all options with block
+        result.add(Option.BLOCK_DRY);
+        result.add(Option.CROP_GROW);
+        return result;
+    }
+
+    public static List<SOption> getOptionWithConsoleOnlySt() {
+        List<SOption> result = new ArrayList<>();
+        result.add(Option.LOOP_SERVER);
         return result;
     }
 
@@ -364,14 +381,17 @@ public enum Option implements SOption, Serializable {
 
         result.add(Option.ITEMSADDER_PLAYER_BLOCK_BREAK);
         result.add(Option.PLAYER_ALL_CLICK);
-        result.add(Option.PLAYER_ACTIVE_FLY);
-        result.add(Option.PLAYER_ACTIVE_SNEAK);
-        result.add(Option.PLAYER_ACTIVE_SPRINT);
+        result.add(Option.PLAYER_ENABLE_FLY);
+        result.add(Option.PLAYER_ENABLE_GLIDE);
+        result.add(Option.PLAYER_ENABLE_SNEAK);
+        result.add(Option.PLAYER_ENABLE_SPRINT);
         result.add(Option.PLAYER_BED_ENTER);
         result.add(Option.PLAYER_BED_LEAVE);
         result.add(Option.PLAYER_BEFORE_DEATH);
         result.add(Option.PLAYER_BLOCK_BREAK);
         result.add(Option.PLAYER_BLOCK_PLACE);
+        result.add(Option.PLAYER_BRUSH_BLOCK);
+        result.add(Option.PLAYER_BUCKET_ENTITY);
         result.add(Option.PLAYER_CHANGE_WORLD);
         result.add(Option.PLAYER_CLICK_ON_ENTITY);
         result.add(Option.PLAYER_CLICK_ON_PLAYER);
@@ -381,6 +401,8 @@ public enum Option implements SOption, Serializable {
         result.add(Option.PLAYER_FOOD_CHANGE);
         result.add(Option.PLAYER_DEATH);
         result.add(Option.PLAYER_DISCONNECTION);
+        result.add(Option.PLAYER_DISABLE_FLY);
+        result.add(Option.PLAYER_DISABLE_GLIDE);
         result.add(Option.PLAYER_DISABLE_SNEAK);
         result.add(Option.PLAYER_DISABLE_SPRINT);
         result.add(Option.PLAYER_DISMOUNT);
@@ -388,6 +410,7 @@ public enum Option implements SOption, Serializable {
         result.add(Option.PLAYER_EDIT_BOOK);
         result.add(Option.PLAYER_ENTER_IN_HIS_LAND);
         result.add(Option.PLAYER_ENTER_IN_HIS_PLOT);
+        result.add(Option.PLAYER_ENTITY_PLACE);
         result.add(Option.PLAYER_FERTILIZE_BLOCK);
         result.add(Option.PLAYER_FILL_BUCKET);
         result.add(Option.PLAYER_FIRST_CONNECTION);
@@ -396,30 +419,39 @@ public enum Option implements SOption, Serializable {
         result.add(Option.PLAYER_FISH_FISH);
         result.add(Option.PLAYER_FISH_NOTHING);
         result.add(Option.PLAYER_FISH_PLAYER);
+        result.add(Option.PLAYER_HARVEST_BLOCK);
         result.add(Option.PLAYER_HIT_ENTITY);
         result.add(Option.PLAYER_HIT_PLAYER);
         result.add(Option.PLAYER_ITEM_BREAK);
         result.add(Option.PLAYER_JUMP);
+        result.add(Option.PLAYER_KICK);
         result.add(Option.PLAYER_KILL_ENTITY);
         result.add(Option.PLAYER_KILL_PLAYER);
+        result.add(Option.PLAYER_LAUNCH_PROJECTILE);
         result.add(Option.PLAYER_LEAVE_HIS_LAND);
         result.add(Option.PLAYER_LEAVE_HIS_PLOT);
         result.add(Option.PLAYER_LEFT_CLICK);
         result.add(Option.PLAYER_MOUNT);
+        result.add(Option.PLAYER_OPEN_INVENTORY);
         result.add(Option.PLAYER_WALK);
         result.add(Option.PLAYER_WRITE_COMMAND);
         result.add(Option.PLAYER_SEND_MESSAGE);
+        result.add(Option.PLAYER_RECEIVE_EFFECT);
         result.add(Option.PLAYER_RECEIVE_HIT_BY_ENTITY);
         result.add(Option.PLAYER_RECEIVE_HIT_BY_PLAYER);
         result.add(Option.PLAYER_RECEIVE_HIT_GLOBAL);
+        result.add(Option.PLAYER_REGAIN_HEALTH);
         result.add(Option.PLAYER_RESPAWN);
         result.add(Option.PLAYER_RIGHT_CLICK);
+        result.add(Option.PLAYER_RIPTIDE);
         result.add(Option.PLAYER_SHEAR_ENTITY);
+        result.add(Option.PLAYER_SPAWN_CHANGE);
         result.add(Option.PLAYER_TARGETED_BY_AN_ENTITY);
         result.add(Option.PLAYER_TRAMPLE_CROP);
         result.add(Option.PLAYER_TELEPORT);
         result.add(Option.PLAYER_PICKUP_ITEM);
         result.add(Option.PLAYER_PORTAL);
+        result.add(Option.PLAYER_SWAP_HAND);
 
         result.add(Option.PLAYER_PROJECTILE_HIT_BLOCK);
         result.add(Option.PLAYER_PROJECTILE_HIT_PLAYER);
@@ -550,7 +582,11 @@ public enum Option implements SOption, Serializable {
 
     @Override
     public boolean isLoopOption() {
-        return SOption.super.isLoopOption();
+        return SOption.super.isLoopOption() || isLoopOptionSt();
+    }
+
+    private boolean isLoopOptionSt() {
+        return this == Option.LOOP_SERVER;
     }
 
 }

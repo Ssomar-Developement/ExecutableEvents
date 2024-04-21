@@ -1,6 +1,8 @@
 package com.ssomar.executableevents.executableevents.activators;
 
 import com.ssomar.score.features.editor.FeatureEditorInterface;
+import com.ssomar.score.languages.messages.TM;
+import com.ssomar.score.languages.messages.Text;
 import com.ssomar.score.menu.GUI;
 import com.ssomar.score.utils.emums.TypeTarget;
 
@@ -42,9 +44,12 @@ public class ActivatorEEFeatureEditor extends FeatureEditorInterface<ActivatorEE
             activator.getDetailedItems().initAndUpdateItemParentEditor(this, 14);
         }
 
-        if (Option.getOptionWithPlayerSt().contains(activator.getOption())) {
+        if (Option.getOptionWithConsoleOnlySt().contains(activator.getOption())) {
+            activator.getConsoleCommands().initAndUpdateItemParentEditor(this, 8);
+        } else if (Option.getOptionWithPlayerSt().contains(activator.getOption())) {
             activator.getPlayerConditions().initAndUpdateItemParentEditor(this, 7);
             activator.getPlayerCommands().initAndUpdateItemParentEditor(this, 8);
+            activator.getCustomConditions().initAndUpdateItemParentEditor(this, 43);
         } else if (Option.getOptionWithEntitySt().contains(activator.getOption())) {
             activator.getEntityConditions().initAndUpdateItemParentEditor(this, 7);
             activator.getEntityCommands().initAndUpdateItemParentEditor(this, 8);
@@ -95,10 +100,10 @@ public class ActivatorEEFeatureEditor extends FeatureEditorInterface<ActivatorEE
         createItem(RED, 1, 45, GUI.BACK, false, false);
 
         // Reset menu
-        createItem(ORANGE, 1, 46, GUI.RESET, false, false, "", "&c&oClick here to reset");
+        createItem(ORANGE, 1, 46, GUI.RESET, false, false, TM.gA(Text.EDITOR_RESET_DESCRIPTION));
 
         // Save menu
-        createItem(GREEN, 1, 53, GUI.SAVE, false, false, "", "&a&oClick here to save");
+        createItem(GREEN, 1, 53, GUI.SAVE, false, false, TM.gA(Text.EDITOR_SAVE_DESCRIPTION));
     }
 
     @Override

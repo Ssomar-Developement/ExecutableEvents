@@ -23,7 +23,11 @@ public class PlayerHitPlayerEvent implements Listener {
         if (e.getDamager() instanceof Player) {
 
             Player damager = (Player) e.getDamager();
-            if (damager.hasMetadata("cancelDamageEvent"))
+
+            if (damager.hasMetadata("damageFromCustomCommand"))
+                return;
+
+            if (damager.hasMetadata("cancelDamageEvent") || e.getDamage() == 0)
                 return;
 
             if (e.getEntity() instanceof Player) {

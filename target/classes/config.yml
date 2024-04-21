@@ -1,20 +1,16 @@
 # ----------------------------------
 # -
-#       ExecutableItems
+#       ExecutableEvents
 # -
 #         By: Ssomar
 # -
 # ----------------------------------
 # -
-# WIKI HERE : https://docs.ssomar.com/executableitems/information-ei
+# WIKI HERE : https://docs.ssomar.com/executableevents/information-ee
 # DISCORD HERE : https://discord.com/invite/TRmSwJaYNv
 # -
-pickup-limit: -1
-disable-world: [ ]
-premium-enable-cooldown-for-op: true #Premium only
+disabledWorlds: []
+premiumEnableCooldownForOp: true #Premium only
 checkVersionMsg: true
-disableTestItems: false # If you have a big server with a lot of players, it's recommended to turn this option on true
-silentEIGive: false
-silentMessagePreventionErrorHeadDBError: false
 disableBackup: false #<- Backup your items config at each start / reload of the server
 deleteBackupsAfterDays: 7 #<- It will deletes backups older than this number of days

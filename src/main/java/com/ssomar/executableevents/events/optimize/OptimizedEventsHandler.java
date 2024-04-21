@@ -118,6 +118,9 @@ public class OptimizedEventsHandler {
                 case PLAYER_SPAWN_CHANGE:
                     mainListerner = new PlayerSpawnChangeListener();
                     break;
+                case PLAYER_SWAP_HAND:
+                    mainListerner = new PlayerSwaphandListener();
+                    break;
                 case PLAYER_LEFT_CLICK:
                     eventsName.add(EventName.PLAYER_LEFT_CLICK_EVENT);
                     DynamicRegistration.getInstance().register(EventName.PLAYER_LEFT_CLICK_EVENT, ExecutableEvents.plugin);
@@ -139,20 +142,28 @@ public class OptimizedEventsHandler {
                     DynamicRegistration.getInstance().register(EventName.PLAYER_LEFT_CLICK_ON_PLAYER_EVENT, ExecutableEvents.plugin);
                     mainListerner = new PlayerClickOnPlayerEvent();
                     break;
-                case PLAYER_ACTIVE_FLY:
-                    eventsName.add(EventName.PLAYER_ACTIVE_FLY_EVENT);
-                    DynamicRegistration.getInstance().register(EventName.PLAYER_ACTIVE_FLY_EVENT, ExecutableEvents.plugin);
-                    mainListerner = new PlayerActiveFlyEvent();
+                case PLAYER_ENABLE_FLY:
+                    eventsName.add(EventName.PLAYER_ENABLE_FLY_EVENT);
+                    DynamicRegistration.getInstance().register(EventName.PLAYER_ENABLE_FLY_EVENT, ExecutableEvents.plugin);
+                    mainListerner = new PlayerEnableFlyEvent();
                     break;
-                case PLAYER_ACTIVE_SNEAK:
-                    eventsName.add(EventName.PLAYER_ACTIVE_SNEAK_EVENT);
-                    DynamicRegistration.getInstance().register(EventName.PLAYER_ACTIVE_SNEAK_EVENT, ExecutableEvents.plugin);
-                    mainListerner = new PlayerActiveSneakEvent();
+                case PLAYER_ENABLE_GLIDE:
+                    eventsName.add(EventName.PLAYER_ENABLE_GLIDE_EVENT);
+                    DynamicRegistration.getInstance().register(EventName.PLAYER_ENABLE_GLIDE_EVENT, ExecutableEvents.plugin);
+                    mainListerner = new PlayerEnableGlideEvent();
                     break;
-                case PLAYER_ACTIVE_SPRINT:
-                    eventsName.add(EventName.PLAYER_ACTIVE_SPRINT_EVENT);
-                    DynamicRegistration.getInstance().register(EventName.PLAYER_ACTIVE_SPRINT_EVENT, ExecutableEvents.plugin);
-                    mainListerner = new PlayerActiveSprintEvent();
+                case PLAYER_ENABLE_SNEAK:
+                    eventsName.add(EventName.PLAYER_ENABLE_SNEAK_EVENT);
+                    DynamicRegistration.getInstance().register(EventName.PLAYER_ENABLE_SNEAK_EVENT, ExecutableEvents.plugin);
+                    mainListerner = new PlayerEnableSneakEvent();
+                    break;
+                case PLAYER_ENABLE_SPRINT:
+                    eventsName.add(EventName.PLAYER_ENABLE_SPRINT_EVENT);
+                    DynamicRegistration.getInstance().register(EventName.PLAYER_ENABLE_SPRINT_EVENT, ExecutableEvents.plugin);
+                    mainListerner = new PlayerEnableSprintEvent();
+                    break;
+                case PLAYER_ENTITY_PLACE:
+                    mainListerner = new PlayerEntityPlaceListener();
                     break;
                 case PLAYER_BED_ENTER:
                     mainListerner = new PlayerBedEnterEvent();
@@ -185,7 +196,7 @@ public class OptimizedEventsHandler {
                     mainListerner = new PlayerConnectionEvent();
                     break;
                 case PLAYER_DISCONNECTION:
-                    mainListerner = new PlayerDeconnectionEvent();
+                    mainListerner = new PlayerDisconnectionEvent();
                     break;
                 case PLAYER_DISMOUNT:
                     mainListerner = new PlayerDismountEvent();
@@ -198,15 +209,25 @@ public class OptimizedEventsHandler {
                 case PLAYER_DEATH:
                     mainListerner = new PlayerDeathEvent();
                     break;
+                case PLAYER_DISABLE_FLY:
+                    eventsName.add(EventName.PLAYER_DISABLE_FLY_EVENT);
+                    DynamicRegistration.getInstance().register(EventName.PLAYER_DISABLE_FLY_EVENT, ExecutableEvents.plugin);
+                    mainListerner = new PlayerDisableFlyEvent();
+                    break;
+                case PLAYER_DISABLE_GLIDE:
+                    eventsName.add(EventName.PLAYER_DISABLE_GLIDE_EVENT);
+                    DynamicRegistration.getInstance().register(EventName.PLAYER_DISABLE_GLIDE_EVENT, ExecutableEvents.plugin);
+                    mainListerner = new PlayerDisableGlideEvent();
+                    break;
                 case PLAYER_DISABLE_SNEAK:
-                    eventsName.add(EventName.PLAYER_DESACTIVE_SNEAK_EVENT);
-                    DynamicRegistration.getInstance().register(EventName.PLAYER_DESACTIVE_SNEAK_EVENT, ExecutableEvents.plugin);
-                    mainListerner = new PlayerDesactiveSneakEvent();
+                    eventsName.add(EventName.PLAYER_DISABLE_SNEAK_EVENT);
+                    DynamicRegistration.getInstance().register(EventName.PLAYER_DISABLE_SNEAK_EVENT, ExecutableEvents.plugin);
+                    mainListerner = new PlayerDisableSneakEvent();
                     break;
                 case PLAYER_DISABLE_SPRINT:
-                    eventsName.add(EventName.PLAYER_DESACTIVE_SPRINT_EVENT);
-                    DynamicRegistration.getInstance().register(EventName.PLAYER_DESACTIVE_SPRINT_EVENT, ExecutableEvents.plugin);
-                    mainListerner = new PlayerDesactiveSprintEvent();
+                    eventsName.add(EventName.PLAYER_DISABLE_SPRINT_EVENT);
+                    DynamicRegistration.getInstance().register(EventName.PLAYER_DISABLE_SPRINT_EVENT, ExecutableEvents.plugin);
+                    mainListerner = new PlayerDisableSprintEvent();
                     break;
                 case PLAYER_EDIT_BOOK:
                     mainListerner = new PlayerEditBookEvent();
@@ -388,6 +409,12 @@ public class OptimizedEventsHandler {
                     break;
                 case ENTITY_SPAWN:
                     mainListerner = new EntitySpawnListener();
+                    break;
+
+                case ENTITY_BEFORE_DEATH:
+                    eventsName.add(EventName.ENTITY_BEFORE_DEATH_EVENT);
+                    DynamicRegistration.getInstance().register(EventName.ENTITY_BEFORE_DEATH_EVENT, ExecutableEvents.plugin);
+                    mainListerner = new EntityBeforeDeathEvent();
                     break;
 
                 case ENTITY_BREAK_DOOR:

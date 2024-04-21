@@ -4,16 +4,16 @@ import com.ssomar.executableevents.ExecutableEvents;
 import com.ssomar.executableevents.events.optimize.OptimizedEventsHandler;
 import com.ssomar.executableevents.executableevents.ExecutableEvent;
 import com.ssomar.executableevents.executableevents.activators.ActivatorEEFeature;
-import com.ssomar.executableevents.executableevents.activators.Option;
-import com.ssomar.score.features.custom.activators.activator.NewSActivator;
-import com.ssomar.score.sobject.NewSObjectManager;
+import com.ssomar.score.features.custom.activators.activator.SActivator;
+import com.ssomar.score.sobject.SObjectManager;
+import com.ssomar.score.sobject.SObjectWithFileManager;
 import com.ssomar.score.sobject.sactivator.SOption;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-public class ExecutableEventsManager extends NewSObjectManager<ExecutableEvent> {
+public class ExecutableEventsManager extends SObjectWithFileManager<ExecutableEvent> {
 
     private static ExecutableEventsManager instance;
 
@@ -31,7 +31,7 @@ public class ExecutableEventsManager extends NewSObjectManager<ExecutableEvent> 
     @Override
     public void actionOnObjectWhenLoading(ExecutableEvent newExecutableItem) {
 
-        for (NewSActivator activator : newExecutableItem.getActivators().getActivators().values()) {
+        for (SActivator activator : newExecutableItem.getActivators().getActivators().values()) {
 
             /* Register only the activators from EI*/
             SOption option = activator.getOption();
@@ -57,6 +57,13 @@ public class ExecutableEventsManager extends NewSObjectManager<ExecutableEvent> 
             if (item.getId().equals(id)) return true;
         }
         return false;
+    }
+
+    public Optional<ExecutableEvent> getExecutableEvent(String id) {
+        for (ExecutableEvent item : this.getLoadedObjects()) {
+            if (item.getId().equals(id)) return Optional.of(item);
+        }
+        return Optional.empty();
     }
 
     public List<String> getFoldersNames() {
