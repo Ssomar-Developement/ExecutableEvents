@@ -460,8 +460,8 @@ public class ActivatorEEFeature extends SActivator<ActivatorEEFeature, Activator
             if (!playerConditions.verifConditions(player, optionalPlayer, sm, eSrc)) return;
         }
 
-        /* This part was made for activator that doesnt contain a player, it allows the m to verify the placeholder conditions */
-        Player forPlaceholderPlayer = player;
+        /* This part was made for activator that doesnt contain a player, it allows me to verify the placeholder conditions */
+       /* Player forPlaceholderPlayer = player;
         try {
             if (forPlaceholderPlayer == null)
                 forPlaceholderPlayer = Bukkit.getServer().getOnlinePlayers().iterator().next();
@@ -469,10 +469,11 @@ public class ActivatorEEFeature extends SActivator<ActivatorEEFeature, Activator
             forPlaceholderPlayer = null;
         }
         if (forPlaceholderPlayer != null) {
-            //SsomarDev.testMsg(StringPlaceholder.replacePlaceholderOfPAPI(">> %score_variables_IsRoomClearedTeam01%", forPlaceholderPlayer.getUniqueId()), true);
-            /* Verification of the placeholders conditions */
             if (!placeholderConditions.verify(forPlaceholderPlayer, targetPlayer, sp, eSrc)) return;
-        }
+        }*/
+
+        /* i think its better to verify always the conditions */
+        if (!placeholderConditions.verify(player, targetPlayer, sp, eSrc)) return;
 
         /* Verification of the target player conditions */
         if (Option.getOptionWithTargetPlayerSt().contains(optionFeature.getValue()) && targetPlayer != null) {
