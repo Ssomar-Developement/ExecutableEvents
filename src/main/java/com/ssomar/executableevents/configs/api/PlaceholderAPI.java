@@ -5,7 +5,7 @@ import org.bukkit.Bukkit;
 public class PlaceholderAPI {
 
     // TRUE = FREE
-    private static final boolean placeOfWork = false;
+    private static final boolean placeOfWork = true;
     final String uid = "%%__USER__%%";
     final String rid = "%%__RESOURCE__%%";
     final String nonce = "%%__NONCE__%%";
