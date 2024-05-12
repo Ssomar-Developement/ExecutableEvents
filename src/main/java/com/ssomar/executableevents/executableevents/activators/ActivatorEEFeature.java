@@ -34,6 +34,7 @@ import com.ssomar.score.features.custom.useperday.UsePerDayFeature;
 import com.ssomar.score.features.types.*;
 import com.ssomar.score.features.types.list.ListDamageCauseFeature;
 import com.ssomar.score.features.types.list.ListDetailedEntityFeature;
+import com.ssomar.score.features.types.list.ListInventoryTypeFeature;
 import com.ssomar.score.features.types.list.ListUncoloredStringFeature;
 import com.ssomar.score.menu.GUI;
 import com.ssomar.score.sobject.sactivator.EventInfo;
@@ -100,6 +101,9 @@ public class ActivatorEEFeature extends SActivator<ActivatorEEFeature, Activator
     private ListUncoloredStringFeature detailedCommands;
     private ListUncoloredStringFeature detailedMessagesContains;
     private ListUncoloredStringFeature detailedMessagesEquals;
+    private ListInventoryTypeFeature detailedInventories;
+
+    private BooleanFeature mustBeItsOwnInventory;
 
     /* Player parts */
     private PlayerCommandsFeature playerCommands;
@@ -264,7 +268,6 @@ public class ActivatorEEFeature extends SActivator<ActivatorEEFeature, Activator
 
         SsomarDev.testMsg("Activator 2 , main hand ? " + eInfo.isMainHand(), DEBUG);
 
-
         /* Verification of the detailedclick for the activators that have this option */
         if (Option.getOptionWithDetailedClick().contains(optionFeature.getValue()) && !this.detailedClickFeature.verifClick(eInfo.getDetailedClick().get()))
             return;
@@ -425,6 +428,15 @@ public class ActivatorEEFeature extends SActivator<ActivatorEEFeature, Activator
         sm.setSp(sp);
         Optional<Player> optionalPlayer = Optional.ofNullable(player);
 
+        /* Verification of detailedInventories option for the activator that have it */
+        if (Option.getOptionWithDetailedInventories().contains(optionFeature.getValue())){
+            if (eInfo.getInventoryType().isPresent() && !this.detailedInventories.verifInventoryType(eInfo.getInventoryType().get()))
+                return;
+
+            /* Verification of must be its own inventory option for the activator that have it */
+            if (mustBeItsOwnInventory.getValue() && eInfo.getInventory().isPresent() && eInfo.getInventory().get().getHolder() != player)
+                return;
+        }
 
         /* Verification detailedItems */
         if (Option.getOptionWithDetailedItems().contains(optionFeature.getValue()) && eInfo.getItem().isPresent()) {
@@ -678,6 +690,11 @@ public class ActivatorEEFeature extends SActivator<ActivatorEEFeature, Activator
             features.add(detailedClickFeature);
         }
 
+        if (Option.getOptionWithDetailedInventories().contains(optionFeature.getValue())) {
+            features.add(detailedInventories);
+            features.add(mustBeItsOwnInventory);
+        }
+
         if (Option.getOptionWithDrops().contains(optionFeature.getValue())) {
             features.add(desactiveDrops);
         }
@@ -799,6 +816,8 @@ public class ActivatorEEFeature extends SActivator<ActivatorEEFeature, Activator
                     a.setDetailedMessagesContains(detailedMessagesContains);
                     a.setDetailedMessagesEquals(detailedMessagesEquals);
                     a.setDetailedItems(detailedItems);
+                    a.setDetailedInventories(detailedInventories);
+                    a.setMustBeItsOwnInventory(mustBeItsOwnInventory);
 
                     a.setConsoleCommands(consoleCommands);
 
@@ -857,6 +876,8 @@ public class ActivatorEEFeature extends SActivator<ActivatorEEFeature, Activator
         clone.setDetailedMessagesContains(detailedMessagesContains.clone(clone));
         clone.setDetailedMessagesEquals(detailedMessagesEquals.clone(clone));
         clone.setDetailedItems(detailedItems.clone(clone));
+        clone.setDetailedInventories(detailedInventories.clone(clone));
+        clone.setMustBeItsOwnInventory(mustBeItsOwnInventory);
 
         clone.setConsoleCommands(consoleCommands.clone(clone));
 
@@ -940,6 +961,11 @@ public class ActivatorEEFeature extends SActivator<ActivatorEEFeature, Activator
 
             if (Option.getOptionWithDetailedItems().contains(optionFeature.getValue())) {
                 errors.addAll(detailedItems.load(sPlugin, section, premiumLoading));
+            }
+
+            if (Option.getOptionWithDetailedInventories().contains(optionFeature.getValue())) {
+                errors.addAll(detailedInventories.load(sPlugin, section, premiumLoading));
+                errors.addAll(mustBeItsOwnInventory.load(sPlugin, section, premiumLoading));
             }
 
             if (Option.getOptionWithCommand().contains(optionFeature.getValue())) {
@@ -1068,9 +1094,12 @@ public class ActivatorEEFeature extends SActivator<ActivatorEEFeature, Activator
         this.detailedCommands = new ListUncoloredStringFeature(this, "detailedCommands", new ArrayList<>(), "Detailed Commands", new String[]{"&7&oSpecify a list of commands that", "&7&ocan be affected", "&7&oempty = no command", "&7Example: &agamemode creative"}, GUI.WRITABLE_BOOK, false, false, Optional.empty());
 
         this.detailedMessagesContains = new ListUncoloredStringFeature(this, "detailedMessagesContains", new ArrayList<>(), "Detailed Messages Contains", new String[]{"&7&oSpecify a list of messages accepted", "&7&o(Contains)", "&7&oempty = no command", "&7Example: &afriend"}, GUI.WRITABLE_BOOK, false, false, Optional.empty());
-        this.detailedMessagesEquals = new ListUncoloredStringFeature(this, "detailedMessagesEquals", new ArrayList<>(), "Detailed Messages Equals", new String[]{"&7&oSpecify a list of messages acceptes", "&7&o(Equals)", "&7&oempty = no command", "&7Example: &aHello my friend"}, GUI.WRITABLE_BOOK, false, false, Optional.empty());
+        this.detailedMessagesEquals = new ListUncoloredStringFeature(this, "detailedMessagesEquals", new ArrayList<>(), "Detailed Messages Equals", new String[]{"&7&oSpecify a list of messages accepted", "&7&o(Equals)", "&7&oempty = no command", "&7Example: &aHello my friend"}, GUI.WRITABLE_BOOK, false, false, Optional.empty());
 
         this.detailedItems = new DetailedItems(this);
+
+        this.detailedInventories = new ListInventoryTypeFeature(this, "detailedInventories", new ArrayList<>(), "Detailed Inventories", new String[]{"&7&oSpecify a list of InventoryType accepted"}, GUI.WRITABLE_BOOK, false, false);
+        this.mustBeItsOwnInventory = new BooleanFeature(this, "mustBeItsOwnInventory", false, "Must Be Its Own Inventory", new String[]{"&7&oThe player must open in its own inventory"}, Material.LEVER, false, false);
 
         this.consoleCommands = new ConsoleCommandsFeature(this, "consoleCommands", "Console Commands", new String[]{"&7&oThe console commands to execute"}, FixedMaterial.getMaterial(Arrays.asList("COMMAND_BLOCK", "COMMAND")), false, false);
 

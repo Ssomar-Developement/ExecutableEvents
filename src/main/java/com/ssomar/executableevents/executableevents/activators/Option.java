@@ -216,6 +216,13 @@ public enum Option implements SOption, Serializable {
         return result;
     }
 
+    public static List<Option> getOptionWithDetailedInventories() {
+        List<Option> result = new ArrayList<>();
+        result.add(Option.PLAYER_OPEN_INVENTORY);
+
+        return result;
+    }
+
     public static List<Option> getOptionWithOnlyTypeClick() {
         List<Option> result = new ArrayList<>();
         result.add(Option.PLAYER_RIGHT_CLICK);
