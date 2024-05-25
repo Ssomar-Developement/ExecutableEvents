@@ -40,8 +40,11 @@ public class ActivatorEEFeatureEditor extends FeatureEditorInterface<ActivatorEE
         else if (Option.getOptionWithMessage().contains(activator.getOption())) {
             activator.getDetailedMessagesContains().initAndUpdateItemParentEditor(this, 14);
             activator.getDetailedMessagesEquals().initAndUpdateItemParentEditor(this, 23);
-        }else if (Option.getOptionWithDetailedItems().contains(activator.getOption())) {
+        } else if (Option.getOptionWithDetailedItems().contains(activator.getOption())) {
             activator.getDetailedItems().initAndUpdateItemParentEditor(this, 14);
+        }
+        else if (Option.getOptionWithDetailedEffects().contains(activator.getOption())) {
+            activator.getDetailedEffects().initAndUpdateItemParentEditor(this, 14);
         }
         else if (Option.getOptionWithDetailedInventories().contains(activator.getOption())) {
             activator.getDetailedInventories().initAndUpdateItemParentEditor(this, 14);

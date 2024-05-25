@@ -379,6 +379,13 @@ public enum Option implements SOption, Serializable {
         return result;
     }
 
+    public static List<Option> getOptionWithDetailedEffects() {
+        List<Option> result = new ArrayList<>();
+        result.add(Option.PLAYER_RECEIVE_EFFECT);
+
+        return result;
+    }
+
     public static List<SOption> getOptionWithPlayerSt() {
         List<SOption> result = new ArrayList<>();
         result.add(OptionGlobal.LOOP);

@@ -27,6 +27,7 @@ import com.ssomar.score.features.custom.conditions.player.parent.PlayerCondition
 import com.ssomar.score.features.custom.conditions.world.parent.WorldConditionsFeature;
 import com.ssomar.score.features.custom.cooldowns.NewCooldownFeature;
 import com.ssomar.score.features.custom.detailedblocks.DetailedBlocks;
+import com.ssomar.score.features.custom.detailedeffects.DetailedEffects;
 import com.ssomar.score.features.custom.detaileditems.DetailedItems;
 import com.ssomar.score.features.custom.loop.LoopFeatures;
 import com.ssomar.score.features.custom.required.parent.RequiredGroup;
@@ -102,6 +103,7 @@ public class ActivatorEEFeature extends SActivator<ActivatorEEFeature, Activator
     private ListUncoloredStringFeature detailedMessagesContains;
     private ListUncoloredStringFeature detailedMessagesEquals;
     private ListInventoryTypeFeature detailedInventories;
+    private DetailedEffects detailedEffects;
 
     private BooleanFeature mustBeItsOwnInventory;
 
@@ -455,6 +457,12 @@ public class ActivatorEEFeature extends SActivator<ActivatorEEFeature, Activator
             if (!blockConditions.verifConditions(block, optionalPlayer, sm, eSrc)) return;
         }
 
+        /* Verification of the effect conditions */
+        if (Option.getOptionWithDetailedEffects().contains(optionFeature.getValue()) && eInfo.getEffect() != null) {
+            if (!detailedEffects.isValid(eInfo.getEffect().get().getType(), optionalPlayer, eSrc, sp))
+                return;
+        }
+
         /* Verification of the target block conditions */
         SsomarDev.testMsg("Activator 6.5 " + (targetBlock != null), DEBUG);
         if (Option.getOptionWithTargetBlockSt().contains(optionFeature.getValue()) && targetBlock != null) {
@@ -764,6 +772,10 @@ public class ActivatorEEFeature extends SActivator<ActivatorEEFeature, Activator
             features.add(targetBlockConditions);
         }
 
+        if (Option.getOptionWithDetailedEffects().contains(optionFeature.getValue())) {
+            features.add(detailedEffects);
+        }
+
         return features;
     }
 
@@ -817,6 +829,7 @@ public class ActivatorEEFeature extends SActivator<ActivatorEEFeature, Activator
                     a.setDetailedMessagesEquals(detailedMessagesEquals);
                     a.setDetailedItems(detailedItems);
                     a.setDetailedInventories(detailedInventories);
+                    a.setDetailedEffects(detailedEffects);
                     a.setMustBeItsOwnInventory(mustBeItsOwnInventory);
 
                     a.setConsoleCommands(consoleCommands);
@@ -877,6 +890,7 @@ public class ActivatorEEFeature extends SActivator<ActivatorEEFeature, Activator
         clone.setDetailedMessagesEquals(detailedMessagesEquals.clone(clone));
         clone.setDetailedItems(detailedItems.clone(clone));
         clone.setDetailedInventories(detailedInventories.clone(clone));
+        clone.setDetailedEffects(detailedEffects.clone(clone));
         clone.setMustBeItsOwnInventory(mustBeItsOwnInventory);
 
         clone.setConsoleCommands(consoleCommands.clone(clone));
@@ -1008,6 +1022,10 @@ public class ActivatorEEFeature extends SActivator<ActivatorEEFeature, Activator
                 errors.addAll(detailedTargetBlocks.load(sPlugin, section, premiumLoading));
             }
 
+            if (Option.getOptionWithDetailedEffects().contains(optionFeature.getValue())) {
+                errors.addAll(detailedEffects.load(sPlugin, section, premiumLoading));
+            }
+
         }
         return errors;
     }
@@ -1097,6 +1115,8 @@ public class ActivatorEEFeature extends SActivator<ActivatorEEFeature, Activator
         this.detailedMessagesEquals = new ListUncoloredStringFeature(this, "detailedMessagesEquals", new ArrayList<>(), "Detailed Messages Equals", new String[]{"&7&oSpecify a list of messages accepted", "&7&o(Equals)", "&7&oempty = no command", "&7Example: &aHello my friend"}, GUI.WRITABLE_BOOK, false, false, Optional.empty());
 
         this.detailedItems = new DetailedItems(this);
+
+        this.detailedEffects = new DetailedEffects(this);
 
         this.detailedInventories = new ListInventoryTypeFeature(this, "detailedInventories", new ArrayList<>(), "Detailed Inventories", new String[]{"&7&oSpecify a list of InventoryType accepted"}, GUI.WRITABLE_BOOK, false, false);
         this.mustBeItsOwnInventory = new BooleanFeature(this, "mustBeItsOwnInventory", false, "Must Be Its Own Inventory", new String[]{"&7&oThe player must open in its own inventory"}, Material.LEVER, false, false);
