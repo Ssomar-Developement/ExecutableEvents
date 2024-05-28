@@ -3,6 +3,7 @@ package com.ssomar.executableevents.executableevents.manager;
 import com.ssomar.executableevents.ExecutableEvents;
 import com.ssomar.executableevents.events.optimize.OptimizedEventsHandler;
 import com.ssomar.executableevents.executableevents.ExecutableEvent;
+import com.ssomar.executableevents.executableevents.ExecutableEventLoader;
 import com.ssomar.executableevents.executableevents.activators.ActivatorEEFeature;
 import com.ssomar.score.features.custom.activators.activator.SActivator;
 import com.ssomar.score.sobject.SObjectManager;
@@ -47,8 +48,8 @@ public class ExecutableEventsManager extends SObjectWithFileManager<ExecutableEv
     }
 
     @Override
-    public Optional<ExecutableEvent> methodObjectLoading(String s) {
-        return Optional.empty();
+    public Optional<ExecutableEvent> methodObjectLoading(String id) {
+        return ExecutableEventLoader.getInstance().getObjectById(id, false);
     }
 
 

@@ -257,7 +257,7 @@ public class ActivatorEEFeature extends SActivator<ActivatorEEFeature, Activator
             sp.getExtraPlaceholders().put("%bow_force%", eInfo.getBowForce().get() + "");
         else sp.getExtraPlaceholders().put("%bow_force%", "0");
 
-        if(eInfo.getEffect().isPresent()) sp.setEffectPlcHldr(eInfo.getEffect().get());
+        if (eInfo.getEffect().isPresent()) sp.setEffectPlcHldr(eInfo.getEffect().get());
 
         /* ActionInfo init */
         ActionInfo actionInfo = new ActionInfo(executableEvent.getDisplayName().getValue().orElse(""), sp);
@@ -431,7 +431,7 @@ public class ActivatorEEFeature extends SActivator<ActivatorEEFeature, Activator
         Optional<Player> optionalPlayer = Optional.ofNullable(player);
 
         /* Verification of detailedInventories option for the activator that have it */
-        if (Option.getOptionWithDetailedInventories().contains(optionFeature.getValue())){
+        if (Option.getOptionWithDetailedInventories().contains(optionFeature.getValue())) {
             if (eInfo.getInventoryType().isPresent() && !this.detailedInventories.verifInventoryType(eInfo.getInventoryType().get()))
                 return;
 
@@ -481,19 +481,16 @@ public class ActivatorEEFeature extends SActivator<ActivatorEEFeature, Activator
         }
 
         /* This part was made for activator that doesnt contain a player, it allows me to verify the placeholder conditions */
-       /* Player forPlaceholderPlayer = player;
+        Player forPlaceholderPlayer = player;
         try {
-            if (forPlaceholderPlayer == null)
-                forPlaceholderPlayer = Bukkit.getServer().getOnlinePlayers().iterator().next();
+            if (forPlaceholderPlayer == null) forPlaceholderPlayer = Bukkit.getServer().getOnlinePlayers().iterator().next();
         } catch (Exception e) {
             forPlaceholderPlayer = null;
         }
-        if (forPlaceholderPlayer != null) {
-            if (!placeholderConditions.verify(forPlaceholderPlayer, targetPlayer, sp, eSrc)) return;
-        }*/
 
-        /* i think its better to verify always the conditions */
-        if (!placeholderConditions.verify(player, targetPlayer, sp, eSrc)) return;
+        /* don't check if forPlaceholderPlayer is not null, we want to veriify in all cases (for example parsing variables doesnt require a player) */
+        if (!placeholderConditions.verify(forPlaceholderPlayer, targetPlayer, sp, eSrc)) return;
+
 
         /* Verification of the target player conditions */
         if (Option.getOptionWithTargetPlayerSt().contains(optionFeature.getValue()) && targetPlayer != null) {
@@ -589,7 +586,7 @@ public class ActivatorEEFeature extends SActivator<ActivatorEEFeature, Activator
         /* Cancel event if the option to cancel it is activated */
         SsomarDev.testMsg("Activator 10.5 cancelEvent: ? " + cancelEvent.getValue(), DEBUG);
 
-        cancelEvent(eSrc, cancelEvent.getValue(null , sp));
+        cancelEvent(eSrc, cancelEvent.getValue(null, sp));
 
         SsomarDev.testMsg("Activator 11", DEBUG);
 

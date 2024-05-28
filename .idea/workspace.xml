@@ -7,8 +7,9 @@
     <list default="true" id="78b6b443-d76b-4b1c-85fa-0ca312706db9" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/ssomar/executableevents/executableevents/activators/ActivatorEEFeature.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ssomar/executableevents/executableevents/activators/ActivatorEEFeature.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ssomar/executableevents/executableevents/activators/ActivatorEEFeatureEditor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ssomar/executableevents/executableevents/activators/ActivatorEEFeatureEditor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ssomar/executableevents/executableevents/activators/Option.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ssomar/executableevents/executableevents/activators/Option.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ssomar/executableevents/executableevents/manager/ExecutableEventsManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ssomar/executableevents/executableevents/manager/ExecutableEventsManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/SCore.jar" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/SCore.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/plugin.yml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/plugin.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -89,7 +90,7 @@
     "git-widget-placeholder": "main",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/octav/Documents/GitHub/ExecutableEvents",
+    "last_opened_file_path": "C:/Users/octav/Documents/GitHub/ExecutableBlocks",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -784,6 +785,8 @@
       <workItem from="1716482759347" duration="1145000" />
       <workItem from="1716541488714" duration="565000" />
       <workItem from="1716654613673" duration="918000" />
+      <workItem from="1716754210500" duration="3206000" />
+      <workItem from="1716828068956" duration="1200000" />
     </task>
     <servers />
   </component>
