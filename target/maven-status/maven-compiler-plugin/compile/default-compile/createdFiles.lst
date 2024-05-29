@@ -30,6 +30,7 @@ com\ssomar\executableevents\events\player\custom\PlayerKillEntityEvent.class
 com\ssomar\executableevents\events\player\custom\PlayerJumpEvent.class
 com\ssomar\executableevents\events\entity\custom\EntityTransformListener.class
 com\ssomar\executableevents\events\player\custom\PlayerFishFishEvent.class
+com\ssomar\executableevents\events\player\custom\PlayerEquipArmorListener.class
 com\ssomar\executableevents\commands\CommandsClass.class
 com\ssomar\executableevents\events\entity\custom\PlayerProjectileHitPlayer.class
 com\ssomar\executableevents\events\player\custom\PlayerFirstConnectionEvent.class
@@ -108,6 +109,7 @@ com\ssomar\executableevents\events\entity\custom\EntityParticipateKillPlayerList
 com\ssomar\executableevents\events\player\custom\PlayerDisableSneakEvent.class
 com\ssomar\executableevents\events\player\custom\PlayerRespawnListener.class
 com\ssomar\executableevents\events\entity\custom\EntityTargetPlayerListener.class
+com\ssomar\executableevents\events\player\custom\PlayerUnequipArmorListener.class
 com\ssomar\executableevents\events\player\custom\PlayerParticipateKillPlayerListener.class
 com\ssomar\executableevents\executableevents\ExecutableEventEditor.class
 com\ssomar\executableevents\events\player\custom\PlayerChangeWorldEvent.class

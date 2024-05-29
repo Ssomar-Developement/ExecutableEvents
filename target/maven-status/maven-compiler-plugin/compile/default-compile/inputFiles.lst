@@ -18,6 +18,7 @@ C:\Users\octav\Documents\GitHub\ExecutableEvents\src\main\java\com\ssomar\execut
 C:\Users\octav\Documents\GitHub\ExecutableEvents\src\main\java\com\ssomar\executableevents\events\entity\custom\EntityBreakDoorListener.java
 C:\Users\octav\Documents\GitHub\ExecutableEvents\src\main\java\com\ssomar\executableevents\events\entity\custom\EntityTeleportListener.java
 C:\Users\octav\Documents\GitHub\ExecutableEvents\src\main\java\com\ssomar\executableevents\events\entity\custom\EntityRegainHealthListener.java
+C:\Users\octav\Documents\GitHub\ExecutableEvents\src\main\java\com\ssomar\executableevents\events\player\custom\PlayerEquipArmorListener.java
 C:\Users\octav\Documents\GitHub\ExecutableEvents\src\main\java\com\ssomar\executableevents\events\player\custom\PlayerConsumeEvent.java
 C:\Users\octav\Documents\GitHub\ExecutableEvents\src\main\java\com\ssomar\executableevents\events\entity\custom\EntityDropItemListener.java
 C:\Users\octav\Documents\GitHub\ExecutableEvents\src\main\java\com\ssomar\executableevents\events\player\custom\PlayerDisconnectionEvent.java
@@ -110,6 +111,7 @@ C:\Users\octav\Documents\GitHub\ExecutableEvents\src\main\java\com\ssomar\execut
 C:\Users\octav\Documents\GitHub\ExecutableEvents\src\main\java\com\ssomar\executableevents\events\player\custom\PlayerMountEvent.java
 C:\Users\octav\Documents\GitHub\ExecutableEvents\src\main\java\com\ssomar\executableevents\events\player\custom\PlayerBlockPlaceEvent.java
 C:\Users\octav\Documents\GitHub\ExecutableEvents\src\main\java\com\ssomar\executableevents\events\player\custom\PlayerRespawnListener.java
+C:\Users\octav\Documents\GitHub\ExecutableEvents\src\main\java\com\ssomar\executableevents\events\player\custom\PlayerUnequipArmorListener.java
 C:\Users\octav\Documents\GitHub\ExecutableEvents\src\main\java\com\ssomar\executableevents\configs\Message.java
 C:\Users\octav\Documents\GitHub\ExecutableEvents\src\main\java\com\ssomar\executableevents\events\player\custom\PlayerRegainHealthListener.java
 C:\Users\octav\Documents\GitHub\ExecutableEvents\src\main\java\com\ssomar\executableevents\events\player\custom\PlayerTargetedByAnEntityEvent.java

@@ -97,6 +97,16 @@ public class OptimizedEventsHandler {
                 case PLAYER_HARVEST_BLOCK:
                     mainListerner = new PlayerHarvestBlockListener();
                     break;
+                case PLAYER_EQUIP_ARMOR:
+                    eventsName.add(EventName.PLAYER_EQUIP_ARMOR_EVENT);
+                    DynamicRegistration.getInstance().register(EventName.PLAYER_EQUIP_ARMOR_EVENT, ExecutableEvents.plugin);
+                    mainListerner = new PlayerEquipArmorListener();
+                    break;
+                case PLAYER_UNEQUIP_ARMOR:
+                    eventsName.add(EventName.PLAYER_EQUIP_ARMOR_EVENT);
+                    DynamicRegistration.getInstance().register(EventName.PLAYER_EQUIP_ARMOR_EVENT, ExecutableEvents.plugin);
+                    mainListerner = new PlayerUnequipArmorListener();
+                    break;
                 case PLAYER_KICK:
                     mainListerner = new PlayerKickListener();
                     break;

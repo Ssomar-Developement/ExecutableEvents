@@ -47,6 +47,7 @@ public enum Option implements SOption, Serializable {
     PLAYER_ENTER_IN_HIS_LAND("PLAYER_ENTER_IN_HIS_LAND"),
     PLAYER_ENTER_IN_HIS_PLOT("PLAYER_ENTER_IN_HIS_PLOT"),
     PLAYER_ENTITY_PLACE("PLAYER_ENTITY_PLACE"),
+    PLAYER_EQUIP_ARMOR("PLAYER_EQUIP_ARMOR"),
     PLAYER_FERTILIZE_BLOCK("PLAYER_FERTILIZE_BLOCK"), /* NOT COMPATIBLE 1.12 */
     PLAYER_FILL_BUCKET("PLAYER_FILL_BUCKET"),
     PLAYER_FIRST_CONNECTION("PLAYER_FIRST_CONNECTION"),
@@ -88,6 +89,7 @@ public enum Option implements SOption, Serializable {
 
     PLAYER_TELEPORT("PLAYER_TELEPORT"),
     PLAYER_TRAMPLE_CROP("PLAYER_TRAMPLE_CROP"),
+    PLAYER_UNEQUIP_ARMOR("PLAYER_UNEQUIP_ARMOR"),
     PLAYER_WALK("PLAYER_WALK"),
     PLAYER_WRITE_COMMAND("PLAYER_WRITE_COMMAND"),
 
@@ -412,6 +414,7 @@ public enum Option implements SOption, Serializable {
         result.add(Option.PLAYER_CONNECTION);
         result.add(Option.PLAYER_CONSUME);
         result.add(Option.PLAYER_CUSTOM_LAUNCH);
+        result.add(Option.PLAYER_EQUIP_ARMOR);
         result.add(Option.PLAYER_FOOD_CHANGE);
         result.add(Option.PLAYER_DEATH);
         result.add(Option.PLAYER_DISCONNECTION);
@@ -463,6 +466,7 @@ public enum Option implements SOption, Serializable {
         result.add(Option.PLAYER_TARGETED_BY_AN_ENTITY);
         result.add(Option.PLAYER_TRAMPLE_CROP);
         result.add(Option.PLAYER_TELEPORT);
+        result.add(Option.PLAYER_UNEQUIP_ARMOR);
         result.add(Option.PLAYER_PICKUP_ITEM);
         result.add(Option.PLAYER_PORTAL);
         result.add(Option.PLAYER_SWAP_HAND);
