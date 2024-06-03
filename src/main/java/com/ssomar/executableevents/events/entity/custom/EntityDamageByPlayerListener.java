@@ -20,6 +20,7 @@ public class EntityDamageByPlayerListener implements Listener {
             EventInfo eInfo = new EventInfo(e);
             eInfo.setEntity(Optional.of(e.getEntity()));
             eInfo.setTargetPlayer(Optional.of((Player)e.getDamager()));
+            eInfo.setDamageCause(Optional.of(e.getCause()));
             EventsManager.getInstance().activeOption(Option.ENTITY_DAMAGE_BY_PLAYER, eInfo, new ArrayList<>());
         }
     }

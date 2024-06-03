@@ -40,6 +40,7 @@ public class PlayerHitPlayerEvent implements Listener {
                     EventInfo eInfo = new EventInfo(e);
                     eInfo.setPlayer(Optional.of((Player)e.getDamager()));
                     eInfo.setTargetPlayer(Optional.of((Player)e.getEntity()));
+                    eInfo.setDamageCause(Optional.of(e.getCause()));
                     EventsManager.getInstance().activeOption(Option.PLAYER_HIT_PLAYER, eInfo, new ArrayList<>());
                 }
             }

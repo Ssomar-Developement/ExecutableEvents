@@ -33,6 +33,7 @@ public class PlayerHitEntityEvent implements Listener {
                 EventInfo eInfo = new EventInfo(e);
                 eInfo.setPlayer(Optional.of((Player) e.getDamager()));
                 eInfo.setTargetEntity(Optional.of(e.getEntity()));
+                eInfo.setDamageCause(Optional.of(e.getCause()));
                 EventsManager.getInstance().activeOption(Option.PLAYER_HIT_ENTITY, eInfo, new ArrayList<>());
             } else {
                 /* NPC is not a player O_o */
@@ -40,6 +41,7 @@ public class PlayerHitEntityEvent implements Listener {
                     EventInfo eInfo = new EventInfo(e);
                     eInfo.setPlayer(Optional.of((Player) e.getDamager()));
                     eInfo.setTargetEntity(Optional.of(e.getEntity()));
+                    eInfo.setDamageCause(Optional.of(e.getCause()));
                     EventsManager.getInstance().activeOption(Option.PLAYER_HIT_ENTITY, eInfo, new ArrayList<>());
                 }
             }

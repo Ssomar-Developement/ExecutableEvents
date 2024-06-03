@@ -167,6 +167,11 @@ public enum Option implements SOption, Serializable {
         result.add(Option.PLAYER_RECEIVE_HIT_BY_ENTITY);
         result.add(Option.PLAYER_RECEIVE_HIT_BY_PLAYER);
         result.add(Option.PLAYER_RECEIVE_HIT_GLOBAL);
+        result.add(Option.ENTITY_DAMAGE_BY_PLAYER);
+        result.add(Option.ENTITY_DAMAGE_BY_ENTITY);
+        result.add(Option.ENTITY_DAMAGE_BY_BLOCK);
+        result.add(Option.PLAYER_HIT_ENTITY);
+        result.add(Option.PLAYER_HIT_PLAYER);
         result.add(Option.PLAYER_DEATH);
         result.add(Option.ENTITY_DEATH);
 

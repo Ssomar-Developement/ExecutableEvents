@@ -23,7 +23,7 @@ public class EntityDamageByBlockListener implements Listener {
         eInfo.setTargetBlock(Optional.of(block));
         eInfo.setOldMaterialTargetBlock(Optional.of(block.getType()));
         if (!SCore.is1v12Less()) eInfo.setOldStatesTargetBlock(Optional.of(block.getBlockData().getAsString(true)));
-
+        eInfo.setDamageCause(Optional.of(e.getCause()));
         EventsManager.getInstance().activeOption(Option.ENTITY_DAMAGE_BY_BLOCK, eInfo, new ArrayList<>());
     }
 }
