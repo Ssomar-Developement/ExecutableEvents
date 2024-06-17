@@ -4,7 +4,7 @@
   <groupId>com.ssomar</groupId>
   <artifactId>ExecutableEvents</artifactId>
   <name>ExecutableEvents</name>
-  <version>2.24.6.2</version>
+  <version>3.24.6.17</version>
   <build>
     <sourceDirectory>${basedir}/src/main/java</sourceDirectory>
     <resources>
@@ -25,7 +25,7 @@
         </includes>
       </resource>
       <resource>
-        <targetPath>com/ssomar/executableevents/configs/items</targetPath>
+        <targetPath>com/ssomar/executableevents/configs/events</targetPath>
         <directory>src/main/resources/events/</directory>
       </resource>
     </resources>
@@ -132,7 +132,7 @@
     <dependency>
       <groupId>org.spigotmc</groupId>
       <artifactId>spigot-api</artifactId>
-      <version>1.20-R0.1-SNAPSHOT</version>
+      <version>1.21-R0.1-SNAPSHOT</version>
       <scope>provided</scope>
       <exclusions>
         <exclusion>

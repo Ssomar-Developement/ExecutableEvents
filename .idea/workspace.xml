@@ -5,13 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="78b6b443-d76b-4b1c-85fa-0ca312706db9" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/events/Default/test.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ssomar/executableevents/events/entity/custom/EntityDamageByBlockListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ssomar/executableevents/events/entity/custom/EntityDamageByBlockListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ssomar/executableevents/events/entity/custom/EntityDamageByEntityListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ssomar/executableevents/events/entity/custom/EntityDamageByEntityListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ssomar/executableevents/events/entity/custom/EntityDamageByPlayerListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ssomar/executableevents/events/entity/custom/EntityDamageByPlayerListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ssomar/executableevents/events/player/custom/PlayerHitEntityEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ssomar/executableevents/events/player/custom/PlayerHitEntityEvent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ssomar/executableevents/events/player/custom/PlayerHitPlayerEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ssomar/executableevents/events/player/custom/PlayerHitPlayerEvent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ssomar/executableevents/executableevents/activators/Option.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ssomar/executableevents/executableevents/activators/Option.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ssomar/executableevents/editor/EditorInteractionsListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ssomar/executableevents/editor/EditorInteractionsListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ssomar/executableevents/events/player/custom/PlayerDismountEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ssomar/executableevents/events/player/custom/PlayerDismountEvent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ssomar/executableevents/events/player/custom/PlayerMountEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ssomar/executableevents/events/player/custom/PlayerMountEvent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ssomar/executableevents/executableevents/ExecutableEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ssomar/executableevents/executableevents/ExecutableEvent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ssomar/executableevents/executableevents/ExecutableEventLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ssomar/executableevents/executableevents/ExecutableEventLoader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ssomar/executableevents/executableevents/activators/ActivatorEEFeature.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ssomar/executableevents/executableevents/activators/ActivatorEEFeature.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ssomar/executableevents/features/LoopTypeFeature.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/SCore.jar" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/SCore.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/plugin.yml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/plugin.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -82,28 +89,29 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Maven.ExecutableEvents [clean,package,install].executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "main",
-    "ignore.virus.scanning.warn.message": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/octav/Documents/GitHub/ExecutableEvents",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Maven.ExecutableEvents [clean,package,install].executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/octav/Documents/GitHub/ExecutableEvents&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.project.maven.repository.indices&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\octav\Documents\GitHub\ExecutableEvents\src\main\java\com\ssomar\executableevents\api" />
@@ -113,11 +121,11 @@
       <recent name="C:\Users\octav\Documents\GitHub\ExecutableItems4\src\main\java\com\ssomar\testRecode\features\othereicooldowns" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\octav\Documents\GitHub\ExecutableEvents\src\main\resources\events\Default" />
       <recent name="C:\Users\octav\Documents\GitHub\ExecutableItems\src\main\resources\items\Armors" />
       <recent name="C:\Users\octav\Documents\GitHub\ExecutableItems\src\main\resources\items\Projectiles" />
       <recent name="C:\Users\octav\Documents\GitHub\ExecutableItems\src\main\resources\items\Weapons" />
       <recent name="C:\Users\octav\Documents\GitHub\ExecutableItems\src\main\resources\items\Misc" />
-      <recent name="C:\Users\octav\Documents\GitHub\ExecutableItems\src\main\resources\items\Tools" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.ssomar.executableevents.events.player.custom" />
@@ -791,6 +799,12 @@
       <workItem from="1716828068956" duration="1200000" />
       <workItem from="1716999461562" duration="3383000" />
       <workItem from="1717431281468" duration="1246000" />
+      <workItem from="1717518652277" duration="345000" />
+      <workItem from="1718221202845" duration="904000" />
+      <workItem from="1718293963099" duration="578000" />
+      <workItem from="1718380520488" duration="594000" />
+      <workItem from="1718528372644" duration="9210000" />
+      <workItem from="1718640033491" duration="578000" />
     </task>
     <servers />
   </component>

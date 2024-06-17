@@ -6,8 +6,7 @@ import com.ssomar.score.sobject.sactivator.EventInfo;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
-import org.spigotmc.event.entity.EntityDismountEvent;
-import org.spigotmc.event.entity.EntityMountEvent;
+import org.bukkit.event.entity.EntityMountEvent;
 
 import java.util.ArrayList;
 import java.util.Optional;

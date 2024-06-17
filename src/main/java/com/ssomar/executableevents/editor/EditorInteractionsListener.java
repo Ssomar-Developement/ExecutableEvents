@@ -25,7 +25,6 @@ public class EditorInteractionsListener implements Listener {
 
         if (!(e.getWhoClicked() instanceof Player)) return;
 
-        String title = e.getView().getTitle();
         Player player = (Player) e.getWhoClicked();
         try {
             if (e.getClickedInventory().getType().equals(InventoryType.PLAYER)) return;
@@ -34,18 +33,18 @@ public class EditorInteractionsListener implements Listener {
         }
 
         int slot = e.getSlot();
-        ItemStack itemS = e.getView().getItem(slot);
+        ItemStack itemS = e.getClickedInventory().getItem(slot);
         //boolean notNullItem = itemS!=null;
 
         try {
             if (e.getInventory().getHolder() instanceof GUI)
-                this.manage(player, itemS, title, "", e);
+                this.manage(player, itemS, "", e);
         } catch (NullPointerException error) {
             error.printStackTrace();
         }
     }
 
-    public void manage(Player player, ItemStack itemS, String title, String guiType, InventoryClickEvent e) {
+    public void manage(Player player, ItemStack itemS, String guiType, InventoryClickEvent e) {
 
         e.setCancelled(true);
 
@@ -62,10 +61,10 @@ public class EditorInteractionsListener implements Listener {
         InventoryHolder holder = e.getInventory().getHolder();
 
         if (holder instanceof ExecutableEventEditor) {
-            ExecutableEventEditorManager.getInstance().clicked(player, itemS, title, e.getClick());
+            ExecutableEventEditorManager.getInstance().clicked(player, itemS, e.getClick());
             return;
         } else if (holder instanceof ActivatorEEFeatureEditor) {
-            ActivatorEEFeatureEditorManager.getInstance().clicked(player, itemS, title, e.getClick());
+            ActivatorEEFeatureEditorManager.getInstance().clicked(player, itemS, e.getClick());
             return;
         }
     }

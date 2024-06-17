@@ -1,0 +1,38 @@
+enabled: false
+editorIcon: LEVER
+name: '&eDefault name'
+disabledWorlds: []
+activators:
+  activator0:
+    name: '&eActivator'
+    option: PLAYER_OPEN_INVENTORY
+    detailedInventories: []
+    mustBeItsOwnInventory: false
+    cancelEvent: false
+    silenceOutput: false
+    cooldownOptions:
+      cooldown: 0
+      isCooldownInTicks: false
+      cooldownMsg: '&cYou are in cooldown ! &7(&e%time_H%&6H &e%time_M%&6M &e%time_S%&6S&7)'
+      displayCooldownMessage: true
+      cancelEventIfInCooldown: false
+      pauseWhenOffline: false
+      pausePlaceholdersConditions: {}
+    globalCooldownOptions:
+      cooldown: 0
+      isCooldownInTicks: false
+      cooldownMsg: '&cYou are in cooldown ! &7(&e%time_H%&6H &e%time_M%&6M &e%time_S%&6S&7)'
+      displayCooldownMessage: true
+      cancelEventIfInCooldown: false
+      pauseWhenOffline: false
+      pausePlaceholdersConditions: {}
+    requiredItems: {}
+    requiredExecutableItems: {}
+    requiredMagics: {}
+    worldConditions: {}
+    placeholdersConditions: {}
+    playerConditions: {}
+    commands:
+    - SENDMESSAGE &aYESSSSS
+    customConditions:
+      ifNeedPlayerConfirmationCancel: false

@@ -46,7 +46,6 @@ com\ssomar\executableevents\events\player\custom\PlayerAllClickEvent.class
 com\ssomar\executableevents\events\player\custom\PlayerReceiveHitByPlayerEvent.class
 com\ssomar\executableevents\events\entity\custom\EntityTameByEntityListener.class
 com\ssomar\executableevents\events\player\custom\ToDeleteTestMMOLIB.class
-com\ssomar\executableevents\features\LoopTypeFeature$LoopType.class
 com\ssomar\executableevents\ExecutableEvents.class
 com\ssomar\executableevents\events\entity\custom\EntityTargetEntityListener.class
 com\ssomar\executableevents\events\player\custom\PlayerClickOnPlayerEvent.class
@@ -79,7 +78,6 @@ com\ssomar\executableevents\events\world\custom\WorldDayListener.class
 com\ssomar\executableevents\events\player\custom\PlayerReceiveHitGlobalEvent.class
 com\ssomar\executableevents\events\entity\custom\EntityTeleportListener.class
 com\ssomar\executableevents\events\entity\custom\PlayerProjectileHitEntity.class
-com\ssomar\executableevents\features\LoopTypeFeature.class
 com\ssomar\executableevents\events\entity\custom\EntityBreakDoorListener.class
 com\ssomar\executableevents\executableevents\ConfigConverter.class
 com\ssomar\executableevents\events\player\custom\PlayerBeforeDeathEvent.class

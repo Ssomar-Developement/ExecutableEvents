@@ -13,6 +13,7 @@ import com.ssomar.score.events.loop.LoopManager;
 import com.ssomar.score.features.FeatureAbstract;
 import com.ssomar.score.features.FeatureInterface;
 import com.ssomar.score.features.FeatureParentInterface;
+import com.ssomar.score.features.FeatureSettingsSCore;
 import com.ssomar.score.features.custom.activators.activator.SActivator;
 import com.ssomar.score.features.custom.activators.activator.SActivatorWithLoopFeature;
 import com.ssomar.score.features.custom.commands.block.BlockCommandsFeature;
@@ -25,7 +26,7 @@ import com.ssomar.score.features.custom.conditions.entity.parent.EntityCondition
 import com.ssomar.score.features.custom.conditions.placeholders.group.PlaceholderConditionGroupFeature;
 import com.ssomar.score.features.custom.conditions.player.parent.PlayerConditionsFeature;
 import com.ssomar.score.features.custom.conditions.world.parent.WorldConditionsFeature;
-import com.ssomar.score.features.custom.cooldowns.NewCooldownFeature;
+import com.ssomar.score.features.custom.cooldowns.CooldownFeature;
 import com.ssomar.score.features.custom.detailedblocks.DetailedBlocks;
 import com.ssomar.score.features.custom.detailedeffects.DetailedEffects;
 import com.ssomar.score.features.custom.detaileditems.DetailedItems;
@@ -42,7 +43,6 @@ import com.ssomar.score.sobject.sactivator.EventInfo;
 import com.ssomar.score.sobject.sactivator.SOption;
 import com.ssomar.score.splugin.SPlugin;
 import com.ssomar.score.utils.EntityItemNoDrop;
-import com.ssomar.score.utils.FixedMaterial;
 import com.ssomar.score.utils.emums.DetailedClick;
 import com.ssomar.score.utils.emums.DetailedInteraction;
 import com.ssomar.score.utils.emums.TypeTarget;
@@ -94,8 +94,8 @@ public class ActivatorEEFeature extends SActivator<ActivatorEEFeature, Activator
     private BooleanFeature silenceOutput;
     /* MINE & KILL */
     private BooleanFeature desactiveDrops;
-    private NewCooldownFeature cooldown;
-    private NewCooldownFeature globalCooldown;
+    private CooldownFeature cooldown;
+    private CooldownFeature globalCooldown;
     private RequiredGroup requiredGroup;
 
     private ListDamageCauseFeature detailedDamageCauses;
@@ -1075,22 +1075,22 @@ public class ActivatorEEFeature extends SActivator<ActivatorEEFeature, Activator
 
     @Override
     public void reset() {
-        this.displayName = new ColoredStringFeature(this, "name", Optional.of("&eActivator"), "DisplayName", new String[]{"&7&oThe display name"}, GUI.WRITABLE_BOOK, false, false);
-        this.optionFeature = new SOptionFeature(ExecutableEvents.plugin, Option.PLAYER_ALL_CLICK, this, "option", "Option", new String[]{"&7&oThe Option"}, Material.COMPASS, false);
+        this.displayName = new ColoredStringFeature(this, Optional.of("&eActivator"), FeatureSettingsSCore.name, false);
+        this.optionFeature = new SOptionFeature(ExecutableEvents.plugin, Option.PLAYER_ALL_CLICK, this, FeatureSettingsSCore.option);
 
-        this.typeTargetFeature = new TypeTargetFeature(this, "typeTarget", Optional.of(TypeTarget.NO_TYPE_TARGET), "Type Target", new String[]{"&7&oThe type of target"}, Material.COMPASS, false);
+        this.typeTargetFeature = new TypeTargetFeature(this, Optional.of(TypeTarget.NO_TYPE_TARGET), FeatureSettingsSCore.typeTarget);
 
-        this.detailedClickFeature = new DetailedClickFeature(this, "detailedClick", Optional.of(DetailedClick.LEFT), "Detailed Click", new String[]{"&7&oThe specific click"}, Material.COMPASS, false);
+        this.detailedClickFeature = new DetailedClickFeature(this, Optional.of(DetailedClick.LEFT), FeatureSettingsSCore.detailedClick);
 
         this.usePerDayFeature = new UsePerDayFeature(this, getParentObjectId() + ">" + getId());
 
-        this.cancelEvent = new BooleanFeature(this, "cancelEvent", false, "Cancel Event", new String[]{"&7&oCancel the vanilla event"}, Material.LEVER, false, false);
-        this.silenceOutput = new BooleanFeature(this, "silenceOutput", false, "Silence Output", new String[]{"&7&oSilence the output of the commands", "&7&o(Only in the console)"}, Material.LEVER, false, false);
-        this.desactiveDrops = new BooleanFeature(this, "desactiveDrops", false, "Desactive Drops", new String[]{"&7&oDesactive the drops"}, Material.LEVER, false, true);
+        this.cancelEvent = new BooleanFeature(this, false, FeatureSettingsSCore.cancelEvent, false);
+        this.silenceOutput = new BooleanFeature(this, false, FeatureSettingsSCore.silenceOutput, false);
+        this.desactiveDrops = new BooleanFeature(this,  false, FeatureSettingsSCore.desactiveDrops, true);
 
-        this.cooldown = new NewCooldownFeature(this, "cooldownOptions", "Cooldown Options", new String[]{"&7&oThe cooldown"}, GUI.CLOCK, false, ExecutableEvents.plugin, GeneralConfig.getInstance().getBooleanSetting(GeneralConfig.Setting.premiumEnableCooldownForOp.name()));
+        this.cooldown = new CooldownFeature(this, FeatureSettingsSCore.cooldownOptions, ExecutableEvents.plugin, GeneralConfig.getInstance().getBooleanSetting(GeneralConfig.Setting.premiumEnableCooldownForOp.name()));
 
-        this.globalCooldown = new NewCooldownFeature(this, "globalCooldownOptions", "Global Cooldown Options", new String[]{"&7&oThe global cooldown", "&7&o(For &eALL &7&oplayers)"}, GUI.CLOCK, false, ExecutableEvents.plugin, GeneralConfig.getInstance().getBooleanSetting(GeneralConfig.Setting.premiumEnableCooldownForOp.name()));
+        this.globalCooldown = new CooldownFeature(this, FeatureSettingsSCore.globalCooldownOptions, ExecutableEvents.plugin, GeneralConfig.getInstance().getBooleanSetting(GeneralConfig.Setting.premiumEnableCooldownForOp.name()));
 
         this.requiredGroup = new RequiredGroup(this);
 
@@ -1098,59 +1098,59 @@ public class ActivatorEEFeature extends SActivator<ActivatorEEFeature, Activator
 
         this.detailedBlocks = new DetailedBlocks(this);
 
-        this.detailedTargetBlocks = new DetailedBlocks(this, "detailedTargetBlocks", "Detailed Target Blocks");
+        this.detailedTargetBlocks = new DetailedBlocks(this, FeatureSettingsSCore.detailedTargetBlocks);
 
-        this.detailedEntities = new ListDetailedEntityFeature(this, "detailedEntities", new ArrayList<>(), "Detailed Entities", new String[]{"&7&oSpecify a list of entities that", "&7&ocan be affected", "&7&oempty = all entities"}, FixedMaterial.getMaterial(Arrays.asList("ZOMBIE_HEAD", "MONSTER_EGG")), false, false);
+        this.detailedEntities = new ListDetailedEntityFeature(this, new ArrayList<>(), FeatureSettingsSCore.detailedEntities, false);
 
-        this.detailedTargetEntities = new ListDetailedEntityFeature(this, "detailedTargetEntities", new ArrayList<>(), "Detailed Target Entities", new String[]{"&7&oSpecify a list of entities that", "&7&ocan be affected", "&7&oempty = all entities"}, FixedMaterial.getMaterial(Arrays.asList("ZOMBIE_HEAD", "MONSTER_EGG")), false, false);
+        this.detailedTargetEntities = new ListDetailedEntityFeature(this,  new ArrayList<>(), FeatureSettingsSCore.detailedTargetEntities, false);
 
-        this.detailedDamageCauses = new ListDamageCauseFeature(this, "detailedDamageCauses", new ArrayList<>(), "Detailed DamageCauses", new String[]{"&7&oSpecify a list of damageCauses that", "&7&ocan be affected", "&7&oempty = all causes"}, Material.BONE, false, false);
+        this.detailedDamageCauses = new ListDamageCauseFeature(this,  new ArrayList<>(), FeatureSettingsSCore.detailedDamageCauses, false);
 
-        this.detailedCommands = new ListUncoloredStringFeature(this, "detailedCommands", new ArrayList<>(), "Detailed Commands", new String[]{"&7&oSpecify a list of commands that", "&7&ocan be affected", "&7&oempty = no command", "&7Example: &agamemode creative"}, GUI.WRITABLE_BOOK, false, false, Optional.empty());
+        this.detailedCommands = new ListUncoloredStringFeature(this, new ArrayList<>(), FeatureSettingsSCore.detailedCommands, false, Optional.empty());
 
-        this.detailedMessagesContains = new ListUncoloredStringFeature(this, "detailedMessagesContains", new ArrayList<>(), "Detailed Messages Contains", new String[]{"&7&oSpecify a list of messages accepted", "&7&o(Contains)", "&7&oempty = no command", "&7Example: &afriend"}, GUI.WRITABLE_BOOK, false, false, Optional.empty());
-        this.detailedMessagesEquals = new ListUncoloredStringFeature(this, "detailedMessagesEquals", new ArrayList<>(), "Detailed Messages Equals", new String[]{"&7&oSpecify a list of messages accepted", "&7&o(Equals)", "&7&oempty = no command", "&7Example: &aHello my friend"}, GUI.WRITABLE_BOOK, false, false, Optional.empty());
+        this.detailedMessagesContains = new ListUncoloredStringFeature(this, new ArrayList<>(), FeatureSettingsSCore.detailedMessagesContains, false, Optional.empty());
+        this.detailedMessagesEquals = new ListUncoloredStringFeature(this, new ArrayList<>(), FeatureSettingsSCore.detailedMessagesEquals, false, Optional.empty());
 
         this.detailedItems = new DetailedItems(this);
 
         this.detailedEffects = new DetailedEffects(this);
 
-        this.detailedInventories = new ListInventoryTypeFeature(this, "detailedInventories", new ArrayList<>(), "Detailed Inventories", new String[]{"&7&oSpecify a list of InventoryType accepted"}, GUI.WRITABLE_BOOK, false, false);
-        this.mustBeItsOwnInventory = new BooleanFeature(this, "mustBeItsOwnInventory", false, "Must Be Its Own Inventory", new String[]{"&7&oThe player must open in its own inventory"}, Material.LEVER, false, false);
+        this.detailedInventories = new ListInventoryTypeFeature(this, new ArrayList<>(), FeatureSettingsSCore.detailedInventories, false);
+        this.mustBeItsOwnInventory = new BooleanFeature(this, false, FeatureSettingsSCore.mustBeItsOwnInventory, false);
 
-        this.consoleCommands = new ConsoleCommandsFeature(this, "consoleCommands", "Console Commands", new String[]{"&7&oThe console commands to execute"}, FixedMaterial.getMaterial(Arrays.asList("COMMAND_BLOCK", "COMMAND")), false, false);
+        this.consoleCommands = new ConsoleCommandsFeature(this, FeatureSettingsSCore.consoleCommands, false);
 
-        this.playerCommands = new PlayerCommandsFeature(this, "commands", "Player Commands", new String[]{"&7&oThe player commands to execute"}, FixedMaterial.getMaterial(Arrays.asList("COMMAND_BLOCK", "COMMAND")), false);
+        this.playerCommands = new PlayerCommandsFeature(this, FeatureSettingsSCore.commands_player);
 
-        this.targetPlayerCommands = new PlayerCommandsFeature(this, "targetPlayerCommands", "Target Player Commands", new String[]{"&7&oThe target commands to execute"}, FixedMaterial.getMaterial(Arrays.asList("COMMAND_BLOCK", "COMMAND")), false);
+        this.targetPlayerCommands = new PlayerCommandsFeature(this, FeatureSettingsSCore.targetPlayerCommands);
 
-        this.entityCommands = new EntityCommandsFeature(this, "entityCommands", "Entity Commands", new String[]{"&7&oThe entity commands to execute"}, FixedMaterial.getMaterial(Arrays.asList("COMMAND_BLOCK", "COMMAND")), false);
+        this.entityCommands = new EntityCommandsFeature(this, FeatureSettingsSCore.entityCommands);
 
-        this.targetEntityCommands = new EntityCommandsFeature(this, "targetEntityCommands", "Target Entity Commands", new String[]{"&7&oThe entity commands to execute"}, FixedMaterial.getMaterial(Arrays.asList("COMMAND_BLOCK", "COMMAND")), false);
+        this.targetEntityCommands = new EntityCommandsFeature(this, FeatureSettingsSCore.targetEntityCommands);
 
-        this.blockCommands = new BlockCommandsFeature(this, "blockCommands", "Block Commands", new String[]{"&7&oThe block commands to execute"}, FixedMaterial.getMaterial(Arrays.asList("COMMAND_BLOCK", "COMMAND")), false);
+        this.blockCommands = new BlockCommandsFeature(this, FeatureSettingsSCore.blockCommands);
 
-        this.targetBlockCommands = new BlockCommandsFeature(this, "targetBlockCommands", "Target Block Commands", new String[]{"&7&oThe block commands to execute"}, FixedMaterial.getMaterial(Arrays.asList("COMMAND_BLOCK", "COMMAND")), false);
+        this.targetBlockCommands = new BlockCommandsFeature(this, FeatureSettingsSCore.targetBlockCommands);
 
-        this.playerConditions = new PlayerConditionsFeature(this, "playerConditions", "Player Conditions", new String[]{});
+        this.playerConditions = new PlayerConditionsFeature(this, FeatureSettingsSCore.playerConditions);
 
-        this.targetPlayerConditions = new PlayerConditionsFeature(this, "targetPlayerConditions", "Target Player Conditions", new String[]{});
+        this.targetPlayerConditions = new PlayerConditionsFeature(this, FeatureSettingsSCore.targetPlayerConditions);
 
-        this.blockConditions = new BlockConditionsFeature(this, "blockConditions", "Block Conditions", new String[]{});
+        this.blockConditions = new BlockConditionsFeature(this, FeatureSettingsSCore.blockConditions);
 
-        this.targetBlockConditions = new BlockConditionsFeature(this, "targetBlockConditions", "Target Block Conditions", new String[]{});
+        this.targetBlockConditions = new BlockConditionsFeature(this, FeatureSettingsSCore.targetBlockConditions);
 
-        this.entityConditions = new EntityConditionsFeature(this, "entityConditions", "Entity Conditions", new String[]{});
+        this.entityConditions = new EntityConditionsFeature(this, FeatureSettingsSCore.entityConditions);
 
-        this.targetEntityConditions = new EntityConditionsFeature(this, "targetEntityConditions", "Target Entity Conditions", new String[]{});
+        this.targetEntityConditions = new EntityConditionsFeature(this, FeatureSettingsSCore.targetEntityConditions);
 
-        this.worldConditions = new WorldConditionsFeature(this, "worldConditions", "World Conditions", new String[]{});
+        this.worldConditions = new WorldConditionsFeature(this, FeatureSettingsSCore.worldConditions);
 
         // this.itemConditions = new ItemConditionsFeature(this, "itemConditions", "Item Conditions", new String[]{});
 
         this.placeholderConditions = new PlaceholderConditionGroupFeature(this);
 
-        this.customConditions = new CustomConditionsFeature(this, "customConditions", "Custom Conditions", new String[]{}, ExecutableEvents.plugin);
+        this.customConditions = new CustomConditionsFeature(this, FeatureSettingsSCore.customConditions, ExecutableEvents.plugin);
     }
 
     @Override

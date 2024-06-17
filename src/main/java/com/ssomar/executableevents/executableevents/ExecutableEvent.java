@@ -9,6 +9,7 @@ import com.ssomar.score.api.executableitems.config.ExecutableItemInterface;
 import com.ssomar.score.configs.messages.MessageMain;
 import com.ssomar.score.features.FeatureInterface;
 import com.ssomar.score.features.FeatureParentInterface;
+import com.ssomar.score.features.FeatureSettingsSCore;
 import com.ssomar.score.features.custom.activators.activator.SActivator;
 import com.ssomar.score.features.custom.activators.group.ActivatorsFeature;
 import com.ssomar.score.features.types.BooleanFeature;
@@ -63,12 +64,12 @@ public class ExecutableEvent extends SObjectWithFileEditable<ExecutableEvent, Ex
      * For the clone method, the parent is the real instance
      **/
     public ExecutableEvent(FeatureParentInterface parent, String id, String path) {
-        super(id, parent, "EE", "EE", new String[]{}, Material.EMERALD, path, ExecutableEventLoader.getInstance());
+        super(id, parent, FeatureSettingsSCore.EXECUTABLEEVENT, path, ExecutableEventLoader.getInstance());
         reset();
     }
 
     public ExecutableEvent(String id, String path) {
-        super(id, null, "EE", "EE", new String[]{}, Material.EMERALD, path, ExecutableEventLoader.getInstance());
+        super(id, null, FeatureSettingsSCore.EXECUTABLEEVENT, path, ExecutableEventLoader.getInstance());
         reset();
     }
 
@@ -178,15 +179,15 @@ public class ExecutableEvent extends SObjectWithFileEditable<ExecutableEvent, Ex
 
     @Override
     public void reset() {
-        this.enabled = new BooleanFeature(this, "enabled", true, "Enabled", new String[]{"&7&oIf the event is enabled"}, Material.LEVER, false, false);
+        this.enabled = new BooleanFeature(this,  true, FeatureSettingsSCore.enabled, false);
 
-        this.editorIcon = new MaterialFeature(this, "editorIcon", Optional.of(Material.LEVER), "Icon Editor", new String[]{}, Material.LEVER, false, true);
+        this.editorIcon = new MaterialFeature(this,  Optional.of(Material.LEVER), FeatureSettingsSCore.editorIcon, true);
 
         this.activatorsFeature = new ActivatorsFeature(this, new ActivatorEEFeature(null, "null"));
 
-        this.displayName = new ColoredStringFeature(this, "name", Optional.of("&eDefault name"), "Custom name", new String[]{"&7&oThe custom name of the event"}, Material.NAME_TAG, false, false);
+        this.displayName = new ColoredStringFeature(this,  Optional.of("&eDefault name"), FeatureSettingsSCore.name, false);
 
-        this.disabledWorlds = new ListWorldFeature(this, "disabledWorlds", new ArrayList<>(), "Disabled worlds", new String[]{"&7&oDisabled worlds"}, FixedMaterial.getMaterial(Arrays.asList("GRASS_BLOCK", "GRASS")), false, false);
+        this.disabledWorlds = new ListWorldFeature(this,  new ArrayList<>(), FeatureSettingsSCore.disabledWorlds, false);
     }
 
     @Override

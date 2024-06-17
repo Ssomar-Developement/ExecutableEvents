@@ -20,7 +20,6 @@ import java.util.*;
 
 public class ExecutableEventLoader extends SObjectWithFileLoader<ExecutableEvent> {
 
-    private final static String DEFAULT = "Default";
     private static ExecutableEventLoader instance;
     @Getter
     @Setter
@@ -43,9 +42,9 @@ public class ExecutableEventLoader extends SObjectWithFileLoader<ExecutableEvent
         ExecutableEventsManager.getInstance().setDefaultObjects(new ArrayList<>());
         //if (!GeneralConfig.getInstance().isDisableTestItems()) {
         if (PlaceholderAPI.isLotOfWork()) {
-            this.loadDefaultPremiumObjects(this.getPremiumDefaultObjectsName());
+            this.loadDefaultPremiumObjects();
         }
-        this.loadDefaultEncodedPremiumObjects(this.getPremiumPackObjectsName());
+        //this.loadDefaultEncodedPremiumObjects();
         //}
 
         // ITEMS CONFIG
@@ -74,30 +73,6 @@ public class ExecutableEventLoader extends SObjectWithFileLoader<ExecutableEvent
             this.createDefaultObjectsFile(!PlaceholderAPI.isLotOfWork());
             this.load();
         }
-    }
-
-    public Map<String, List<String>> getPremiumPackObjectsName() {
-        Map<String, List<String>> defaultItems = new HashMap<>();
-
-        return defaultItems;
-    }
-
-    @Override
-    public Map<String, List<String>> getPremiumDefaultObjectsName() {
-        Map<String, List<String>> defaultItems = new HashMap<>();
-
-        defaultItems.put(DEFAULT, new ArrayList<>());
-
-        return defaultItems;
-    }
-
-    @Override
-    public Map<String, List<String>> getFreeDefaultObjectsName() {
-        Map<String, List<String>> defaultItems = new HashMap<>();
-
-        defaultItems.put(DEFAULT, new ArrayList<>());
-
-        return defaultItems;
     }
 
     @Override
