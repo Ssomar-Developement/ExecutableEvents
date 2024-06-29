@@ -6,6 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="78b6b443-d76b-4b1c-85fa-0ca312706db9" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/SCore.jar" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/SCore.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/plugin.yml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/plugin.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -795,6 +797,7 @@
       <workItem from="1718728188129" duration="916000" />
       <workItem from="1718814025521" duration="595000" />
       <workItem from="1719132890736" duration="2000" />
+      <workItem from="1719697313914" duration="352000" />
     </task>
     <servers />
   </component>
