@@ -70,6 +70,7 @@ public class ExecutableEventLoader extends SObjectWithFileLoader<ExecutableEvent
             this.loadObjectsInFolder(itemsDirectory, !PlaceholderAPI.isLotOfWork());
             Utils.sendConsoleMsg(ExecutableEvents.NAME_COLOR + " &7Amount of Executable Events configurations loaded: &e" + getCpt());
         } else {
+            itemsDirectory.mkdirs();
             this.createDefaultObjectsFile(!PlaceholderAPI.isLotOfWork());
             this.load();
         }
