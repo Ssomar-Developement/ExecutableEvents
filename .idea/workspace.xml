@@ -86,7 +86,7 @@
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/octav/Documents/GitHub/ExecutableEvents&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/octav/Documents/GitHub/SsomarDiscordBot&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -798,6 +798,9 @@
       <workItem from="1719697313914" duration="352000" />
       <workItem from="1721302710928" duration="3760000" />
       <workItem from="1722149028197" duration="592000" />
+      <workItem from="1722269986082" duration="1153000" />
+      <workItem from="1722360375363" duration="552000" />
+      <workItem from="1722442521105" duration="551000" />
     </task>
     <servers />
   </component>
