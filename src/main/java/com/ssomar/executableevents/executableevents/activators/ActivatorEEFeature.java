@@ -39,7 +39,9 @@ import com.ssomar.score.features.types.list.ListDetailedEntityFeature;
 import com.ssomar.score.features.types.list.ListInventoryTypeFeature;
 import com.ssomar.score.features.types.list.ListUncoloredStringFeature;
 import com.ssomar.score.menu.GUI;
+import com.ssomar.score.scheduler.ScheduleFeatures;
 import com.ssomar.score.sobject.sactivator.EventInfo;
+import com.ssomar.score.sobject.sactivator.OptionGlobal;
 import com.ssomar.score.sobject.sactivator.SOption;
 import com.ssomar.score.splugin.SPlugin;
 import com.ssomar.score.utils.EntityItemNoDrop;
@@ -146,6 +148,11 @@ public class ActivatorEEFeature extends SActivator<ActivatorEEFeature, Activator
      * LOOP option only
      **/
     private LoopFeatures loopFeatures;
+
+    /**
+     * CUSTOM_TRIGGER option only
+     **/
+    private ScheduleFeatures scheduleFeatures;
 
     public ActivatorEEFeature(FeatureParentInterface parent, String id) {
         super(ExecutableEvents.plugin, parent, id);
@@ -256,6 +263,8 @@ public class ActivatorEEFeature extends SActivator<ActivatorEEFeature, Activator
         if (eInfo.getBowForce().isPresent())
             sp.getExtraPlaceholders().put("%bow_force%", eInfo.getBowForce().get() + "");
         else sp.getExtraPlaceholders().put("%bow_force%", "0");
+
+        if(!eInfo.getPlaceholders().isEmpty()) sp.getExtraPlaceholders().putAll(eInfo.getPlaceholders());
 
         if (eInfo.getEffect().isPresent()) sp.setEffectPlcHldr(eInfo.getEffect().get());
 
@@ -707,6 +716,10 @@ public class ActivatorEEFeature extends SActivator<ActivatorEEFeature, Activator
             features.add(desactiveDrops);
         }
 
+        if(optionFeature.getValue().isCustomTriggerOption()) {
+            features.add(scheduleFeatures);
+        }
+
         features.addAll(Arrays.asList(usePerDayFeature, cancelEvent, silenceOutput, cooldown, globalCooldown, requiredGroup));
 
         features.addAll(Arrays.asList(worldConditions, placeholderConditions));
@@ -777,6 +790,20 @@ public class ActivatorEEFeature extends SActivator<ActivatorEEFeature, Activator
         }
 
         return features;
+    }
+
+    @Override
+    public Runnable getRunnableForAll() {
+        Runnable runnable = () -> {
+            SsomarDev.testMsg("Activator EE RUNNABLE RUN CUSTOM TRIGGER", true);
+            EventInfo eInfo = new EventInfo(null);
+            eInfo.setOption(OptionGlobal.CUSTOM_TRIGGER);
+            List<SActivator> activators = new ArrayList<>();
+            activators.add(ActivatorEEFeature.this);
+            eInfo.setWhitelistActivators(activators);
+            EventsManager.getInstance().activeOption(eInfo);
+        };
+        return runnable;
     }
 
     @Override
@@ -856,6 +883,7 @@ public class ActivatorEEFeature extends SActivator<ActivatorEEFeature, Activator
                     //a.setItemConditions(itemConditions);
                     a.setPlaceholderConditions(placeholderConditions);
                     a.setCustomConditions(customConditions);
+                    a.setScheduleFeatures(scheduleFeatures);
                     break;
                 }
             }
@@ -917,6 +945,7 @@ public class ActivatorEEFeature extends SActivator<ActivatorEEFeature, Activator
         //clone.setItemConditions(itemConditions.clone(clone));
         clone.setPlaceholderConditions(placeholderConditions.clone(clone));
         clone.setCustomConditions(customConditions.clone(clone));
+        clone.setScheduleFeatures(scheduleFeatures.clone(clone));
         return clone;
     }
 
@@ -954,6 +983,10 @@ public class ActivatorEEFeature extends SActivator<ActivatorEEFeature, Activator
 
             if (Option.getOptionWithDrops().contains(optionFeature.getValue())) {
                 errors.addAll(desactiveDrops.load(sPlugin, section, premiumLoading));
+            }
+
+            if(optionFeature.getValue().isCustomTriggerOption()) {
+                errors.addAll(scheduleFeatures.load(sPlugin, section, premiumLoading));
             }
 
             if (optionFeature.getValue().isLoopOption()) {
@@ -1154,6 +1187,8 @@ public class ActivatorEEFeature extends SActivator<ActivatorEEFeature, Activator
         this.placeholderConditions = new PlaceholderConditionGroupFeature(this);
 
         this.customConditions = new CustomConditionsFeature(this, FeatureSettingsSCore.customConditions, ExecutableEvents.plugin);
+
+        this.scheduleFeatures = new ScheduleFeatures(this);
     }
 
     @Override
@@ -1169,11 +1204,11 @@ public class ActivatorEEFeature extends SActivator<ActivatorEEFeature, Activator
     }
 
     @Override
-    public void activateOptionGlobal(SOption sOption, EventInfo eventInfo, List<SActivator> list) {
-        List<ActivatorEEFeature> activators = new ArrayList<>();
-        List<ActivatorEEFeature> activatorsLoopServer = new ArrayList<>();
+    public void activateOptionGlobal(EventInfo eventInfo) {
+        List<SActivator> activators = new ArrayList<>();
+        List<SActivator> activatorsLoopServer = new ArrayList<>();
         //SsomarDev.testMsg("activateOptionGlobal", true);
-        for (SActivator activator : list) {
+        for (SActivator activator : eventInfo.getWhitelistActivators()) {
             if (activator instanceof ActivatorEEFeature) {
                 if (activator.getOption() == Option.LOOP_SERVER)
                     activatorsLoopServer.add((ActivatorEEFeature) activator);
@@ -1191,7 +1226,12 @@ public class ActivatorEEFeature extends SActivator<ActivatorEEFeature, Activator
         }*/
 
         if (!activatorsLoopServer.isEmpty())
-            EventsManager.getInstance().activeOption(Option.LOOP_SERVER, eventInfo, activatorsLoopServer);
-        if (!activators.isEmpty()) EventsManager.getInstance().activeOptionAllPlayer(sOption, eventInfo, activators);
+            eventInfo.setOption(Option.LOOP_SERVER);
+            eventInfo.setWhitelistActivators(activatorsLoopServer);
+            EventsManager.getInstance().activeOption(eventInfo);
+        if (!activators.isEmpty()){
+            eventInfo.setWhitelistActivators(activators);
+            EventsManager.getInstance().activeOptionAllPlayer(eventInfo);
+        }
     }
 }

@@ -28,6 +28,7 @@ public class PlayerBlockPlaceEvent implements Listener {
         eInfo.setTargetBlock(Optional.of(e.getBlock()));
         eInfo.setOldMaterialTargetBlock(Optional.of(e.getBlock().getType()));
         if (!SCore.is1v12Less()) eInfo.setOldStatesTargetBlock(Optional.of(e.getBlock().getBlockData().getAsString(true)));
-        EventsManager.getInstance().activeOption(Option.PLAYER_BLOCK_PLACE, eInfo, new ArrayList<>());
+        eInfo.setOption(Option.PLAYER_BLOCK_PLACE);
+        EventsManager.getInstance().activeOption(eInfo);
     }
 }

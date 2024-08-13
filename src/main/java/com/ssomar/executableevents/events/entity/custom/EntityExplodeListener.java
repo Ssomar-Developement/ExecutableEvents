@@ -17,6 +17,7 @@ public class EntityExplodeListener implements Listener {
     public void onEntityExplodeEvent(EntityExplodeEvent e) {
         EventInfo eInfo = new EventInfo(e);
         eInfo.setEntity(Optional.of(e.getEntity()));
-        EventsManager.getInstance().activeOption(Option.ENTITY_EXPLODE, eInfo, new ArrayList<>());
+        eInfo.setOption(Option.ENTITY_EXPLODE);
+        EventsManager.getInstance().activeOption(eInfo);
     }
 }

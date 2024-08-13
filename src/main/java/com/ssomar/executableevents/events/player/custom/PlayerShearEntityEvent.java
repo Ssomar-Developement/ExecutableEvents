@@ -17,6 +17,7 @@ public class PlayerShearEntityEvent implements Listener {
         EventInfo eInfo = new EventInfo(e);
         eInfo.setPlayer(Optional.of(e.getPlayer()));
         eInfo.setTargetEntity(Optional.of(e.getEntity()));
-        EventsManager.getInstance().activeOption(Option.PLAYER_SHEAR_ENTITY, eInfo, new ArrayList<>());
+        eInfo.setOption(Option.PLAYER_SHEAR_ENTITY);
+        EventsManager.getInstance().activeOption(eInfo);
     }
 }

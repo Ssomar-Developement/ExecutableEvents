@@ -17,6 +17,7 @@ public class EntityRegainHealthListener implements Listener {
     public void onEntityRegainHealthEvent(EntityRegainHealthEvent e) {
         EventInfo eInfo = new EventInfo(e);
         eInfo.setEntity(Optional.of(e.getEntity()));
-        EventsManager.getInstance().activeOption(Option.ENTITY_REGAIN_HEALTH, eInfo, new ArrayList<>());
+        eInfo.setOption(Option.ENTITY_REGAIN_HEALTH);
+        EventsManager.getInstance().activeOption(eInfo);
     }
 }

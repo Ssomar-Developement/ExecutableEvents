@@ -23,7 +23,8 @@ public class PlayerConnectionEvent implements Listener {
         Bukkit.getScheduler().runTaskLater(SCore.plugin, () -> {
             EventInfo eInfo = new EventInfo(e);
             eInfo.setPlayer(Optional.of(e.getPlayer()));
-            EventsManager.getInstance().activeOption(Option.PLAYER_CONNECTION, eInfo, new ArrayList<>());
+            eInfo.setOption(Option.PLAYER_CONNECTION);
+            EventsManager.getInstance().activeOption(eInfo);
         }, 5);
     }
 }

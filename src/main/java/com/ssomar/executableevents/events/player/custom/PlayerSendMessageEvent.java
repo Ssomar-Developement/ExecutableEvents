@@ -19,6 +19,7 @@ public class PlayerSendMessageEvent implements Listener {
         EventInfo eInfo = new EventInfo(e);
         eInfo.setPlayer(Optional.of(e.getPlayer()));
         eInfo.setCommand(Optional.of(e.getMessage()));
-        EventsManager.getInstance().activeOption(Option.PLAYER_SEND_MESSAGE, eInfo, new ArrayList<>());
+        eInfo.setOption(Option.PLAYER_SEND_MESSAGE);
+        EventsManager.getInstance().activeOption(eInfo);
     }
 }

@@ -33,7 +33,7 @@ public class EntityProjectileHitBlock implements Listener {
 
 
         eInfo.setProjectile(Optional.of(arrow));
-
-        EventsManager.getInstance().activeOption(Option.ENTITY_PROJECTILE_HIT_BLOCK, eInfo, new ArrayList<>());
+        eInfo.setOption(Option.ENTITY_PROJECTILE_HIT_BLOCK);
+        EventsManager.getInstance().activeOption(eInfo);
     }
 }

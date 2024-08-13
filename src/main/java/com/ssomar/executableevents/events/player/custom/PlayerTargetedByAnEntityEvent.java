@@ -19,7 +19,8 @@ public class PlayerTargetedByAnEntityEvent implements Listener {
             EventInfo eInfo = new EventInfo(e);
             eInfo.setPlayer(Optional.of((Player)e.getTarget()));
             eInfo.setTargetEntity(Optional.of(e.getEntity()));
-            EventsManager.getInstance().activeOption(Option.PLAYER_TARGETED_BY_AN_ENTITY, eInfo, new ArrayList<>());
+            eInfo.setOption(Option.PLAYER_TARGETED_BY_AN_ENTITY);
+            EventsManager.getInstance().activeOption(eInfo);
         }
     }
 }

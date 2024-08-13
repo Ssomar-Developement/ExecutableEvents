@@ -19,6 +19,7 @@ public class EntityTameByEntityListener implements Listener {
         EventInfo eInfo = new EventInfo(e);
         eInfo.setEntity(Optional.of(e.getEntity()));
         if (!(e.getOwner() instanceof Player) && e.getOwner() instanceof LivingEntity) eInfo.setTargetEntity(Optional.of((LivingEntity) e.getOwner()));
-        EventsManager.getInstance().activeOption(Option.ENTITY_TAME_BY_PLAYER, eInfo, new ArrayList<>());
+        eInfo.setOption(Option.ENTITY_TAME_BY_ENTITY);
+        EventsManager.getInstance().activeOption(eInfo);
     }
 }

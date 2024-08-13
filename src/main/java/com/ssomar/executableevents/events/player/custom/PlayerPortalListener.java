@@ -18,6 +18,7 @@ public class PlayerPortalListener implements Listener {
 
         EventInfo eInfo = new EventInfo(e);
         eInfo.setPlayer(Optional.of(p));
-        EventsManager.getInstance().activeOption(Option.PLAYER_PORTAL, eInfo, new ArrayList<>());
+        eInfo.setOption(Option.PLAYER_PORTAL);
+        EventsManager.getInstance().activeOption(eInfo);
     }
 }

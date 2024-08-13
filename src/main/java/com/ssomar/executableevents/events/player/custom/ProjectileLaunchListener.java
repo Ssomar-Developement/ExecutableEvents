@@ -49,7 +49,8 @@ public class ProjectileLaunchListener implements Listener {
             }
             eInfo.setVelocity(Optional.of(projectile.getVelocity()));
             eInfo.setTargetEntity(Optional.of(projectile));
-            EventsManager.getInstance().activeOption(Option.PLAYER_LAUNCH_PROJECTILE, eInfo, new ArrayList<>());
+            eInfo.setOption(Option.PLAYER_LAUNCH_PROJECTILE);
+            EventsManager.getInstance().activeOption(eInfo);
 
         }
     }

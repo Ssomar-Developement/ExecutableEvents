@@ -15,6 +15,7 @@ public class PlayerEnableSprintEvent implements Listener {
     public void playerEnableSprintEvent(com.ssomar.sevents.events.player.sprint.enable.PlayerEnableSprintEvent e) {
         EventInfo eInfo = new EventInfo(e);
         eInfo.setPlayer(Optional.of(e.getPlayer()));
-        EventsManager.getInstance().activeOption(Option.PLAYER_ENABLE_SPRINT, eInfo, new ArrayList<>());
+        eInfo.setOption(Option.PLAYER_ENABLE_SPRINT);
+        EventsManager.getInstance().activeOption(eInfo);
     }
 }

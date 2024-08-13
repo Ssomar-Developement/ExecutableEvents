@@ -16,6 +16,7 @@ public class PlayerKillPlayerEvent implements Listener {
         EventInfo eInfo = new EventInfo(e);
         eInfo.setPlayer(Optional.of(e.getPlayer()));
         eInfo.setTargetPlayer(Optional.of(e.getTarget()));
-        EventsManager.getInstance().activeOption(Option.PLAYER_KILL_PLAYER, eInfo, new ArrayList<>());
+        eInfo.setOption(Option.PLAYER_KILL_PLAYER);
+        EventsManager.getInstance().activeOption(eInfo);
     }
 }

@@ -19,6 +19,7 @@ public class PlayerRespawnListener implements Listener {
 
         EventInfo eInfo = new EventInfo(e);
         eInfo.setPlayer(Optional.of(e.getPlayer()));
-        EventsManager.getInstance().activeOption(Option.PLAYER_RESPAWN, eInfo, new ArrayList<>());
+        eInfo.setOption(Option.PLAYER_RESPAWN);
+        EventsManager.getInstance().activeOption(eInfo);
     }
 }

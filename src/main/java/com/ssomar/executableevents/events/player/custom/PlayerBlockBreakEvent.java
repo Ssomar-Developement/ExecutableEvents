@@ -28,6 +28,7 @@ public class PlayerBlockBreakEvent implements Listener {
         eInfo.setOldMaterialTargetBlock(Optional.of(e.getBlock().getType()));
         if (!SCore.is1v12Less()) eInfo.setOldStatesTargetBlock(Optional.of(e.getBlock().getBlockData().getAsString(true)));
         eInfo.setFromCustomBreakCommand(fromMineInCube);
-        EventsManager.getInstance().activeOption(Option.PLAYER_BLOCK_BREAK, eInfo, new ArrayList<>());
+        eInfo.setOption(Option.PLAYER_BLOCK_BREAK);
+        EventsManager.getInstance().activeOption(eInfo);
     }
 }

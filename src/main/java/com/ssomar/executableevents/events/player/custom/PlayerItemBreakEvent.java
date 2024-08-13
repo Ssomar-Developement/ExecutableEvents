@@ -16,6 +16,7 @@ public class PlayerItemBreakEvent implements Listener {
 
         EventInfo eInfo = new EventInfo(e);
         eInfo.setPlayer(Optional.of(e.getPlayer()));
-        EventsManager.getInstance().activeOption(Option.PLAYER_ITEM_BREAK, eInfo, new ArrayList<>());
+        eInfo.setOption(Option.PLAYER_ITEM_BREAK);
+        EventsManager.getInstance().activeOption(eInfo);
     }
 }

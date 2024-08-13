@@ -21,7 +21,8 @@ public class EntityTargetPlayerListener implements Listener {
             EventInfo eInfo = new EventInfo(e);
             eInfo.setEntity(Optional.of(e.getEntity()));
             eInfo.setTargetPlayer(Optional.of((Player)e.getTarget()));
-            EventsManager.getInstance().activeOption(Option.ENTITY_TARGET_PLAYER, eInfo, new ArrayList<>());
+            eInfo.setOption(Option.ENTITY_TARGET_PLAYER);
+            EventsManager.getInstance().activeOption(eInfo);
         }
     }
 }

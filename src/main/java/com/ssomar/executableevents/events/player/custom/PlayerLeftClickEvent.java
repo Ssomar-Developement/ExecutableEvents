@@ -24,6 +24,7 @@ public class PlayerLeftClickEvent implements Listener {
             eInfo.setDetailedInteraction(Optional.of(DetailedInteraction.BLOCK));
             eInfo.setBlockface(Optional.of(e.getBlockFace().name()));
         } else eInfo.setDetailedInteraction(Optional.of(DetailedInteraction.AIR));
-        EventsManager.getInstance().activeOption(Option.PLAYER_LEFT_CLICK, eInfo, new ArrayList<>());
+        eInfo.setOption(Option.PLAYER_LEFT_CLICK);
+        EventsManager.getInstance().activeOption(eInfo);
     }
 }

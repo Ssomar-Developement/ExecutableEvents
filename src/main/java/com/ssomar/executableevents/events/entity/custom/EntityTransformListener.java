@@ -18,6 +18,7 @@ public class EntityTransformListener implements Listener {
         EventInfo eInfo = new EventInfo(e);
         eInfo.setEntity(Optional.of(e.getEntity()));
         eInfo.setTargetEntity(Optional.of(e.getTransformedEntity()));
-        EventsManager.getInstance().activeOption(Option.ENTITY_TRANSFORM, eInfo, new ArrayList<>());
+        eInfo.setOption(Option.ENTITY_TRANSFORM);
+        EventsManager.getInstance().activeOption(eInfo);
     }
 }

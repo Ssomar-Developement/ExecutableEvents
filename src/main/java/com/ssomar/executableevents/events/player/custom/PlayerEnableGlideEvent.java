@@ -15,6 +15,7 @@ public class PlayerEnableGlideEvent implements Listener {
     public void playerEnableGlideEvent(com.ssomar.sevents.events.player.glide.enable.PlayerEnableGlideEvent e) {
         EventInfo eInfo = new EventInfo(e);
         eInfo.setPlayer(Optional.of(e.getPlayer()));
-        EventsManager.getInstance().activeOption(Option.PLAYER_ENABLE_GLIDE, eInfo, new ArrayList<>());
+        eInfo.setOption(Option.PLAYER_ENABLE_GLIDE);
+        EventsManager.getInstance().activeOption(eInfo);
     }
 }

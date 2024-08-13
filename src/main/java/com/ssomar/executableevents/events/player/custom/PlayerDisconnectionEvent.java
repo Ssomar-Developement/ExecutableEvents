@@ -16,6 +16,7 @@ public class PlayerDisconnectionEvent implements Listener {
     public void onPlayerQuitEvent(PlayerQuitEvent e) {
         EventInfo eInfo = new EventInfo(e);
         eInfo.setPlayer(Optional.of(e.getPlayer()));
-        EventsManager.getInstance().activeOption(Option.PLAYER_DISCONNECTION, eInfo, new ArrayList<>());
+        eInfo.setOption(Option.PLAYER_DISCONNECTION);
+        EventsManager.getInstance().activeOption(eInfo);
     }
 }

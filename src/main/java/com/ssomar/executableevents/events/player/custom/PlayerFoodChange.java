@@ -18,6 +18,7 @@ public class PlayerFoodChange implements Listener {
     public void onFoodChange(FoodLevelChangeEvent e) {
         EventInfo eInfo = new EventInfo(e);
         eInfo.setPlayer(Optional.of((Player) e.getEntity()));
-        EventsManager.getInstance().activeOption(Option.PLAYER_FOOD_CHANGE, eInfo, new ArrayList<>());
+        eInfo.setOption(Option.PLAYER_FOOD_CHANGE);
+        EventsManager.getInstance().activeOption(eInfo);
     }
 }

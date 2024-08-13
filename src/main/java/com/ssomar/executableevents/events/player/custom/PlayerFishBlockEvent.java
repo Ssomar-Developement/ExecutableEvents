@@ -19,6 +19,7 @@ public class PlayerFishBlockEvent implements Listener {
         eInfo.setTargetBlock(Optional.of(e.getBlock()));
         eInfo.setOldMaterialTargetBlock(Optional.of(e.getBlock().getType()));
         if (!SCore.is1v12Less()) eInfo.setOldStatesTargetBlock(Optional.of(e.getBlock().getBlockData().getAsString(true)));
-        EventsManager.getInstance().activeOption(Option.PLAYER_FISH_BLOCK, eInfo, new ArrayList<>());
+        eInfo.setOption(Option.PLAYER_FISH_BLOCK);
+        EventsManager.getInstance().activeOption(eInfo);
     }
 }

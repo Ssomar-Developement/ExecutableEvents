@@ -26,8 +26,8 @@ public class PlayerDropItemEvent implements Listener {
         eInfo.setForceMainHand(true);
 
         eInfo.setItem(Optional.of(e.getItemDrop().getItemStack()));
-
-        EventsManager.getInstance().activeOption(Option.PLAYER_DROP_ITEM, eInfo, new ArrayList<>());
+        eInfo.setOption(Option.PLAYER_DROP_ITEM);
+        EventsManager.getInstance().activeOption(eInfo);
 
     }
 }

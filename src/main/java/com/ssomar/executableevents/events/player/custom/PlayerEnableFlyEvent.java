@@ -15,6 +15,7 @@ public class PlayerEnableFlyEvent implements Listener {
     public void playerEnableFlyEvent(com.ssomar.sevents.events.player.fly.enable.PlayerEnableFlyEvent e) {
         EventInfo eInfo = new EventInfo(e);
         eInfo.setPlayer(Optional.of(e.getPlayer()));
-        EventsManager.getInstance().activeOption(Option.PLAYER_ENABLE_FLY, eInfo, new ArrayList<>());
+        eInfo.setOption(Option.PLAYER_ENABLE_FLY);
+        EventsManager.getInstance().activeOption(eInfo);
     }
 }

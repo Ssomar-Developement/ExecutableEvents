@@ -15,6 +15,7 @@ public class PlayerDisableSneakEvent implements Listener {
     public void playerDesactiveSneakEvent(com.ssomar.sevents.events.player.sneak.disable.PlayerDisableSneakEvent e) {
         EventInfo eInfo = new EventInfo(e);
         eInfo.setPlayer(Optional.of(e.getPlayer()));
-        EventsManager.getInstance().activeOption(Option.PLAYER_DISABLE_SNEAK, eInfo, new ArrayList<>());
+        eInfo.setOption(Option.PLAYER_DISABLE_SNEAK);
+        EventsManager.getInstance().activeOption(eInfo);
     }
 }

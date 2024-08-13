@@ -19,7 +19,8 @@ public class PlayerDismountEvent implements Listener {
             EventInfo eInfo = new EventInfo(e);
             eInfo.setPlayer(Optional.of((Player) e.getEntity()));
             eInfo.setTargetEntity(Optional.of(e.getDismounted()));
-            EventsManager.getInstance().activeOption(Option.PLAYER_DISMOUNT, eInfo, new ArrayList<>());
+            eInfo.setOption(Option.PLAYER_DISMOUNT);
+            EventsManager.getInstance().activeOption(eInfo);
         }
     }
 }

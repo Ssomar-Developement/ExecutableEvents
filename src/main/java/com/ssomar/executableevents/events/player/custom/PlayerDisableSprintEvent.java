@@ -15,6 +15,7 @@ public class PlayerDisableSprintEvent implements Listener {
     public void playerDisableSprintEvent(com.ssomar.sevents.events.player.sprint.disable.PlayerDisableSprintEvent e) {
         EventInfo eInfo = new EventInfo(e);
         eInfo.setPlayer(Optional.of(e.getPlayer()));
-        EventsManager.getInstance().activeOption(Option.PLAYER_DISABLE_SPRINT, eInfo, new ArrayList<>());
+        eInfo.setOption(Option.PLAYER_DISABLE_SPRINT);
+        EventsManager.getInstance().activeOption(eInfo);
     }
 }

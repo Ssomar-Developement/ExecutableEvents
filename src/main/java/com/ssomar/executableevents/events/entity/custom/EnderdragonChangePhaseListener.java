@@ -17,6 +17,7 @@ public class EnderdragonChangePhaseListener implements Listener {
     public void onEnderDragonChangePhaseEvent(EnderDragonChangePhaseEvent e) {
         EventInfo eInfo = new EventInfo(e);
         eInfo.setEntity(Optional.of(e.getEntity()));
-        EventsManager.getInstance().activeOption(Option.ENDERDRAGON_CHANGE_PHASE, eInfo, new ArrayList<>());
+        eInfo.setOption(Option.ENDERDRAGON_CHANGE_PHASE);
+        EventsManager.getInstance().activeOption(eInfo);
     }
 }

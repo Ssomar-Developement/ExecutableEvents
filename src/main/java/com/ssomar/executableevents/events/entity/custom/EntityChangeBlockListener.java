@@ -22,6 +22,7 @@ public class EntityChangeBlockListener implements Listener {
         eInfo.setOldMaterialTargetBlock(Optional.of(e.getBlock().getType()));
         if (!SCore.is1v12Less())
             eInfo.setOldStatesTargetBlock(Optional.of(e.getBlock().getBlockData().getAsString(true)));
-        EventsManager.getInstance().activeOption(Option.ENTITY_CHANGE_BLOCK, eInfo, new ArrayList<>());
+        eInfo.setOption(Option.ENTITY_CHANGE_BLOCK);
+        EventsManager.getInstance().activeOption(eInfo);
     }
 }

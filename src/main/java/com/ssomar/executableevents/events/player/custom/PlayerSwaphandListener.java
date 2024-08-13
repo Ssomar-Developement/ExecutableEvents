@@ -18,6 +18,7 @@ public class PlayerSwaphandListener implements Listener {
 
         EventInfo eInfo = new EventInfo(e);
         eInfo.setPlayer(Optional.of(e.getPlayer()));
-        EventsManager.getInstance().activeOption(Option.PLAYER_SWAP_HAND, eInfo, new ArrayList<>());
+        eInfo.setOption(Option.PLAYER_SWAP_HAND);
+        EventsManager.getInstance().activeOption(eInfo);
     }
 }

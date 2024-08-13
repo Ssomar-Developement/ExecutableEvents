@@ -17,6 +17,7 @@ public class PlayerRiptideListener implements Listener {
 
         EventInfo eInfo = new EventInfo(e);
         eInfo.setPlayer(Optional.of(e.getPlayer()));
-        EventsManager.getInstance().activeOption(Option.PLAYER_RIPTIDE, eInfo, new ArrayList<>());
+        eInfo.setOption(Option.PLAYER_RIPTIDE);
+        EventsManager.getInstance().activeOption(eInfo);
     }
 }

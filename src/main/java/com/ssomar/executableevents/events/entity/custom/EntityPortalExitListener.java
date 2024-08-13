@@ -17,6 +17,7 @@ public class EntityPortalExitListener implements Listener {
     public void onEntityPortalExitEvent(EntityPortalExitEvent e) {
         EventInfo eInfo = new EventInfo(e);
         eInfo.setEntity(Optional.of(e.getEntity()));
-        EventsManager.getInstance().activeOption(Option.ENTITY_PORTAL_EXIT, eInfo, new ArrayList<>());
+        eInfo.setOption(Option.ENTITY_PORTAL_EXIT);
+        EventsManager.getInstance().activeOption(eInfo);
     }
 }

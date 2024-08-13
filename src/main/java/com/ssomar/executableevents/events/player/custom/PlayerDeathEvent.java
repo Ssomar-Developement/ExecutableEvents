@@ -20,6 +20,7 @@ public class PlayerDeathEvent implements Listener {
         eInfo.setPlayer(Optional.of(p));
         if(p.getLastDamageCause() != null) eInfo.setDamageCause(Optional.of(p.getLastDamageCause().getCause()));
         else eInfo.setDamageCause(Optional.empty());
-        EventsManager.getInstance().activeOption(Option.PLAYER_DEATH, eInfo, new ArrayList<>());
+        eInfo.setOption(Option.PLAYER_DEATH);
+        EventsManager.getInstance().activeOption(eInfo);
     }
 }

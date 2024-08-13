@@ -19,7 +19,8 @@ public class PlayerMountEvent implements Listener {
             EventInfo eInfo = new EventInfo(e);
             eInfo.setPlayer(Optional.of((Player) e.getEntity()));
             eInfo.setTargetEntity(Optional.of(e.getMount()));
-            EventsManager.getInstance().activeOption(Option.PLAYER_MOUNT, eInfo, new ArrayList<>());
+            eInfo.setOption(Option.PLAYER_MOUNT);
+            EventsManager.getInstance().activeOption(eInfo);
         }
     }
 }

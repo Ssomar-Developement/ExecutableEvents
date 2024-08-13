@@ -21,6 +21,7 @@ public class PlayerHarvestBlockListener implements Listener {
         eInfo.setTargetBlock(Optional.of(e.getHarvestedBlock()));
         eInfo.setOldMaterialTargetBlock(Optional.of(e.getHarvestedBlock().getType()));
         if (!SCore.is1v12Less()) eInfo.setOldStatesTargetBlock(Optional.of(e.getHarvestedBlock().getBlockData().getAsString(true)));
-        EventsManager.getInstance().activeOption(Option.PLAYER_HARVEST_BLOCK, eInfo, new ArrayList<>());
+        eInfo.setOption(Option.PLAYER_HARVEST_BLOCK);
+        EventsManager.getInstance().activeOption(eInfo);
     }
 }

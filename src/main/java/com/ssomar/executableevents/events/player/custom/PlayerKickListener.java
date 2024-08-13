@@ -18,6 +18,7 @@ public class PlayerKickListener implements Listener {
 
         EventInfo eInfo = new EventInfo(e);
         eInfo.setPlayer(Optional.of((Player) e.getPlayer()));
-        EventsManager.getInstance().activeOption(Option.PLAYER_KICK, eInfo, new ArrayList<>());
+        eInfo.setOption(Option.PLAYER_KICK);
+        EventsManager.getInstance().activeOption(eInfo);
     }
 }

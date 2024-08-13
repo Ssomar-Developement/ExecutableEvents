@@ -19,6 +19,7 @@ public class EntityCombustByEntityListener implements Listener {
         EventInfo eInfo = new EventInfo(e);
         eInfo.setEntity(Optional.of(e.getEntity()));
         eInfo.setTargetEntity(Optional.of(e.getCombuster()));
-        EventsManager.getInstance().activeOption(Option.ENTITY_COMBUST_BY_ENTITY, eInfo, new ArrayList<>());
+        eInfo.setOption(Option.ENTITY_COMBUST_BY_ENTITY);
+        EventsManager.getInstance().activeOption(eInfo);
     }
 }

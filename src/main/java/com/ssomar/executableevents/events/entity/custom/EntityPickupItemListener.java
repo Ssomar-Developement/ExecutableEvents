@@ -17,6 +17,7 @@ public class EntityPickupItemListener implements Listener {
     public void onEntityPickupItemEvent(EntityPickupItemEvent e) {
         EventInfo eInfo = new EventInfo(e);
         eInfo.setEntity(Optional.of(e.getEntity()));
-        EventsManager.getInstance().activeOption(Option.ENTITY_PICKUP_ITEM, eInfo, new ArrayList<>());
+        eInfo.setOption(Option.ENTITY_PICKUP_ITEM);
+        EventsManager.getInstance().activeOption(eInfo);
     }
 }

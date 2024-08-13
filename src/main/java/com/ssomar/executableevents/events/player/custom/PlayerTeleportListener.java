@@ -17,6 +17,7 @@ public class PlayerTeleportListener implements Listener {
     public void onEntityTeleportEvent(PlayerTeleportEvent e) {
         EventInfo eInfo = new EventInfo(e);
         eInfo.setPlayer(Optional.of(e.getPlayer()));
-        EventsManager.getInstance().activeOption(Option.PLAYER_TELEPORT, eInfo, new ArrayList<>());
+        eInfo.setOption(Option.PLAYER_TELEPORT);
+        EventsManager.getInstance().activeOption(eInfo);
     }
 }

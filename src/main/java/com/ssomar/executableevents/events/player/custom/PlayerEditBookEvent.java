@@ -15,6 +15,7 @@ public class PlayerEditBookEvent implements Listener {
     public void onPlayerEditBookEvent(org.bukkit.event.player.PlayerEditBookEvent e) {
         EventInfo eInfo = new EventInfo(e);
         eInfo.setPlayer(Optional.of(e.getPlayer()));
-        EventsManager.getInstance().activeOption(Option.PLAYER_EDIT_BOOK, eInfo, new ArrayList<>());
+        eInfo.setOption(Option.PLAYER_EDIT_BOOK);
+        EventsManager.getInstance().activeOption(eInfo);
     }
 }

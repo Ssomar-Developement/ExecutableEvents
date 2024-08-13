@@ -17,6 +17,7 @@ public class EntityBeforeDeathEvent implements Listener {
         //SsomarDev.testMsg("EntityBeforeDeathEvent entityBeforeDeathEvent", true);
         EventInfo eInfo = new EventInfo(e);
         eInfo.setEntity(Optional.of(e.getEntity()));
-        EventsManager.getInstance().activeOption(Option.ENTITY_BEFORE_DEATH, eInfo, new ArrayList<>());
+        eInfo.setOption(Option.ENTITY_BEFORE_DEATH);
+        EventsManager.getInstance().activeOption(eInfo);
     }
 }

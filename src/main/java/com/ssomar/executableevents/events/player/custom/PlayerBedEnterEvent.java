@@ -17,7 +17,8 @@ public class PlayerBedEnterEvent implements Listener {
         EventInfo eInfo = new EventInfo(e);
         eInfo.setPlayer(Optional.of(e.getPlayer()));
         if(e.getBedEnterResult().equals(org.bukkit.event.player.PlayerBedEnterEvent.BedEnterResult.OK)) {
-            EventsManager.getInstance().activeOption(Option.PLAYER_BED_ENTER, eInfo, new ArrayList<>());
+            eInfo.setOption(Option.PLAYER_BED_ENTER);
+            EventsManager.getInstance().activeOption(eInfo);
         }
     }
 }

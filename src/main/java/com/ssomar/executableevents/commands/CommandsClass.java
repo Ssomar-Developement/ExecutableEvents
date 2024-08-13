@@ -4,6 +4,7 @@ package com.ssomar.executableevents.commands;
 import com.ssomar.executableevents.ExecutableEvents;
 import com.ssomar.executableevents.configs.api.PlaceholderAPI;
 import com.ssomar.executableevents.editor.ExecutableEventsEditor;
+import com.ssomar.executableevents.events.EventsManager;
 import com.ssomar.executableevents.events.optimize.OptimizedEventsHandler;
 import com.ssomar.executableevents.executableevents.ExecutableEvent;
 import com.ssomar.executableevents.executableevents.ExecutableEventLoader;
@@ -14,9 +15,12 @@ import com.ssomar.score.commands.score.CommandsClassAbstract;
 import com.ssomar.score.commands.score.clear.ClearCommand;
 import com.ssomar.score.commands.score.clear.ClearType;
 import com.ssomar.score.sobject.menu.NewSObjectsManagerEditor;
+import com.ssomar.score.sobject.sactivator.EventInfo;
+import com.ssomar.score.sobject.sactivator.OptionGlobal;
 import com.ssomar.score.utils.logging.Utils;
 import com.ssomar.score.utils.messages.SendMessage;
 import com.ssomar.score.utils.strings.StringConverter;
+import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
@@ -24,9 +28,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.jetbrains.annotations.Nullable;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 public class CommandsClass extends CommandsClassAbstract<ExecutableEvents> {
 
@@ -47,6 +49,7 @@ public class CommandsClass extends CommandsClassAbstract<ExecutableEvents> {
         addCommand("clear");
         addCommand("actionbar");
         addCommand("delete");
+        addCommand("run-custom-trigger");
     }
 
 
@@ -212,6 +215,44 @@ public class CommandsClass extends CommandsClassAbstract<ExecutableEvents> {
                         getSm().sendMessage(sender, StringConverter.coloredString("&c"+getSPlugin().getNameWithBrackets()+" &cEvent &6" + args[0] + " &cnot found"));
                 } else
                     getSm().sendMessage(sender, StringConverter.coloredString("&c"+getSPlugin().getNameWithBrackets()+" &cTo confirm the delete type &6/ee delete {eventID} confirm"));
+                break;
+
+            case "run-custom-trigger":
+
+                List<String> trigger = new ArrayList<>();
+
+                Map<String, String> otherArgs = new HashMap<>();
+                for(int i = 0; i < args.length; i++) {
+                    if(args[i].startsWith("trigger:")) {
+                        // List represented by [] and ,
+                        String triggerStr = args[i].replace("trigger:", "");
+                        if(triggerStr.startsWith("[") && triggerStr.endsWith("]")){
+                            triggerStr = triggerStr.replace("[", "");
+                            triggerStr = triggerStr.replace("]", "");
+                            String[] triggers = triggerStr.split(",");
+                            for (String t : triggers) {
+                                trigger.add(t);
+                            }
+                        }
+                        else trigger.add(triggerStr);
+                    }
+                    else otherArgs.put("%arg"+otherArgs.size()+"%", args[i]);
+                }
+                String allArgs = "";
+                for(String arg : args) {
+                    allArgs += arg + " ";
+                }
+                // remove the last space
+                if(!allArgs.isEmpty()) allArgs = allArgs.substring(0, allArgs.length()-1);
+                otherArgs.put("%all_args%", allArgs);
+
+                EventInfo eInfo = new EventInfo(null);
+                eInfo.setOption(OptionGlobal.CUSTOM_TRIGGER);
+                eInfo.setWhitelistActivatorsId(trigger);
+                eInfo.setPlaceholders(otherArgs);
+
+                EventsManager.getInstance().activeOption(eInfo);
+
                 break;
             default:
                 break;

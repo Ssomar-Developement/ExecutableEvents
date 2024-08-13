@@ -2,9 +2,6 @@ package com.ssomar.executableevents.events;
 
 import com.ssomar.executableevents.ExecutableEvents;
 import com.ssomar.executableevents.editor.EditorInteractionsListener;
-import com.ssomar.executableevents.events.block.BlockEvt;
-import com.ssomar.executableevents.events.entity.EntityEvt;
-import com.ssomar.executableevents.events.player.custom.ToDeleteTestMMOLIB;
 
 
 public class EventsHandler {
@@ -25,14 +22,8 @@ public class EventsHandler {
 
     public void setupEvents() {
 
-        main.getServer().getPluginManager().registerEvents(new BlockEvt(), main);
-
-        main.getServer().getPluginManager().registerEvents(new EntityEvt(), main);
-
         /** Recode part **/
         main.getServer().getPluginManager().registerEvents(new EditorInteractionsListener(), main);
-
-        //main.getServer().getPluginManager().registerEvents(new ToDeleteTestMMOLIB(), main);
 
     }
 }

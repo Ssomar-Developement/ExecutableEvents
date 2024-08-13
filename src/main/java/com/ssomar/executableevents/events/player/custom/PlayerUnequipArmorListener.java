@@ -25,6 +25,7 @@ public class PlayerUnequipArmorListener implements Listener {
         EventInfo eInfo = new EventInfo(e);
 
         eInfo.setPlayer(Optional.of(p));
-        EventsManager.getInstance().activeOption(Option.PLAYER_UNEQUIP_ARMOR, eInfo, new ArrayList<>());
+        eInfo.setOption(Option.PLAYER_UNEQUIP_ARMOR);
+        EventsManager.getInstance().activeOption(eInfo);
     }
 }

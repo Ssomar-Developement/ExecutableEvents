@@ -16,6 +16,7 @@ public class EntityEnterLoveModeListener implements Listener {
     public void onEntityEnterLoveModeEvent(EntityEnterLoveModeEvent e) {
         EventInfo eInfo = new EventInfo(e);
         eInfo.setEntity(Optional.of(e.getEntity()));
-        EventsManager.getInstance().activeOption(Option.ENTITY_ENTER_LOVE_MODE, eInfo, new ArrayList<>());
+        eInfo.setOption(Option.ENTITY_ENTER_LOVE_MODE);
+        EventsManager.getInstance().activeOption(eInfo);
     }
 }

@@ -17,7 +17,8 @@ public class PlayerLeaveBedEvent implements Listener {
 
         EventInfo eInfo = new EventInfo(e);
         eInfo.setPlayer(Optional.of(e.getPlayer()));
-        EventsManager.getInstance().activeOption(Option.PLAYER_BED_LEAVE, eInfo, new ArrayList<>());
+        eInfo.setOption(Option.PLAYER_BED_LEAVE);
+        EventsManager.getInstance().activeOption(eInfo);
     }
 
 }

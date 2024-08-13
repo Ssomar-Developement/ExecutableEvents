@@ -19,6 +19,7 @@ public class CropGrow implements Listener {
         eInfo.setBlock(Optional.of(e.getBlock()));
         eInfo.setOldMaterialBlock(Optional.of(e.getBlock().getType()));
         if (!SCore.is1v12Less()) eInfo.setOldStatesBlock(Optional.of(e.getBlock().getBlockData().getAsString(true)));
-        EventsManager.getInstance().activeOption(Option.CROP_GROW, eInfo, new ArrayList<>());
+        eInfo.setOption(Option.CROP_GROW);
+        EventsManager.getInstance().activeOption(eInfo);
     }
 }

@@ -27,6 +27,7 @@ public class EntityProjectileHitPlayer implements Listener {
         eInfo.setTargetPlayer(Optional.ofNullable((e.getTarget()).getPlayer()));
         eInfo.setProjectile(Optional.of(arrow));
 
-        EventsManager.getInstance().activeOption(Option.ENTITY_PROJECTILE_HIT_PLAYER, eInfo, new ArrayList<>());
+        eInfo.setOption(Option.ENTITY_PROJECTILE_HIT_PLAYER);
+        EventsManager.getInstance().activeOption(eInfo);
     }
 }

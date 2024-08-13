@@ -25,7 +25,8 @@ public class PlayerFirstConnectionEvent implements Listener {
                 if(e.getPlayer().hasPlayedBefore()) return;
                 EventInfo eInfo = new EventInfo(e);
                 eInfo.setPlayer(Optional.of(e.getPlayer()));
-                EventsManager.getInstance().activeOption(Option.PLAYER_FIRST_CONNECTION, eInfo, new ArrayList<>());
+                eInfo.setOption(Option.PLAYER_FIRST_CONNECTION);
+                EventsManager.getInstance().activeOption(eInfo);
             }
         };
         SCore.schedulerHook.runEntityTask(r, null, e.getPlayer(), 5);

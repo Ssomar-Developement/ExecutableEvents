@@ -21,6 +21,7 @@ public class EntityDeathListener implements Listener {
         eInfo.setEntity(Optional.of(ent));
         if(ent.getLastDamageCause() != null) eInfo.setDamageCause(Optional.of(ent.getLastDamageCause().getCause()));
         else eInfo.setDamageCause(Optional.empty());
-        EventsManager.getInstance().activeOption(Option.ENTITY_DEATH, eInfo, new ArrayList<>());
+        eInfo.setOption(Option.ENTITY_DEATH);
+        EventsManager.getInstance().activeOption(eInfo);
     }
 }

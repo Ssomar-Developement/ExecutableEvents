@@ -18,6 +18,7 @@ public class PlayerWriteCommandEvent implements Listener {
         EventInfo eInfo = new EventInfo(e);
         eInfo.setPlayer(Optional.of(e.getPlayer()));
         eInfo.setCommand(Optional.of(e.getMessage()));
-        EventsManager.getInstance().activeOption(Option.PLAYER_WRITE_COMMAND, eInfo, new ArrayList<>());
+        eInfo.setOption(Option.PLAYER_WRITE_COMMAND);
+        EventsManager.getInstance().activeOption(eInfo);
     }
 }

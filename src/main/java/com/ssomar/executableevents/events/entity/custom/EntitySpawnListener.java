@@ -16,6 +16,7 @@ public class EntitySpawnListener implements Listener {
     public void onEntitySpawnEvent(EntitySpawnEvent e) {
         EventInfo eInfo = new EventInfo(e);
         eInfo.setEntity(Optional.of(e.getEntity()));
-        EventsManager.getInstance().activeOption(Option.ENTITY_SPAWN, eInfo, new ArrayList<>());
+        eInfo.setOption(Option.ENTITY_SPAWN);
+        EventsManager.getInstance().activeOption(eInfo);
     }
 }

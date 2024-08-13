@@ -17,6 +17,7 @@ public class EntityParticipateKillPlayerListener implements Listener {
         EventInfo eInfo = new EventInfo(e);
         eInfo.setEntity(Optional.of(e.getEntity()));
         eInfo.setTargetPlayer(Optional.of(e.getTarget()));
-        EventsManager.getInstance().activeOption(Option.ENTITY_PARTICIPATE_KILL_PLAYER, eInfo, new ArrayList<>());
+        eInfo.setOption(Option.ENTITY_PARTICIPATE_KILL_PLAYER);
+        EventsManager.getInstance().activeOption(eInfo);
     }
 }

@@ -20,6 +20,7 @@ public class PlayerRegainHealthListener implements Listener {
 
         EventInfo eInfo = new EventInfo(e);
         eInfo.setPlayer(Optional.of((Player) e.getEntity()));
-        EventsManager.getInstance().activeOption(Option.PLAYER_REGAIN_HEALTH, eInfo, new ArrayList<>());
+        eInfo.setOption(Option.PLAYER_REGAIN_HEALTH);
+        EventsManager.getInstance().activeOption(eInfo);
     }
 }

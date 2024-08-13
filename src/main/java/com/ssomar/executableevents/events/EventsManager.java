@@ -28,16 +28,15 @@ public class EventsManager {
         return instance;
     }
 
-    public void activeOptionAllPlayer(SOption o, EventInfo eInfo, List<ActivatorEEFeature> optionalWhitelist) {
+    public void activeOptionAllPlayer(EventInfo eInfo) {
        for (Player p : Bukkit.getOnlinePlayers()) {
             eInfo.setPlayer(Optional.of(p));
             eInfo.setWorld(Optional.of(p.getWorld()));
-            activeOption(o, eInfo, optionalWhitelist);
+            activeOption(eInfo);
         }
     }
 
-
-    public void activeOption(SOption o, EventInfo eInfo, List<ActivatorEEFeature> optionalWhitelist) {
+    public void activeOption(EventInfo eInfo) {
 
         SsomarDev.testMsg("activeOption", DEBUG);
         for (ExecutableEvent executableEvent : ExecutableEventsManager.getInstance().getAllObjects()) {
@@ -53,11 +52,11 @@ public class EventsManager {
 
 
             for (SActivator activator : executableEvent.getActivators().getActivators().values()) {
-                if(!optionalWhitelist.isEmpty()) {
-                    SsomarDev.testMsg("activeOption - !optionalWhitelist.isEmpty() >is loop tion ??? "+activator.getOption().isLoopOption(), DEBUG);
+                if(!eInfo.getWhitelistActivators().isEmpty()) {
+                    SsomarDev.testMsg("activeOption - !optionalWhitelist.isEmpty() >is loop option ??? "+activator.getOption().isLoopOption(), DEBUG);
                     if (activator.getOption().isLoopOption()) {
                         boolean valid = false;
-                        for (ActivatorEEFeature activatorEE : optionalWhitelist) {
+                        for (SActivator activatorEE : eInfo.getWhitelistActivators()) {
                             if (activatorEE.isEqualsOrAClone(activator)) {
                                 SsomarDev.testMsg("activeOption - activatorEE.isEqualsOrAClone(activator)", DEBUG);
                                 valid = true;
@@ -66,7 +65,7 @@ public class EventsManager {
                         if (!valid) continue;
                     }
                 }
-                if (activator.getOption().equals(o)) {
+                if (activator.getOption().equals(eInfo.getOption())) {
                     SsomarDev.testMsg("activeOption - activator.getOption().equals(o)", DEBUG);
                     activator.run(executableEvent, eInfo);
                 }

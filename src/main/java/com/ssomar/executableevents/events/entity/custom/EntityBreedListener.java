@@ -17,6 +17,7 @@ public class EntityBreedListener implements Listener {
     public void onEntityBreedEvent(EntityBreedEvent e) {
         EventInfo eInfo = new EventInfo(e);
         eInfo.setEntity(Optional.of(e.getEntity()));
-        EventsManager.getInstance().activeOption(Option.ENTITY_BREED, eInfo, new ArrayList<>());
+        eInfo.setOption(Option.ENTITY_BREED);
+        EventsManager.getInstance().activeOption(eInfo);
     }
 }

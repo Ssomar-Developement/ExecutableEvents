@@ -26,6 +26,7 @@ public class PlayerLeavePlotEventEI {
 
         EventInfo eInfo = new EventInfo(null);
         eInfo.setPlayer(Optional.of(p));
-        EventsManager.getInstance().activeOption(Option.PLAYER_LEAVE_HIS_PLOT, eInfo, new ArrayList<>());
+        eInfo.setOption(Option.PLAYER_LEAVE_HIS_PLOT);
+        EventsManager.getInstance().activeOption(eInfo);
     }
 }

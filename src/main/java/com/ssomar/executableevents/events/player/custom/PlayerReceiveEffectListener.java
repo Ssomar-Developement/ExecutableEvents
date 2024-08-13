@@ -25,6 +25,7 @@ public class PlayerReceiveEffectListener implements Listener {
         EventInfo eInfo = new EventInfo(e);
         eInfo.setPlayer(Optional.of(p));
         eInfo.setEffect(Optional.of(e.getNewEffect()));
-        EventsManager.getInstance().activeOption(Option.PLAYER_RECEIVE_EFFECT, eInfo, new ArrayList<>());
+        eInfo.setOption(Option.PLAYER_RECEIVE_EFFECT);
+        EventsManager.getInstance().activeOption(eInfo);
     }
 }

@@ -17,6 +17,7 @@ public class EntityDropItemListener implements Listener {
     public void onEntityDropItemEvent(EntityDropItemEvent e) {
         EventInfo eInfo = new EventInfo(e);
         eInfo.setEntity(Optional.of(e.getEntity()));
-        EventsManager.getInstance().activeOption(Option.ENTITY_DROP_ITEM, eInfo, new ArrayList<>());
+        eInfo.setOption(Option.ENTITY_DROP_ITEM);
+        EventsManager.getInstance().activeOption(eInfo);
     }
 }

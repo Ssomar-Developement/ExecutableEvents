@@ -23,6 +23,7 @@ public class PlayerWalkEvent implements Listener {
 
         EventInfo eInfo = new EventInfo(e);
         eInfo.setPlayer(Optional.of(e.getPlayer()));
-        EventsManager.getInstance().activeOption(Option.PLAYER_WALK, eInfo, new ArrayList<>());
+        eInfo.setOption(Option.PLAYER_WALK);
+        EventsManager.getInstance().activeOption(eInfo);
     }
 }

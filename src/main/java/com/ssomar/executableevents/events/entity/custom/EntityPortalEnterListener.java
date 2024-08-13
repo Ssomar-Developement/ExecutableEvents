@@ -18,6 +18,7 @@ public class EntityPortalEnterListener implements Listener {
     public void onEntityPortalEnterEvent(EntityPortalEnterEvent e) {
         EventInfo eInfo = new EventInfo(e);
         eInfo.setEntity(Optional.of(e.getEntity()));
-        EventsManager.getInstance().activeOption(Option.ENTITY_PORTAL_ENTER, eInfo, new ArrayList<>());
+        eInfo.setOption(Option.ENTITY_PORTAL_ENTER);
+        EventsManager.getInstance().activeOption(eInfo);
     }
 }

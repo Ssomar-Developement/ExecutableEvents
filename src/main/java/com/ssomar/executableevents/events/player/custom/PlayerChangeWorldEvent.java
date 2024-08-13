@@ -16,6 +16,7 @@ public class PlayerChangeWorldEvent implements Listener {
     public void onPlayerChangedWorldEvent(PlayerChangedWorldEvent e) {
         EventInfo eInfo = new EventInfo(e);
         eInfo.setPlayer(Optional.of(e.getPlayer()));
-        EventsManager.getInstance().activeOption(Option.PLAYER_CHANGE_WORLD, eInfo, new ArrayList<>());
+        eInfo.setOption(Option.PLAYER_CHANGE_WORLD);
+        EventsManager.getInstance().activeOption(eInfo);
     }
 }

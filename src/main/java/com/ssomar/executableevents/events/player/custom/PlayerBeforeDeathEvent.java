@@ -15,6 +15,7 @@ public class PlayerBeforeDeathEvent implements Listener {
     public void playerBeforeDeathEvent(com.ssomar.sevents.events.player.beforedeath.PlayerBeforeDeathEvent e) {
         EventInfo eInfo = new EventInfo(e);
         eInfo.setPlayer(Optional.of(e.getPlayer()));
-        EventsManager.getInstance().activeOption(Option.PLAYER_BEFORE_DEATH, eInfo, new ArrayList<>());
+        eInfo.setOption(Option.PLAYER_BEFORE_DEATH);
+        EventsManager.getInstance().activeOption(eInfo);
     }
 }

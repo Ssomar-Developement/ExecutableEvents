@@ -15,6 +15,7 @@ public class PlayerDisableGlideEvent implements Listener {
     public void playerDisableGlideEvent(com.ssomar.sevents.events.player.glide.disable.PlayerDisableGlideEvent e) {
         EventInfo eInfo = new EventInfo(e);
         eInfo.setPlayer(Optional.of(e.getPlayer()));
-        EventsManager.getInstance().activeOption(Option.PLAYER_DISABLE_GLIDE, eInfo, new ArrayList<>());
+        eInfo.setOption(Option.PLAYER_DISABLE_GLIDE);
+        EventsManager.getInstance().activeOption(eInfo);
     }
 }

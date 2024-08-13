@@ -23,6 +23,7 @@ public class EntityTargetEntityListener implements Listener {
         EventInfo eInfo = new EventInfo(e);
         eInfo.setEntity(Optional.of(e.getEntity()));
         eInfo.setTargetEntity(Optional.of(e.getTarget()));
-        EventsManager.getInstance().activeOption(Option.ENTITY_TARGET_ENTITY, eInfo, new ArrayList<>());
+        eInfo.setOption(Option.ENTITY_TARGET_ENTITY);
+        EventsManager.getInstance().activeOption(eInfo);
     }
 }

@@ -21,7 +21,8 @@ public class PlayerReceiveHitByPlayerEvent implements Listener {
         eInfo.setPlayer(Optional.of(e.getPlayer()));
         eInfo.setTargetPlayer(Optional.of(e.getDamager()));
         eInfo.setDamageCause(Optional.of(e.getDamageCause()));
-        EventsManager.getInstance().activeOption(Option.PLAYER_RECEIVE_HIT_BY_PLAYER, eInfo, new ArrayList<>());
+        eInfo.setOption(Option.PLAYER_RECEIVE_HIT_BY_PLAYER);
+        EventsManager.getInstance().activeOption(eInfo);
     }
 
     @EventHandler
@@ -34,7 +35,8 @@ public class PlayerReceiveHitByPlayerEvent implements Listener {
                 eInfo.setPlayer(Optional.of(e.getTarget()));
                 eInfo.setTargetPlayer(Optional.of((Player) projectile.getShooter()));
                 eInfo.setDamageCause(Optional.of(EntityDamageEvent.DamageCause.PROJECTILE));
-                EventsManager.getInstance().activeOption(Option.PLAYER_RECEIVE_HIT_BY_PLAYER, eInfo, new ArrayList<>());
+                eInfo.setOption(Option.PLAYER_RECEIVE_HIT_BY_PLAYER);
+                EventsManager.getInstance().activeOption(eInfo);
             }
         }
     }

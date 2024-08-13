@@ -23,6 +23,7 @@ public class PlayerCustomLaunchListener implements Listener {
         if (e.getLaunchedEntity() instanceof Projectile)
             eInfo.setProjectile(Optional.of((Projectile) e.getLaunchedEntity()));
         eInfo.setTargetEntity(Optional.of(e.getLaunchedEntity()));
-        EventsManager.getInstance().activeOption(Option.PLAYER_CUSTOM_LAUNCH, eInfo, new ArrayList<>());
+        eInfo.setOption(Option.PLAYER_CUSTOM_LAUNCH);
+        EventsManager.getInstance().activeOption(eInfo);
     }
 }

@@ -21,6 +21,7 @@ public class PlayerOpenInventoryListener implements Listener {
         EventInfo eInfo = new EventInfo(e);
         eInfo.setPlayer(Optional.of((Player) e.getPlayer()));
         eInfo.setInventoryType(Optional.of(e.getInventory().getType()));
-        EventsManager.getInstance().activeOption(Option.PLAYER_OPEN_INVENTORY, eInfo, new ArrayList<>());
+        eInfo.setOption(Option.PLAYER_OPEN_INVENTORY);
+        EventsManager.getInstance().activeOption(eInfo);
     }
 }

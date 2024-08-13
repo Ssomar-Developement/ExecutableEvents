@@ -17,6 +17,7 @@ public class PlayerSpawnChangeListener implements Listener {
 
         EventInfo eInfo = new EventInfo(e);
         eInfo.setPlayer(Optional.of(e.getPlayer()));
-        EventsManager.getInstance().activeOption(Option.PLAYER_SPAWN_CHANGE, eInfo, new ArrayList<>());
+        eInfo.setOption(Option.PLAYER_SPAWN_CHANGE);
+        EventsManager.getInstance().activeOption(eInfo);
     }
 }

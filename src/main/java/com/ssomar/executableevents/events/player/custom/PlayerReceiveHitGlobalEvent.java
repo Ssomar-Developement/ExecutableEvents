@@ -16,6 +16,7 @@ public class PlayerReceiveHitGlobalEvent implements Listener {
         EventInfo eInfo = new EventInfo(e);
         eInfo.setPlayer(Optional.of(e.getPlayer()));
         eInfo.setDamageCause(Optional.of(e.getDamageCause()));
-        EventsManager.getInstance().activeOption(Option.PLAYER_RECEIVE_HIT_GLOBAL, eInfo, new ArrayList<>());
+        eInfo.setOption(Option.PLAYER_RECEIVE_HIT_GLOBAL);
+        EventsManager.getInstance().activeOption(eInfo);
     }
 }

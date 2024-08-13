@@ -21,6 +21,7 @@ public class PlayerEnterLandsEventEI implements Listener {
 
         EventInfo eInfo = new EventInfo(null);
         eInfo.setPlayer(Optional.of(p));
-        EventsManager.getInstance().activeOption(Option.PLAYER_ENTER_IN_HIS_LAND, eInfo, new ArrayList<>());
+        eInfo.setOption(Option.PLAYER_ENTER_IN_HIS_LAND);
+        EventsManager.getInstance().activeOption(eInfo);
     }
 }

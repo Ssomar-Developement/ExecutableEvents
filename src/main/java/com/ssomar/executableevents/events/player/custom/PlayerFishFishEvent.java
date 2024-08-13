@@ -16,6 +16,7 @@ public class PlayerFishFishEvent implements Listener {
         EventInfo eInfo = new EventInfo(e);
         eInfo.setPlayer(Optional.of(e.getPlayer()));
         eInfo.setTargetEntity(Optional.of(e.getCaught()));
-        EventsManager.getInstance().activeOption(Option.PLAYER_FISH_FISH, eInfo, new ArrayList<>());
+        eInfo.setOption(Option.PLAYER_FISH_FISH);
+        EventsManager.getInstance().activeOption(eInfo);
     }
 }

@@ -15,6 +15,7 @@ public class PlayerEnableSneakEvent implements Listener {
     public void playerEnableSneakEvent(com.ssomar.sevents.events.player.sneak.enable.PlayerEnableSneakEvent e) {
         EventInfo eInfo = new EventInfo(e);
         eInfo.setPlayer(Optional.of(e.getPlayer()));
-        EventsManager.getInstance().activeOption(Option.PLAYER_ENABLE_SNEAK, eInfo, new ArrayList<>());
+        eInfo.setOption(Option.PLAYER_ENABLE_SNEAK);
+        EventsManager.getInstance().activeOption(eInfo);
     }
 }

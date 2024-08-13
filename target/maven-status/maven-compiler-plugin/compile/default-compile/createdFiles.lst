@@ -45,7 +45,6 @@ com\ssomar\executableevents\executableevents\activators\ActivatorEEFeatureEditor
 com\ssomar\executableevents\events\player\custom\PlayerAllClickEvent.class
 com\ssomar\executableevents\events\player\custom\PlayerReceiveHitByPlayerEvent.class
 com\ssomar\executableevents\events\entity\custom\EntityTameByEntityListener.class
-com\ssomar\executableevents\events\player\custom\ToDeleteTestMMOLIB.class
 com\ssomar\executableevents\ExecutableEvents.class
 com\ssomar\executableevents\events\entity\custom\EntityTargetEntityListener.class
 com\ssomar\executableevents\events\player\custom\PlayerClickOnPlayerEvent.class
@@ -68,7 +67,6 @@ com\ssomar\executableevents\events\player\lands\PlayerEnterLandsEventEI.class
 com\ssomar\executableevents\configs\api\PlaceholderAPI.class
 com\ssomar\executableevents\editor\ExecutableEventsEditor.class
 com\ssomar\executableevents\events\player\custom\PlayerRightClickEvent.class
-com\ssomar\executableevents\events\entity\EntityEvt.class
 com\ssomar\executableevents\events\optimize\OptimizedEventsHandler.class
 com\ssomar\executableevents\configs\GeneralConfig.class
 com\ssomar\executableevents\events\entity\custom\EntityChangeBlockListener.class
@@ -130,7 +128,6 @@ com\ssomar\executableevents\events\player\custom\PlayerKickListener.class
 com\ssomar\executableevents\events\player\itemsadder\ItemsAdderPlayerBlockBreakListener.class
 com\ssomar\executableevents\events\player\custom\PlayerItemBreakEvent.class
 com\ssomar\executableevents\events\player\custom\PlayerShearEntityEvent.class
-com\ssomar\executableevents\events\block\BlockEvt.class
 com\ssomar\executableevents\events\player\custom\PlayerFertilizeBlockEvent.class
 com\ssomar\executableevents\editor\EditorInteractionsListener.class
 com\ssomar\executableevents\events\player\custom\PlayerWalkEvent.class

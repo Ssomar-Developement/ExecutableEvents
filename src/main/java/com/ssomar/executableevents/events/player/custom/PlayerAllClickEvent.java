@@ -25,7 +25,8 @@ public class PlayerAllClickEvent implements Listener {
             if (!SCore.is1v12Less())
                 eInfo.setOldStatesTargetBlock(Optional.of(e.getBlock().getBlockData().getAsString(true)));
         } else eInfo.setDetailedInteraction(Optional.of(DetailedInteraction.AIR));
-        EventsManager.getInstance().activeOption(Option.PLAYER_ALL_CLICK, eInfo, new ArrayList<>());
+        eInfo.setOption(Option.PLAYER_ALL_CLICK);
+        EventsManager.getInstance().activeOption(eInfo);
     }
 
     @EventHandler
@@ -39,7 +40,8 @@ public class PlayerAllClickEvent implements Listener {
             if (!SCore.is1v12Less())
                 eInfo.setOldStatesTargetBlock(Optional.of(e.getBlock().getBlockData().getAsString(true)));
         } else eInfo.setDetailedInteraction(Optional.of(DetailedInteraction.AIR));
-        EventsManager.getInstance().activeOption(Option.PLAYER_ALL_CLICK, eInfo, new ArrayList<>());
+        eInfo.setOption(Option.PLAYER_ALL_CLICK);
+        EventsManager.getInstance().activeOption(eInfo);
     }
 
 }

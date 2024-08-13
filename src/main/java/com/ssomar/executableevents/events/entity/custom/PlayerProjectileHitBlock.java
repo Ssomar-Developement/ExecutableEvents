@@ -33,7 +33,7 @@ public class PlayerProjectileHitBlock implements Listener {
 
 
         eInfo.setProjectile(Optional.of(arrow));
-
-        EventsManager.getInstance().activeOption(Option.PLAYER_PROJECTILE_HIT_BLOCK, eInfo, new ArrayList<>());
+        eInfo.setOption(Option.PLAYER_PROJECTILE_HIT_BLOCK);
+        EventsManager.getInstance().activeOption(eInfo);
     }
 }

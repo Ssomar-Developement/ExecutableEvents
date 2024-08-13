@@ -20,7 +20,8 @@ public class PlayerClickOnPlayerEvent implements Listener {
         eInfo.setPlayer(Optional.of(e.getPlayer()));
         eInfo.setTargetPlayer(Optional.of(e.getTarget()));
         eInfo.setDetailedClick(Optional.of(DetailedClick.RIGHT));
-        EventsManager.getInstance().activeOption(Option.PLAYER_CLICK_ON_PLAYER, eInfo, new ArrayList<>());
+        eInfo.setOption(Option.PLAYER_CLICK_ON_PLAYER);
+        EventsManager.getInstance().activeOption(eInfo);
     }
 
     @EventHandler
@@ -29,6 +30,7 @@ public class PlayerClickOnPlayerEvent implements Listener {
         eInfo.setPlayer(Optional.of(e.getPlayer()));
         eInfo.setTargetPlayer(Optional.of(e.getTarget()));
         eInfo.setDetailedClick(Optional.of(DetailedClick.LEFT));
-        EventsManager.getInstance().activeOption(Option.PLAYER_CLICK_ON_PLAYER, eInfo, new ArrayList<>());
+        eInfo.setOption(Option.PLAYER_CLICK_ON_PLAYER);
+        EventsManager.getInstance().activeOption( eInfo);
     }
 }

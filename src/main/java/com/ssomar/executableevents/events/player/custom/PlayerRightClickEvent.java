@@ -25,6 +25,7 @@ public class PlayerRightClickEvent implements Listener {
             eInfo.setBlockface(Optional.of(e.getBlockFace().name()));
         } else eInfo.setDetailedInteraction(Optional.of(DetailedInteraction.AIR));
         if (e.isSourceCancelled()) return;
-        EventsManager.getInstance().activeOption(Option.PLAYER_RIGHT_CLICK, eInfo, new ArrayList<>());
+        eInfo.setOption(Option.PLAYER_RIGHT_CLICK);
+        EventsManager.getInstance().activeOption(eInfo);
     }
 }

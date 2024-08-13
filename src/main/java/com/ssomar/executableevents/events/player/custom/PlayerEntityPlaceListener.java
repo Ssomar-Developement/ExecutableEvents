@@ -25,6 +25,7 @@ public class PlayerEntityPlaceListener implements Listener {
 
         eInfo.setPlayer(Optional.of(p));
         eInfo.setTargetEntity(Optional.of(entity));
-        EventsManager.getInstance().activeOption(Option.PLAYER_ENTITY_PLACE, eInfo, new ArrayList<>());
+        eInfo.setOption(Option.PLAYER_ENTITY_PLACE);
+        EventsManager.getInstance().activeOption(eInfo);
     }
 }

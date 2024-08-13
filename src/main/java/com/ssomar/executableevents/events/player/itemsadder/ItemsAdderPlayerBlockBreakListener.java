@@ -22,6 +22,7 @@ public class ItemsAdderPlayerBlockBreakListener implements Listener {
         eInfo.setTargetBlock(Optional.of(e.getBlock()));
         eInfo.setOldMaterialTargetBlock(Optional.of(e.getBlock().getType()));
         if (!SCore.is1v12Less()) eInfo.setOldStatesTargetBlock(Optional.of(e.getBlock().getBlockData().getAsString(true)));
-        EventsManager.getInstance().activeOption(Option.ITEMSADDER_PLAYER_BLOCK_BREAK, eInfo, new ArrayList<>());
+        eInfo.setOption(Option.ITEMSADDER_PLAYER_BLOCK_BREAK);
+        EventsManager.getInstance().activeOption(eInfo);
     }
 }

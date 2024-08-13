@@ -15,7 +15,8 @@ public class PlayerJumpEvent implements Listener {
     public void playerJumpEvent(com.ssomar.sevents.events.player.jump.PlayerJumpEvent e) {
         EventInfo eInfo = new EventInfo(e);
         eInfo.setPlayer(Optional.of(e.getPlayer()));
-        EventsManager.getInstance().activeOption(Option.PLAYER_JUMP, eInfo, new ArrayList<>());
+        eInfo.setOption(Option.PLAYER_JUMP);
+        EventsManager.getInstance().activeOption(eInfo);
 
     }
 }

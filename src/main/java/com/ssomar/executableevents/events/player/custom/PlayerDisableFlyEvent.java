@@ -15,6 +15,7 @@ public class PlayerDisableFlyEvent implements Listener {
     public void playerDisableFlyEvent(com.ssomar.sevents.events.player.fly.disable.PlayerDisableFlyEvent e) {
         EventInfo eInfo = new EventInfo(e);
         eInfo.setPlayer(Optional.of(e.getPlayer()));
-        EventsManager.getInstance().activeOption(Option.PLAYER_DISABLE_FLY, eInfo, new ArrayList<>());
+        eInfo.setOption(Option.PLAYER_DISABLE_FLY);
+        EventsManager.getInstance().activeOption(eInfo);
     }
 }

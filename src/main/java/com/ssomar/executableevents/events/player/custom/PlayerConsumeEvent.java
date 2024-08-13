@@ -17,6 +17,7 @@ public class PlayerConsumeEvent implements Listener {
         EventInfo eInfo = new EventInfo(e);
         eInfo.setPlayer(Optional.of(e.getPlayer()));
         eInfo.setItem(Optional.of(e.getItem()));
-        EventsManager.getInstance().activeOption(Option.PLAYER_CONSUME, eInfo, new ArrayList<>());
+        eInfo.setOption(Option.PLAYER_CONSUME);
+        EventsManager.getInstance().activeOption(eInfo);
     }
 }

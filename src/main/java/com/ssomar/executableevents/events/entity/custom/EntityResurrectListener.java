@@ -17,6 +17,7 @@ public class EntityResurrectListener implements Listener {
     public void onEntityResurrectEvent(EntityResurrectEvent e) {
         EventInfo eInfo = new EventInfo(e);
         eInfo.setEntity(Optional.of(e.getEntity()));
-        EventsManager.getInstance().activeOption(Option.ENTITY_RESURRECT, eInfo, new ArrayList<>());
+        eInfo.setOption(Option.ENTITY_RESURRECT);
+        EventsManager.getInstance().activeOption(eInfo);
     }
 }
