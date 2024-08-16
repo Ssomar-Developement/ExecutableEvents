@@ -28,8 +28,9 @@ public class ActivatorEEFeatureEditor extends FeatureEditorInterface<ActivatorEE
 
         if (activator.getOption().isLoopOption())
             activator.getLoopFeatures().initAndUpdateItemParentEditor(this, 5);
-
-        if (Option.getOptionWithDrops().contains(activator.getOption()))
+        else if(activator.getOption().isCustomTriggerOption())
+            activator.getScheduleFeatures().initAndUpdateItemParentEditor(this, 5);
+        else if (Option.getOptionWithDrops().contains(activator.getOption()))
             activator.getDesactiveDrops().initAndUpdateItemParentEditor(this, 5);
 
         if (Option.getOptionWithDetailedDamageCauses().contains(activator.getOption())) {

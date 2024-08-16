@@ -383,6 +383,7 @@ public enum Option implements SOption, Serializable {
     public static List<SOption> getOptionWithConsoleOnlySt() {
         List<SOption> result = new ArrayList<>();
         result.add(Option.LOOP_SERVER);
+        result.add(OptionGlobal.CUSTOM_TRIGGER);
         return result;
     }
 
