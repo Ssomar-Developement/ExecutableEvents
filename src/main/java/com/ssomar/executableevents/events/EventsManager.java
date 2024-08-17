@@ -66,6 +66,12 @@ public class EventsManager {
                     }
                 }
                 if (activator.getOption().equals(eInfo.getOption())) {
+
+                    if(!eInfo.getWhitelistActivatorsId().isEmpty() && !eInfo.getWhitelistActivatorsId().contains(activator.getId())) {
+                        //SsomarDev.testMsg("Activator "+activator.getId()+" is not whitelisted", DEBUG);
+                        continue;
+                    }
+
                     SsomarDev.testMsg("activeOption - activator.getOption().equals(o)", DEBUG);
                     activator.run(executableEvent, eInfo);
                 }

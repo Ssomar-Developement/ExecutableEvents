@@ -27,7 +27,7 @@ public class ExecutableEventLoader extends SObjectWithFileLoader<ExecutableEvent
 
 
     public ExecutableEventLoader() {
-        super(ExecutableEvents.plugin, "/com/ssomar/executableevents/configs/events/", ExecutableEventsManager.getInstance(), ExecutableEvents.plugin.getMaxSObjectsLimit());
+            super(ExecutableEvents.plugin, "/com/ssomar/executableevents/configs/events/", ExecutableEventsManager.getInstance(), ExecutableEvents.plugin.getMaxSObjectsLimit());
         createBackup = false;
     }
 
