@@ -2,19 +2,15 @@ package com.ssomar.executableevents.events;
 
 import com.ssomar.executableevents.configs.GeneralConfig;
 import com.ssomar.executableevents.executableevents.ExecutableEvent;
-import com.ssomar.executableevents.executableevents.activators.ActivatorEEFeature;
-import com.ssomar.executableevents.executableevents.activators.Option;
 import com.ssomar.executableevents.executableevents.manager.ExecutableEventsManager;
 import com.ssomar.score.SsomarDev;
 import com.ssomar.score.features.custom.activators.activator.SActivator;
 import com.ssomar.score.sobject.sactivator.EventInfo;
-import com.ssomar.score.sobject.sactivator.SOption;
 import com.ssomar.score.usedapi.AllWorldManager;
 import org.bukkit.Bukkit;
 import org.bukkit.World;
 import org.bukkit.entity.Player;
 
-import java.util.List;
 import java.util.Optional;
 
 public class EventsManager {
@@ -29,7 +25,7 @@ public class EventsManager {
     }
 
     public void activeOptionAllPlayer(EventInfo eInfo) {
-       for (Player p : Bukkit.getOnlinePlayers()) {
+        for (Player p : Bukkit.getOnlinePlayers()) {
             eInfo.setPlayer(Optional.of(p));
             eInfo.setWorld(Optional.of(p.getWorld()));
             activeOption(eInfo);
@@ -41,40 +37,18 @@ public class EventsManager {
         SsomarDev.testMsg("activeOption", DEBUG);
         for (ExecutableEvent executableEvent : ExecutableEventsManager.getInstance().getAllObjects()) {
 
-            if(!executableEvent.getEnabled().getValue()) continue;
+            if (!executableEvent.getEnabled().getValue()) continue;
 
             World world = Bukkit.getWorlds().get(0);
-            if(eInfo.getPlayer().isPresent()) world = eInfo.getPlayer().get().getWorld();
+            if (eInfo.getPlayer().isPresent()) world = eInfo.getPlayer().get().getWorld();
 
             if (!isValidWorld(eInfo.getWorld().orElse(world), executableEvent)) continue;
 
-            SsomarDev.testMsg("activeOption - isValidWorld >> "+executableEvent.getId(), DEBUG);
+            SsomarDev.testMsg("activeOption - isValidWorld >> " + executableEvent.getId(), DEBUG);
 
 
-            for (SActivator activator : executableEvent.getActivators().getActivators().values()) {
-                if(!eInfo.getWhitelistActivators().isEmpty()) {
-                    SsomarDev.testMsg("activeOption - !optionalWhitelist.isEmpty() >is loop option ??? "+activator.getOption().isLoopOption(), DEBUG);
-                    if (activator.getOption().isLoopOption()) {
-                        boolean valid = false;
-                        for (SActivator activatorEE : eInfo.getWhitelistActivators()) {
-                            if (activatorEE.isEqualsOrAClone(activator)) {
-                                SsomarDev.testMsg("activeOption - activatorEE.isEqualsOrAClone(activator)", DEBUG);
-                                valid = true;
-                            }
-                        }
-                        if (!valid) continue;
-                    }
-                }
-                if (activator.getOption().equals(eInfo.getOption())) {
-
-                    if(!eInfo.getWhitelistActivatorsId().isEmpty() && !eInfo.getWhitelistActivatorsId().contains(activator.getId())) {
-                        //SsomarDev.testMsg("Activator "+activator.getId()+" is not whitelisted", DEBUG);
-                        continue;
-                    }
-
-                    SsomarDev.testMsg("activeOption - activator.getOption().equals(o)", DEBUG);
-                    activator.run(executableEvent, eInfo);
-                }
+            for (SActivator activator : executableEvent.getActivators().getActivators(eInfo.getOption(), eInfo.getWhitelistActivatorsId(), eInfo.getWhitelistActivators())) {
+                activator.runWithException(executableEvent, eInfo);
             }
         }
     }
