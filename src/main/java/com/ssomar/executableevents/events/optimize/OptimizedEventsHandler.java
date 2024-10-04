@@ -211,7 +211,9 @@ public class OptimizedEventsHandler {
                 case PLAYER_DISMOUNT:
                     mainListerner = new PlayerDismountEvent();
                     break;
-
+                case PLAYER_EXPERIENCE_CHANGE:
+                    mainListerner = new PlayerExpChangeListener();
+                    break;
                 case PLAYER_FOOD_CHANGE:
                     mainListerner = new PlayerFoodChange();
                     break;

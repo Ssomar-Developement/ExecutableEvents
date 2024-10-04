@@ -73,6 +73,7 @@ com\ssomar\executableevents\events\entity\custom\EntityChangeBlockListener.class
 com\ssomar\executableevents\executableevents\ExecutableEventEditorManager.class
 com\ssomar\executableevents\events\entity\custom\EntityExplodeListener.class
 com\ssomar\executableevents\events\world\custom\WorldDayListener.class
+com\ssomar\executableevents\events\player\custom\PlayerExpChangeListener.class
 com\ssomar\executableevents\events\player\custom\PlayerReceiveHitGlobalEvent.class
 com\ssomar\executableevents\events\entity\custom\EntityTeleportListener.class
 com\ssomar\executableevents\events\entity\custom\PlayerProjectileHitEntity.class
