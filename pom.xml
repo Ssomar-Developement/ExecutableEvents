@@ -215,8 +215,9 @@
         <dependency>
             <groupId>com.github.Th0rgal</groupId>
             <artifactId>Oraxen</artifactId>
-            <version>2ddf3c68b7</version>
-            <scope>provided</scope>
+            <version>1.182</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/src/main/resources/oraxen-1.182.0.jar</systemPath>
         </dependency>
 
 
