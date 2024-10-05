@@ -68,10 +68,11 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.7.0</version>
+                <version>3.8.1</version>
                 <configuration>
                     <source>8</source>
                     <target>8</target>
+                    <encoding>${project.build.sourceEncoding}</encoding>
                 </configuration>
             </plugin>
             <plugin>
@@ -100,50 +101,74 @@
                 </configuration>
                 <executions>
                     <execution>
+                        <id>build_server</id>
                         <phase>package</phase>
                         <goals>
                             <goal>shade</goal>
                         </goals>
-                        <!--_AUTO_UPDATE_START_COMMENT_-->
-                        <configuration>
-                            <createDependencyReducedPom>false</createDependencyReducedPom>
-                            <outputFile>C:\serveur local 1.19\plugins\EE.jar</outputFile>
-                        </configuration>
-                        <!--_AUTO_UPDATE_END_COMMENT_-->
-                    </execution>
-                    <execution>
-                        <id>build_dep_score</id>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>shade</goal>
-                        </goals>
-                        <!--_AUTO_UPDATE_START_COMMENT_-->
-                        <configuration>
-                            <createDependencyReducedPom>false</createDependencyReducedPom>
-                            <outputFile> C:\Users\octav\Documents\GitHub\SCore\src\main\resources\ExecutableEvents.jar</outputFile>
-                        </configuration>
-                        <!--_AUTO_UPDATE_END_COMMENT_-->
-                    </execution>
-                    <execution>
-                        <id>build_folia</id>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>shade</goal>
-                        </goals>
-                        <!--_AUTO_UPDATE_START_COMMENT_-->
-                        <configuration>
-                            <createDependencyReducedPom>false</createDependencyReducedPom>
-                            <outputFile>C:\serveur local folia\plugins\EE.jar</outputFile>
-                        </configuration>
-                        <!--_AUTO_UPDATE_END_COMMENT_-->
                     </execution>
                 </executions>
             </plugin>
         </plugins>
-
-
-
     </build>
+
+    <profiles>
+        <!-- vvv This part is only for me (Ssomar) vvv -->
+        <profile>
+            <id>Ssomar</id>
+            <build>
+                <finalName>${project.artifactId}-${project.version}</finalName>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-shade-plugin</artifactId>
+                        <version>3.1.0</version>
+                        <configuration>
+                            <filters>
+                                <filter>
+                                    <artifact>*:*</artifact>
+                                    <excludes>
+                                        <exclude>META-INF/maven/**</exclude>
+                                    </excludes>
+                                </filter>
+                            </filters>
+                        </configuration>
+
+                        <executions>
+                            <execution>
+                                <id>build_dep_score</id>
+                                <phase>package</phase>
+                                <goals>
+                                    <goal>shade</goal>
+                                </goals>
+                                <!--_AUTO_UPDATE_START_COMMENT_-->
+                                <configuration>
+                                    <createDependencyReducedPom>false</createDependencyReducedPom>
+                                    <outputFile>
+                                        C:\Users\octav\Documents\GitHub\SCore\src\main\resources\ExecutableEvents.jar
+                                    </outputFile>
+                                </configuration>
+                                <!--_AUTO_UPDATE_END_COMMENT_-->
+                            </execution>
+                            <execution>
+                                <id>build_folia</id>
+                                <phase>package</phase>
+                                <goals>
+                                    <goal>shade</goal>
+                                </goals>
+                                <!--_AUTO_UPDATE_START_COMMENT_-->
+                                <configuration>
+                                    <createDependencyReducedPom>false</createDependencyReducedPom>
+                                    <outputFile>C:\serveur local folia\plugins\EE.jar</outputFile>
+                                </configuration>
+                                <!--_AUTO_UPDATE_END_COMMENT_-->
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
 
     <repositories>
         <repository>
@@ -242,7 +267,7 @@
         <dependency>
             <groupId>com.googlecode.json-simple</groupId>
             <artifactId>json-simple</artifactId>
-            <version>1.1.1 </version>
+            <version>1.1.1</version>
             <scope>provided</scope>
         </dependency>
         <!-- <dependency> -->
