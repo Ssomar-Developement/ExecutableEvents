@@ -160,12 +160,6 @@
   </repositories>
   <dependencies>
     <dependency>
-      <groupId>com.github.Th0rgal</groupId>
-      <artifactId>Oraxen</artifactId>
-      <version>2ddf3c68b7</version>
-      <scope>provided</scope>
-    </dependency>
-    <dependency>
       <groupId>org.spigotmc</groupId>
       <artifactId>spigot-api</artifactId>
       <version>1.21-R0.1-SNAPSHOT</version>
@@ -380,6 +374,13 @@
           <groupId>com.google.code.gson</groupId>
         </exclusion>
       </exclusions>
+    </dependency>
+    <dependency>
+      <groupId>com.github.Th0rgal</groupId>
+      <artifactId>Oraxen</artifactId>
+      <version>1.182</version>
+      <scope>system</scope>
+      <systemPath>${project.basedir}/src/main/resources/oraxen-1.182.0.jar</systemPath>
     </dependency>
     <dependency>
       <groupId>com.bgsoftware.wildstacker</groupId>
