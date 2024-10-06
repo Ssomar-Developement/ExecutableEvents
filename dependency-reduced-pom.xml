@@ -351,9 +351,19 @@
       <systemPath>${project.basedir}/src/main/resources/SCore.jar</systemPath>
     </dependency>
   </dependencies>
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>com.intellectualsites.bom</groupId>
+        <artifactId>bom-newest</artifactId>
+        <version>1.49</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
   <properties>
     <java.version>1.8</java.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
 </project>
-
