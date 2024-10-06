@@ -212,7 +212,7 @@ public class ActivatorEEFeature extends SActivator<ActivatorEEFeature, Activator
             ExecutableEvents.plugin.getServer().getConsoleSender().sendMessage(StringConverter.coloredString("§c[DEBUG] &7Activator: &e" + getId() + " &b(run but the check of cdts, cds in coming  1/2) &7of item: &6" + getParentObjectId()));
         }
 
-        if (eInfo.getPlayer().isPresent() && eInfo.getPlayer().get().isDead() && !optionFeature.getValue().equals(Option.PLAYER_DEATH) && !optionFeature.getValue().equals(Option.PLAYER_RESPAWN) && !optionFeature.getValue().equals(Option.PLAYER_DISCONNECTION))
+        if (eInfo.getPlayer().isPresent() && eInfo.getPlayer().get().isDead() && !optionFeature.getValue().equals(Option.PLAYER_DEATH) && !optionFeature.getValue().equals(Option.PLAYER_RESPAWN) && !optionFeature.getValue().equals(Option.PLAYER_DISCONNECTION) && !optionFeature.getValue().equals(Option.PLAYER_WRITE_COMMAND) && !optionFeature.getValue().equals(Option.PLAYER_SEND_MESSAGE))
             return;
 
         SsomarDev.testMsg("Activator 0", DEBUG);

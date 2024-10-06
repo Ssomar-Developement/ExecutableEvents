@@ -163,6 +163,19 @@
                                 </configuration>
                                 <!--_AUTO_UPDATE_END_COMMENT_-->
                             </execution>
+                            <execution>
+                                <id>build_1_19</id>
+                                <phase>package</phase>
+                                <goals>
+                                    <goal>shade</goal>
+                                </goals>
+                                <!--_AUTO_UPDATE_START_COMMENT_-->
+                                <configuration>
+                                    <createDependencyReducedPom>false</createDependencyReducedPom>
+                                    <outputFile>C:\serveur local 1.19\plugins\EE.jar</outputFile>
+                                </configuration>
+                                <!--_AUTO_UPDATE_END_COMMENT_-->
+                            </execution>
                         </executions>
                     </plugin>
                 </plugins>

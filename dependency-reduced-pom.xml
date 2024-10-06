@@ -103,6 +103,17 @@
                   <outputFile>C:\serveur local folia\plugins\EE.jar</outputFile>
                 </configuration>
               </execution>
+              <execution>
+                <id>build_1_19</id>
+                <phase>package</phase>
+                <goals>
+                  <goal>shade</goal>
+                </goals>
+                <configuration>
+                  <createDependencyReducedPom>false</createDependencyReducedPom>
+                  <outputFile>C:\serveur local 1.19\plugins\EE.jar</outputFile>
+                </configuration>
+              </execution>
             </executions>
             <configuration>
               <filters>
@@ -345,3 +356,4 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
 </project>
+
