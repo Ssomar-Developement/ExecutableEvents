@@ -828,7 +828,7 @@ public class ActivatorEEFeature extends SActivator<ActivatorEEFeature, Activator
     public void reload() {
         SsomarDev.testMsg("Reloading activator " + getId(), DEBUG);
         SsomarDev.testMsg("RELOAD INST >> " + getParent().hashCode(), DEBUG);
-        for (FeatureInterface feature : getParent().getFeatures()) {
+        for (FeatureInterface feature : (List<FeatureInterface>) getParent().getFeatures()) {
             if (feature instanceof ActivatorEEFeature) {
                 ActivatorEEFeature a = (ActivatorEEFeature) feature;
                 //SsomarDev.testMsg("activator >>> " + a.getId());

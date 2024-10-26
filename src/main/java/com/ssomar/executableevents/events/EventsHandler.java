@@ -2,6 +2,7 @@ package com.ssomar.executableevents.events;
 
 import com.ssomar.executableevents.ExecutableEvents;
 import com.ssomar.executableevents.editor.EditorInteractionsListener;
+import com.ssomar.executableevents.events.player.PlayerEvt;
 
 
 public class EventsHandler {
@@ -24,6 +25,8 @@ public class EventsHandler {
 
         /** Recode part **/
         main.getServer().getPluginManager().registerEvents(new EditorInteractionsListener(), main);
+
+        main.getServer().getPluginManager().registerEvents(new PlayerEvt(), main);
 
     }
 }
