@@ -24,7 +24,7 @@ public class PlayerEvt implements Listener {
                 public void run() {
 
                     try {
-                        String cVer = CheckVersionSpigot.getVersionOf("77578");
+                        String cVer = CheckVersionSpigot.getVersionOf("107622");
                         if (cVer == null) return;
                         String aVer = ExecutableEvents.getPluginSt().getDescription().getVersion();
 
