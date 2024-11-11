@@ -2,6 +2,7 @@ package com.ssomar.executableevents.events.player.custom;
 
 import com.ssomar.executableevents.executableevents.activators.Option;
 import com.ssomar.executableevents.events.EventsManager;
+import com.ssomar.score.SsomarDev;
 import com.ssomar.score.sobject.sactivator.EventInfo;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -17,8 +18,11 @@ public class PlayerHitEntityEvent implements Listener {
     @EventHandler(priority = EventPriority.HIGH, ignoreCancelled = true)
     public void onEntityDamageByEntityEvent(EntityDamageByEntityEvent e) {
 
+        //SsomarDev.testMsg("PlayerHitEntityEvent onEntityDamageByEntityEvent", true);
+
         //ignore fake events / required to ignore retard event from MythicLib io/lumine/mythic/lib/listener/SkillTriggers.java
-        if(e.getDamage() == 0) return;
+        // Exception for fireball because we want to know when the player counter a ghast shot
+        if(e.getDamage() == 0 && !e.getEntity().getType().toString().toUpperCase().contains("FIREBALL")) return;
 
         if (e.getDamager() instanceof Player) {
 
@@ -26,7 +30,7 @@ public class PlayerHitEntityEvent implements Listener {
             if (damager.hasMetadata("damageFromCustomCommand"))
                 return;
 
-            if (damager.hasMetadata("cancelDamageEvent") || e.getDamage() == 0)
+            if (damager.hasMetadata("cancelDamageEvent"))
                 return;
 
             if (!(e.getEntity() instanceof Player)) {
