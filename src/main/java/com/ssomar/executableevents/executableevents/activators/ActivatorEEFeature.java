@@ -1217,18 +1217,19 @@ public class ActivatorEEFeature extends SActivator<ActivatorEEFeature, Activator
             }
         }
 
-        /* for (ActivatorEEFeature activator : activators) {
+        /* for (SActivator activator : activators) {
             SsomarDev.testMsg("activator: "+activator.getId(), true);
         }
 
-        for (ActivatorEEFeature activator : activatorsLoopServer) {
+        for (SActivator activator : activatorsLoopServer) {
             SsomarDev.testMsg("SERVER LOOP activator: "+activator.getId(), true);
-        }*/
+        } */
 
-        if (!activatorsLoopServer.isEmpty())
+        if (!activatorsLoopServer.isEmpty()) {
             eventInfo.setOption(Option.LOOP_SERVER);
             eventInfo.setWhitelistActivators(activatorsLoopServer);
             EventsManager.getInstance().activeOption(eventInfo);
+        }
         if (!activators.isEmpty()){
             eventInfo.setWhitelistActivators(activators);
             EventsManager.getInstance().activeOptionAllPlayer(eventInfo);

@@ -4,7 +4,7 @@
   <groupId>com.ssomar</groupId>
   <artifactId>ExecutableEvents</artifactId>
   <name>ExecutableEvents</name>
-  <version>3.24.11.21</version>
+  <version>3.24.11.23</version>
   <build>
     <sourceDirectory>${basedir}/src/main/java</sourceDirectory>
     <resources>
@@ -141,10 +141,6 @@
       <url>https://jitpack.io</url>
     </repository>
     <repository>
-      <id>placeholderapi</id>
-      <url>https://repo.extendedclip.com/content/repositories/placeholderapi/</url>
-    </repository>
-    <repository>
       <id>dmulloy2-repo</id>
       <url>https://repo.dmulloy2.net/repository/public/</url>
     </repository>
@@ -170,12 +166,6 @@
       <groupId>com.mojang</groupId>
       <artifactId>authlib</artifactId>
       <version>1.5.21</version>
-      <scope>provided</scope>
-    </dependency>
-    <dependency>
-      <groupId>me.clip</groupId>
-      <artifactId>placeholderapi</artifactId>
-      <version>2.10.9</version>
       <scope>provided</scope>
     </dependency>
     <dependency>
@@ -226,6 +216,13 @@
       <version>1.182</version>
       <scope>system</scope>
       <systemPath>${project.basedir}/src/main/resources/oraxen-1.182.0.jar</systemPath>
+    </dependency>
+    <dependency>
+      <groupId>me.clip</groupId>
+      <artifactId>placeholderapi</artifactId>
+      <version>2.11.6</version>
+      <scope>system</scope>
+      <systemPath>${project.basedir}/src/main/resources/PlaceholderAPI-2.11.6.jar</systemPath>
     </dependency>
     <dependency>
       <groupId>com.bgsoftware.wildstacker</groupId>
