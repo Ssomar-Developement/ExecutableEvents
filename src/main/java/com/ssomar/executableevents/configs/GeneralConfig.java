@@ -1,6 +1,7 @@
 package com.ssomar.executableevents.configs;
 
 import com.ssomar.executableevents.ExecutableEvents;
+import com.ssomar.score.SsomarDev;
 import com.ssomar.score.config.Config;
 import com.ssomar.score.features.custom.restrictions.RestrictionEnum;
 import com.ssomar.score.usedapi.AllWorldManager;
@@ -70,6 +71,8 @@ public class GeneralConfig extends Config {
         }
 
         loadBooleanSetting(Setting.premiumEnableCooldownForOp.name(),  false);
+
+        SsomarDev.testMsg("premiumEnableCooldownForOp: "+getBooleanSetting(Setting.premiumEnableCooldownForOp.name()), true);
 
         loadBooleanSetting(Setting.checkVersionMsg.name(), true);
 

@@ -5,6 +5,7 @@ import com.ssomar.executableevents.configs.Message;
 import com.ssomar.executableevents.configs.api.PlaceholderAPI;
 import com.ssomar.executableevents.editor.ExecutableEventsEditor;
 import com.ssomar.executableevents.executableevents.activators.ActivatorEEFeature;
+import com.ssomar.score.SsomarDev;
 import com.ssomar.score.api.executableitems.config.ExecutableItemInterface;
 import com.ssomar.score.configs.messages.MessageMain;
 import com.ssomar.score.features.FeatureInterface;
@@ -272,6 +273,7 @@ public class ExecutableEvent extends SObjectWithFileEditable<ExecutableEvent, Ex
         for (SActivator activator : activatorsFeature.getActivators().values()) {
             if (activator instanceof ActivatorEEFeature) {
                 ActivatorEEFeature activatorEE = (ActivatorEEFeature) activator;
+                SsomarDev.testMsg("addCooldown: "+player.getName()+" "+this.getId()+" "+cooldown+" "+isInTicks, true);
                 activatorEE.getCooldown().addCooldown(player, this, cooldown, isInTicks);
             }
         }
