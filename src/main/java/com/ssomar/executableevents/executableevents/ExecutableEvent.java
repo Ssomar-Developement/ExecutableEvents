@@ -45,7 +45,7 @@ import java.util.*;
 
 @Getter
 @Setter
-public class ExecutableEvent extends SObjectWithFileEditable<ExecutableEvent, ExecutableEventEditor, ExecutableEventEditorManager> implements ExecutableItemInterface, SObjectWithActivators {
+public class ExecutableEvent extends SObjectWithFileEditable<ExecutableEvent, ExecutableEventEditor, ExecutableEventEditorManager> implements SObjectWithActivators {
 
     /**
      * Features
@@ -192,58 +192,6 @@ public class ExecutableEvent extends SObjectWithFileEditable<ExecutableEvent, Ex
     }
 
     @Override
-    public ItemStack addExecutableItemInfos(ItemStack itemStack, Optional<Player> playerOpt) {
-        return this.buildItem(1, playerOpt, Optional.empty(), Optional.ofNullable(itemStack), new HashMap<>());
-    }
-
-    @Override
-    public boolean hasItemPerm(@NotNull Player player, boolean showError) {
-        if (player.isOp()) return true;
-
-        if (PlaceholderAPI.isLotOfWork()) {
-            if (!(player.hasPermission("ExecutableItems.item." + getId()) || player.hasPermission("ei.item." + getId()) || player.hasPermission("ExecutableItems.item.*") || player.hasPermission("ei.item.*") || player.hasPermission("*"))) {
-                if (showError)
-                    new SendMessage().sendMessage(player, StringConverter.replaceVariable(MessageMain.getInstance().getMessage(ExecutableEvents.plugin, Message.REQUIRE_PERMISSION), player.getName(), displayName.getValue().get(), "", 0));
-                return false;
-            }
-        } else {
-            if (player.hasPermission("*")) return true;
-            if (!(player.hasPermission("ExecutableItems.item." + getId()) || player.hasPermission("ei.item." + getId()) || player.hasPermission("ExecutableItems.item.*") || player.hasPermission("ei.item.*")) || player.hasPermission("-ei.item." + getId())) {
-                if (showError)
-                    new SendMessage().sendMessage(player, StringConverter.replaceVariable(MessageMain.getInstance().getMessage(ExecutableEvents.plugin, Message.REQUIRE_PERMISSION), player.getName(), displayName.getValue().get(), "", 0));
-                return false;
-            }
-        }
-
-        return true;
-    }
-
-    @Override
-    public Item dropItem(Location location, int i) {
-        return null;
-    }
-
-    @Override
-    public ItemStack buildItem(int quantity, Optional<Integer> usageOpt, Optional<Player> playerOpt, Map<String, String> variables) {
-        return new ItemStack(editorIcon.getValue().get());
-    }
-
-    @Override
-    public ItemStack buildItem(int quantity, Optional<Integer> usageOpt, Optional<Player> playerOpt) {
-        return new ItemStack(editorIcon.getValue().get());
-    }
-
-    @Override
-    public ItemStack buildItem(int quantity, Optional<Player> playerOpt) {
-        return new ItemStack(editorIcon.getValue().get());
-    }
-
-    @Override
-    public ItemStack buildItem(int i, Optional<Player> optional, Map<String, Object> map) {
-        return new ItemStack(editorIcon.getValue().get());
-    }
-
-    @Override
     public @Nullable SActivator getActivator(String s) {
         for (SActivator acti : activatorsFeature.getActivators().values()) {
             if (acti.getId().equalsIgnoreCase(getId())) {
@@ -263,12 +211,7 @@ public class ExecutableEvent extends SObjectWithFileEditable<ExecutableEvent, Ex
         return new ItemStack(editorIcon.getValue().get());
     }
 
-    @Override
-    public boolean hasKeepItemOnDeath() {
-        return false;
-    }
 
-    @Override
     public void addCooldown(Player player,int cooldown, boolean isInTicks) {
         for (SActivator activator : activatorsFeature.getActivators().values()) {
             if (activator instanceof ActivatorEEFeature) {
@@ -279,7 +222,6 @@ public class ExecutableEvent extends SObjectWithFileEditable<ExecutableEvent, Ex
         }
     }
 
-    @Override
     public void addCooldown(Player player, int cooldown, boolean isInTicks, String activatorId) {
         for (SActivator activator : activatorsFeature.getActivators().values()) {
             if (activator instanceof ActivatorEEFeature) {
@@ -292,7 +234,6 @@ public class ExecutableEvent extends SObjectWithFileEditable<ExecutableEvent, Ex
         }
     }
 
-    @Override
     public void addGlobalCooldown(int i, boolean b) {
         for (SActivator activator : activatorsFeature.getActivators().values()) {
             if (activator instanceof ActivatorEEFeature) {
@@ -302,7 +243,6 @@ public class ExecutableEvent extends SObjectWithFileEditable<ExecutableEvent, Ex
         }
     }
 
-    @Override
     public void addGlobalCooldown(int i, boolean b, String activatorId) {
         for (SActivator activator : activatorsFeature.getActivators().values()) {
             if (activator instanceof ActivatorEEFeature) {

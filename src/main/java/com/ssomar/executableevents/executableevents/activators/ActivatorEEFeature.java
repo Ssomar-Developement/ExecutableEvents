@@ -32,7 +32,7 @@ import com.ssomar.score.features.custom.detailedeffects.DetailedEffects;
 import com.ssomar.score.features.custom.detaileditems.DetailedItems;
 import com.ssomar.score.features.custom.loop.LoopFeatures;
 import com.ssomar.score.features.custom.required.parent.RequiredGroup;
-import com.ssomar.score.features.custom.useperday.UsePerDayFeature;
+import com.ssomar.score.features.custom.usage.useperday.UsePerDayFeature;
 import com.ssomar.score.features.types.*;
 import com.ssomar.score.features.types.list.ListDamageCauseFeature;
 import com.ssomar.score.features.types.list.ListDetailedEntityFeature;
