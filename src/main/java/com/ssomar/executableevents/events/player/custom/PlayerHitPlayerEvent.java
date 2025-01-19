@@ -2,6 +2,7 @@ package com.ssomar.executableevents.events.player.custom;
 
 import com.ssomar.executableevents.events.EventsManager;
 import com.ssomar.executableevents.executableevents.activators.Option;
+import com.ssomar.score.SCore;
 import com.ssomar.score.sobject.sactivator.EventInfo;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -38,6 +39,9 @@ public class PlayerHitPlayerEvent implements Listener {
                 }
                 else {
                     EventInfo eInfo = new EventInfo(e);
+                    if(SCore.isPaperOrFork()){
+                        eInfo.getPlaceholders().put("%critical%", e.isCritical() ? "true" : "false");
+                    }
                     eInfo.setPlayer(Optional.of((Player)e.getDamager()));
                     eInfo.setTargetPlayer(Optional.of((Player)e.getEntity()));
 

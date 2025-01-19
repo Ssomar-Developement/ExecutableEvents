@@ -2,6 +2,7 @@ package com.ssomar.executableevents.events.player.custom;
 
 import com.ssomar.executableevents.executableevents.activators.Option;
 import com.ssomar.executableevents.events.EventsManager;
+import com.ssomar.score.SCore;
 import com.ssomar.score.SsomarDev;
 import com.ssomar.score.sobject.sactivator.EventInfo;
 import org.bukkit.entity.Player;
@@ -35,6 +36,9 @@ public class PlayerHitEntityEvent implements Listener {
 
             if (!(e.getEntity() instanceof Player)) {
                 EventInfo eInfo = new EventInfo(e);
+                if(SCore.isPaperOrFork()){
+                    eInfo.getPlaceholders().put("%critical%", e.isCritical() ? "true" : "false");
+                }
                 eInfo.setPlayer(Optional.of((Player) e.getDamager()));
                 eInfo.setTargetEntity(Optional.of(e.getEntity()));
                 eInfo.setDamageCause(Optional.of(e.getCause()));
@@ -44,6 +48,9 @@ public class PlayerHitEntityEvent implements Listener {
                 /* NPC is not a player O_o */
                 if (e.getEntity().hasMetadata("NPC")) {
                     EventInfo eInfo = new EventInfo(e);
+                    if(SCore.isPaperOrFork()){
+                        eInfo.getPlaceholders().put("%critical%", e.isCritical() ? "true" : "false");
+                    }
                     eInfo.setPlayer(Optional.of((Player) e.getDamager()));
                     eInfo.setTargetEntity(Optional.of(e.getEntity()));
                     eInfo.setDamageCause(Optional.of(e.getCause()));
