@@ -40,6 +40,7 @@ import com.ssomar.score.features.types.list.ListInventoryTypeFeature;
 import com.ssomar.score.features.types.list.ListUncoloredStringFeature;
 import com.ssomar.score.menu.GUI;
 import com.ssomar.score.scheduler.ScheduleFeatures;
+import com.ssomar.score.sobject.SObject;
 import com.ssomar.score.sobject.sactivator.EventInfo;
 import com.ssomar.score.sobject.sactivator.OptionGlobal;
 import com.ssomar.score.sobject.sactivator.SOption;

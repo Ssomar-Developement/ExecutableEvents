@@ -615,4 +615,9 @@ public enum Option implements SOption, Serializable {
         return this == Option.LOOP_SERVER;
     }
 
+    @Override
+    public String getName() {
+        return this.name();
+    }
+
 }
