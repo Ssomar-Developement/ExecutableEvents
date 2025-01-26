@@ -61,6 +61,7 @@ public enum Option implements SOption, Serializable {
     PLAYER_HARVEST_BLOCK("PLAYER_HARVEST_BLOCK"),
     PLAYER_HIT_ENTITY("PLAYER_HIT_ENTITY"),
     PLAYER_HIT_PLAYER("PLAYER_HIT_PLAYER"),
+    PLAYER_INVENTORY_CLICK("PLAYER_INVENTORY_CLICK"),
     PLAYER_ITEM_BREAK("PLAYER_ITEM_BREAK"),
     PLAYER_JUMP("PLAYER_JUMP"),
     PLAYER_KICK("PLAYER_KICK"),
@@ -478,6 +479,7 @@ public enum Option implements SOption, Serializable {
         result.add(Option.PLAYER_PICKUP_ITEM);
         result.add(Option.PLAYER_PORTAL);
         result.add(Option.PLAYER_SWAP_HAND);
+        result.add(Option.PLAYER_INVENTORY_CLICK);
 
         result.add(Option.PLAYER_PROJECTILE_HIT_BLOCK);
         result.add(Option.PLAYER_PROJECTILE_HIT_PLAYER);

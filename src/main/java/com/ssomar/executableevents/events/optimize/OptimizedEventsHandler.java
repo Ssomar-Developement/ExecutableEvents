@@ -289,6 +289,9 @@ public class OptimizedEventsHandler {
                 case PLAYER_HIT_PLAYER:
                     mainListerner = new PlayerHitPlayerEvent();
                     break;
+                case PLAYER_INVENTORY_CLICK:
+                    mainListerner = new PlayerInventoryClickListener();
+                    break;
                 case PLAYER_JUMP:
                     eventsName.add(EventName.PLAYER_JUMP_EVENT);
                     DynamicRegistration.getInstance().register(EventName.PLAYER_JUMP_EVENT, ExecutableEvents.plugin);

@@ -8,7 +8,6 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryOpenEvent;
 
-import java.util.ArrayList;
 import java.util.Optional;
 
 public class PlayerOpenInventoryListener implements Listener {
