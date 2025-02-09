@@ -8,11 +8,13 @@ import com.ssomar.executableevents.configs.Message;
 import com.ssomar.executableevents.configs.api.PlaceholderAPI;
 import com.ssomar.executableevents.events.EventsHandler;
 import com.ssomar.executableevents.events.optimize.OptimizedEventsHandler;
+import com.ssomar.executableevents.executableevents.ExecutableEvent;
 import com.ssomar.executableevents.executableevents.ExecutableEventLoader;
 import com.ssomar.score.SCore;
 import com.ssomar.score.config.Config;
 import com.ssomar.score.configs.messages.MessageInterface;
 import com.ssomar.score.configs.messages.MessageMain;
+import com.ssomar.score.sobject.SObject;
 import com.ssomar.score.splugin.SPlugin;
 import com.ssomar.score.utils.logging.Utils;
 import org.bukkit.Bukkit;
@@ -179,6 +181,12 @@ public class ExecutableEvents extends JavaPlugin implements SPlugin {
     @Override
     public String getObjectName() {
         return "events";
+    }
+
+    @Override
+    public String getObjectNameForPermission(SObject sObject) {
+        if(sObject instanceof ExecutableEvent) return "event";
+        return "event";
     }
 
     @Override

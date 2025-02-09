@@ -65,12 +65,12 @@ public class ExecutableEvent extends SObjectWithFileEditable<ExecutableEvent, Ex
      * For the clone method, the parent is the real instance
      **/
     public ExecutableEvent(FeatureParentInterface parent, String id, String path) {
-        super(id, parent, FeatureSettingsSCore.EXECUTABLEEVENT, path, ExecutableEventLoader.getInstance());
+        super(ExecutableEvents.plugin, id, parent, FeatureSettingsSCore.EXECUTABLEEVENT, path, ExecutableEventLoader.getInstance());
         reset();
     }
 
     public ExecutableEvent(String id, String path) {
-        super(id, null, FeatureSettingsSCore.EXECUTABLEEVENT, path, ExecutableEventLoader.getInstance());
+        super(ExecutableEvents.plugin, id, null, FeatureSettingsSCore.EXECUTABLEEVENT, path, ExecutableEventLoader.getInstance());
         reset();
     }
 
