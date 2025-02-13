@@ -426,6 +426,7 @@ public class ActivatorEEFeature extends SActivator<ActivatorEEFeature, Activator
 
             defautlWorld = player.getWorld();
         }
+        //SsomarDev.testMsg("Activator 4.6 >> "+player, DEBUG);
 
         /* Target player init */
         Optional<Player> targetPlayerOpt = eInfo.getTargetPlayer();
@@ -541,15 +542,15 @@ public class ActivatorEEFeature extends SActivator<ActivatorEEFeature, Activator
             SsomarDev.testMsg("Activator 8.1", DEBUG);
 
             /* Check if the activator is in cooldown for the player or not  */
-            if (!globalCooldown.checkCooldown(player, eSrc, sp, executableEvent, true)) return;
-            if (!cooldown.checkCooldown(player, eSrc, sp, executableEvent, false)) return;
+            if (!globalCooldown.checkCooldown(player, eSrc, sp, executableEvent)) return;
+            if (!cooldown.checkCooldown(player, eSrc, sp, executableEvent)) return;
             SsomarDev.testMsg("Activator 8.2", DEBUG);
         }
 
         if (Option.getOptionWithEntitySt().contains(optionFeature.getValue()) && entity != null) {
             /* Check if the activator is in cooldown for the player or not  */
-            if (!globalCooldown.checkCooldown(entity, eSrc, sp, executableEvent, true)) return;
-            if (!cooldown.checkCooldown(entity, eSrc, sp, executableEvent, false)) return;
+            if (!globalCooldown.checkCooldown(entity, eSrc, sp, executableEvent)) return;
+            if (!cooldown.checkCooldown(entity, eSrc, sp, executableEvent)) return;
         }
 
         SsomarDev.testMsg("Activator 9", DEBUG);
@@ -1127,7 +1128,7 @@ public class ActivatorEEFeature extends SActivator<ActivatorEEFeature, Activator
 
         this.cooldown = new CooldownFeature(this, FeatureSettingsSCore.cooldownOptions, ExecutableEvents.plugin, GeneralConfig.getInstance().getBooleanSetting(GeneralConfig.Setting.premiumEnableCooldownForOp.name()));
 
-        this.globalCooldown = new CooldownFeature(this, FeatureSettingsSCore.globalCooldownOptions, ExecutableEvents.plugin, GeneralConfig.getInstance().getBooleanSetting(GeneralConfig.Setting.premiumEnableCooldownForOp.name()));
+        this.globalCooldown = new CooldownFeature(this, FeatureSettingsSCore.globalCooldownOptions, ExecutableEvents.plugin, GeneralConfig.getInstance().getBooleanSetting(GeneralConfig.Setting.premiumEnableCooldownForOp.name()), true);
 
         this.requiredGroup = new RequiredGroup(this);
 
@@ -1218,13 +1219,13 @@ public class ActivatorEEFeature extends SActivator<ActivatorEEFeature, Activator
             }
         }
 
-        /* for (SActivator activator : activators) {
+        for (SActivator activator : activators) {
             SsomarDev.testMsg("activator: "+activator.getId(), true);
         }
 
         for (SActivator activator : activatorsLoopServer) {
             SsomarDev.testMsg("SERVER LOOP activator: "+activator.getId(), true);
-        } */
+        }
 
         if (!activatorsLoopServer.isEmpty()) {
             eventInfo.setOption(Option.LOOP_SERVER);
@@ -1232,6 +1233,7 @@ public class ActivatorEEFeature extends SActivator<ActivatorEEFeature, Activator
             EventsManager.getInstance().activeOption(eventInfo);
         }
         if (!activators.isEmpty()){
+            eventInfo.setOption(OptionGlobal.LOOP);
             eventInfo.setWhitelistActivators(activators);
             EventsManager.getInstance().activeOptionAllPlayer(eventInfo);
         }
