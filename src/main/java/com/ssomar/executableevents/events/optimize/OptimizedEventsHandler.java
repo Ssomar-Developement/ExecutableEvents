@@ -425,7 +425,9 @@ public class OptimizedEventsHandler {
                 case ENTITY_SPAWN:
                     mainListerner = new EntitySpawnListener();
                     break;
-
+                case ENTITY_SPAWN_TRIALSPAWNER:
+                    mainListerner = new EntitySpawnTrialSpawnerListener();
+                    break;
                 case ENTITY_BEFORE_DEATH:
                     eventsName.add(EventName.ENTITY_BEFORE_DEATH_EVENT);
                     DynamicRegistration.getInstance().register(EventName.ENTITY_BEFORE_DEATH_EVENT, ExecutableEvents.plugin);

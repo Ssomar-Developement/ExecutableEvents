@@ -110,6 +110,7 @@ public enum Option implements SOption, Serializable {
     ENTITY_PROJECTILE_HIT_PLAYER("ENTITY_PROJECTILE_HIT_PLAYER"),
 
     ENTITY_SPAWN("ENTITY_SPAWN"),
+    ENTITY_SPAWN_TRIALSPAWNER("ENTITY_SPAWN_TRIALSPAWNER"),
     ENTITY_BEFORE_DEATH("ENTITY_BEFORE_DEATH"),
     ENTITY_BREAK_DOOR("ENTITY_BREAK_DOOR"),
     ENTITY_BREED("ENTITY_BREED"),
@@ -342,6 +343,7 @@ public enum Option implements SOption, Serializable {
 
 
         result.add(Option.ENTITY_SPAWN);
+        result.add(Option.ENTITY_SPAWN_TRIALSPAWNER);
         result.add(Option.ENTITY_BEFORE_DEATH);
         result.add(Option.ENTITY_BREAK_DOOR);
         result.add(Option.ENTITY_BREED);

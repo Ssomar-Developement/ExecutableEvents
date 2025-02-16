@@ -6,7 +6,6 @@ import com.ssomar.score.sobject.sactivator.EventInfo;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 
-import java.util.ArrayList;
 import java.util.Optional;
 
 public class PlayerBedEnterEvent implements Listener {

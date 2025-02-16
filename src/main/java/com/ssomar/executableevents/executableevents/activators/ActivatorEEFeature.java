@@ -630,6 +630,16 @@ public class ActivatorEEFeature extends SActivator<ActivatorEEFeature, Activator
             entityCommands.runCommands(actionInfo, executableEvent.getDisplayName().getValue().orElse(""), needToDelayOneTickBecauseEntityIsNotInGame);
         }
 
+        //SsomarDev.testMsg("Activator 11.2 "+(entity != null), true);
+        if (Option.getOptionWithEntitySt().contains(optionFeature.getValue()) && entity != null) {
+            //SsomarDev.testMsg("Activator 11.5", true);
+            SOption option = optionFeature.getValue();
+            boolean needToDelayOneTickBecauseEntityIsNotInGame = option.equals(Option.ENTITY_SPAWN_TRIALSPAWNER);
+
+            actionInfo.setEntityUUID(entity.getUniqueId());
+            entityCommands.runCommands(actionInfo, executableEvent.getDisplayName().getValue().orElse(""), needToDelayOneTickBecauseEntityIsNotInGame);
+        }
+
         if (Option.getOptionWithTargetPlayerSt().contains(optionFeature.getValue()) && targetPlayer != null) {
             /* change actionInfo */
             ActionInfo targetAInfo = actionInfo.clone();
