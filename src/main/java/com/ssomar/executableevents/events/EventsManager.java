@@ -46,10 +46,10 @@ public class EventsManager {
 
             SsomarDev.testMsg("activeOption - isValidWorld >> " + executableEvent.getId(), DEBUG);
 
-            SsomarDev.testMsg("activeOption >> " + executableEvent.getId(), true);
+            SsomarDev.testMsg("activeOption >> " + executableEvent.getId(), DEBUG);
 
             for (SActivator activator : executableEvent.getActivators().getActivators(eInfo.getOption(), eInfo.getWhitelistActivatorsId(), eInfo.getWhitelistActivators())) {
-                SsomarDev.testMsg("activeOption - activator >> " + activator.getId(), true);
+                SsomarDev.testMsg("activeOption - activator >> " + activator.getId(), DEBUG);
                 activator.runWithException(executableEvent, eInfo);
             }
         }
