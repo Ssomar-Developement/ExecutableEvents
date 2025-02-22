@@ -5,18 +5,21 @@ import com.ssomar.executableevents.executableevents.activators.Option;
 import com.ssomar.score.sobject.sactivator.EventInfo;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
-import org.bukkit.event.player.PlayerSwapHandItemsEvent;
+import org.bukkit.event.player.PlayerLevelChangeEvent;
 
 import java.util.Optional;
 
-public class PlayerSwaphandListener implements Listener {
+public class PlayerLevelChangeListener implements Listener {
 
     @EventHandler
-    public void onPlayerSwapHandItemsEvent(PlayerSwapHandItemsEvent e) {
+    public void onPlayerBedLeaveEvent(PlayerLevelChangeEvent e) {
 
         EventInfo eInfo = new EventInfo(e);
         eInfo.setPlayer(Optional.of(e.getPlayer()));
-        eInfo.setOption(Option.PLAYER_SWAP_HAND);
+        eInfo.getPlaceholders().put("%NewLevel%", String.valueOf(e.getNewLevel()));
+        eInfo.getPlaceholders().put("%OldLevel%", String.valueOf(e.getOldLevel()));
+        eInfo.setOption(Option.PLAYER_BED_LEAVE);
         EventsManager.getInstance().activeOption(eInfo);
     }
+
 }
