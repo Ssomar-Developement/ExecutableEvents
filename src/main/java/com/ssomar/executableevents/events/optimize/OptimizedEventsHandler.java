@@ -97,6 +97,9 @@ public class OptimizedEventsHandler {
                 case PLAYER_HARVEST_BLOCK:
                     mainListerner = new PlayerHarvestBlockListener();
                     break;
+                case PLAYER_HIDE_ENTITY:
+                    mainListerner = new PlayerHideEntityListener();
+                    break;
                 case PLAYER_EQUIP_ARMOR:
                     eventsName.add(EventName.PLAYER_EQUIP_ARMOR_EVENT);
                     DynamicRegistration.getInstance().register(EventName.PLAYER_EQUIP_ARMOR_EVENT, ExecutableEvents.plugin);
@@ -125,6 +128,9 @@ public class OptimizedEventsHandler {
                 case PLAYER_RIPTIDE:
                     mainListerner = new PlayerRiptideListener();
                     break;
+                case PLAYER_SHOW_ENTITY:
+                    mainListerner = new PlayerShowEntityListener();
+                    break;
                 case PLAYER_SPAWN_CHANGE:
                     mainListerner = new PlayerSpawnChangeListener();
                     break;
@@ -135,6 +141,9 @@ public class OptimizedEventsHandler {
                     eventsName.add(EventName.PLAYER_LEFT_CLICK_EVENT);
                     DynamicRegistration.getInstance().register(EventName.PLAYER_LEFT_CLICK_EVENT, ExecutableEvents.plugin);
                     mainListerner = new PlayerLeftClickEvent();
+                    break;
+                case PLAYER_LEVEL_CHANGE:
+                    mainListerner = new PlayerLevelChangeListener();
                     break;
                 case PLAYER_CONSUME:
                     mainListerner = new PlayerConsumeEvent();
@@ -249,6 +258,9 @@ public class OptimizedEventsHandler {
                     break;
                 case PLAYER_FILL_BUCKET:
                     mainListerner = new PlayerBucketFillEvent();
+                    break;
+                case PLAYER_EMPTY_BUCKET:
+                    mainListerner = new PlayerBucketEmptyListener();
                     break;
                 case PLAYER_FIRST_CONNECTION:
                     mainListerner = new PlayerFirstConnectionEvent();

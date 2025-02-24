@@ -50,6 +50,7 @@ public enum Option implements SOption, Serializable {
     PLAYER_EQUIP_ARMOR("PLAYER_EQUIP_ARMOR"),
     PLAYER_EXPERIENCE_CHANGE("PLAYER_EXPERIENCE_CHANGE"),
     PLAYER_FERTILIZE_BLOCK("PLAYER_FERTILIZE_BLOCK"), /* NOT COMPATIBLE 1.12 */
+    PLAYER_EMPTY_BUCKET("PLAYER_EMPTY_BUCKET"),
     PLAYER_FILL_BUCKET("PLAYER_FILL_BUCKET"),
     PLAYER_FIRST_CONNECTION("PLAYER_FIRST_CONNECTION"),
     PLAYER_FISH_BLOCK("PLAYER_FISH_BLOCK"), /* NOT COMPATIBLE 1.12 */
@@ -59,6 +60,7 @@ public enum Option implements SOption, Serializable {
     PLAYER_FISH_PLAYER("PLAYER_FISH_PLAYER"),
 
     PLAYER_HARVEST_BLOCK("PLAYER_HARVEST_BLOCK"),
+    PLAYER_HIDE_ENTITY("PLAYER_HIDE_ENTITY"),
     PLAYER_HIT_ENTITY("PLAYER_HIT_ENTITY"),
     PLAYER_HIT_PLAYER("PLAYER_HIT_PLAYER"),
     PLAYER_INVENTORY_CLICK("PLAYER_INVENTORY_CLICK"),
@@ -71,6 +73,7 @@ public enum Option implements SOption, Serializable {
     PLAYER_LEAVE_HIS_LAND("PLAYER_LEAVE_HIS_LAND"),
     PLAYER_LEAVE_HIS_PLOT("PLAYER_LEAVE_HIS_PLOT"),
     PLAYER_LEFT_CLICK("PLAYER_LEFT_CLICK"),
+    PLAYER_LEVEL_CHANGE("PLAYER_LEVEL_CHANGE"),
     PLAYER_OPEN_INVENTORY("PLAYER_OPEN_INVENTORY"),
     PLAYER_PORTAL("PLAYER_PORTAL"),
 
@@ -85,6 +88,7 @@ public enum Option implements SOption, Serializable {
     PLAYER_RIPTIDE("PLAYER_RIPTIDE"),
     PLAYER_SEND_MESSAGE("PLAYER_SEND_MESSAGE"),
     PLAYER_SHEAR_ENTITY("PLAYER_SHEAR_ENTITY"),
+    PLAYER_SHOW_ENTITY("PLAYER_SHOW_ENTITY"),
     PLAYER_SPAWN_CHANGE("PLAYER_SPAWN_CHANGE"),
     PLAYER_SWAP_HAND("PLAYER_SWAP_HAND"),
     PLAYER_TARGETED_BY_AN_ENTITY("PLAYER_TARGETED_BY_AN_ENTITY"),
@@ -253,6 +257,7 @@ public enum Option implements SOption, Serializable {
         result.add(ITEMSADDER_PLAYER_BLOCK_BREAK);
         result.add(PLAYER_BRUSH_BLOCK);
         result.add(PLAYER_HARVEST_BLOCK);
+        result.add(PLAYER_EMPTY_BUCKET);
         result.add(PLAYER_FILL_BUCKET);
         result.add(PLAYER_RIGHT_CLICK);
         result.add(PLAYER_LEFT_CLICK);
@@ -289,6 +294,8 @@ public enum Option implements SOption, Serializable {
         result.add(Option.PLAYER_FISH_ENTITY);
         result.add(Option.PLAYER_FISH_FISH);
         result.add(Option.PLAYER_SHEAR_ENTITY);
+        result.add(Option.PLAYER_HIDE_ENTITY);
+        result.add(Option.PLAYER_SHOW_ENTITY);
         result.add(Option.PLAYER_MOUNT);
         result.add(Option.PLAYER_DISMOUNT);
         result.add(Option.PLAYER_TARGETED_BY_AN_ENTITY);
@@ -440,6 +447,7 @@ public enum Option implements SOption, Serializable {
         result.add(Option.PLAYER_ENTER_IN_HIS_PLOT);
         result.add(Option.PLAYER_ENTITY_PLACE);
         result.add(Option.PLAYER_FERTILIZE_BLOCK);
+        result.add(Option.PLAYER_EMPTY_BUCKET);
         result.add(Option.PLAYER_FILL_BUCKET);
         result.add(Option.PLAYER_FIRST_CONNECTION);
         result.add(Option.PLAYER_FISH_BLOCK);
@@ -448,6 +456,7 @@ public enum Option implements SOption, Serializable {
         result.add(Option.PLAYER_FISH_NOTHING);
         result.add(Option.PLAYER_FISH_PLAYER);
         result.add(Option.PLAYER_HARVEST_BLOCK);
+        result.add(Option.PLAYER_HIDE_ENTITY);
         result.add(Option.PLAYER_HIT_ENTITY);
         result.add(Option.PLAYER_HIT_PLAYER);
         result.add(Option.PLAYER_ITEM_BREAK);
@@ -459,6 +468,7 @@ public enum Option implements SOption, Serializable {
         result.add(Option.PLAYER_LEAVE_HIS_LAND);
         result.add(Option.PLAYER_LEAVE_HIS_PLOT);
         result.add(Option.PLAYER_LEFT_CLICK);
+        result.add(Option.PLAYER_LEVEL_CHANGE);
         result.add(Option.PLAYER_MOUNT);
         result.add(Option.PLAYER_OPEN_INVENTORY);
         result.add(Option.PLAYER_WALK);
@@ -480,6 +490,7 @@ public enum Option implements SOption, Serializable {
         result.add(Option.PLAYER_UNEQUIP_ARMOR);
         result.add(Option.PLAYER_PICKUP_ITEM);
         result.add(Option.PLAYER_PORTAL);
+        result.add(Option.PLAYER_SHOW_ENTITY);
         result.add(Option.PLAYER_SWAP_HAND);
         result.add(Option.PLAYER_INVENTORY_CLICK);
 
