@@ -18,7 +18,7 @@ public class PlayerLevelChangeListener implements Listener {
         eInfo.setPlayer(Optional.of(e.getPlayer()));
         eInfo.getPlaceholders().put("%NewLevel%", String.valueOf(e.getNewLevel()));
         eInfo.getPlaceholders().put("%OldLevel%", String.valueOf(e.getOldLevel()));
-        eInfo.setOption(Option.PLAYER_BED_LEAVE);
+        eInfo.setOption(Option.PLAYER_LEVEL_CHANGE);
         EventsManager.getInstance().activeOption(eInfo);
     }
 
