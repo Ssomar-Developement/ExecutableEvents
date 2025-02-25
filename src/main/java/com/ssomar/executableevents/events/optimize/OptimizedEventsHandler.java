@@ -98,7 +98,8 @@ public class OptimizedEventsHandler {
                     mainListerner = new PlayerHarvestBlockListener();
                     break;
                 case PLAYER_HIDE_ENTITY:
-                    mainListerner = new PlayerHideEntityListener();
+                    //Refers 1.18.2
+                    if (SCore.is1v18Plus()) mainListerner = new PlayerHideEntityListener();
                     break;
                 case PLAYER_EQUIP_ARMOR:
                     eventsName.add(EventName.PLAYER_EQUIP_ARMOR_EVENT);
@@ -129,7 +130,8 @@ public class OptimizedEventsHandler {
                     mainListerner = new PlayerRiptideListener();
                     break;
                 case PLAYER_SHOW_ENTITY:
-                    mainListerner = new PlayerShowEntityListener();
+                    //Refers 1.18.2
+                    if (SCore.is1v18Plus()) mainListerner = new PlayerShowEntityListener();
                     break;
                 case PLAYER_SPAWN_CHANGE:
                     mainListerner = new PlayerSpawnChangeListener();

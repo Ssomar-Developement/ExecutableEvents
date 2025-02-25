@@ -12,7 +12,7 @@ import java.util.Optional;
 public class PlayerLevelChangeListener implements Listener {
 
     @EventHandler
-    public void onPlayerBedLeaveEvent(PlayerLevelChangeEvent e) {
+    public void onPlayerLevelChange(PlayerLevelChangeEvent e) {
 
         EventInfo eInfo = new EventInfo(e);
         eInfo.setPlayer(Optional.of(e.getPlayer()));

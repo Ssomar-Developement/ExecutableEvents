@@ -16,16 +16,20 @@ import java.util.Optional;
 public class PlayerBucketEmptyListener implements Listener {
 
     @EventHandler
-    public void onPlayerBucketFillEvent(PlayerBucketEmptyEvent e) {
+    public void onPlayerBucketEmptyEvent(PlayerBucketEmptyEvent e) {
 
         Player p = e.getPlayer();
-        Block b = e.getBlockClicked();
+        Block b;
+
+        //Refers to 1.19.2+
+        if (SCore.is1v19v4Plus()) b = e.getBlock();
+        else b = e.getBlockClicked().getRelative(e.getBlockFace());
 
         EventInfo eInfos = new EventInfo(e);
         eInfos.setPlayer(Optional.of(p));
-        eInfos.setTargetBlock(Optional.of(e.getBlock()));
-        eInfos.setOldMaterialTargetBlock(Optional.of(e.getBlock().getType()));
-        if (!SCore.is1v12Less()) eInfos.setOldStatesTargetBlock(Optional.of(e.getBlock().getBlockData().getAsString(true)));
+        eInfos.setTargetBlock(Optional.of(b));
+        eInfos.setOldMaterialTargetBlock(Optional.of(b.getType()));
+        if (!SCore.is1v12Less()) eInfos.setOldStatesTargetBlock(Optional.of(b.getBlockData().getAsString(true)));
         eInfos.setOption(Option.PLAYER_EMPTY_BUCKET);
         EventsManager.getInstance().activeOption(eInfos);
     }
