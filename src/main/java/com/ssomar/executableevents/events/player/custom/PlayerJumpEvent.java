@@ -17,6 +17,5 @@ public class PlayerJumpEvent implements Listener {
         eInfo.setPlayer(Optional.of(e.getPlayer()));
         eInfo.setOption(Option.PLAYER_JUMP);
         EventsManager.getInstance().activeOption(eInfo);
-
     }
 }
