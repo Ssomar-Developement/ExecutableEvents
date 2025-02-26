@@ -1113,7 +1113,7 @@ public class ActivatorEEFeature extends SActivator<ActivatorEEFeature, Activator
 
     @Override
     public void reset() {
-        this.displayName = new ColoredStringFeature(this, Optional.of("&eActivator"), FeatureSettingsSCore.name, false);
+        this.displayName = new ColoredStringFeature(this, Optional.of("&eActivator"), FeatureSettingsSCore.name);
         this.optionFeature = new SOptionFeature(ExecutableEvents.plugin, Option.PLAYER_ALL_CLICK, this, FeatureSettingsSCore.option);
 
         this.typeTargetFeature = new TypeTargetFeature(this, Optional.of(TypeTarget.NO_TYPE_TARGET), FeatureSettingsSCore.typeTarget);
@@ -1122,9 +1122,9 @@ public class ActivatorEEFeature extends SActivator<ActivatorEEFeature, Activator
 
         this.usePerDayFeature = new UsePerDayFeature(this, getParentObjectId() + ">" + getId());
 
-        this.cancelEvent = new BooleanFeature(this, false, FeatureSettingsSCore.cancelEvent, false);
-        this.silenceOutput = new BooleanFeature(this, false, FeatureSettingsSCore.silenceOutput, false);
-        this.desactiveDrops = new BooleanFeature(this,  false, FeatureSettingsSCore.desactiveDrops, true);
+        this.cancelEvent = new BooleanFeature(this, false, FeatureSettingsSCore.cancelEvent);
+        this.silenceOutput = new BooleanFeature(this, false, FeatureSettingsSCore.silenceOutput);
+        this.desactiveDrops = new BooleanFeature(this,  false, FeatureSettingsSCore.desactiveDrops);
 
         this.cooldown = new CooldownFeature(this, FeatureSettingsSCore.cooldownOptions, ExecutableEvents.plugin, GeneralConfig.getInstance().getBooleanSetting(GeneralConfig.Setting.premiumEnableCooldownForOp.name()));
 
@@ -1142,19 +1142,19 @@ public class ActivatorEEFeature extends SActivator<ActivatorEEFeature, Activator
 
         this.detailedTargetEntities = new ListDetailedEntityFeature(this,  new ArrayList<>(), FeatureSettingsSCore.detailedTargetEntities, false);
 
-        this.detailedDamageCauses = new ListDamageCauseFeature(this,  new ArrayList<>(), FeatureSettingsSCore.detailedDamageCauses, false);
+        this.detailedDamageCauses = new ListDamageCauseFeature(this,  new ArrayList<>(), FeatureSettingsSCore.detailedDamageCauses);
 
-        this.detailedCommands = new ListUncoloredStringFeature(this, new ArrayList<>(), FeatureSettingsSCore.detailedCommands, false, Optional.empty());
+        this.detailedCommands = new ListUncoloredStringFeature(this, new ArrayList<>(), FeatureSettingsSCore.detailedCommands, Optional.empty());
 
-        this.detailedMessagesContains = new ListUncoloredStringFeature(this, new ArrayList<>(), FeatureSettingsSCore.detailedMessagesContains, false, Optional.empty());
-        this.detailedMessagesEquals = new ListUncoloredStringFeature(this, new ArrayList<>(), FeatureSettingsSCore.detailedMessagesEquals, false, Optional.empty());
+        this.detailedMessagesContains = new ListUncoloredStringFeature(this, new ArrayList<>(), FeatureSettingsSCore.detailedMessagesContains, Optional.empty());
+        this.detailedMessagesEquals = new ListUncoloredStringFeature(this, new ArrayList<>(), FeatureSettingsSCore.detailedMessagesEquals, Optional.empty());
 
         this.detailedItems = new DetailedItems(this);
 
         this.detailedEffects = new DetailedEffects(this);
 
-        this.detailedInventories = new ListInventoryTypeFeature(this, new ArrayList<>(), FeatureSettingsSCore.detailedInventories, false);
-        this.mustBeItsOwnInventory = new BooleanFeature(this, false, FeatureSettingsSCore.mustBeItsOwnInventory, false);
+        this.detailedInventories = new ListInventoryTypeFeature(this, new ArrayList<>(), FeatureSettingsSCore.detailedInventories);
+        this.mustBeItsOwnInventory = new BooleanFeature(this, false, FeatureSettingsSCore.mustBeItsOwnInventory);
 
         this.consoleCommands = new ConsoleCommandsFeature(this, FeatureSettingsSCore.consoleCommands, false);
 

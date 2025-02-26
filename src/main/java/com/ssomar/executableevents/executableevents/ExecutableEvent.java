@@ -180,15 +180,15 @@ public class ExecutableEvent extends SObjectWithFileEditable<ExecutableEvent, Ex
 
     @Override
     public void reset() {
-        this.enabled = new BooleanFeature(this,  true, FeatureSettingsSCore.enabled, false);
+        this.enabled = new BooleanFeature(this,  true, FeatureSettingsSCore.enabled);
 
         this.editorIcon = new MaterialFeature(this,  Optional.of(Material.LEVER), FeatureSettingsSCore.editorIcon, true);
 
         this.activatorsFeature = new ActivatorsFeature(this, new ActivatorEEFeature(null, "null"));
 
-        this.displayName = new ColoredStringFeature(this,  Optional.of("&eDefault name"), FeatureSettingsSCore.name, false);
+        this.displayName = new ColoredStringFeature(this,  Optional.of("&eDefault name"), FeatureSettingsSCore.name);
 
-        this.disabledWorlds = new ListWorldFeature(this,  new ArrayList<>(), FeatureSettingsSCore.disabledWorlds, false);
+        this.disabledWorlds = new ListWorldFeature(this,  new ArrayList<>(), FeatureSettingsSCore.disabledWorlds);
     }
 
     @Override
