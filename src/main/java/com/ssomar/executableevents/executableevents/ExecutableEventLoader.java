@@ -38,7 +38,7 @@ public class ExecutableEventLoader extends SObjectWithFileLoader<ExecutableEvent
 
     @Override
     public void load() {
-        LoopManager.getInstance().resetLoopActivators(ExecutableEvents.plugin);
+        LoopManager.getInstance(ExecutableEvents.plugin.getPlugin()).resetLoopActivators(ExecutableEvents.plugin);
         ExecutableEventsManager.getInstance().setDefaultObjects(new ArrayList<>());
         //if (!GeneralConfig.getInstance().isDisableTestItems()) {
         if (PlaceholderAPI.isLotOfWork()) {
@@ -52,15 +52,15 @@ public class ExecutableEventLoader extends SObjectWithFileLoader<ExecutableEvent
 
         this.resetCpt();
         File itemsDirectory;
-        if ((itemsDirectory = new File(ExecutableEvents.getPluginSt().getDataFolder() + "/events")).exists()) {
+        if ((itemsDirectory = new File(ExecutableEvents.plugin.getPlugin().getDataFolder() + "/events")).exists()) {
             /* create backup at each restart / reload but not at /ei reload */
             if (createBackup && !GeneralConfig.getInstance().getBooleanSetting(GeneralConfig.Setting.disableBackup.name())) {
                 ZipUtility zipUtility = new ZipUtility();
                 try {
                     DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy_MM_dd-HH_mm_ss");
                     LocalDateTime now = LocalDateTime.now();
-                    new File(ExecutableEvents.getPluginSt().getDataFolder() + "/backups/" + dtf.format(now)).mkdirs();
-                    zipUtility.zip(new String[]{itemsDirectory.getPath()}, ExecutableEvents.getPluginSt().getDataFolder() + "/backups/" + dtf.format(now) + "/backup.zip");
+                    new File(ExecutableEvents.plugin.getPlugin().getDataFolder() + "/backups/" + dtf.format(now)).mkdirs();
+                    zipUtility.zip(new String[]{itemsDirectory.getPath()}, ExecutableEvents.plugin.getPlugin().getDataFolder() + "/backups/" + dtf.format(now) + "/backup.zip");
                 } catch (Exception e) {
                     e.printStackTrace();
                 }

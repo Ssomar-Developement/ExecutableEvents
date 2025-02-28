@@ -1,21 +1,18 @@
 package com.ssomar.executableevents;
 
 
+import com.alessiodp.libby.BukkitLibraryManager;
+import com.alessiodp.libby.Library;
 import com.ssomar.executableevents.api.load.ExecutableEventsPostLoadEvent;
 import com.ssomar.executableevents.commands.CommandsClass;
 import com.ssomar.executableevents.configs.GeneralConfig;
 import com.ssomar.executableevents.configs.Message;
-import com.ssomar.executableevents.configs.api.PlaceholderAPI;
 import com.ssomar.executableevents.events.EventsHandler;
 import com.ssomar.executableevents.events.optimize.OptimizedEventsHandler;
-import com.ssomar.executableevents.executableevents.ExecutableEvent;
 import com.ssomar.executableevents.executableevents.ExecutableEventLoader;
 import com.ssomar.score.SCore;
-import com.ssomar.score.config.Config;
 import com.ssomar.score.configs.messages.MessageInterface;
 import com.ssomar.score.configs.messages.MessageMain;
-import com.ssomar.score.sobject.SObject;
-import com.ssomar.score.splugin.SPlugin;
 import com.ssomar.score.utils.logging.Utils;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.Plugin;
@@ -26,30 +23,48 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 
-public class ExecutableEvents extends JavaPlugin implements SPlugin {
+public class ExecutableEvents extends JavaPlugin {
 
     public static final String NAME = "ExecutableEvents";
     public static final String NAME_COLOR = "&dExecutableEvents";
 
-    public static ExecutableEvents plugin;
+    public static SExecutableEvents plugin;
     private CommandsClass commandClass;
 
-    public static ExecutableEvents getPluginSt() {
+    public static SExecutableEvents getPluginSt() {
         return plugin;
     }
 
     @Override
+    public void onLoad() {
+        /* BukkitLibraryManager bukkitLibraryManager = new BukkitLibraryManager(this);
+        bukkitLibraryManager.addRepository("https://jitpack.io");
+
+        Library lib = Library.builder()
+                .groupId("com{}github{}Ssomar-Developement") // "{}" is replaced with ".", useful to avoid unwanted changes made by maven-shade-plugin
+                .artifactId("SCore")
+                .version("main-39c85fe778-1")
+                //.relocate("com{}github{}retrooper", "com{}ssomar{}myfurniture{}com{}github{}retrooper")
+                //.isolatedLoad(true)
+                .resolveTransitiveDependencies(true)
+                .build();
+
+        bukkitLibraryManager.loadLibrary(lib);*/
+    }
+
+
+    @Override
     public void onEnable() {
-        plugin = this;
+        plugin = new SExecutableEvents(this);
         sendPluginName();
 
-        commandClass = new CommandsClass(this);
-        plugin.saveDefaultConfig();
+        commandClass = new CommandsClass(plugin);
+        plugin.getPlugin().saveDefaultConfig();
 
-        if (isLotOfWork() && SCore.is1v11Less()) {
-            ExecutableEvents.plugin.getServer().getLogger().severe(ExecutableEvents.plugin.getNameDesign() + " ExecutableEvents for 1.11 and less is only for the premium version !");
+        if (plugin.isLotOfWork() && SCore.is1v11Less()) {
+            ExecutableEvents.plugin.getPlugin().getServer().getLogger().severe(ExecutableEvents.plugin.getNameDesign() + " ExecutableEvents for 1.11 and less is only for the premium version !");
             sendPluginName();
-            SCore.plugin.getServer().getPluginManager().disablePlugin(ExecutableEvents.plugin);
+            SCore.plugin.getServer().getPluginManager().disablePlugin(ExecutableEvents.plugin.getPlugin());
             return;
         }
 
@@ -87,7 +102,7 @@ public class ExecutableEvents extends JavaPlugin implements SPlugin {
 
         /* Delete old backups */
         File backupfolder;
-        if ((backupfolder = new File(ExecutableEvents.getPluginSt().getDataFolder() + "/backups")).exists()) {
+        if ((backupfolder = new File(plugin.getPlugin().getDataFolder() + "/backups")).exists()) {
             if (backupfolder.isDirectory()) {
                 for (File f : backupfolder.listFiles()) {
                     try {
@@ -114,7 +129,7 @@ public class ExecutableEvents extends JavaPlugin implements SPlugin {
         ExecutableEventLoader.getInstance().setCreateBackup(true);
         ExecutableEventLoader.getInstance().load();
 
-        MessageMain.getInstance().loadMessagesOf(plugin, MessageInterface.getMessagesEnum(Message.values()));
+        MessageMain.getInstance().loadMessagesOf(plugin.getPlugin(), MessageInterface.getMessagesEnum(Message.values()));
 
         /* Commands part */
         this.getCommand("ee").setExecutor(commandClass);
@@ -131,7 +146,7 @@ public class ExecutableEvents extends JavaPlugin implements SPlugin {
 
     public void onReload(boolean PluginCommand) {
         sendPluginName();
-        plugin.saveDefaultConfig();
+        plugin.getPlugin().saveDefaultConfig();
 
         OptimizedEventsHandler.getInstance().reload();
 
@@ -141,7 +156,7 @@ public class ExecutableEvents extends JavaPlugin implements SPlugin {
         GeneralConfig.getInstance().reload();
 
         /* Message instance part */
-        MessageMain.getInstance().loadMessagesOf(plugin, MessageInterface.getMessagesEnum(Message.values()));
+        MessageMain.getInstance().loadMessagesOf(plugin.getPlugin(), MessageInterface.getMessagesEnum(Message.values()));
 
         if (PluginCommand) {
         }
@@ -152,73 +167,18 @@ public class ExecutableEvents extends JavaPlugin implements SPlugin {
     }
 
     public void sendPluginName() {
-        if (isLotOfWork())
-            Utils.sendConsoleMsg("&7================ " + NAME_COLOR + " &7================");
-        else
-            Utils.sendConsoleMsg("&7========&e*&7======== " + NAME_COLOR + " &7========&e*&7========");
+        if (plugin.isLotOfWork()) Utils.sendConsoleMsg(plugin, "&7================ " + NAME_COLOR + " &7================");
+        else Utils.sendConsoleMsg(plugin, "&7========&e*&7======== " + NAME_COLOR + " &7========&e*&7========");
     }
 
     @Override
     public void onDisable() {
         try {
             if (SCore.plugin.isEnabled()) SCore.plugin.getServer().getPluginManager().disablePlugin(SCore.plugin);
-        }catch (Error ignored){
+        } catch (Error ignored) {
             //Probably already disabled
             //System.out.println("SCore not found");
         }
-    }
-
-    @Override
-    public String getNameDesign() {
-        return NAME_COLOR;
-    }
-
-    @Override
-    public String getNameDesignWithBrackets() {
-        return "&d[" + NAME_COLOR + "]";
-    }
-
-    @Override
-    public String getObjectName() {
-        return "events";
-    }
-
-    @Override
-    public String getObjectNameForPermission(SObject sObject) {
-        if(sObject instanceof ExecutableEvent) return "event";
-        return "event";
-    }
-
-    @Override
-    public ExecutableEvents getPlugin() {
-        return plugin;
-    }
-
-
-    @Override
-    public String getShortName() {
-        return "EE";
-    }
-
-    @Override
-    public String getNameWithBrackets() {
-        return "["+NAME+"]";
-    }
-
-
-    @Override
-    public boolean isLotOfWork() {
-        return PlaceholderAPI.isLotOfWork();
-    }
-
-    @Override
-    public int getMaxSObjectsLimit() {
-        return 8;
-    }
-
-    @Override
-    public Config getPluginConfig() {
-        return GeneralConfig.getInstance();
     }
 
 

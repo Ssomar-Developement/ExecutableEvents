@@ -47,7 +47,7 @@ public class OptimizedEventsHandler {
             if (couple == null) continue;
             if (couple.getElem1() != null) {
                 for (EventName eN : couple.getElem1()) {
-                    DynamicRegistration.getInstance().unregister(eN, ExecutableEvents.plugin);
+                    DynamicRegistration.getInstance().unregister(eN, ExecutableEvents.plugin.getPlugin());
                 }
             }
             if (couple.getElem2() != null) {
@@ -67,7 +67,7 @@ public class OptimizedEventsHandler {
 
                 case BLOCK_DRY:
                     eventsName.add(EventName.BLOCK_DRY);
-                    DynamicRegistration.getInstance().register(EventName.BLOCK_DRY, ExecutableEvents.plugin);
+                    DynamicRegistration.getInstance().register(EventName.BLOCK_DRY, ExecutableEvents.plugin.getPlugin());
                     mainListerner = new BlockDryListener();
                     break;
                 case ITEMSADDER_PLAYER_BLOCK_BREAK:
@@ -78,14 +78,14 @@ public class OptimizedEventsHandler {
                     break;
                 case PLAYER_RIGHT_CLICK:
                     eventsName.add(EventName.PLAYER_RIGHT_CLICK_EVENT);
-                    DynamicRegistration.getInstance().register(EventName.PLAYER_RIGHT_CLICK_EVENT, ExecutableEvents.plugin);
+                    DynamicRegistration.getInstance().register(EventName.PLAYER_RIGHT_CLICK_EVENT, ExecutableEvents.plugin.getPlugin());
                     mainListerner = new PlayerRightClickEvent();
                     break;
                 case PLAYER_ALL_CLICK:
                     eventsName.add(EventName.PLAYER_RIGHT_CLICK_EVENT);
                     eventsName.add(EventName.PLAYER_LEFT_CLICK_EVENT);
-                    DynamicRegistration.getInstance().register(EventName.PLAYER_RIGHT_CLICK_EVENT, ExecutableEvents.plugin);
-                    DynamicRegistration.getInstance().register(EventName.PLAYER_LEFT_CLICK_EVENT, ExecutableEvents.plugin);
+                    DynamicRegistration.getInstance().register(EventName.PLAYER_RIGHT_CLICK_EVENT, ExecutableEvents.plugin.getPlugin());
+                    DynamicRegistration.getInstance().register(EventName.PLAYER_LEFT_CLICK_EVENT, ExecutableEvents.plugin.getPlugin());
                     mainListerner = new PlayerAllClickEvent();
                     break;
                 case PLAYER_BRUSH_BLOCK:
@@ -103,12 +103,12 @@ public class OptimizedEventsHandler {
                     break;
                 case PLAYER_EQUIP_ARMOR:
                     eventsName.add(EventName.PLAYER_EQUIP_ARMOR_EVENT);
-                    DynamicRegistration.getInstance().register(EventName.PLAYER_EQUIP_ARMOR_EVENT, ExecutableEvents.plugin);
+                    DynamicRegistration.getInstance().register(EventName.PLAYER_EQUIP_ARMOR_EVENT, ExecutableEvents.plugin.getPlugin());
                     mainListerner = new PlayerEquipArmorListener();
                     break;
                 case PLAYER_UNEQUIP_ARMOR:
                     eventsName.add(EventName.PLAYER_EQUIP_ARMOR_EVENT);
-                    DynamicRegistration.getInstance().register(EventName.PLAYER_EQUIP_ARMOR_EVENT, ExecutableEvents.plugin);
+                    DynamicRegistration.getInstance().register(EventName.PLAYER_EQUIP_ARMOR_EVENT, ExecutableEvents.plugin.getPlugin());
                     mainListerner = new PlayerUnequipArmorListener();
                     break;
                 case PLAYER_KICK:
@@ -141,7 +141,7 @@ public class OptimizedEventsHandler {
                     break;
                 case PLAYER_LEFT_CLICK:
                     eventsName.add(EventName.PLAYER_LEFT_CLICK_EVENT);
-                    DynamicRegistration.getInstance().register(EventName.PLAYER_LEFT_CLICK_EVENT, ExecutableEvents.plugin);
+                    DynamicRegistration.getInstance().register(EventName.PLAYER_LEFT_CLICK_EVENT, ExecutableEvents.plugin.getPlugin());
                     mainListerner = new PlayerLeftClickEvent();
                     break;
                 case PLAYER_LEVEL_CHANGE:
@@ -159,28 +159,28 @@ public class OptimizedEventsHandler {
                 case PLAYER_CLICK_ON_PLAYER:
                     eventsName.add(EventName.PLAYER_RIGHT_CLICK_ON_PLAYER_EVENT);
                     eventsName.add(EventName.PLAYER_LEFT_CLICK_ON_PLAYER_EVENT);
-                    DynamicRegistration.getInstance().register(EventName.PLAYER_RIGHT_CLICK_ON_PLAYER_EVENT, ExecutableEvents.plugin);
-                    DynamicRegistration.getInstance().register(EventName.PLAYER_LEFT_CLICK_ON_PLAYER_EVENT, ExecutableEvents.plugin);
+                    DynamicRegistration.getInstance().register(EventName.PLAYER_RIGHT_CLICK_ON_PLAYER_EVENT, ExecutableEvents.plugin.getPlugin());
+                    DynamicRegistration.getInstance().register(EventName.PLAYER_LEFT_CLICK_ON_PLAYER_EVENT, ExecutableEvents.plugin.getPlugin());
                     mainListerner = new PlayerClickOnPlayerEvent();
                     break;
                 case PLAYER_ENABLE_FLY:
                     eventsName.add(EventName.PLAYER_ENABLE_FLY_EVENT);
-                    DynamicRegistration.getInstance().register(EventName.PLAYER_ENABLE_FLY_EVENT, ExecutableEvents.plugin);
+                    DynamicRegistration.getInstance().register(EventName.PLAYER_ENABLE_FLY_EVENT, ExecutableEvents.plugin.getPlugin());
                     mainListerner = new PlayerEnableFlyEvent();
                     break;
                 case PLAYER_ENABLE_GLIDE:
                     eventsName.add(EventName.PLAYER_ENABLE_GLIDE_EVENT);
-                    DynamicRegistration.getInstance().register(EventName.PLAYER_ENABLE_GLIDE_EVENT, ExecutableEvents.plugin);
+                    DynamicRegistration.getInstance().register(EventName.PLAYER_ENABLE_GLIDE_EVENT, ExecutableEvents.plugin.getPlugin());
                     mainListerner = new PlayerEnableGlideEvent();
                     break;
                 case PLAYER_ENABLE_SNEAK:
                     eventsName.add(EventName.PLAYER_ENABLE_SNEAK_EVENT);
-                    DynamicRegistration.getInstance().register(EventName.PLAYER_ENABLE_SNEAK_EVENT, ExecutableEvents.plugin);
+                    DynamicRegistration.getInstance().register(EventName.PLAYER_ENABLE_SNEAK_EVENT, ExecutableEvents.plugin.getPlugin());
                     mainListerner = new PlayerEnableSneakEvent();
                     break;
                 case PLAYER_ENABLE_SPRINT:
                     eventsName.add(EventName.PLAYER_ENABLE_SPRINT_EVENT);
-                    DynamicRegistration.getInstance().register(EventName.PLAYER_ENABLE_SPRINT_EVENT, ExecutableEvents.plugin);
+                    DynamicRegistration.getInstance().register(EventName.PLAYER_ENABLE_SPRINT_EVENT, ExecutableEvents.plugin.getPlugin());
                     mainListerner = new PlayerEnableSprintEvent();
                     break;
                 case PLAYER_ENTITY_PLACE:
@@ -194,7 +194,7 @@ public class OptimizedEventsHandler {
                     break;
                 case PLAYER_BEFORE_DEATH:
                     eventsName.add(EventName.PLAYER_BEFORE_DEATH_EVENT);
-                    DynamicRegistration.getInstance().register(EventName.PLAYER_BEFORE_DEATH_EVENT, ExecutableEvents.plugin);
+                    DynamicRegistration.getInstance().register(EventName.PLAYER_BEFORE_DEATH_EVENT, ExecutableEvents.plugin.getPlugin());
                     mainListerner = new PlayerBeforeDeathEvent();
                     break;
                 case PLAYER_BLOCK_BREAK:
@@ -209,8 +209,8 @@ public class OptimizedEventsHandler {
                 case PLAYER_CLICK_ON_ENTITY:
                     eventsName.add(EventName.PLAYER_RIGHT_CLICK_ON_ENTITY_EVENT);
                     eventsName.add(EventName.PLAYER_LEFT_CLICK_ON_ENTITY_EVENT);
-                    DynamicRegistration.getInstance().register(EventName.PLAYER_RIGHT_CLICK_ON_ENTITY_EVENT, ExecutableEvents.plugin);
-                    DynamicRegistration.getInstance().register(EventName.PLAYER_LEFT_CLICK_ON_ENTITY_EVENT, ExecutableEvents.plugin);
+                    DynamicRegistration.getInstance().register(EventName.PLAYER_RIGHT_CLICK_ON_ENTITY_EVENT, ExecutableEvents.plugin.getPlugin());
+                    DynamicRegistration.getInstance().register(EventName.PLAYER_LEFT_CLICK_ON_ENTITY_EVENT, ExecutableEvents.plugin.getPlugin());
                     mainListerner = new PlayerClickOnEntityEvent();
                     break;
                 case PLAYER_CONNECTION:
@@ -234,22 +234,22 @@ public class OptimizedEventsHandler {
                     break;
                 case PLAYER_DISABLE_FLY:
                     eventsName.add(EventName.PLAYER_DISABLE_FLY_EVENT);
-                    DynamicRegistration.getInstance().register(EventName.PLAYER_DISABLE_FLY_EVENT, ExecutableEvents.plugin);
+                    DynamicRegistration.getInstance().register(EventName.PLAYER_DISABLE_FLY_EVENT, ExecutableEvents.plugin.getPlugin());
                     mainListerner = new PlayerDisableFlyEvent();
                     break;
                 case PLAYER_DISABLE_GLIDE:
                     eventsName.add(EventName.PLAYER_DISABLE_GLIDE_EVENT);
-                    DynamicRegistration.getInstance().register(EventName.PLAYER_DISABLE_GLIDE_EVENT, ExecutableEvents.plugin);
+                    DynamicRegistration.getInstance().register(EventName.PLAYER_DISABLE_GLIDE_EVENT, ExecutableEvents.plugin.getPlugin());
                     mainListerner = new PlayerDisableGlideEvent();
                     break;
                 case PLAYER_DISABLE_SNEAK:
                     eventsName.add(EventName.PLAYER_DISABLE_SNEAK_EVENT);
-                    DynamicRegistration.getInstance().register(EventName.PLAYER_DISABLE_SNEAK_EVENT, ExecutableEvents.plugin);
+                    DynamicRegistration.getInstance().register(EventName.PLAYER_DISABLE_SNEAK_EVENT, ExecutableEvents.plugin.getPlugin());
                     mainListerner = new PlayerDisableSneakEvent();
                     break;
                 case PLAYER_DISABLE_SPRINT:
                     eventsName.add(EventName.PLAYER_DISABLE_SPRINT_EVENT);
-                    DynamicRegistration.getInstance().register(EventName.PLAYER_DISABLE_SPRINT_EVENT, ExecutableEvents.plugin);
+                    DynamicRegistration.getInstance().register(EventName.PLAYER_DISABLE_SPRINT_EVENT, ExecutableEvents.plugin.getPlugin());
                     mainListerner = new PlayerDisableSprintEvent();
                     break;
                 case PLAYER_EDIT_BOOK:
@@ -269,29 +269,29 @@ public class OptimizedEventsHandler {
                     break;
                 case PLAYER_FISH_BLOCK:
                     eventsName.add(EventName.PLAYER_FISH_BLOCK_EVENT);
-                    DynamicRegistration.getInstance().register(EventName.PLAYER_FISH_BLOCK_EVENT, ExecutableEvents.plugin);
+                    DynamicRegistration.getInstance().register(EventName.PLAYER_FISH_BLOCK_EVENT, ExecutableEvents.plugin.getPlugin());
                     mainListerner = new PlayerFishBlockEvent();
                     break;
                 case PLAYER_FISH_ENTITY:
                     eventsName.add(EventName.PLAYER_FISH_ENTITY_EVENT);
-                    DynamicRegistration.getInstance().register(EventName.PLAYER_FISH_ENTITY_EVENT, ExecutableEvents.plugin);
+                    DynamicRegistration.getInstance().register(EventName.PLAYER_FISH_ENTITY_EVENT, ExecutableEvents.plugin.getPlugin());
                     mainListerner = new PlayerFishEntityEvent();
                     break;
                 case PLAYER_FISH_FISH:
                     eventsName.add(EventName.PLAYER_FISH_FISH_EVENT);
-                    DynamicRegistration.getInstance().register(EventName.PLAYER_FISH_FISH_EVENT, ExecutableEvents.plugin);
+                    DynamicRegistration.getInstance().register(EventName.PLAYER_FISH_FISH_EVENT, ExecutableEvents.plugin.getPlugin());
                     mainListerner = new PlayerFishFishEvent();
                     break;
                 case PLAYER_FISH_NOTHING:
                     if (!SCore.is1v13Less()) {
                         eventsName.add(EventName.PLAYER_FISH_NOTHING_EVENT);
-                        DynamicRegistration.getInstance().register(EventName.PLAYER_FISH_NOTHING_EVENT, ExecutableEvents.plugin);
+                        DynamicRegistration.getInstance().register(EventName.PLAYER_FISH_NOTHING_EVENT, ExecutableEvents.plugin.getPlugin());
                         mainListerner = new PlayerFishNothingEvent();
                     }
                     break;
                 case PLAYER_FISH_PLAYER:
                     eventsName.add(EventName.PLAYER_FISH_PLAYER_EVENT);
-                    DynamicRegistration.getInstance().register(EventName.PLAYER_FISH_PLAYER_EVENT, ExecutableEvents.plugin);
+                    DynamicRegistration.getInstance().register(EventName.PLAYER_FISH_PLAYER_EVENT, ExecutableEvents.plugin.getPlugin());
                     mainListerner = new PlayerFishPlayerEvent();
                     break;
                 case PLAYER_ITEM_BREAK:
@@ -308,17 +308,17 @@ public class OptimizedEventsHandler {
                     break;
                 case PLAYER_JUMP:
                     eventsName.add(EventName.PLAYER_JUMP_EVENT);
-                    DynamicRegistration.getInstance().register(EventName.PLAYER_JUMP_EVENT, ExecutableEvents.plugin);
+                    DynamicRegistration.getInstance().register(EventName.PLAYER_JUMP_EVENT, ExecutableEvents.plugin.getPlugin());
                     mainListerner = new PlayerJumpEvent();
                     break;
                 case PLAYER_KILL_ENTITY:
                     eventsName.add(EventName.PLAYER_KILL_ENTITY_EVENT);
-                    DynamicRegistration.getInstance().register(EventName.PLAYER_KILL_ENTITY_EVENT, ExecutableEvents.plugin);
+                    DynamicRegistration.getInstance().register(EventName.PLAYER_KILL_ENTITY_EVENT, ExecutableEvents.plugin.getPlugin());
                     mainListerner = new PlayerKillEntityEvent();
                     break;
                 case PLAYER_KILL_PLAYER:
                     eventsName.add(EventName.PLAYER_KILL_PLAYER_EVENT);
-                    DynamicRegistration.getInstance().register(EventName.PLAYER_KILL_PLAYER_EVENT, ExecutableEvents.plugin);
+                    DynamicRegistration.getInstance().register(EventName.PLAYER_KILL_PLAYER_EVENT, ExecutableEvents.plugin.getPlugin());
                     mainListerner = new PlayerKillPlayerEvent();
                     break;
 
@@ -328,13 +328,13 @@ public class OptimizedEventsHandler {
 
                 case PLAYER_PARTICIPATE_KILL_ENTITY:
                     eventsName.add(EventName.PLAYER_PARTICIPATE_KILL_ENTITY_EVENT);
-                    DynamicRegistration.getInstance().register(EventName.PLAYER_PARTICIPATE_KILL_ENTITY_EVENT, ExecutableEvents.plugin);
+                    DynamicRegistration.getInstance().register(EventName.PLAYER_PARTICIPATE_KILL_ENTITY_EVENT, ExecutableEvents.plugin.getPlugin());
                     mainListerner = new PlayerParticipateKillEntityListener();
                     break;
 
                 case PLAYER_PARTICIPATE_KILL_PLAYER:
                     eventsName.add(EventName.PLAYER_PARTICIPATE_KILL_PLAYER_EVENT);
-                    DynamicRegistration.getInstance().register(EventName.PLAYER_PARTICIPATE_KILL_PLAYER_EVENT, ExecutableEvents.plugin);
+                    DynamicRegistration.getInstance().register(EventName.PLAYER_PARTICIPATE_KILL_PLAYER_EVENT, ExecutableEvents.plugin.getPlugin());
                     mainListerner = new PlayerParticipateKillPlayerListener();
                     break;
 
@@ -347,20 +347,20 @@ public class OptimizedEventsHandler {
                 case PLAYER_RECEIVE_HIT_BY_ENTITY:
                     eventsName.add(EventName.PLAYER_RECEIVE_HIT_BY_ENTITY_EVENT);
                     eventsName.add(EventName.PROJECTILE_HIT_PLAYER);
-                    DynamicRegistration.getInstance().register(EventName.PROJECTILE_HIT_PLAYER, ExecutableEvents.plugin);
-                    DynamicRegistration.getInstance().register(EventName.PLAYER_RECEIVE_HIT_BY_ENTITY_EVENT, ExecutableEvents.plugin);
+                    DynamicRegistration.getInstance().register(EventName.PROJECTILE_HIT_PLAYER, ExecutableEvents.plugin.getPlugin());
+                    DynamicRegistration.getInstance().register(EventName.PLAYER_RECEIVE_HIT_BY_ENTITY_EVENT, ExecutableEvents.plugin.getPlugin());
                     mainListerner = new PlayerReceiveHitByEntityEvent();
                     break;
                 case PLAYER_RECEIVE_HIT_BY_PLAYER:
                     eventsName.add(EventName.PLAYER_RECEIVE_HIT_BY_PLAYER_EVENT);
                     eventsName.add(EventName.PROJECTILE_HIT_PLAYER);
-                    DynamicRegistration.getInstance().register(EventName.PROJECTILE_HIT_PLAYER, ExecutableEvents.plugin);
-                    DynamicRegistration.getInstance().register(EventName.PLAYER_RECEIVE_HIT_BY_PLAYER_EVENT, ExecutableEvents.plugin);
+                    DynamicRegistration.getInstance().register(EventName.PROJECTILE_HIT_PLAYER, ExecutableEvents.plugin.getPlugin());
+                    DynamicRegistration.getInstance().register(EventName.PLAYER_RECEIVE_HIT_BY_PLAYER_EVENT, ExecutableEvents.plugin.getPlugin());
                     mainListerner = new PlayerReceiveHitByPlayerEvent();
                     break;
                 case PLAYER_RECEIVE_HIT_GLOBAL:
                     eventsName.add(EventName.PLAYER_RECEIVE_HIT_GLOBAL_EVENT);
-                    DynamicRegistration.getInstance().register(EventName.PLAYER_RECEIVE_HIT_GLOBAL_EVENT, ExecutableEvents.plugin);
+                    DynamicRegistration.getInstance().register(EventName.PLAYER_RECEIVE_HIT_GLOBAL_EVENT, ExecutableEvents.plugin.getPlugin());
                     mainListerner = new PlayerReceiveHitGlobalEvent();
                     break;
                 case PLAYER_RESPAWN:
@@ -375,7 +375,7 @@ public class OptimizedEventsHandler {
 
                 case PLAYER_TRAMPLE_CROP:
                     eventsName.add(EventName.PLAYER_TRAMPLE_CROP_EVENT);
-                    DynamicRegistration.getInstance().register(EventName.PLAYER_TRAMPLE_CROP_EVENT, ExecutableEvents.plugin);
+                    DynamicRegistration.getInstance().register(EventName.PLAYER_TRAMPLE_CROP_EVENT, ExecutableEvents.plugin.getPlugin());
                     mainListerner = new PlayerTrampleCropEvent();
                     break;
 
@@ -406,34 +406,34 @@ public class OptimizedEventsHandler {
 
                 case PLAYER_PROJECTILE_HIT_BLOCK:
                     eventsName.add(EventName.PROJECTILE_HIT_BLOCK);
-                    DynamicRegistration.getInstance().register(EventName.PROJECTILE_HIT_BLOCK, ExecutableEvents.plugin);
+                    DynamicRegistration.getInstance().register(EventName.PROJECTILE_HIT_BLOCK, ExecutableEvents.plugin.getPlugin());
                     mainListerner = new PlayerProjectileHitBlock();
                     break;
                 case PLAYER_PROJECTILE_HIT_ENTITY:
                     eventsName.add(EventName.PROJECTILE_HIT_ENTITY);
-                    DynamicRegistration.getInstance().register(EventName.PROJECTILE_HIT_ENTITY, ExecutableEvents.plugin);
+                    DynamicRegistration.getInstance().register(EventName.PROJECTILE_HIT_ENTITY, ExecutableEvents.plugin.getPlugin());
                     mainListerner = new PlayerProjectileHitEntity();
                     break;
 
                 case PLAYER_PROJECTILE_HIT_PLAYER:
                     eventsName.add(EventName.PROJECTILE_HIT_PLAYER);
-                    DynamicRegistration.getInstance().register(EventName.PROJECTILE_HIT_PLAYER, ExecutableEvents.plugin);
+                    DynamicRegistration.getInstance().register(EventName.PROJECTILE_HIT_PLAYER, ExecutableEvents.plugin.getPlugin());
                     mainListerner = new PlayerProjectileHitPlayer();
                     break;
 
                 case ENTITY_PROJECTILE_HIT_BLOCK:
                     eventsName.add(EventName.PROJECTILE_HIT_BLOCK);
-                    DynamicRegistration.getInstance().register(EventName.PROJECTILE_HIT_BLOCK, ExecutableEvents.plugin);
+                    DynamicRegistration.getInstance().register(EventName.PROJECTILE_HIT_BLOCK, ExecutableEvents.plugin.getPlugin());
                     mainListerner = new EntityProjectileHitBlock();
                     break;
                 case ENTITY_PROJECTILE_HIT_ENTITY:
                     eventsName.add(EventName.PROJECTILE_HIT_ENTITY);
-                    DynamicRegistration.getInstance().register(EventName.PROJECTILE_HIT_ENTITY, ExecutableEvents.plugin);
+                    DynamicRegistration.getInstance().register(EventName.PROJECTILE_HIT_ENTITY, ExecutableEvents.plugin.getPlugin());
                     mainListerner = new EntityProjectileHitEntity();
                     break;
                 case ENTITY_PROJECTILE_HIT_PLAYER:
                     eventsName.add(EventName.PROJECTILE_HIT_PLAYER);
-                    DynamicRegistration.getInstance().register(EventName.PROJECTILE_HIT_PLAYER, ExecutableEvents.plugin);
+                    DynamicRegistration.getInstance().register(EventName.PROJECTILE_HIT_PLAYER, ExecutableEvents.plugin.getPlugin());
                     mainListerner = new EntityProjectileHitPlayer();
                     break;
                 case ENTITY_SPAWN:
@@ -444,7 +444,7 @@ public class OptimizedEventsHandler {
                     break;
                 case ENTITY_BEFORE_DEATH:
                     eventsName.add(EventName.ENTITY_BEFORE_DEATH_EVENT);
-                    DynamicRegistration.getInstance().register(EventName.ENTITY_BEFORE_DEATH_EVENT, ExecutableEvents.plugin);
+                    DynamicRegistration.getInstance().register(EventName.ENTITY_BEFORE_DEATH_EVENT, ExecutableEvents.plugin.getPlugin());
                     mainListerner = new EntityBeforeDeathEvent();
                     break;
 
@@ -502,13 +502,13 @@ public class OptimizedEventsHandler {
 
                 case ENTITY_PARTICIPATE_KILL_ENTITY:
                     eventsName.add(EventName.ENTITY_PARTICIPATE_KILL_ENTITY_EVENT);
-                    DynamicRegistration.getInstance().register(EventName.ENTITY_PARTICIPATE_KILL_ENTITY_EVENT, ExecutableEvents.plugin);
+                    DynamicRegistration.getInstance().register(EventName.ENTITY_PARTICIPATE_KILL_ENTITY_EVENT, ExecutableEvents.plugin.getPlugin());
                     mainListerner = new EntityParticipateKillEntityListener();
                     break;
 
                 case ENTITY_PARTICIPATE_KILL_PLAYER:
                     eventsName.add(EventName.ENTITY_PARTICIPATE_KILL_PLAYER_EVENT);
-                    DynamicRegistration.getInstance().register(EventName.ENTITY_PARTICIPATE_KILL_PLAYER_EVENT, ExecutableEvents.plugin);
+                    DynamicRegistration.getInstance().register(EventName.ENTITY_PARTICIPATE_KILL_PLAYER_EVENT, ExecutableEvents.plugin.getPlugin());
                     mainListerner = new EntityParticipateKillPlayerListener();
                     break;
 
@@ -562,23 +562,23 @@ public class OptimizedEventsHandler {
 
             }
             if (mainListerner != null) {
-                ExecutableEvents.plugin.getServer().getPluginManager().registerEvents(mainListerner, ExecutableEvents.plugin);
+                ExecutableEvents.plugin.getPlugin().getServer().getPluginManager().registerEvents(mainListerner, ExecutableEvents.plugin.getPlugin());
                 registered.put(o, new Couple<>(eventsName, mainListerner));
             }
         }
     }
 
     public void displayOptimisation() {
-        ExecutableEvents.plugin.getServer().getLogger().info("================ [ExecutableEvents Check Options] ================");
-        ExecutableEvents.plugin.getServer().getLogger().info("All options available in ExecutableEvents: ");
+        ExecutableEvents.plugin.getPlugin().getServer().getLogger().info("================ [ExecutableEvents Check Options] ================");
+        ExecutableEvents.plugin.getPlugin().getServer().getLogger().info("All options available in ExecutableEvents: ");
         //ExecutableItems.plugin.getServer().getLogger().info("More * = More performance hungry");
-        ExecutableEvents.plugin.getServer().getLogger().info("true: an ExecutableEvent has an activator that use it.");
-        ExecutableEvents.plugin.getServer().getLogger().info("false: no ExecutableEvent require this event. (better performance)");
-        ExecutableEvents.plugin.getServer().getLogger().info("Use only what you need, more false = better performance");
-        ExecutableEvents.plugin.getServer().getLogger().info("");
+        ExecutableEvents.plugin.getPlugin().getServer().getLogger().info("true: an ExecutableEvent has an activator that use it.");
+        ExecutableEvents.plugin.getPlugin().getServer().getLogger().info("false: no ExecutableEvent require this event. (better performance)");
+        ExecutableEvents.plugin.getPlugin().getServer().getLogger().info("Use only what you need, more false = better performance");
+        ExecutableEvents.plugin.getPlugin().getServer().getLogger().info("");
         for (Option o : Option.values()) {
-            ExecutableEvents.plugin.getServer().getLogger().info(o + " >> " + registered.containsKey(o));
+            ExecutableEvents.plugin.getPlugin().getServer().getLogger().info(o + " >> " + registered.containsKey(o));
         }
-        ExecutableEvents.plugin.getServer().getLogger().info("================ [ExecutableEvents Check Options] ================");
+        ExecutableEvents.plugin.getPlugin().getServer().getLogger().info("================ [ExecutableEvents Check Options] ================");
     }
 }

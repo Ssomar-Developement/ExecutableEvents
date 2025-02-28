@@ -2,6 +2,7 @@ package com.ssomar.executableevents.commands;
 
 
 import com.ssomar.executableevents.ExecutableEvents;
+import com.ssomar.executableevents.SExecutableEvents;
 import com.ssomar.executableevents.configs.api.PlaceholderAPI;
 import com.ssomar.executableevents.editor.ExecutableEventsEditor;
 import com.ssomar.executableevents.events.EventsManager;
@@ -30,10 +31,10 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.*;
 
-public class CommandsClass extends CommandsClassAbstract<ExecutableEvents> {
+public class CommandsClass extends CommandsClassAbstract<SExecutableEvents> {
 
 
-    public CommandsClass(ExecutableEvents main) {
+    public CommandsClass(SExecutableEvents main) {
         super(main);
 
         addCommand("reload");
@@ -59,7 +60,7 @@ public class CommandsClass extends CommandsClassAbstract<ExecutableEvents> {
 
             case "reload":
                 if (args.length < 1) {
-                    getSPlugin().onReload(true);
+                    getSPlugin().getPlugin().onReload(true);
                     getSm().sendMessage(sender, getSPlugin().getNameDesign() + " &7has been reloaded !");
                     Utils.sendConsoleMsg(getSPlugin().getNameDesign() + " &7Successfully reloaded !");
                     break;
@@ -136,7 +137,7 @@ public class CommandsClass extends CommandsClassAbstract<ExecutableEvents> {
                 break;
             case "default_events":
                 ExecutableEventLoader.getInstance().createDefaultObjectsFile(!PlaceholderAPI.isLotOfWork(), true);
-                getSPlugin().onReload(true);
+                getSPlugin().getPlugin().onReload(true);
                 getSm().sendMessage(sender, getSPlugin().getNameDesign()+" &7regenerates the default items, check them in the &e/ee show &7!");
                 break;
 

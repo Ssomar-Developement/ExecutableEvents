@@ -26,7 +26,7 @@ public class PlayerEvt implements Listener {
                     try {
                         String cVer = CheckVersionSpigot.getVersionOf("107622");
                         if (cVer == null) return;
-                        String aVer = ExecutableEvents.getPluginSt().getDescription().getVersion();
+                        String aVer = ExecutableEvents.plugin.getPlugin().getDescription().getVersion();
 
                         if (!cVer.equals(aVer)) {
                             p.sendMessage(StringConverter.coloredString("&8&l&oExecutableEvents &8(&cOnly for op&8)  &7Your version of ExecutableEvents is out of date. &8(&7Current: &6" + aVer + "&8) &8(&7Latest: &a" + cVer + "&8) &7Update your plugin for the latest features / bug fixes / better performance !"));

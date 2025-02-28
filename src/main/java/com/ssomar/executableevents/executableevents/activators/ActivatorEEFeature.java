@@ -210,7 +210,7 @@ public class ActivatorEEFeature extends SActivator<ActivatorEEFeature, Activator
             }
         }
         if (DebugMode.getInstance().isEnabledInConsole()) {
-            ExecutableEvents.plugin.getServer().getConsoleSender().sendMessage(StringConverter.coloredString("§c[DEBUG] &7Activator: &e" + getId() + " &b(run but the check of cdts, cds in coming  1/2) &7of item: &6" + getParentObjectId()));
+            ExecutableEvents.plugin.getPlugin().getServer().getConsoleSender().sendMessage(StringConverter.coloredString("§c[DEBUG] &7Activator: &e" + getId() + " &b(run but the check of cdts, cds in coming  1/2) &7of item: &6" + getParentObjectId()));
         }
 
         if (eInfo.getPlayer().isPresent() && eInfo.getPlayer().get().isDead() && !optionFeature.getValue().equals(Option.PLAYER_DEATH) && !optionFeature.getValue().equals(Option.PLAYER_RESPAWN) && !optionFeature.getValue().equals(Option.PLAYER_DISCONNECTION) && !optionFeature.getValue().equals(Option.PLAYER_WRITE_COMMAND) && !optionFeature.getValue().equals(Option.PLAYER_SEND_MESSAGE))
@@ -573,8 +573,8 @@ public class ActivatorEEFeature extends SActivator<ActivatorEEFeature, Activator
             }
         }
         if (DebugMode.getInstance().isEnabledInConsole()) {
-            actionInfo.getDebugers().add(ExecutableEvents.plugin.getServer().getConsoleSender());
-            ExecutableEvents.plugin.getServer().getConsoleSender().sendMessage(StringConverter.coloredString("§c[DEBUG] &7Activator: &e" + getId() + " &aACTIVATED 2/2 &7of item: &6" + getParentObjectId()));
+            actionInfo.getDebugers().add(ExecutableEvents.plugin.getPlugin().getServer().getConsoleSender());
+            ExecutableEvents.plugin.getPlugin().getServer().getConsoleSender().sendMessage(StringConverter.coloredString("§c[DEBUG] &7Activator: &e" + getId() + " &aACTIVATED 2/2 &7of item: &6" + getParentObjectId()));
         }
 
 
@@ -1072,8 +1072,8 @@ public class ActivatorEEFeature extends SActivator<ActivatorEEFeature, Activator
         /* Add the activator to the LOOP Manager if its a LOOP activator and if it is not present (new activator) */
         if (optionFeature.getValue().isLoopOption()) {
             SsomarDev.testMsg("delay >> " + loopFeatures.getDelay().getValue().get(), true);
-            LoopManager.getInstance().addLoopActivator(this);
-        } else LoopManager.getInstance().removeLoopActivator(this);
+            LoopManager.getInstance(ExecutableEvents.plugin.getPlugin()).addLoopActivator(this);
+        } else LoopManager.getInstance(ExecutableEvents.plugin.getPlugin()).removeLoopActivator(this);
 
         OptimizedEventsHandler.getInstance().read(optionFeature.getValue());
 

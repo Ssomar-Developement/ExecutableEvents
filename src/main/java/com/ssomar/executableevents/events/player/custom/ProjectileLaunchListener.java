@@ -26,7 +26,7 @@ public class ProjectileLaunchListener implements Listener {
         SsomarDev.testMsg("LAUNCH ARROW", DEBUG);
         if (e.getEntity() instanceof Player) {
             /* add bow force to the entity */
-            e.getProjectile().setMetadata("bowForce", new FixedMetadataValue(ExecutableEvents.plugin, e.getForce()));
+            e.getProjectile().setMetadata("bowForce", new FixedMetadataValue(ExecutableEvents.plugin.getPlugin(), e.getForce()));
         }
     }
 

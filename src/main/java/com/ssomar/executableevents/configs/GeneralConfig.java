@@ -31,7 +31,7 @@ public class GeneralConfig extends Config {
 
     public GeneralConfig() {
         super("config.yml");
-        super.setup(ExecutableEvents.plugin);
+        super.setup(ExecutableEvents.plugin.getPlugin());
     }
 
     public static GeneralConfig getInstance() {
@@ -67,7 +67,7 @@ public class GeneralConfig extends Config {
             if (AllWorldManager.getWorld(str).isPresent()) {
                 disableWorlds.add(str);
             } else
-                ExecutableEvents.plugin.getServer().getLogger().severe(ExecutableEvents.plugin.getNameDesign()+" Invalid world: " + str + " in the option disabledWorlds");
+                ExecutableEvents.plugin.getPlugin().getServer().getLogger().severe(ExecutableEvents.plugin.getNameDesign()+" Invalid world: " + str + " in the option disabledWorlds");
         }
 
         loadBooleanSetting(Setting.premiumEnableCooldownForOp.name(),  false);
