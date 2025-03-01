@@ -15,6 +15,7 @@ public enum Option implements SOption, Serializable {
     CROP_GROW("CROP_GROW"),
 
     LOOP_SERVER("LOOP_SERVER"),
+    LOOP_ENTITY("LOOP_ENTITY"), // Pending Work (Fran2019)
     PLAYER_ALL_CLICK("PLAYER_ALL_CLICK"),
     PLAYER_BED_ENTER("PLAYER_BED_ENTER"),
     PLAYER_BED_LEAVE("PLAYER_BED_LEAVE"),
@@ -107,12 +108,15 @@ public enum Option implements SOption, Serializable {
     PLAYER_PROJECTILE_HIT_ENTITY("PLAYER_PROJECTILE_HIT_ENTITY"),
     PLAYER_PROJECTILE_HIT_PLAYER("PLAYER_PROJECTILE_HIT_PLAYER"),
 
+    CREEPER_POWER_CHANGE("CREEPER_POWER_CHANGE"),
     ENTITY_PARTICIPATE_KILL_ENTITY("ENTITY_PARTICIPATE_KILL_ENTITY"),
     ENTITY_PARTICIPATE_KILL_PLAYER("ENTITY_PARTICIPATE_KILL_PLAYER"),
     ENTITY_PROJECTILE_HIT_BLOCK("ENTITY_PROJECTILE_HIT_BLOCK"),
     ENTITY_PROJECTILE_HIT_ENTITY("ENTITY_PROJECTILE_HIT_ENTITY"),
     ENTITY_PROJECTILE_HIT_PLAYER("ENTITY_PROJECTILE_HIT_PLAYER"),
+    ENTITY_PLACE_EVENT("ENTITY_PLACE_EVENT"),
 
+    ENTITY_SHOOT_BOW("ENTITY_SHOOT_BOW"),
     ENTITY_SPAWN("ENTITY_SPAWN"),
     ENTITY_SPAWN_TRIALSPAWNER("ENTITY_SPAWN_TRIALSPAWNER"),
     ENTITY_BEFORE_DEATH("ENTITY_BEFORE_DEATH"),
@@ -331,6 +335,7 @@ public enum Option implements SOption, Serializable {
         result.add(Option.ENTITY_PARTICIPATE_KILL_PLAYER);
         result.add(Option.PLAYER_PARTICIPATE_KILL_PLAYER);
 
+        result.add(Option.ENTITY_PLACE_EVENT);
         result.add(Option.ENTITY_TARGET_PLAYER);
         result.add(Option.ENTITY_DAMAGE_BY_PLAYER);
         result.add(Option.ENTITY_TAME_BY_PLAYER);
@@ -341,14 +346,18 @@ public enum Option implements SOption, Serializable {
     public static List<SOption> getOptionWithEntitySt() {
         List<SOption> result = new ArrayList<>();
 
+        result.add(Option.LOOP_ENTITY);
+
+        result.add(Option.CREEPER_POWER_CHANGE);
         result.add(Option.ENTITY_PARTICIPATE_KILL_PLAYER);
         result.add(Option.ENTITY_PARTICIPATE_KILL_ENTITY);
+        result.add(Option.ENTITY_PLACE_EVENT);
 
         result.add(Option.ENTITY_PROJECTILE_HIT_ENTITY);
         result.add(Option.ENTITY_PROJECTILE_HIT_PLAYER);
         result.add(Option.ENTITY_PROJECTILE_HIT_BLOCK);
 
-
+        result.add(Option.ENTITY_SHOOT_BOW);
         result.add(Option.ENTITY_SPAWN);
         result.add(Option.ENTITY_SPAWN_TRIALSPAWNER);
         result.add(Option.ENTITY_BEFORE_DEATH);
@@ -497,7 +506,6 @@ public enum Option implements SOption, Serializable {
         result.add(Option.PLAYER_PROJECTILE_HIT_BLOCK);
         result.add(Option.PLAYER_PROJECTILE_HIT_PLAYER);
         result.add(Option.PLAYER_PROJECTILE_HIT_ENTITY);
-
 
         return result;
     }
