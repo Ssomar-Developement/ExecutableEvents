@@ -571,7 +571,7 @@ public class OptimizedEventsHandler {
                     mainListerner = new EntityTransformListener();
                     break;
 
-                case ENCHANT_ITEM:
+                case PLAYER_ENCHANT_ITEM:
                     mainListerner = new EnchantItemListener();
                     break;
 

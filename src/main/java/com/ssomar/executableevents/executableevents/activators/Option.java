@@ -46,6 +46,7 @@ public enum Option implements SOption, Serializable {
     PLAYER_ENABLE_GLIDE("PLAYER_ENABLE_GLIDE"),
     PLAYER_ENABLE_SNEAK("PLAYER_ENABLE_SNEAK", "PLAYER_ACTIVE_SNEAK"),
     PLAYER_ENABLE_SPRINT("PLAYER_ENABLE_SPRINT", "PLAYER_ACTIVE_SPRINT"),
+    PLAYER_ENCHANT_ITEM("PLAYER_ENCHANT_ITEM"),
     PLAYER_ENTER_IN_HIS_LAND("PLAYER_ENTER_IN_HIS_LAND"),
     PLAYER_ENTER_IN_HIS_PLOT("PLAYER_ENTER_IN_HIS_PLOT"),
     PLAYER_ENTITY_PLACE("PLAYER_ENTITY_PLACE"),
@@ -145,7 +146,6 @@ public enum Option implements SOption, Serializable {
     ENTITY_TARGET_ENTITY("ENTITY_TARGET_ENTITY"),
     ENTITY_TELEPORT("ENTITY_TELEPORT"),
     ENTITY_TRANSFORM("ENTITY_TRANSFORM"),
-    ENCHANT_ITEM("ENCHANT_ITEM"),
 
     WEATHER_CHANGE("WEATHER_CHANGE"),
 
@@ -284,7 +284,7 @@ public enum Option implements SOption, Serializable {
         result.add(ENTITY_COMBUST_BY_BLOCK);
         result.add(ENTITY_DAMAGE_BY_BLOCK);
         result.add(ENTITY_ENTER_BLOCK);
-        result.add(Option.ENCHANT_ITEM);
+        result.add(Option.PLAYER_ENCHANT_ITEM);
 
         result.add(CROP_GROW);
 
@@ -344,7 +344,7 @@ public enum Option implements SOption, Serializable {
         result.add(Option.ENTITY_TARGET_PLAYER);
         result.add(Option.ENTITY_DAMAGE_BY_PLAYER);
         result.add(Option.ENTITY_TAME_BY_PLAYER);
-        result.add(Option.ENCHANT_ITEM);
+        result.add(Option.PLAYER_ENCHANT_ITEM);
 
         return result;
     }

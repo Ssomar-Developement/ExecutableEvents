@@ -13,14 +13,21 @@ import com.ssomar.executableevents.executableevents.ExecutableEventLoader;
 import com.ssomar.score.SCore;
 import com.ssomar.score.configs.messages.MessageInterface;
 import com.ssomar.score.configs.messages.MessageMain;
+import com.ssomar.score.usedapi.Dependency;
 import com.ssomar.score.utils.logging.Utils;
 import org.bukkit.Bukkit;
-import org.bukkit.plugin.Plugin;
+import org.bukkit.plugin.InvalidDescriptionException;
+import org.bukkit.plugin.InvalidPluginException;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.io.File;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.net.URLClassLoader;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.Arrays;
 
 
 public class ExecutableEvents extends JavaPlugin {
@@ -31,30 +38,44 @@ public class ExecutableEvents extends JavaPlugin {
     public static SExecutableEvents plugin;
     private CommandsClass commandClass;
 
+    public static ClassLoader scoreClassLoader;
+
     public static SExecutableEvents getPluginSt() {
         return plugin;
     }
 
     @Override
     public void onLoad() {
-        /* BukkitLibraryManager bukkitLibraryManager = new BukkitLibraryManager(this);
-        bukkitLibraryManager.addRepository("https://jitpack.io");
+        if(Bukkit.getPluginManager().getPlugin("SCore") == null) {
+            BukkitLibraryManager bukkitLibraryManager = new BukkitLibraryManager(this);
+            bukkitLibraryManager.addJitPack();
 
-        Library lib = Library.builder()
-                .groupId("com{}github{}Ssomar-Developement") // "{}" is replaced with ".", useful to avoid unwanted changes made by maven-shade-plugin
-                .artifactId("SCore")
-                .version("main-39c85fe778-1")
-                //.relocate("com{}github{}retrooper", "com{}ssomar{}myfurniture{}com{}github{}retrooper")
-                //.isolatedLoad(true)
-                .resolveTransitiveDependencies(true)
-                .build();
+            String scoreVersion = "main-2ff812dab0-1";
 
-        bukkitLibraryManager.loadLibrary(lib);*/
+            Library lib = Library.builder()
+                    .groupId("com{}github{}Ssomar-Developement") // "{}" is replaced with ".", useful to avoid unwanted changes made by maven-shade-plugin
+                    .artifactId("SCore")
+                    .version(scoreVersion)
+                    .resolveTransitiveDependencies(true)
+                    .build();
+
+            bukkitLibraryManager.loadLibrary(lib);
+
+            try {
+                URLClassLoader urlClassLoader = new URLClassLoader(new URL[]{new File(this.getDataFolder() + "/lib/com/github/Ssomar-Developement/SCore/" + scoreVersion + "/SCore-" + scoreVersion + ".jar").toURI().toURL()});
+                scoreClassLoader = urlClassLoader;
+            } catch (MalformedURLException e) {
+                throw new RuntimeException(e);
+            }
+        }
     }
 
 
     @Override
     public void onEnable() {
+        if(!Dependency.SCORE.isInstalled()) {
+            SCore.initLibPartOfSCore(this, scoreClassLoader);
+        }
         plugin = new SExecutableEvents(this);
         sendPluginName();
 
@@ -64,34 +85,8 @@ public class ExecutableEvents extends JavaPlugin {
         if (plugin.isLotOfWork() && SCore.is1v11Less()) {
             ExecutableEvents.plugin.getPlugin().getServer().getLogger().severe(ExecutableEvents.plugin.getNameDesign() + " ExecutableEvents for 1.11 and less is only for the premium version !");
             sendPluginName();
-            SCore.plugin.getServer().getPluginManager().disablePlugin(ExecutableEvents.plugin.getPlugin());
+            Bukkit.getServer().getPluginManager().disablePlugin(ExecutableEvents.plugin.getPlugin());
             return;
-        }
-
-        /* SCore check part */
-        Plugin sCore;
-        if ((sCore = Bukkit.getPluginManager().getPlugin("SCore")) != null) {
-            /* boolean validVersion = false;
-            List<String> validVersions = new ArrayList<>();
-            validVersions.add("42.42.42");
-            try {
-                String version = sCore.getDescription().getVersion();
-                validVersion = validVersions.contains(version);
-
-            } catch (Exception e) {
-            }
-
-            if (!validVersion) {
-                ExecutableEvents.plugin.getServer().getLogger().severe(ExecutableEvents.plugin.getNameDesign()+" To make this version of EE work you need to update SCore !");
-                ExecutableEvents.plugin.getServer().getLogger().severe(ExecutableEvents.plugin.getNameDesign()+" Valid versions of SCore: ");
-                for (String s : validVersions) {
-                    ExecutableEvents.plugin.getServer().getLogger().severe(ExecutableEvents.plugin.getNameDesign()+" Version: " + s);
-                }
-                ExecutableEvents.plugin.getServer().getLogger().severe(ExecutableEvents.plugin.getNameDesign()+" SCore link: GAVE IN THE .ZIP WHEN YOU DOWNLOAD EE");
-                ExecutableEvents.plugin.getServer().getLogger().info("================ "+ExecutableEvents.plugin.getNameDesign()+" ================");
-                getServer().getPluginManager().disablePlugin(this);
-                return;
-            }*/
         }
 
         /* Events instance part */
@@ -129,7 +124,7 @@ public class ExecutableEvents extends JavaPlugin {
         ExecutableEventLoader.getInstance().setCreateBackup(true);
         ExecutableEventLoader.getInstance().load();
 
-        MessageMain.getInstance().loadMessagesOf(plugin.getPlugin(), MessageInterface.getMessagesEnum(Message.values()));
+        MessageMain.getInstance().loadMessagesOf(plugin.getPlugin(), new ArrayList<>(Arrays.asList(Message.values())));
 
         /* Commands part */
         this.getCommand("ee").setExecutor(commandClass);
@@ -156,7 +151,7 @@ public class ExecutableEvents extends JavaPlugin {
         GeneralConfig.getInstance().reload();
 
         /* Message instance part */
-        MessageMain.getInstance().loadMessagesOf(plugin.getPlugin(), MessageInterface.getMessagesEnum(Message.values()));
+        MessageMain.getInstance().loadMessagesOf(plugin.getPlugin(), new ArrayList<>(Arrays.asList(Message.values())));
 
         if (PluginCommand) {
         }
@@ -167,8 +162,9 @@ public class ExecutableEvents extends JavaPlugin {
     }
 
     public void sendPluginName() {
-        if (plugin.isLotOfWork()) Utils.sendConsoleMsg(plugin, "&7================ " + NAME_COLOR + " &7================");
-        else Utils.sendConsoleMsg(plugin, "&7========&e*&7======== " + NAME_COLOR + " &7========&e*&7========");
+       if (plugin.isLotOfWork())
+            Utils.sendConsoleMsg("&7================ " + NAME_COLOR + " &7================");
+        else Utils.sendConsoleMsg("&7========&e*&7======== " + NAME_COLOR + " &7========&e*&7========");
     }
 
     @Override

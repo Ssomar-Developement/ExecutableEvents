@@ -28,6 +28,8 @@ public class PlayerInventoryClickListener implements Listener {
         eInfo.getPlaceholders().put("%getAction%", String.valueOf(e.getAction()));
         eInfo.getPlaceholders().put("%beforeSlot%", String.valueOf(e.getSlot()));
         eInfo.getPlaceholders().put("%afterSlot%", String.valueOf(e.getRawSlot()));
+        eInfo.getPlaceholders().put("%inventory_type%", String.valueOf(e.getInventory().getType()));
+        eInfo.getPlaceholders().put("%inventory_title%", String.valueOf(e.getView().getTitle()));
         eInfo.setOption(Option.PLAYER_INVENTORY_CLICK);
         EventsManager.getInstance().activeOption(eInfo);
     }

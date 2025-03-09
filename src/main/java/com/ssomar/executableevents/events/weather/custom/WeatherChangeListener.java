@@ -16,7 +16,7 @@ public class WeatherChangeListener implements Listener {
         EventInfo eInfo = new EventInfo(e);
         eInfo.setWorld(Optional.of(e.getWorld()));
         eInfo.setBlock(Optional.of(e.getWorld().getSpawnLocation().getBlock()));
-        eInfo.getPlaceholders().put("%Cause%", String.valueOf(Optional.of(e.getCause().toString())));
+        eInfo.getPlaceholders().put("%cause%", String.valueOf(Optional.of(e.getCause().toString())));
         eInfo.setOption(Option.WEATHER_CHANGE);
         EventsManager.getInstance().activeOption(eInfo);
     }
