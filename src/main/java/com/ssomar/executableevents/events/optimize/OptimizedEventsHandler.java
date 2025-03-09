@@ -11,6 +11,7 @@ import com.ssomar.executableevents.events.player.itemsadder.ItemsAdderPlayerBloc
 import com.ssomar.executableevents.events.player.lands.PlayerEnterLandsEventEI;
 import com.ssomar.executableevents.events.player.lands.PlayerLeaveLandsEventEI;
 import com.ssomar.executableevents.events.weather.custom.LightningStrikeListener;
+import com.ssomar.executableevents.events.weather.custom.WeatherChangeListener;
 import com.ssomar.executableevents.executableevents.activators.Option;
 import com.ssomar.score.SCore;
 import com.ssomar.score.sobject.sactivator.SOption;
@@ -572,6 +573,10 @@ public class OptimizedEventsHandler {
 
                 case ENCHANT_ITEM:
                     mainListerner = new EnchantItemListener();
+                    break;
+
+                case WEATHER_CHANGE:
+                    mainListerner = new WeatherChangeListener();
                     break;
 
                 case ENDERDRAGON_CHANGE_PHASE:
