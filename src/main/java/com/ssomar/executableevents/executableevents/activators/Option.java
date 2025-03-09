@@ -16,6 +16,7 @@ public enum Option implements SOption, Serializable {
 
     LOOP_SERVER("LOOP_SERVER"),
     LOOP_ENTITY("LOOP_ENTITY"), // Pending Work (Fran2019)
+    LIGHTNING_STRIKE("LIGHTNING_STRIKE"),
     PLAYER_ALL_CLICK("PLAYER_ALL_CLICK"),
     PLAYER_BED_ENTER("PLAYER_BED_ENTER"),
     PLAYER_BED_LEAVE("PLAYER_BED_LEAVE"),
@@ -144,9 +145,11 @@ public enum Option implements SOption, Serializable {
     ENTITY_TARGET_ENTITY("ENTITY_TARGET_ENTITY"),
     ENTITY_TELEPORT("ENTITY_TELEPORT"),
     ENTITY_TRANSFORM("ENTITY_TRANSFORM"),
+    ENCHANT_ITEM("ENCHANT_ITEM"),
+
+    WEATHER_CHANGE("WEATHER_CHANGE"),
 
     ENDERDRAGON_CHANGE_PHASE("ENDERDRAGON_CHANGE_PHASE");
-
 
     private String[] names;
 
@@ -258,6 +261,7 @@ public enum Option implements SOption, Serializable {
 
     public static List<SOption> getOptionWithTargetBlockSt() {
         List<SOption> result = new ArrayList<>();
+        result.add(LIGHTNING_STRIKE);
         result.add(ITEMSADDER_PLAYER_BLOCK_BREAK);
         result.add(PLAYER_BRUSH_BLOCK);
         result.add(PLAYER_HARVEST_BLOCK);
@@ -280,6 +284,7 @@ public enum Option implements SOption, Serializable {
         result.add(ENTITY_COMBUST_BY_BLOCK);
         result.add(ENTITY_DAMAGE_BY_BLOCK);
         result.add(ENTITY_ENTER_BLOCK);
+        result.add(Option.ENCHANT_ITEM);
 
         result.add(CROP_GROW);
 
@@ -339,6 +344,7 @@ public enum Option implements SOption, Serializable {
         result.add(Option.ENTITY_TARGET_PLAYER);
         result.add(Option.ENTITY_DAMAGE_BY_PLAYER);
         result.add(Option.ENTITY_TAME_BY_PLAYER);
+        result.add(Option.ENCHANT_ITEM);
 
         return result;
     }
@@ -403,6 +409,7 @@ public enum Option implements SOption, Serializable {
     public static List<SOption> getOptionWithConsoleOnlySt() {
         List<SOption> result = new ArrayList<>();
         result.add(Option.LOOP_SERVER);
+        result.add(Option.WEATHER_CHANGE);
         result.add(OptionGlobal.CUSTOM_TRIGGER);
         return result;
     }
