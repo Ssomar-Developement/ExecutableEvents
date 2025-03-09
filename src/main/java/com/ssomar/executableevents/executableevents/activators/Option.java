@@ -15,6 +15,8 @@ public enum Option implements SOption, Serializable {
     CROP_GROW("CROP_GROW"),
 
     LOOP_SERVER("LOOP_SERVER"),
+    LOOP_ENTITY("LOOP_ENTITY"), // Pending Work (Fran2019)
+    LIGHTNING_STRIKE("LIGHTNING_STRIKE"),
     PLAYER_ALL_CLICK("PLAYER_ALL_CLICK"),
     PLAYER_BED_ENTER("PLAYER_BED_ENTER"),
     PLAYER_BED_LEAVE("PLAYER_BED_LEAVE"),
@@ -107,12 +109,15 @@ public enum Option implements SOption, Serializable {
     PLAYER_PROJECTILE_HIT_ENTITY("PLAYER_PROJECTILE_HIT_ENTITY"),
     PLAYER_PROJECTILE_HIT_PLAYER("PLAYER_PROJECTILE_HIT_PLAYER"),
 
+    CREEPER_POWER_CHANGE("CREEPER_POWER_CHANGE"),
     ENTITY_PARTICIPATE_KILL_ENTITY("ENTITY_PARTICIPATE_KILL_ENTITY"),
     ENTITY_PARTICIPATE_KILL_PLAYER("ENTITY_PARTICIPATE_KILL_PLAYER"),
     ENTITY_PROJECTILE_HIT_BLOCK("ENTITY_PROJECTILE_HIT_BLOCK"),
     ENTITY_PROJECTILE_HIT_ENTITY("ENTITY_PROJECTILE_HIT_ENTITY"),
     ENTITY_PROJECTILE_HIT_PLAYER("ENTITY_PROJECTILE_HIT_PLAYER"),
+    ENTITY_PLACE_EVENT("ENTITY_PLACE_EVENT"),
 
+    ENTITY_SHOOT_BOW("ENTITY_SHOOT_BOW"),
     ENTITY_SPAWN("ENTITY_SPAWN"),
     ENTITY_SPAWN_TRIALSPAWNER("ENTITY_SPAWN_TRIALSPAWNER"),
     ENTITY_BEFORE_DEATH("ENTITY_BEFORE_DEATH"),
@@ -140,9 +145,11 @@ public enum Option implements SOption, Serializable {
     ENTITY_TARGET_ENTITY("ENTITY_TARGET_ENTITY"),
     ENTITY_TELEPORT("ENTITY_TELEPORT"),
     ENTITY_TRANSFORM("ENTITY_TRANSFORM"),
+    ENCHANT_ITEM("ENCHANT_ITEM"),
+
+    WEATHER_CHANGE("WEATHER_CHANGE"),
 
     ENDERDRAGON_CHANGE_PHASE("ENDERDRAGON_CHANGE_PHASE");
-
 
     private String[] names;
 
@@ -254,6 +261,7 @@ public enum Option implements SOption, Serializable {
 
     public static List<SOption> getOptionWithTargetBlockSt() {
         List<SOption> result = new ArrayList<>();
+        result.add(LIGHTNING_STRIKE);
         result.add(ITEMSADDER_PLAYER_BLOCK_BREAK);
         result.add(PLAYER_BRUSH_BLOCK);
         result.add(PLAYER_HARVEST_BLOCK);
@@ -276,6 +284,7 @@ public enum Option implements SOption, Serializable {
         result.add(ENTITY_COMBUST_BY_BLOCK);
         result.add(ENTITY_DAMAGE_BY_BLOCK);
         result.add(ENTITY_ENTER_BLOCK);
+        result.add(Option.ENCHANT_ITEM);
 
         result.add(CROP_GROW);
 
@@ -331,9 +340,11 @@ public enum Option implements SOption, Serializable {
         result.add(Option.ENTITY_PARTICIPATE_KILL_PLAYER);
         result.add(Option.PLAYER_PARTICIPATE_KILL_PLAYER);
 
+        result.add(Option.ENTITY_PLACE_EVENT);
         result.add(Option.ENTITY_TARGET_PLAYER);
         result.add(Option.ENTITY_DAMAGE_BY_PLAYER);
         result.add(Option.ENTITY_TAME_BY_PLAYER);
+        result.add(Option.ENCHANT_ITEM);
 
         return result;
     }
@@ -341,14 +352,18 @@ public enum Option implements SOption, Serializable {
     public static List<SOption> getOptionWithEntitySt() {
         List<SOption> result = new ArrayList<>();
 
+        result.add(Option.LOOP_ENTITY);
+
+        result.add(Option.CREEPER_POWER_CHANGE);
         result.add(Option.ENTITY_PARTICIPATE_KILL_PLAYER);
         result.add(Option.ENTITY_PARTICIPATE_KILL_ENTITY);
+        result.add(Option.ENTITY_PLACE_EVENT);
 
         result.add(Option.ENTITY_PROJECTILE_HIT_ENTITY);
         result.add(Option.ENTITY_PROJECTILE_HIT_PLAYER);
         result.add(Option.ENTITY_PROJECTILE_HIT_BLOCK);
 
-
+        result.add(Option.ENTITY_SHOOT_BOW);
         result.add(Option.ENTITY_SPAWN);
         result.add(Option.ENTITY_SPAWN_TRIALSPAWNER);
         result.add(Option.ENTITY_BEFORE_DEATH);
@@ -394,6 +409,7 @@ public enum Option implements SOption, Serializable {
     public static List<SOption> getOptionWithConsoleOnlySt() {
         List<SOption> result = new ArrayList<>();
         result.add(Option.LOOP_SERVER);
+        result.add(Option.WEATHER_CHANGE);
         result.add(OptionGlobal.CUSTOM_TRIGGER);
         return result;
     }
@@ -497,7 +513,6 @@ public enum Option implements SOption, Serializable {
         result.add(Option.PLAYER_PROJECTILE_HIT_BLOCK);
         result.add(Option.PLAYER_PROJECTILE_HIT_PLAYER);
         result.add(Option.PLAYER_PROJECTILE_HIT_ENTITY);
-
 
         return result;
     }

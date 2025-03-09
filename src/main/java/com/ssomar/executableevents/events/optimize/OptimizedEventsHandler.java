@@ -4,11 +4,14 @@ package com.ssomar.executableevents.events.optimize;
 import com.ssomar.executableevents.ExecutableEvents;
 import com.ssomar.executableevents.events.block.custom.BlockDryListener;
 import com.ssomar.executableevents.events.block.custom.CropGrow;
+import com.ssomar.executableevents.events.block.custom.EnchantItemListener;
 import com.ssomar.executableevents.events.entity.custom.*;
 import com.ssomar.executableevents.events.player.custom.*;
 import com.ssomar.executableevents.events.player.itemsadder.ItemsAdderPlayerBlockBreakListener;
 import com.ssomar.executableevents.events.player.lands.PlayerEnterLandsEventEI;
 import com.ssomar.executableevents.events.player.lands.PlayerLeaveLandsEventEI;
+import com.ssomar.executableevents.events.weather.custom.LightningStrikeListener;
+import com.ssomar.executableevents.events.weather.custom.WeatherChangeListener;
 import com.ssomar.executableevents.executableevents.activators.Option;
 import com.ssomar.score.SCore;
 import com.ssomar.score.sobject.sactivator.SOption;
@@ -65,6 +68,9 @@ public class OptimizedEventsHandler {
             Listener mainListerner = null;
             switch (o) {
 
+                case LIGHTNING_STRIKE:
+                    mainListerner = new LightningStrikeListener();
+                    break;
                 case BLOCK_DRY:
                     eventsName.add(EventName.BLOCK_DRY);
                     DynamicRegistration.getInstance().register(EventName.BLOCK_DRY, ExecutableEvents.plugin.getPlugin());
@@ -421,6 +427,9 @@ public class OptimizedEventsHandler {
                     mainListerner = new PlayerProjectileHitPlayer();
                     break;
 
+                case CREEPER_POWER_CHANGE:
+                    mainListerner = new CreeperPowerEventListener();
+                    break;
                 case ENTITY_PROJECTILE_HIT_BLOCK:
                     eventsName.add(EventName.PROJECTILE_HIT_BLOCK);
                     DynamicRegistration.getInstance().register(EventName.PROJECTILE_HIT_BLOCK, ExecutableEvents.plugin.getPlugin());
@@ -435,6 +444,12 @@ public class OptimizedEventsHandler {
                     eventsName.add(EventName.PROJECTILE_HIT_PLAYER);
                     DynamicRegistration.getInstance().register(EventName.PROJECTILE_HIT_PLAYER, ExecutableEvents.plugin.getPlugin());
                     mainListerner = new EntityProjectileHitPlayer();
+                    break;
+                case ENTITY_PLACE_EVENT:
+                    mainListerner = new EntityPlaceEventListener();
+                    break;
+                case ENTITY_SHOOT_BOW:
+                    mainListerner = new EntityShootBowListener();
                     break;
                 case ENTITY_SPAWN:
                     mainListerner = new EntitySpawnListener();
@@ -554,6 +569,14 @@ public class OptimizedEventsHandler {
 
                 case ENTITY_TRANSFORM:
                     mainListerner = new EntityTransformListener();
+                    break;
+
+                case ENCHANT_ITEM:
+                    mainListerner = new EnchantItemListener();
+                    break;
+
+                case WEATHER_CHANGE:
+                    mainListerner = new WeatherChangeListener();
                     break;
 
                 case ENDERDRAGON_CHANGE_PHASE:
