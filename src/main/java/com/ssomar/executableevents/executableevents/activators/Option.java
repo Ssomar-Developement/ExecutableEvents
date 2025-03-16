@@ -16,6 +16,9 @@ public enum Option implements SOption, Serializable {
 
     LOOP_SERVER("LOOP_SERVER"),
     LOOP_ENTITY("LOOP_ENTITY"), // Pending Work (Fran2019)
+    SPAWN_CHANGE("SPAWN_CHANGE"),
+    PORTAL_CREATE("PORTAL_CREATE"),
+    STRUCTURE_GROW("STRUCTURE_GROW"),
     LIGHTNING_STRIKE("LIGHTNING_STRIKE"),
     PLAYER_ALL_CLICK("PLAYER_ALL_CLICK"),
     PLAYER_BED_ENTER("PLAYER_BED_ENTER"),
@@ -403,6 +406,8 @@ public enum Option implements SOption, Serializable {
         //TODO : Add all options with block
         result.add(Option.BLOCK_DRY);
         result.add(Option.CROP_GROW);
+        result.add(Option.SPAWN_CHANGE);
+
         return result;
     }
 
@@ -410,6 +415,10 @@ public enum Option implements SOption, Serializable {
         List<SOption> result = new ArrayList<>();
         result.add(Option.LOOP_SERVER);
         result.add(Option.WEATHER_CHANGE);
+
+        result.add(Option.PORTAL_CREATE);
+        result.add(Option.STRUCTURE_GROW);
+
         result.add(OptionGlobal.CUSTOM_TRIGGER);
         return result;
     }
