@@ -52,7 +52,7 @@ public class EditorInteractionsListener implements Listener {
 
         if (!itemS.hasItemMeta()) return;
 
-        if (itemS.getItemMeta().getDisplayName().isEmpty()) return;
+        if (!GUI.hasIdentifier(itemS)) return;
 
         //String itemName = itemS.getItemMeta().getDisplayName();
 

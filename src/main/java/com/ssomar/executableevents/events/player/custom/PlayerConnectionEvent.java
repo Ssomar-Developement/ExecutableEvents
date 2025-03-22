@@ -20,11 +20,12 @@ public class PlayerConnectionEvent implements Listener {
     // Delayed of 5 ticks to be sure that the player cooldowns are loaded
     @EventHandler
     public void onPlayerJoinEvent(PlayerJoinEvent e) {
-        Bukkit.getScheduler().runTaskLater(SCore.plugin, () -> {
+        Runnable r = () -> {
             EventInfo eInfo = new EventInfo(e);
             eInfo.setPlayer(Optional.of(e.getPlayer()));
             eInfo.setOption(Option.PLAYER_CONNECTION);
             EventsManager.getInstance().activeOption(eInfo);
-        }, 5);
+        };
+        SCore.schedulerHook.runEntityTask(r, null, e.getPlayer(), 5);
     }
 }
