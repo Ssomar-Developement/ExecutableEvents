@@ -5,10 +5,8 @@ import com.ssomar.executableevents.executableevents.activators.Option;
 import com.ssomar.score.sobject.sactivator.EventInfo;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
-import org.bukkit.event.entity.EntityBreedEvent;
 import org.bukkit.event.entity.EntityTeleportEvent;
 
-import java.util.ArrayList;
 import java.util.Optional;
 
 public class EntityTeleportListener implements Listener {

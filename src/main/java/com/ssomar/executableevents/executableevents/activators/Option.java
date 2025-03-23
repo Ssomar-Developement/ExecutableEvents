@@ -151,6 +151,10 @@ public enum Option implements SOption, Serializable {
     ENTITY_TRANSFORM("ENTITY_TRANSFORM"),
 
     WEATHER_CHANGE("WEATHER_CHANGE"),
+    THUNDER_CHANGE("THUNDER_CHANGE"),
+
+    WORLD_NIGHT("WORLD_NIGHT"),
+    WORLD_DAY("WORLD_DAY"),
 
     ENDERDRAGON_CHANGE_PHASE("ENDERDRAGON_CHANGE_PHASE");
 
@@ -415,6 +419,10 @@ public enum Option implements SOption, Serializable {
         List<SOption> result = new ArrayList<>();
         result.add(Option.LOOP_SERVER);
         result.add(Option.WEATHER_CHANGE);
+        result.add(Option.THUNDER_CHANGE);
+
+        result.add(Option.WORLD_NIGHT);
+        result.add(Option.WORLD_DAY);
 
         result.add(Option.PORTAL_CREATE);
         result.add(Option.STRUCTURE_GROW);
