@@ -9,7 +9,7 @@ import org.bukkit.event.weather.WeatherChangeEvent;
 
 import java.util.Optional;
 
-public class WeatherChangeListener implements Listener {
+public class ThunderChangeListener implements Listener {
 
     @EventHandler
     public void WeatherChangeEvent(WeatherChangeEvent e) {
@@ -17,7 +17,7 @@ public class WeatherChangeListener implements Listener {
         eInfo.setWorld(Optional.of(e.getWorld()));
         eInfo.setBlock(Optional.of(e.getWorld().getSpawnLocation().getBlock()));
         eInfo.getPlaceholders().put("%cause%", String.valueOf(e.getCause().toString()));
-        eInfo.setOption(Option.WEATHER_CHANGE);
+        eInfo.setOption(Option.THUNDER_CHANGE);
         EventsManager.getInstance().activeOption(eInfo);
     }
 }

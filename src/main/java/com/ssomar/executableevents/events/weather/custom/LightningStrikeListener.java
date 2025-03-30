@@ -16,7 +16,7 @@ public class LightningStrikeListener implements Listener {
         EventInfo eInfo = new EventInfo(e);
         eInfo.setWorld(Optional.of(e.getWorld()));
         eInfo.setBlock(Optional.of(e.getWorld().getSpawnLocation().getBlock()));
-        eInfo.getPlaceholders().put("%cause%", String.valueOf(Optional.of(e.getCause().toString())));
+        eInfo.getPlaceholders().put("%cause%", String.valueOf(e.getCause().toString()));
         eInfo.setOption(Option.LIGHTNING_STRIKE);
         EventsManager.getInstance().activeOption(eInfo);
     }
