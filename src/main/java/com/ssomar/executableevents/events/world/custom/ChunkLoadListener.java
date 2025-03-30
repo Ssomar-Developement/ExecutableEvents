@@ -18,7 +18,7 @@ public class ChunkLoadListener implements Listener {
         eInfo.setOption(Option.CHUNK_LOAD);
         eInfo.getPlaceholders().put("%world%", e.getChunk().getWorld().getName());
         eInfo.getPlaceholders().put("%coord_x%", String.valueOf(e.getChunk().getX()));
-        eInfo.getPlaceholders().put("%coord_y%", String.valueOf(e.getChunk().getZ()));
+        eInfo.getPlaceholders().put("%coord_z%", String.valueOf(e.getChunk().getZ()));
         eInfo.getPlaceholders().put("%isslimechunk%", String.valueOf(e.getChunk().isSlimeChunk()));
         eInfo.getPlaceholders().put("%isloaded%", String.valueOf(e.getChunk().isLoaded()));
         eInfo.getPlaceholders().put("%isgenerated%", String.valueOf(e.getChunk().isGenerated()));
