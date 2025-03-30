@@ -3,6 +3,7 @@ package com.ssomar.executableevents.events.optimize;
 
 import com.ssomar.executableevents.ExecutableEvents;
 import com.ssomar.executableevents.events.block.custom.BlockDryListener;
+import com.ssomar.executableevents.events.block.custom.BlockRedstoneListener;
 import com.ssomar.executableevents.events.block.custom.CropGrow;
 import com.ssomar.executableevents.events.block.custom.EnchantItemListener;
 import com.ssomar.executableevents.events.entity.custom.*;
@@ -13,6 +14,7 @@ import com.ssomar.executableevents.events.player.lands.PlayerLeaveLandsEventEI;
 import com.ssomar.executableevents.events.weather.custom.LightningStrikeListener;
 import com.ssomar.executableevents.events.weather.custom.ThunderChangeListener;
 import com.ssomar.executableevents.events.weather.custom.WeatherChangeListener;
+import com.ssomar.executableevents.events.world.custom.ChunkLoadListener;
 import com.ssomar.executableevents.events.world.custom.WorldCycleListener;
 import com.ssomar.executableevents.executableevents.activators.Option;
 import com.ssomar.score.SCore;
@@ -72,6 +74,9 @@ public class OptimizedEventsHandler {
 
                 case LIGHTNING_STRIKE:
                     mainListerner = new LightningStrikeListener();
+                    break;
+                case REDSTONE_BLOCK_ACTIVATION:
+                    mainListerner = new BlockRedstoneListener();
                     break;
                 case BLOCK_DRY:
                     eventsName.add(EventName.BLOCK_DRY);
@@ -586,6 +591,10 @@ public class OptimizedEventsHandler {
                 case WORLD_DAY:
                 case WORLD_NIGHT:
                     mainListerner = new WorldCycleListener();
+                    break;
+
+                case CHUNK_LOAD:
+                    mainListerner = new ChunkLoadListener();
                     break;
 
                 case ENDERDRAGON_CHANGE_PHASE:

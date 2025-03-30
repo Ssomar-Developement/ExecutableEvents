@@ -13,6 +13,7 @@ public enum Option implements SOption, Serializable {
     BLOCK_DRY("BLOCK_DRY"),
     ITEMSADDER_PLAYER_BLOCK_BREAK("ITEMSADDER_PLAYER_BLOCK_BREAK"),
     CROP_GROW("CROP_GROW"),
+    REDSTONE_BLOCK_ACTIVATION("REDSTONE_BLOCK_ACTIVATION"),
 
     LOOP_SERVER("LOOP_SERVER"),
     LOOP_ENTITY("LOOP_ENTITY"), // Pending Work (Fran2019)
@@ -155,6 +156,9 @@ public enum Option implements SOption, Serializable {
 
     WORLD_NIGHT("WORLD_NIGHT"),
     WORLD_DAY("WORLD_DAY"),
+
+    CHUNK_LOAD("CHUNK_LOAD"),
+    CHUNK_UNLOAD("CHUNK_UNLOAD"),
 
     ENDERDRAGON_CHANGE_PHASE("ENDERDRAGON_CHANGE_PHASE");
 
@@ -409,6 +413,7 @@ public enum Option implements SOption, Serializable {
         List<SOption> result = new ArrayList<>();
         //TODO : Add all options with block
         result.add(Option.BLOCK_DRY);
+        result.add(Option.REDSTONE_BLOCK_ACTIVATION);
         result.add(Option.CROP_GROW);
         result.add(Option.SPAWN_CHANGE);
 
@@ -426,6 +431,9 @@ public enum Option implements SOption, Serializable {
 
         result.add(Option.PORTAL_CREATE);
         result.add(Option.STRUCTURE_GROW);
+
+        result.add(Option.CHUNK_LOAD);
+        result.add(Option.CHUNK_UNLOAD);
 
         result.add(OptionGlobal.CUSTOM_TRIGGER);
         return result;
