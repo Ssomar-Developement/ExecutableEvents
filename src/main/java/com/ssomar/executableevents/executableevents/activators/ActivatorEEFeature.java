@@ -534,7 +534,7 @@ public class ActivatorEEFeature extends SActivator<ActivatorEEFeature, Activator
         if (Option.getOptionWithPlayerSt().contains(optionFeature.getValue()) && player != null) {
             SsomarDev.testMsg("Activator 8", DEBUG);
             /* Verification of the required ExecutableItems option  */
-            if (!requiredGroup.verify(player, eSrc)) return;
+            if (!requiredGroup.verify(player, eSrc, sp)) return;
 
             /* Verif use per day for the activator  */ // TODO can be adapted to entities
             if (!this.usePerDayFeature.verify(player, eSrc, sp)) return;
@@ -584,7 +584,7 @@ public class ActivatorEEFeature extends SActivator<ActivatorEEFeature, Activator
             globalCooldown.addGlobalCooldown(executableEvent);
 
             /* Take required Things */ // TODO can be adapted to entities
-            requiredGroup.take(player);
+            requiredGroup.take(player, sp);
 
         }
 
