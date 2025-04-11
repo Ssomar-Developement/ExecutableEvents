@@ -1126,9 +1126,9 @@ public class ActivatorEEFeature extends SActivator<ActivatorEEFeature, Activator
         this.silenceOutput = new BooleanFeature(this, false, FeatureSettingsSCore.silenceOutput);
         this.desactiveDrops = new BooleanFeature(this,  false, FeatureSettingsSCore.desactiveDrops);
 
-        this.cooldown = new CooldownFeature(this, FeatureSettingsSCore.cooldownOptions, ExecutableEvents.plugin, GeneralConfig.getInstance().getBooleanSetting(GeneralConfig.Setting.premiumEnableCooldownForOp.name()));
+        this.cooldown = new CooldownFeature(this, FeatureSettingsSCore.cooldownFeatures, ExecutableEvents.plugin, GeneralConfig.getInstance().getBooleanSetting(GeneralConfig.Setting.premiumEnableCooldownForOp.name()));
 
-        this.globalCooldown = new CooldownFeature(this, FeatureSettingsSCore.globalCooldownOptions, ExecutableEvents.plugin, GeneralConfig.getInstance().getBooleanSetting(GeneralConfig.Setting.premiumEnableCooldownForOp.name()), true);
+        this.globalCooldown = new CooldownFeature(this, FeatureSettingsSCore.globalCooldownFeatures, ExecutableEvents.plugin, GeneralConfig.getInstance().getBooleanSetting(GeneralConfig.Setting.premiumEnableCooldownForOp.name()), true);
 
         this.requiredGroup = new RequiredGroup(this);
 

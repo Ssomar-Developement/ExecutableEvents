@@ -79,7 +79,7 @@ public class ExecutableEventLoader extends SObjectWithFileLoader<ExecutableEvent
     @Override
     public void configVersionsConverter(File file) {
         // disabled
-        // ConfigConverter.updateTo(file);
+        ConfigConverter.updateTo(file);
     }
 
     @Override
