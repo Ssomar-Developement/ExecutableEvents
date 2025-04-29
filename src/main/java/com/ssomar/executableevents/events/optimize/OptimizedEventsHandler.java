@@ -11,6 +11,12 @@ import com.ssomar.executableevents.events.player.custom.*;
 import com.ssomar.executableevents.events.player.itemsadder.ItemsAdderPlayerBlockBreakListener;
 import com.ssomar.executableevents.events.player.lands.PlayerEnterLandsEventEI;
 import com.ssomar.executableevents.events.player.lands.PlayerLeaveLandsEventEI;
+import com.ssomar.executableevents.events.raid.RaidFinishListener;
+import com.ssomar.executableevents.events.raid.RaidTriggerListener;
+import com.ssomar.executableevents.events.raid.RaidWaveListener;
+import com.ssomar.executableevents.events.vehicle.VehicleCreateListener;
+import com.ssomar.executableevents.events.vehicle.VehicleDamageListener;
+import com.ssomar.executableevents.events.vehicle.VehicleDestroyListener;
 import com.ssomar.executableevents.events.weather.custom.LightningStrikeListener;
 import com.ssomar.executableevents.events.weather.custom.ThunderChangeListener;
 import com.ssomar.executableevents.events.weather.custom.WeatherChangeListener;
@@ -601,10 +607,29 @@ public class OptimizedEventsHandler {
                     mainListerner = new ChunkUnLoadListener();
                     break;
 
+                case RAID_TRIGGER:
+                    mainListerner = new RaidTriggerListener();
+                    break;
+                case RAID_WAVE:
+                    mainListerner = new RaidWaveListener();
+                    break;
+                case RAID_FINISH:
+                    mainListerner = new RaidFinishListener();
+                    break;
+
+                case VEHICLE_CREATE:
+                    mainListerner = new VehicleCreateListener();
+                    break;
+                case VEHICLE_DAMAGE:
+                    mainListerner = new VehicleDamageListener();
+                    break;
+                case VEHICLE_DESTROY:
+                    mainListerner = new VehicleDestroyListener();
+                    break;
+
                 case ENDERDRAGON_CHANGE_PHASE:
                     mainListerner = new EnderdragonChangePhaseListener();
                     break;
-
             }
             if (mainListerner != null) {
                 ExecutableEvents.plugin.getPlugin().getServer().getPluginManager().registerEvents(mainListerner, ExecutableEvents.plugin.getPlugin());

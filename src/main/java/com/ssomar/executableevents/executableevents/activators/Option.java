@@ -157,6 +157,14 @@ public enum Option implements SOption, Serializable {
     WORLD_NIGHT("WORLD_NIGHT"),
     WORLD_DAY("WORLD_DAY"),
 
+    RAID_TRIGGER("RAID_TRIGGER"),
+    RAID_WAVE("RAID_WAVE"),
+    RAID_FINISH("RAID_FINISH"),
+
+    VEHICLE_CREATE("VEHICLE_CREATE"),
+    VEHICLE_DAMAGE("VEHICLE_DAMAGE"),
+    VEHICLE_DESTROY("VEHICLE_DESTROY"),
+
     CHUNK_LOAD("CHUNK_LOAD"),
     CHUNK_UNLOAD("CHUNK_UNLOAD"),
 
@@ -434,6 +442,14 @@ public enum Option implements SOption, Serializable {
 
         result.add(Option.CHUNK_LOAD);
         result.add(Option.CHUNK_UNLOAD);
+
+        result.add(Option.RAID_TRIGGER);
+        result.add(Option.RAID_WAVE);
+        result.add(Option.RAID_FINISH);
+
+        result.add(Option.VEHICLE_CREATE);
+        result.add(Option.VEHICLE_DAMAGE);
+        result.add(Option.VEHICLE_DESTROY);
 
         result.add(OptionGlobal.CUSTOM_TRIGGER);
         return result;
