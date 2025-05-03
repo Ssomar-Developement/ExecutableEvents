@@ -18,6 +18,7 @@ public class PlayerTeleportListener implements Listener {
         EventInfo eInfo = new EventInfo(e);
         eInfo.setPlayer(Optional.of(e.getPlayer()));
         eInfo.setOption(Option.PLAYER_TELEPORT);
+        eInfo.getPlaceholders().put("%teleportCause%", String.valueOf(e.getCause()));
         EventsManager.getInstance().activeOption(eInfo);
     }
 }
