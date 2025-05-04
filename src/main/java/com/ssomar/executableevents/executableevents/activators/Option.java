@@ -161,6 +161,10 @@ public enum Option implements SOption, Serializable {
     RAID_WAVE("RAID_WAVE"),
     RAID_FINISH("RAID_FINISH"),
 
+    HANGING_PLACE("HANGING_PLACE"),
+    HANGING_BREAK("HANGING_BREAK"),
+    HANGING_BREAK_BY_ENTITY("HANGING_BREAK_BY_ENTITY"),
+
     VEHICLE_CREATE("VEHICLE_CREATE"),
     VEHICLE_DAMAGE("VEHICLE_DAMAGE"),
     VEHICLE_DESTROY("VEHICLE_DESTROY"),
@@ -409,6 +413,10 @@ public enum Option implements SOption, Serializable {
         result.add(Option.ENTITY_TARGET_ENTITY);
         result.add(Option.ENTITY_TELEPORT);
         result.add(Option.ENTITY_TRANSFORM);
+
+        result.add(Option.HANGING_PLACE);
+        result.add(Option.HANGING_BREAK);
+        result.add(Option.HANGING_BREAK_BY_ENTITY);
 
         result.add(Option.ENDERDRAGON_CHANGE_PHASE);
 

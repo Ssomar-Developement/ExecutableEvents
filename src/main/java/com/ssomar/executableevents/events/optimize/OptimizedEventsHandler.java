@@ -7,6 +7,9 @@ import com.ssomar.executableevents.events.block.custom.BlockRedstoneListener;
 import com.ssomar.executableevents.events.block.custom.CropGrow;
 import com.ssomar.executableevents.events.block.custom.EnchantItemListener;
 import com.ssomar.executableevents.events.entity.custom.*;
+import com.ssomar.executableevents.events.haging.HangingBreakByEntityListener;
+import com.ssomar.executableevents.events.haging.HangingBreakListener;
+import com.ssomar.executableevents.events.haging.HangingPlaceListener;
 import com.ssomar.executableevents.events.player.custom.*;
 import com.ssomar.executableevents.events.player.itemsadder.ItemsAdderPlayerBlockBreakListener;
 import com.ssomar.executableevents.events.player.lands.PlayerEnterLandsEventEI;
@@ -625,6 +628,16 @@ public class OptimizedEventsHandler {
                     break;
                 case VEHICLE_DESTROY:
                     mainListerner = new VehicleDestroyListener();
+                    break;
+
+                case HANGING_PLACE:
+                    mainListerner = new HangingPlaceListener();
+                    break;
+                case HANGING_BREAK:
+                    mainListerner = new HangingBreakListener();
+                    break;
+                case HANGING_BREAK_BY_ENTITY:
+                    mainListerner = new HangingBreakByEntityListener();
                     break;
 
                 case ENDERDRAGON_CHANGE_PHASE:
