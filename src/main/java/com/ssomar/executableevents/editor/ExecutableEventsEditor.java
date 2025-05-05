@@ -16,6 +16,7 @@ public class ExecutableEventsEditor extends SObjectsWithFileEditor<ExecutableEve
 
     @Override
     public void initSettings() {
+        setDefaultObjectsButton(false);
         setGiveButton(false);
     }
 }
