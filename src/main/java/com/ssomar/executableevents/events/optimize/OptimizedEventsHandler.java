@@ -17,6 +17,10 @@ import com.ssomar.executableevents.events.player.lands.PlayerLeaveLandsEventEI;
 import com.ssomar.executableevents.events.raid.RaidFinishListener;
 import com.ssomar.executableevents.events.raid.RaidTriggerListener;
 import com.ssomar.executableevents.events.raid.RaidWaveListener;
+import com.ssomar.executableevents.events.server.BroadcastMessageListener;
+import com.ssomar.executableevents.events.server.MapInitializeListener;
+import com.ssomar.executableevents.events.server.PluginDisableListener;
+import com.ssomar.executableevents.events.server.PluginEnableListener;
 import com.ssomar.executableevents.events.vehicle.VehicleCreateListener;
 import com.ssomar.executableevents.events.vehicle.VehicleDamageListener;
 import com.ssomar.executableevents.events.vehicle.VehicleDestroyListener;
@@ -608,6 +612,19 @@ public class OptimizedEventsHandler {
                     break;
                 case CHUNK_UNLOAD:
                     mainListerner = new ChunkUnLoadListener();
+                    break;
+
+                case BROADCAST_MESSAGE:
+                    mainListerner = new BroadcastMessageListener();
+                    break;
+                case MAP_INITIALIZE:
+                    mainListerner = new MapInitializeListener();
+                    break;
+                case PLUGIN_DISABLE:
+                    mainListerner = new PluginDisableListener();
+                    break;
+                case PLUGIN_ENABLE:
+                    mainListerner = new PluginEnableListener();
                     break;
 
                 case RAID_TRIGGER:
