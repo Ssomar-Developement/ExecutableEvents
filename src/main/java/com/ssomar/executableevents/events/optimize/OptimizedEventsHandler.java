@@ -7,6 +7,9 @@ import com.ssomar.executableevents.events.block.custom.BlockRedstoneListener;
 import com.ssomar.executableevents.events.block.custom.CropGrow;
 import com.ssomar.executableevents.events.block.custom.EnchantItemListener;
 import com.ssomar.executableevents.events.entity.custom.*;
+import com.ssomar.executableevents.events.haging.HangingBreakByEntityListener;
+import com.ssomar.executableevents.events.haging.HangingBreakListener;
+import com.ssomar.executableevents.events.haging.HangingPlaceListener;
 import com.ssomar.executableevents.events.player.custom.*;
 import com.ssomar.executableevents.events.player.itemsadder.ItemsAdderPlayerBlockBreakListener;
 import com.ssomar.executableevents.events.player.lands.PlayerEnterLandsEventEI;
@@ -14,6 +17,10 @@ import com.ssomar.executableevents.events.player.lands.PlayerLeaveLandsEventEI;
 import com.ssomar.executableevents.events.raid.RaidFinishListener;
 import com.ssomar.executableevents.events.raid.RaidTriggerListener;
 import com.ssomar.executableevents.events.raid.RaidWaveListener;
+import com.ssomar.executableevents.events.server.BroadcastMessageListener;
+import com.ssomar.executableevents.events.server.MapInitializeListener;
+import com.ssomar.executableevents.events.server.PluginDisableListener;
+import com.ssomar.executableevents.events.server.PluginEnableListener;
 import com.ssomar.executableevents.events.vehicle.VehicleCreateListener;
 import com.ssomar.executableevents.events.vehicle.VehicleDamageListener;
 import com.ssomar.executableevents.events.vehicle.VehicleDestroyListener;
@@ -607,6 +614,19 @@ public class OptimizedEventsHandler {
                     mainListerner = new ChunkUnLoadListener();
                     break;
 
+                case BROADCAST_MESSAGE:
+                    mainListerner = new BroadcastMessageListener();
+                    break;
+                case MAP_INITIALIZE:
+                    mainListerner = new MapInitializeListener();
+                    break;
+                case PLUGIN_DISABLE:
+                    mainListerner = new PluginDisableListener();
+                    break;
+                case PLUGIN_ENABLE:
+                    mainListerner = new PluginEnableListener();
+                    break;
+
                 case RAID_TRIGGER:
                     mainListerner = new RaidTriggerListener();
                     break;
@@ -625,6 +645,16 @@ public class OptimizedEventsHandler {
                     break;
                 case VEHICLE_DESTROY:
                     mainListerner = new VehicleDestroyListener();
+                    break;
+
+                case HANGING_PLACE:
+                    mainListerner = new HangingPlaceListener();
+                    break;
+                case HANGING_BREAK:
+                    mainListerner = new HangingBreakListener();
+                    break;
+                case HANGING_BREAK_BY_ENTITY:
+                    mainListerner = new HangingBreakByEntityListener();
                     break;
 
                 case ENDERDRAGON_CHANGE_PHASE:

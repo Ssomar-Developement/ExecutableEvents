@@ -161,6 +161,15 @@ public enum Option implements SOption, Serializable {
     RAID_WAVE("RAID_WAVE"),
     RAID_FINISH("RAID_FINISH"),
 
+    BROADCAST_MESSAGE("BROADCAST_MESSAGE"),
+    MAP_INITIALIZE("MAP_INITIALIZE"),
+    PLUGIN_ENABLE("PLUGIN_ENABLE"),
+    PLUGIN_DISABLE("PLUGIN_DISABLE"),
+
+    HANGING_PLACE("HANGING_PLACE"),
+    HANGING_BREAK("HANGING_BREAK"),
+    HANGING_BREAK_BY_ENTITY("HANGING_BREAK_BY_ENTITY"),
+
     VEHICLE_CREATE("VEHICLE_CREATE"),
     VEHICLE_DAMAGE("VEHICLE_DAMAGE"),
     VEHICLE_DESTROY("VEHICLE_DESTROY"),
@@ -410,6 +419,10 @@ public enum Option implements SOption, Serializable {
         result.add(Option.ENTITY_TELEPORT);
         result.add(Option.ENTITY_TRANSFORM);
 
+        result.add(Option.HANGING_PLACE);
+        result.add(Option.HANGING_BREAK);
+        result.add(Option.HANGING_BREAK_BY_ENTITY);
+
         result.add(Option.ENDERDRAGON_CHANGE_PHASE);
 
         result.add(Option.ENTITY_DEATH);
@@ -442,6 +455,11 @@ public enum Option implements SOption, Serializable {
 
         result.add(Option.CHUNK_LOAD);
         result.add(Option.CHUNK_UNLOAD);
+
+        result.add(Option.BROADCAST_MESSAGE);
+        result.add(Option.MAP_INITIALIZE);
+        result.add(Option.PLUGIN_DISABLE);
+        result.add(Option.PLUGIN_ENABLE);
 
         result.add(Option.RAID_TRIGGER);
         result.add(Option.RAID_WAVE);
