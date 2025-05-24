@@ -15,7 +15,7 @@ public class BroadcastMessageListener implements Listener {
     public void BroadcastMessageEvent(BroadcastMessageEvent e) {
         EventInfo eInfo = new EventInfo(e);
         eInfo.getPlaceholders().put("%message%", String.valueOf(e.message()));
-        eInfo.getPlaceholders().put("%isasync%", String.valueOf(e.isAsynchronous()));
+        eInfo.getPlaceholders().put("%is_async%", String.valueOf(e.isAsynchronous()));
         eInfo.setOption(Option.BROADCAST_MESSAGE);
         EventsManager.getInstance().activeOption(eInfo);
     }

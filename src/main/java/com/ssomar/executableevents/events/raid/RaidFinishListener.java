@@ -19,7 +19,7 @@ public class RaidFinishListener implements Listener {
         EventInfo eInfo = new EventInfo(e);
         eInfo.setWorld(Optional.of(e.getWorld()));
         eInfo.setBlock(Optional.of(e.getWorld().getSpawnLocation().getBlock()));
-        eInfo.getPlaceholders().put("%badomenlevel%", String.valueOf(e.getRaid().getBadOmenLevel()));
+        eInfo.getPlaceholders().put("%badomen_level%", String.valueOf(e.getRaid().getBadOmenLevel()));
         eInfo.getPlaceholders().put("%heroes%", String.valueOf(UUID_WORKER(e.getRaid().getHeroes())));
         eInfo.setOption(Option.RAID_FINISH);
         EventsManager.getInstance().activeOption(eInfo);

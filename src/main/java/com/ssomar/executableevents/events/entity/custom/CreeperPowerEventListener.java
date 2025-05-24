@@ -15,7 +15,7 @@ public class CreeperPowerEventListener implements Listener {
     public void creeperPowerEvent(CreeperPowerEvent e) {
         EventInfo eInfo = new EventInfo(e);
         eInfo.setEntity(Optional.of(e.getEntity()));
-        eInfo.getPlaceholders().put("%powerCause%", String.valueOf(e.getCause()));
+        eInfo.getPlaceholders().put("%power_cause%", String.valueOf(e.getCause()));
         eInfo.setOption(Option.CREEPER_POWER_CHANGE);
         EventsManager.getInstance().activeOption(eInfo);
     }

@@ -18,7 +18,7 @@ public class EntitySpawnTrialSpawnerListener implements Listener {
 
         EventInfo eInfo = new EventInfo(e);
         eInfo.setEntity(Optional.of(e.getEntity()));
-        eInfo.getPlaceholders().put("%isOminous%", String.valueOf(spawner.isOminous()));
+        eInfo.getPlaceholders().put("%is_ominous%", String.valueOf(spawner.isOminous()));
         eInfo.setOption(Option.ENTITY_SPAWN_TRIALSPAWNER);
         EventsManager.getInstance().activeOption(eInfo);
     }

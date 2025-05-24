@@ -20,7 +20,7 @@ public class RaidTriggerListener implements Listener {
         eInfo.setWorld(Optional.of(e.getWorld()));
         eInfo.setBlock(Optional.of(e.getWorld().getSpawnLocation().getBlock()));
         eInfo.getPlaceholders().put("%player%", e.getPlayer().toString());
-        eInfo.getPlaceholders().put("%badomenlevel%", String.valueOf(e.getRaid().getBadOmenLevel()));
+        eInfo.getPlaceholders().put("%badomen_level%", String.valueOf(e.getRaid().getBadOmenLevel()));
         eInfo.setOption(Option.RAID_TRIGGER);
         EventsManager.getInstance().activeOption(eInfo);
     }

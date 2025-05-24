@@ -15,8 +15,8 @@ public class BlockRedstoneListener implements Listener {
         EventInfo eInfo = new EventInfo(e);
         eInfo.setBlock(Optional.of(e.getBlock()));
         eInfo.setOption(Option.REDSTONE_BLOCK_ACTIVATION);
-        eInfo.getPlaceholders().put("%newstate%", String.valueOf(e.getNewCurrent()));
-        eInfo.getPlaceholders().put("%oldstate%", String.valueOf(e.getOldCurrent()));
+        eInfo.getPlaceholders().put("%new_state%", String.valueOf(e.getNewCurrent()));
+        eInfo.getPlaceholders().put("%old_state%", String.valueOf(e.getOldCurrent()));
         EventsManager.getInstance().activeOption(eInfo);
     }
 }

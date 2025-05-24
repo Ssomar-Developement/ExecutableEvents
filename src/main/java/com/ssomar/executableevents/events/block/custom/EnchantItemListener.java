@@ -19,7 +19,7 @@ public class EnchantItemListener implements Listener {
         eInfo.setBlock(Optional.of(e.getEnchantBlock()));
         eInfo.setItem(Optional.of(e.getItem()));
         eInfo.getPlaceholders().put("%enchants%", getEnchantPlaceholderFormat(e.getEnchantsToAdd()));
-        eInfo.getPlaceholders().put("%levelCost%", String.valueOf(e.getExpLevelCost()));
+        eInfo.getPlaceholders().put("%level_cost%", String.valueOf(e.getExpLevelCost()));
         eInfo.setOption(Option.PLAYER_ENCHANT_ITEM);
         EventsManager.getInstance().activeOption(eInfo);
     }

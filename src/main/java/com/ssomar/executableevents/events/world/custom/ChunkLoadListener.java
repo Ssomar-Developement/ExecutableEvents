@@ -19,11 +19,11 @@ public class ChunkLoadListener implements Listener {
         eInfo.getPlaceholders().put("%world%", e.getChunk().getWorld().getName());
         eInfo.getPlaceholders().put("%coord_x%", String.valueOf(e.getChunk().getX()));
         eInfo.getPlaceholders().put("%coord_z%", String.valueOf(e.getChunk().getZ()));
-        eInfo.getPlaceholders().put("%isslimechunk%", String.valueOf(e.getChunk().isSlimeChunk()));
-        eInfo.getPlaceholders().put("%isloaded%", String.valueOf(e.getChunk().isLoaded()));
-        eInfo.getPlaceholders().put("%isgenerated%", String.valueOf(e.getChunk().isGenerated()));
-        eInfo.getPlaceholders().put("%isforceloaded%", String.valueOf(e.getChunk().isForceLoaded()));
-        eInfo.getPlaceholders().put("%isnewchunk%", String.valueOf(e.isNewChunk()));
+        eInfo.getPlaceholders().put("%is_slime_chunk%", String.valueOf(e.getChunk().isSlimeChunk()));
+        eInfo.getPlaceholders().put("%is_loaded%", String.valueOf(e.getChunk().isLoaded()));
+        eInfo.getPlaceholders().put("%is_generated%", String.valueOf(e.getChunk().isGenerated()));
+        eInfo.getPlaceholders().put("%is_force_loaded%", String.valueOf(e.getChunk().isForceLoaded()));
+        eInfo.getPlaceholders().put("%is_new_chunk%", String.valueOf(e.isNewChunk()));
         EventsManager.getInstance().activeOption(eInfo);
     }
 }
