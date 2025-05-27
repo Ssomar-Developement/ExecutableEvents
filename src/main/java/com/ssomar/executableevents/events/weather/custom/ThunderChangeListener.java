@@ -5,6 +5,7 @@ import com.ssomar.executableevents.executableevents.activators.Option;
 import com.ssomar.score.sobject.sactivator.EventInfo;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
+import org.bukkit.event.weather.ThunderChangeEvent;
 import org.bukkit.event.weather.WeatherChangeEvent;
 
 import java.util.Optional;
@@ -12,7 +13,7 @@ import java.util.Optional;
 public class ThunderChangeListener implements Listener {
 
     @EventHandler
-    public void WeatherChangeEvent(WeatherChangeEvent e) {
+    public void WeatherChangeEvent(ThunderChangeEvent e) {
         EventInfo eInfo = new EventInfo(e);
         eInfo.setWorld(Optional.of(e.getWorld()));
         eInfo.setBlock(Optional.of(e.getWorld().getSpawnLocation().getBlock()));

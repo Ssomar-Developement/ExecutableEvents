@@ -17,7 +17,7 @@ public class PlayerSendMessageEvent implements Listener {
 
     @EventHandler(priority = EventPriority.HIGHEST)
     public void onPlayerChatEvent(AsyncPlayerChatEvent e) {
-        SsomarDev.testMsg("PlayerSendMessageEvent onPlayerChatEvent", true);
+        //SsomarDev.testMsg("PlayerSendMessageEvent onPlayerChatEvent", true);
         EventInfo eInfo = new EventInfo(e);
         eInfo.setPlayer(Optional.of(e.getPlayer()));
         eInfo.setCommand(Optional.of(e.getMessage()));
