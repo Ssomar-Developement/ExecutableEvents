@@ -174,6 +174,10 @@ public enum Option implements SOption, Serializable {
     VEHICLE_DAMAGE("VEHICLE_DAMAGE"),
     VEHICLE_DESTROY("VEHICLE_DESTROY"),
 
+    REMOTE_SERVER_COMMAND("REMOTE_SERVER_COMMAND"),
+    SERVICE_REGISTER("SERVICE_REGISTER"),
+    SERVICE_UNREGISTER("SERVICE_UNREGISTER"),
+
     CHUNK_LOAD("CHUNK_LOAD"),
     CHUNK_UNLOAD("CHUNK_UNLOAD"),
 
@@ -464,6 +468,10 @@ public enum Option implements SOption, Serializable {
         result.add(Option.RAID_TRIGGER);
         result.add(Option.RAID_WAVE);
         result.add(Option.RAID_FINISH);
+
+        result.add(Option.REMOTE_SERVER_COMMAND);
+        result.add(Option.SERVICE_REGISTER);
+        result.add(Option.SERVICE_UNREGISTER);
 
         result.add(Option.VEHICLE_CREATE);
         result.add(Option.VEHICLE_DAMAGE);
