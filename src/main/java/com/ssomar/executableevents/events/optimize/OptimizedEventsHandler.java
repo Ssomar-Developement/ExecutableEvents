@@ -657,6 +657,16 @@ public class OptimizedEventsHandler {
                     mainListerner = new HangingBreakByEntityListener();
                     break;
 
+                case PLAYER_PICKUP_ARROW:
+                    mainListerner = new PlayerPickupArrowListener();
+                    break;
+                case PLAYER_TAKE_LECTERN_BOOK:
+                    mainListerner = new PlayerTakeLecternBookListener();
+                    break;
+                case PLAYER_ADVANCEMENT:
+                    mainListerner = new PlayerAdvancementDoneListener();
+                    break;
+
                 case ENDERDRAGON_CHANGE_PHASE:
                     mainListerner = new EnderdragonChangePhaseListener();
                     break;
