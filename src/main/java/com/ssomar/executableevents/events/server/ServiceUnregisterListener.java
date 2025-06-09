@@ -12,7 +12,7 @@ public class ServiceUnregisterListener implements Listener {
     @EventHandler
     public void ServiceUnregisterEvent(ServiceUnregisterEvent e) {
         EventInfo eInfo = new EventInfo(e);
-        eInfo.getPlaceholders().put("%getEventName%", e.getEventName());
+        eInfo.getPlaceholders().put("%get_event_name%", e.getEventName());
         eInfo.getPlaceholders().put("%is_async%", String.valueOf(e.isAsynchronous()));
         eInfo.setOption(Option.SERVICE_UNREGISTER);
         EventsManager.getInstance().activeOption(eInfo);

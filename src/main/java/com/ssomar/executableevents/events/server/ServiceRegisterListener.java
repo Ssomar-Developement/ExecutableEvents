@@ -12,7 +12,7 @@ public class ServiceRegisterListener implements Listener {
     @EventHandler
     public void ServiceRegisterEvent(ServiceRegisterEvent e) {
         EventInfo eInfo = new EventInfo(e);
-        eInfo.getPlaceholders().put("%getEventName%", e.getEventName());
+        eInfo.getPlaceholders().put("%get_event_name%", e.getEventName());
         eInfo.getPlaceholders().put("%is_async%", String.valueOf(e.isAsynchronous()));
         eInfo.setOption(Option.SERVICE_REGISTER);
         EventsManager.getInstance().activeOption(eInfo);
