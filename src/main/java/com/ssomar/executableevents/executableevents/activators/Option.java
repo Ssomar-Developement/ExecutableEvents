@@ -174,6 +174,14 @@ public enum Option implements SOption, Serializable {
     VEHICLE_DAMAGE("VEHICLE_DAMAGE"),
     VEHICLE_DESTROY("VEHICLE_DESTROY"),
 
+    REMOTE_SERVER_COMMAND("REMOTE_SERVER_COMMAND"),
+    SERVICE_REGISTER("SERVICE_REGISTER"),
+    SERVICE_UNREGISTER("SERVICE_UNREGISTER"),
+
+    PLAYER_TAKE_LECTERN_BOOK("TAKE_LECTERN_BOOK"),
+    PLAYER_PICKUP_ARROW("PLAYER_PICKUP_ARROW"),
+    PLAYER_ADVANCEMENT("PLAYER_ADVANCEMENT"),
+
     CHUNK_LOAD("CHUNK_LOAD"),
     CHUNK_UNLOAD("CHUNK_UNLOAD"),
 
@@ -223,6 +231,7 @@ public enum Option implements SOption, Serializable {
     public static List<Option> getOptionWithDetailedItems() {
         List<Option> result = new ArrayList<>();
         result.add(Option.PLAYER_PICKUP_ITEM);
+        result.add(Option.PLAYER_PICKUP_ARROW);
         result.add(Option.PLAYER_DROP_ITEM);
         result.add(Option.PLAYER_CONSUME);
 
@@ -465,6 +474,10 @@ public enum Option implements SOption, Serializable {
         result.add(Option.RAID_WAVE);
         result.add(Option.RAID_FINISH);
 
+        result.add(Option.REMOTE_SERVER_COMMAND);
+        result.add(Option.SERVICE_REGISTER);
+        result.add(Option.SERVICE_UNREGISTER);
+
         result.add(Option.VEHICLE_CREATE);
         result.add(Option.VEHICLE_DAMAGE);
         result.add(Option.VEHICLE_DESTROY);
@@ -564,10 +577,13 @@ public enum Option implements SOption, Serializable {
         result.add(Option.PLAYER_TELEPORT);
         result.add(Option.PLAYER_UNEQUIP_ARMOR);
         result.add(Option.PLAYER_PICKUP_ITEM);
+        result.add(Option.PLAYER_PICKUP_ARROW);
         result.add(Option.PLAYER_PORTAL);
         result.add(Option.PLAYER_SHOW_ENTITY);
         result.add(Option.PLAYER_SWAP_HAND);
         result.add(Option.PLAYER_INVENTORY_CLICK);
+        result.add(Option.PLAYER_TAKE_LECTERN_BOOK);
+        result.add(Option.PLAYER_ADVANCEMENT);
 
         result.add(Option.PLAYER_PROJECTILE_HIT_BLOCK);
         result.add(Option.PLAYER_PROJECTILE_HIT_PLAYER);
