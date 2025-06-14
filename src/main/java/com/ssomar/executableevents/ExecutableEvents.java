@@ -76,6 +76,9 @@ public class ExecutableEvents extends JavaPlugin {
         if(!Dependency.SCORE.isInstalled()) {
             SCore.initLibPartOfSCore(this, scoreClassLoader);
         }
+        else if(!Dependency.SCORE.isEnabled()) {
+            Bukkit.getPluginManager().enablePlugin(Bukkit.getPluginManager().getPlugin("SCore") );
+        }
         plugin = new SExecutableEvents(this);
         sendPluginName();
 
