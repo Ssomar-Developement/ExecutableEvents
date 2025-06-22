@@ -2,10 +2,7 @@ package com.ssomar.executableevents.events.optimize;
 
 
 import com.ssomar.executableevents.ExecutableEvents;
-import com.ssomar.executableevents.events.block.custom.BlockDryListener;
-import com.ssomar.executableevents.events.block.custom.BlockRedstoneListener;
-import com.ssomar.executableevents.events.block.custom.CropGrow;
-import com.ssomar.executableevents.events.block.custom.EnchantItemListener;
+import com.ssomar.executableevents.events.block.custom.*;
 import com.ssomar.executableevents.events.entity.custom.*;
 import com.ssomar.executableevents.events.haging.HangingBreakByEntityListener;
 import com.ssomar.executableevents.events.haging.HangingBreakListener;
@@ -665,6 +662,16 @@ public class OptimizedEventsHandler {
                     break;
                 case PLAYER_ADVANCEMENT:
                     mainListerner = new PlayerAdvancementDoneListener();
+                    break;
+
+                case CAMPFIRE_START:
+                    mainListerner = new CampfireStartListener();
+                    break;
+                case BLOCK_IGNITE:
+                    mainListerner = new BlockIgniteListener();
+                    break;
+                case BLOCK_BURN:
+                    mainListerner = new BlockBurnListener();
                     break;
 
                 case ENDERDRAGON_CHANGE_PHASE:
