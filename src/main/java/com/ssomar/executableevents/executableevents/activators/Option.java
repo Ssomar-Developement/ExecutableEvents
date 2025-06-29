@@ -182,6 +182,10 @@ public enum Option implements SOption, Serializable {
     PLAYER_PICKUP_ARROW("PLAYER_PICKUP_ARROW"),
     PLAYER_ADVANCEMENT("PLAYER_ADVANCEMENT"),
 
+    CAMPFIRE_START("CAMPFIRE_START"),
+    BLOCK_IGNITE("BLOCK_IGNITE"),
+    BLOCK_BURN("BLOCK_BURN"),
+
     CHUNK_LOAD("CHUNK_LOAD"),
     CHUNK_UNLOAD("CHUNK_UNLOAD"),
 
@@ -446,6 +450,10 @@ public enum Option implements SOption, Serializable {
         result.add(Option.REDSTONE_BLOCK_ACTIVATION);
         result.add(Option.CROP_GROW);
         result.add(Option.SPAWN_CHANGE);
+
+        result.add(Option.CAMPFIRE_START);
+        result.add(Option.BLOCK_BURN);
+        result.add(Option.BLOCK_IGNITE);
 
         return result;
     }
