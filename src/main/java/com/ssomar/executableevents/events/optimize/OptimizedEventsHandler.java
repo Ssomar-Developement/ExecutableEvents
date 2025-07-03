@@ -674,6 +674,16 @@ public class OptimizedEventsHandler {
                     mainListerner = new BlockBurnListener();
                     break;
 
+                case CRAFTER_CRAFT:
+                    mainListerner = new CrafterCraftListener();
+                    break;
+                case LEAVES_DECAY:
+                    mainListerner = new LeavesDecayListener();
+                    break;
+                case SIGN_CHANGE:
+                    mainListerner = new SignChangeListener();
+                    break;
+
                 case ENDERDRAGON_CHANGE_PHASE:
                     mainListerner = new EnderdragonChangePhaseListener();
                     break;

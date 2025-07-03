@@ -186,6 +186,10 @@ public enum Option implements SOption, Serializable {
     BLOCK_IGNITE("BLOCK_IGNITE"),
     BLOCK_BURN("BLOCK_BURN"),
 
+    CRAFTER_CRAFT("CRAFTER_CRAFT"),
+    LEAVES_DECAY("LEAVES_DECAY"),
+    SIGN_CHANGE("SIGN_CHANGE"),
+
     CHUNK_LOAD("CHUNK_LOAD"),
     CHUNK_UNLOAD("CHUNK_UNLOAD"),
 
@@ -454,6 +458,10 @@ public enum Option implements SOption, Serializable {
         result.add(Option.CAMPFIRE_START);
         result.add(Option.BLOCK_BURN);
         result.add(Option.BLOCK_IGNITE);
+
+        result.add(Option.CRAFTER_CRAFT);
+        result.add(Option.LEAVES_DECAY);
+        result.add(Option.SIGN_CHANGE);
 
         return result;
     }
