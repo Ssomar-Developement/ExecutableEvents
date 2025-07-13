@@ -684,6 +684,16 @@ public class OptimizedEventsHandler {
                     mainListerner = new SignChangeListener();
                     break;
 
+                case SPONGE_ABSORB:
+                    mainListerner = new SpongeAbsorbListener();
+                    break;
+                case BLOCK_FERTILIZE:
+                    mainListerner = new BlockFertilizeListener();
+                    break;
+                case BLOCK_EXPLODE:
+                    mainListerner = new BlockExplodeListener();
+                    break;
+
                 case ENDERDRAGON_CHANGE_PHASE:
                     mainListerner = new EnderdragonChangePhaseListener();
                     break;

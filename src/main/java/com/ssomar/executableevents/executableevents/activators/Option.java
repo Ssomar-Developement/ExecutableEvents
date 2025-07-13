@@ -190,6 +190,10 @@ public enum Option implements SOption, Serializable {
     LEAVES_DECAY("LEAVES_DECAY"),
     SIGN_CHANGE("SIGN_CHANGE"),
 
+    SPONGE_ABSORB("SPONGE_ABSORB"),
+    BLOCK_FERTILIZE("BLOCK_FERTILIZE"),
+    BLOCK_EXPLODE("BLOCK_EXPLODE"),
+
     CHUNK_LOAD("CHUNK_LOAD"),
     CHUNK_UNLOAD("CHUNK_UNLOAD"),
 
@@ -329,7 +333,7 @@ public enum Option implements SOption, Serializable {
         result.add(ENTITY_COMBUST_BY_BLOCK);
         result.add(ENTITY_DAMAGE_BY_BLOCK);
         result.add(ENTITY_ENTER_BLOCK);
-        result.add(Option.PLAYER_ENCHANT_ITEM);
+        result.add(PLAYER_ENCHANT_ITEM);
 
         result.add(CROP_GROW);
 
@@ -462,6 +466,10 @@ public enum Option implements SOption, Serializable {
         result.add(Option.CRAFTER_CRAFT);
         result.add(Option.LEAVES_DECAY);
         result.add(Option.SIGN_CHANGE);
+
+        result.add(Option.SPONGE_ABSORB);
+        result.add(Option.BLOCK_FERTILIZE);
+        result.add(Option.BLOCK_EXPLODE);
 
         return result;
     }
