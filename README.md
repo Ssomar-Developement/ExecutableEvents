@@ -23,6 +23,7 @@
 
 ## Installation
 
+
 1. Download the latest release from [Modrinth](https://modrinth.com/plugin/executableevents)
 2. Place the `ExecutableEvents.jar` file in your server's `plugins` folder
 3. Start/restart your server
@@ -224,6 +225,7 @@ For commercial licensing inquiries, please contact: **Marceau LEYMONERIE**
 ## Acknowledgments
 
 - **Author**: Marceau LEYMONERIE
+
 - **Contributors**: All community members who have contributed to the project
 - **Special Thanks**: The Minecraft modding community for their support and feedback
 
