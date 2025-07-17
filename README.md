@@ -192,14 +192,12 @@ This project is licensed under a Custom License that allows personal use while p
 - Paid distribution or redistribution
 - Commercial hosting as a paid service
 
-For commercial licensing inquiries, please contact: **Marceau LEYMONERIE**
+For commercial licensing inquiries, please contact: **Ssomar**
 
 ## Acknowledgments
 
-- **Author**: Marceau LEYMONERIE
-
-- **Contributors**: All community members who have contributed to the project
-- **Special Thanks**: The Minecraft modding community for their support and feedback
+- **Author**: Ssomar
+- **Special Thanks**: to @Fran2019 for his help on this project
 
 ## Changelog
 
