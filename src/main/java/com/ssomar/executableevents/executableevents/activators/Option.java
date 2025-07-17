@@ -608,6 +608,7 @@ public enum Option implements SOption, Serializable {
         result.add(Option.PLAYER_INVENTORY_CLICK);
         result.add(Option.PLAYER_TAKE_LECTERN_BOOK);
         result.add(Option.PLAYER_ADVANCEMENT);
+        result.add(Option.PLAYER_ENCHANT_ITEM);
 
         result.add(Option.PLAYER_PROJECTILE_HIT_BLOCK);
         result.add(Option.PLAYER_PROJECTILE_HIT_PLAYER);

@@ -16,7 +16,7 @@ public class EnchantItemListener implements Listener {
     public void EnchantItemEvent(EnchantItemEvent e) {
         EventInfo eInfo = new EventInfo(e);
         eInfo.setPlayer(Optional.of(e.getEnchanter()));
-        eInfo.setBlock(Optional.of(e.getEnchantBlock()));
+        eInfo.setTargetBlock(Optional.of(e.getEnchantBlock()));
         eInfo.setItem(Optional.of(e.getItem()));
         eInfo.getPlaceholders().put("%enchants%", getEnchantPlaceholderFormat(e.getEnchantsToAdd()));
         eInfo.getPlaceholders().put("%level_cost%", String.valueOf(e.getExpLevelCost()));
