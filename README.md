@@ -23,7 +23,8 @@
 
 ## Installation
 
-1. Download the latest release from the [releases page](https://github.com/ssomar/ExecutableEvents/releases)
+
+1. Download the latest release from [Modrinth](https://modrinth.com/plugin/executableevents)
 2. Place the `ExecutableEvents.jar` file in your server's `plugins` folder
 3. Start/restart your server
 4. Configure events in the `plugins/ExecutableEvents/events/` directory
@@ -205,17 +206,32 @@ Before submitting:
 
 ## License
 
-This project is licensed under the GNU General Public License v3.0 - see the [LICENSE](LICENSE) file for details.
+This project is licensed under a Custom License that allows personal use while prohibiting paid redistribution. See the [LICENSE](LICENSE) file for complete terms.
+
+### License Summary
+
+**Permitted:**
+- Personal, educational, and non-commercial use
+- Source code access and modification for personal learning
+- Non-commercial distribution with license included
+
+**Prohibited:**
+- Commercial use without permission
+- Paid distribution or redistribution
+- Commercial hosting as a paid service
+
+For commercial licensing inquiries, please contact: **Marceau LEYMONERIE**
 
 ## Acknowledgments
 
-- **Author**: Ssomar
+- **Author**: Marceau LEYMONERIE
+
 - **Contributors**: All community members who have contributed to the project
 - **Special Thanks**: The Minecraft modding community for their support and feedback
 
 ## Changelog
 
-For detailed version history and changes, please see our [releases page](https://github.com/ssomar/ExecutableEvents/releases).
+For detailed version history and changes, please see our [Modrinth releases](https://modrinth.com/plugin/executableevents/versions).
 
 ---
 
