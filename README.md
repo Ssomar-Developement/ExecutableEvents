@@ -38,20 +38,9 @@ After installation, ExecutableEvents will create default configuration files:
 
 ### Creating Your First Event
 
-1. Navigate to `plugins/ExecutableEvents/events/Default/`
-2. Create a new `.yml` file for your event
+1. Go in-game
+2. Type /ee editor
 3. Configure the event trigger and actions
-
-Example event configuration:
-```yaml
-# Example: Give player a diamond when they break stone
-activator: PLAYER_BLOCK_BREAK
-conditions:
-  - BLOCK_MATERIAL equals STONE
-actions:
-  - GIVE_ITEM diamond 1
-  - SENDMESSAGE &6You found a diamond in the stone!
-```
 
 ## Building from Source
 
@@ -95,23 +84,6 @@ mvn clean package -P Ssomar
 | `/ee show <name>` | Display event information | executableevents.admin |
 
 ## Configuration
-
-### Main Configuration (`config.yml`)
-
-```yaml
-# Disable plugin in specific worlds
-disabledWorlds: []
-
-# Enable cooldown for operators (Premium feature)
-premiumEnableCooldownForOp: true
-
-# Check for plugin updates
-checkVersionMsg: true
-
-# Backup system settings
-disableBackup: false
-deleteBackupsAfterDays: 7
-```
 
 ### Event Configuration
 
