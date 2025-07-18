@@ -13,6 +13,7 @@ import com.ssomar.executableevents.executableevents.manager.ExecutableEventsMana
 import com.ssomar.score.SCore;
 import com.ssomar.score.actionbar.ActionbarCommands;
 import com.ssomar.score.commands.score.CommandsClassAbstract;
+import com.ssomar.score.commands.score.PathCommand;
 import com.ssomar.score.commands.score.clear.ClearCommand;
 import com.ssomar.score.commands.score.clear.ClearType;
 import com.ssomar.score.sobject.menu.NewSObjectsManagerEditor;
@@ -34,6 +35,8 @@ import java.util.*;
 public class CommandsClass extends CommandsClassAbstract<SExecutableEvents> {
 
 
+    private PathCommand<SExecutableEvents, ExecutableEventsManager, ExecutableEvent> pathCommand;
+
     public CommandsClass(SExecutableEvents main) {
         super(main);
 
@@ -51,6 +54,9 @@ public class CommandsClass extends CommandsClassAbstract<SExecutableEvents> {
         addCommand("actionbar");
         addCommand("delete");
         addCommand("run-custom-trigger");
+
+        pathCommand = new PathCommand<>(getSPlugin(), ExecutableEventsManager.getInstance());
+        addCommands(pathCommand.getCommands());
     }
 
 
@@ -256,6 +262,7 @@ public class CommandsClass extends CommandsClassAbstract<SExecutableEvents> {
 
                 break;
             default:
+                pathCommand.run(sender, command, args, typedCommand);
                 break;
         }
     }
@@ -317,6 +324,8 @@ public class CommandsClass extends CommandsClassAbstract<SExecutableEvents> {
                     }
                     break;
                 default:
+                    arguments.addAll(pathCommand.getArguments(args[0], args));
+                    if (!arguments.isEmpty()) return arguments;
                     break;
             }
         }
