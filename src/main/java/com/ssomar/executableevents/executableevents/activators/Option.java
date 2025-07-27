@@ -194,6 +194,10 @@ public enum Option implements SOption, Serializable {
     BLOCK_FERTILIZE("BLOCK_FERTILIZE"),
     BLOCK_EXPLODE("BLOCK_EXPLODE"),
 
+    BELL_RESONATE("BELL_RESONATE"),
+    BELL_RING("BELL_RING"),
+    NOTE_PLAY("NOTE_PLAY"),
+
     CHUNK_LOAD("CHUNK_LOAD"),
     CHUNK_UNLOAD("CHUNK_UNLOAD"),
 
@@ -470,6 +474,10 @@ public enum Option implements SOption, Serializable {
         result.add(Option.SPONGE_ABSORB);
         result.add(Option.BLOCK_FERTILIZE);
         result.add(Option.BLOCK_EXPLODE);
+
+        result.add(Option.BELL_RESONATE);
+        result.add(Option.BELL_RING);
+        result.add(Option.NOTE_PLAY);
 
         return result;
     }

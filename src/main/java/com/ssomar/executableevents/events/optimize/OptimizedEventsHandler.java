@@ -694,6 +694,16 @@ public class OptimizedEventsHandler {
                     mainListerner = new BlockExplodeListener();
                     break;
 
+                case BELL_RESONATE:
+                    mainListerner = new BellResonateListener();
+                    break;
+                case BELL_RING:
+                    mainListerner = new BellRingListener();
+                    break;
+                case NOTE_PLAY:
+                    mainListerner = new NotePlayListener();
+                    break;
+
                 case ENDERDRAGON_CHANGE_PHASE:
                     mainListerner = new EnderdragonChangePhaseListener();
                     break;
