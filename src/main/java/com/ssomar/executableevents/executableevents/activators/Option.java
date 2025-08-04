@@ -198,6 +198,10 @@ public enum Option implements SOption, Serializable {
     BELL_RING("BELL_RING"),
     NOTE_PLAY("NOTE_PLAY"),
 
+    BREWING_START("BREWING_START"),
+    MOISTURE_CHANGE("MOISTURE_CHANGE"),
+    SCULK_BLOOM("SCULK_BLOOM"),
+
     CHUNK_LOAD("CHUNK_LOAD"),
     CHUNK_UNLOAD("CHUNK_UNLOAD"),
 
@@ -478,6 +482,10 @@ public enum Option implements SOption, Serializable {
         result.add(Option.BELL_RESONATE);
         result.add(Option.BELL_RING);
         result.add(Option.NOTE_PLAY);
+
+        result.add(Option.SCULK_BLOOM);
+        result.add(Option.MOISTURE_CHANGE);
+        result.add(Option.BREWING_START);
 
         return result;
     }

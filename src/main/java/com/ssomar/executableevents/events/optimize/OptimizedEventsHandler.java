@@ -704,6 +704,16 @@ public class OptimizedEventsHandler {
                     mainListerner = new NotePlayListener();
                     break;
 
+                case SCULK_BLOOM:
+                    mainListerner = new SculkBloomListener();
+                    break;
+                case MOISTURE_CHANGE:
+                    mainListerner = new MoistureChangeListener();
+                    break;
+                case BREWING_START:
+                    mainListerner = new BrewingStartListener();
+                    break;
+
                 case ENDERDRAGON_CHANGE_PHASE:
                     mainListerner = new EnderdragonChangePhaseListener();
                     break;
