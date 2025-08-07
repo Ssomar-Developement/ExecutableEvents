@@ -14,8 +14,8 @@ public class BrewingStartListener implements Listener {
     public void BrewingStartEvent(BrewingStartEvent e) {
         EventInfo eInfo = new EventInfo(e);
         eInfo.setBlock(Optional.of(e.getBlock()));
-        eInfo.getPlaceholders().put("%brewingTime%", String.valueOf(e.getBrewingTime()));
-        eInfo.getPlaceholders().put("%recipeTime%", String.valueOf(e.getRecipeBrewTime()));
+        eInfo.getPlaceholders().put("%brewing_time%", String.valueOf(e.getBrewingTime()));
+        eInfo.getPlaceholders().put("%recipe_time%", String.valueOf(e.getRecipeBrewTime()));
         eInfo.setOption(Option.BREWING_START);
         EventsManager.getInstance().activeOption(eInfo);
     }
