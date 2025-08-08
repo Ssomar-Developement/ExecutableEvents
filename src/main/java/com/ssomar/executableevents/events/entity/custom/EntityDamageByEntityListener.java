@@ -30,8 +30,8 @@ public class EntityDamageByEntityListener implements Listener {
         eInfo.setTargetEntity(Optional.of(e.getDamager()));
         eInfo.setDamageCause(Optional.of(e.getCause()));
         eInfo.setOption(Option.ENTITY_DAMAGE_BY_ENTITY);
-        eInfo.getPlaceholders().put("entity_last_damage_taken_final%", String.valueOf(e.getFinalDamage()));
-        eInfo.getPlaceholders().put("entity_last_damage_taken_final_int%", String.valueOf( (int) ( e.getFinalDamage() ) ));
+        eInfo.getPlaceholders().put("%entity_last_damage_taken_final%", String.valueOf(e.getFinalDamage()));
+        eInfo.getPlaceholders().put("%entity_last_damage_taken_final_int%", String.valueOf( (int) ( e.getFinalDamage() ) ));
         EventsManager.getInstance().activeOption(eInfo);
     }
 }

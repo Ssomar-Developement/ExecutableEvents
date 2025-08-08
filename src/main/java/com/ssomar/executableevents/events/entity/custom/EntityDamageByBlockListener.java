@@ -26,8 +26,8 @@ public class EntityDamageByBlockListener implements Listener {
         if (!SCore.is1v12Less()) eInfo.setOldStatesTargetBlock(Optional.of(block.getBlockData().getAsString(true)));
         eInfo.setDamageCause(Optional.of(e.getCause()));
         eInfo.setOption(Option.ENTITY_DAMAGE_BY_BLOCK);
-        eInfo.getPlaceholders().put("entity_last_damage_taken_final%", String.valueOf(e.getFinalDamage()));
-        eInfo.getPlaceholders().put("entity_last_damage_taken_final_int%", String.valueOf( (int) ( e.getFinalDamage() ) ));
+        eInfo.getPlaceholders().put("%entity_last_damage_taken_final%", String.valueOf(e.getFinalDamage()));
+        eInfo.getPlaceholders().put("%entity_last_damage_taken_final_int%", String.valueOf( (int) ( e.getFinalDamage() ) ));
         EventsManager.getInstance().activeOption(eInfo);
     }
 }
