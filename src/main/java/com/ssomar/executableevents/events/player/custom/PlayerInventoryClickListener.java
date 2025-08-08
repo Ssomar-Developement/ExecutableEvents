@@ -32,7 +32,7 @@ public class PlayerInventoryClickListener implements Listener {
         eInfo.getPlaceholders().put("%inventory_type%", String.valueOf(e.getInventory().getType()));
         // someone made a complaint about how its failing at purpur 1.20.6 due to somehow InventoryView not existing in older versions
         // i straight up do not know when it got changed from abstract class to interface
-        if (SCore.is1v21()) {
+        if (SCore.is1v21Plus()) {
             eInfo.getPlaceholders().put("%inventory_title%", (e.getView().getTitle()));
         }
         eInfo.setOption(Option.PLAYER_INVENTORY_CLICK);
