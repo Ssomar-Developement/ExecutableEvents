@@ -3,6 +3,7 @@ package com.ssomar.executableevents.events.entity.custom;
 import com.ssomar.executableevents.events.EventsManager;
 import com.ssomar.executableevents.executableevents.activators.Option;
 import com.ssomar.score.SCore;
+import com.ssomar.score.commands.runnable.mixed_player_entity.commands.DamageBoost;
 import com.ssomar.score.sobject.sactivator.EventInfo;
 import com.ssomar.sevents.events.player.receivehit.byentity.PlayerReceiveHitByEntityEvent;
 import org.bukkit.Bukkit;
@@ -29,6 +30,8 @@ public class EntityDamageByEntityListener implements Listener {
         eInfo.setTargetEntity(Optional.of(e.getDamager()));
         eInfo.setDamageCause(Optional.of(e.getCause()));
         eInfo.setOption(Option.ENTITY_DAMAGE_BY_ENTITY);
+        eInfo.getPlaceholders().put("%entity_last_damage_taken_final%", String.valueOf(e.getFinalDamage()));
+        eInfo.getPlaceholders().put("%entity_last_damage_taken_final_int%", String.valueOf( (int) ( e.getFinalDamage() ) ));
         EventsManager.getInstance().activeOption(eInfo);
     }
 }

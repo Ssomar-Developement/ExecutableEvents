@@ -3,6 +3,7 @@ package com.ssomar.executableevents.events.entity.custom;
 import com.ssomar.executableevents.events.EventsManager;
 import com.ssomar.executableevents.executableevents.activators.Option;
 import com.ssomar.score.SCore;
+import com.ssomar.score.commands.runnable.mixed_player_entity.commands.DamageBoost;
 import com.ssomar.score.sobject.sactivator.EventInfo;
 import org.bukkit.block.Block;
 import org.bukkit.event.EventHandler;
@@ -25,6 +26,8 @@ public class EntityDamageByBlockListener implements Listener {
         if (!SCore.is1v12Less()) eInfo.setOldStatesTargetBlock(Optional.of(block.getBlockData().getAsString(true)));
         eInfo.setDamageCause(Optional.of(e.getCause()));
         eInfo.setOption(Option.ENTITY_DAMAGE_BY_BLOCK);
+        eInfo.getPlaceholders().put("%entity_last_damage_taken_final%", String.valueOf(e.getFinalDamage()));
+        eInfo.getPlaceholders().put("%entity_last_damage_taken_final_int%", String.valueOf( (int) ( e.getFinalDamage() ) ));
         EventsManager.getInstance().activeOption(eInfo);
     }
 }
