@@ -202,6 +202,10 @@ public enum Option implements SOption, Serializable {
     MOISTURE_CHANGE("MOISTURE_CHANGE"),
     SCULK_BLOOM("SCULK_BLOOM"),
 
+    TNT_PRIME("TNT_PRIME"),
+    CAULDRON_LEVEL_CHANGE("CAULDRON_LEVEL_CHANGE"),
+    FLUID_LEVEL_CHANGE("FLUID_LEVEL_CHANGE"),
+
     CHUNK_LOAD("CHUNK_LOAD"),
     CHUNK_UNLOAD("CHUNK_UNLOAD"),
 
@@ -486,6 +490,10 @@ public enum Option implements SOption, Serializable {
         result.add(Option.SCULK_BLOOM);
         result.add(Option.MOISTURE_CHANGE);
         result.add(Option.BREWING_START);
+
+        result.add(Option.TNT_PRIME);
+        result.add(Option.CAULDRON_LEVEL_CHANGE);
+        result.add(Option.FLUID_LEVEL_CHANGE);
 
         return result;
     }

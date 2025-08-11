@@ -714,6 +714,16 @@ public class OptimizedEventsHandler {
                     mainListerner = new BrewingStartListener();
                     break;
 
+                case TNT_PRIME:
+                    mainListerner = new TNTPrimeListener();
+                    break;
+                case CAULDRON_LEVEL_CHANGE:
+                    mainListerner = new CauldronLevelChangeListener();
+                    break;
+                case FLUID_LEVEL_CHANGE:
+                    mainListerner = new FluidLevelChangeListener();
+                    break;
+
                 case ENDERDRAGON_CHANGE_PHASE:
                     mainListerner = new EnderdragonChangePhaseListener();
                     break;
