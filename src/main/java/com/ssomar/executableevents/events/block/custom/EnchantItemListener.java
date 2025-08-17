@@ -2,6 +2,8 @@ package com.ssomar.executableevents.events.block.custom;
 
 import com.ssomar.executableevents.events.EventsManager;
 import com.ssomar.executableevents.executableevents.activators.Option;
+import com.ssomar.score.SCore;
+import com.ssomar.score.SsomarDev;
 import com.ssomar.score.sobject.sactivator.EventInfo;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.event.EventHandler;
@@ -17,11 +19,15 @@ public class EnchantItemListener implements Listener {
         EventInfo eInfo = new EventInfo(e);
         eInfo.setPlayer(Optional.of(e.getEnchanter()));
         eInfo.setTargetBlock(Optional.of(e.getEnchantBlock()));
+        eInfo.setOldMaterialTargetBlock(Optional.of(e.getEnchantBlock().getType()));
+        if (!SCore.is1v12Less()) eInfo.setOldStatesTargetBlock(Optional.of(e.getEnchantBlock().getBlockData().getAsString(true)));
+
         eInfo.setItem(Optional.of(e.getItem()));
         eInfo.getPlaceholders().put("%enchants%", getEnchantPlaceholderFormat(e.getEnchantsToAdd()));
         eInfo.getPlaceholders().put("%level_cost%", String.valueOf(e.getExpLevelCost()));
         eInfo.setOption(Option.PLAYER_ENCHANT_ITEM);
         EventsManager.getInstance().activeOption(eInfo);
+        SsomarDev.testMsg("EnchantItemEvent >> " + eInfo.getPlaceholders().get("%enchants%"), true);
     }
 
     // Formating Enchants to String Ex: "Sharpness;10:Efficiency;2"

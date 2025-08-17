@@ -258,6 +258,7 @@ public enum Option implements SOption, Serializable {
         result.add(Option.PLAYER_PICKUP_ARROW);
         result.add(Option.PLAYER_DROP_ITEM);
         result.add(Option.PLAYER_CONSUME);
+        result.add(Option.PLAYER_ENCHANT_ITEM);
 
         return result;
     }
@@ -405,7 +406,6 @@ public enum Option implements SOption, Serializable {
         result.add(Option.ENTITY_TARGET_PLAYER);
         result.add(Option.ENTITY_DAMAGE_BY_PLAYER);
         result.add(Option.ENTITY_TAME_BY_PLAYER);
-        result.add(Option.PLAYER_ENCHANT_ITEM);
 
         return result;
     }
