@@ -25,8 +25,8 @@ public class EntityDamageByPlayerListener implements Listener {
             eInfo.setOption(Option.ENTITY_DAMAGE_BY_PLAYER);
             eInfo.getPlaceholders().put("%entity_last_damage_taken_final%", String.valueOf(e.getFinalDamage()));
             eInfo.getPlaceholders().put("%entity_last_damage_taken_final_int%", String.valueOf( (int) ( e.getFinalDamage() ) ));
-            eInfo.getPlaceholders().put("%entity_last_damage_taken_final_withBooster%", String.valueOf(DamageBoost.getInstance().getNewDamage(e.getDamager().getUniqueId(), e.getDamage())));
-            eInfo.getPlaceholders().put("%entity_last_damage_taken_final_withBooster_int%", String.valueOf((int) DamageBoost.getInstance().getNewDamage(e.getDamager().getUniqueId(), e.getDamage())));
+            eInfo.getPlaceholders().put("%entity_last_damage_taken_final_with_booster%", String.valueOf(DamageBoost.getInstance().getNewDamage(e.getDamager().getUniqueId(), e.getDamage())));
+            eInfo.getPlaceholders().put("%entity_last_damage_taken_final_with_booster_int%", String.valueOf((int) DamageBoost.getInstance().getNewDamage(e.getDamager().getUniqueId(), e.getDamage())));
             EventsManager.getInstance().activeOption(eInfo);
 
         }
