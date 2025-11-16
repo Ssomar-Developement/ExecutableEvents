@@ -238,16 +238,16 @@ public enum Option implements SOption, Serializable {
 
     public static List<Option> getOptionWithDetailedDamageCauses() {
         List<Option> result = new ArrayList<>();
+        result.add(Option.ENTITY_DAMAGE_BY_BLOCK);
+        result.add(Option.ENTITY_DAMAGE_BY_ENTITY);
+        result.add(Option.ENTITY_DAMAGE_BY_PLAYER);
+        result.add(Option.ENTITY_DEATH);
+        result.add(Option.PLAYER_DEATH);
+        result.add(Option.PLAYER_HIT_ENTITY);
+        result.add(Option.PLAYER_HIT_PLAYER);
         result.add(Option.PLAYER_RECEIVE_HIT_BY_ENTITY);
         result.add(Option.PLAYER_RECEIVE_HIT_BY_PLAYER);
         result.add(Option.PLAYER_RECEIVE_HIT_GLOBAL);
-        result.add(Option.ENTITY_DAMAGE_BY_PLAYER);
-        result.add(Option.ENTITY_DAMAGE_BY_ENTITY);
-        result.add(Option.ENTITY_DAMAGE_BY_BLOCK);
-        result.add(Option.PLAYER_HIT_ENTITY);
-        result.add(Option.PLAYER_HIT_PLAYER);
-        result.add(Option.PLAYER_DEATH);
-        result.add(Option.ENTITY_DEATH);
 
         return result;
     }
@@ -280,13 +280,13 @@ public enum Option implements SOption, Serializable {
 
     public static List<Option> getOptionWithDrops() {
         List<Option> result = new ArrayList<>();
+        result.add(Option.ENTITY_DEATH);
         result.add(Option.ITEMSADDER_PLAYER_BLOCK_BREAK);
+        result.add(Option.PLAYER_BLOCK_BREAK);
         result.add(Option.PLAYER_BRUSH_BLOCK);
+        result.add(Option.PLAYER_FISH_FISH);
         result.add(Option.PLAYER_KILL_ENTITY);
         result.add(Option.PLAYER_KILL_PLAYER);
-        result.add(Option.PLAYER_BLOCK_BREAK);
-        result.add(Option.PLAYER_FISH_FISH);
-        result.add(Option.ENTITY_DEATH);
 
         return result;
     }
