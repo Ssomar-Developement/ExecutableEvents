@@ -1158,7 +1158,7 @@ public class ActivatorEEFeature extends SActivator<ActivatorEEFeature, Activator
 
         this.consoleCommands = new ConsoleCommandsFeature(this, FeatureSettingsSCore.consoleCommands, false);
 
-        this.playerCommands = new PlayerCommandsFeature(this, FeatureSettingsSCore.commands_player);
+        this.playerCommands = new PlayerCommandsFeature(this, FeatureSettingsSCore.playerCommands);
 
         this.targetPlayerCommands = new PlayerCommandsFeature(this, FeatureSettingsSCore.targetPlayerCommands);
 

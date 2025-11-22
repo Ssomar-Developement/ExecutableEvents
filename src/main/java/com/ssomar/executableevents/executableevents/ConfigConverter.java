@@ -54,6 +54,26 @@ public class ConfigConverter {
                 for (Map.Entry<String, String> entry : getWordsToReplace().entrySet()) {
                     fileContent = fileContent.replace(entry.getKey(), entry.getValue());
                 }
+
+                // Specific 2025 11 22
+                // The regex pattern to match "commands:" at the beginning of lines
+                String pattern = "(?m)^(\\s*)commands(\\s*):";
+                // (?m)     - MULTILINE flag: Makes ^ and $ match the start/end of each line,
+                //            not just the start/end of the entire string
+                // ^        - Matches the beginning of a line (because of the (?m) flag)
+                // (\\s*)   - Capture group 1: Captures zero or more whitespace characters
+                //            \\s matches any whitespace (spaces, tabs)
+                //            * means "zero or more times"
+                //            The parentheses () create a capture group that can be referenced later
+                // commands: - Matches the literal text "commands:"
+
+                // The replacement string
+                String replacement = "$1playerCommands:";
+                // $1              - References capture group 1 (the whitespace we captured)
+                //                   This preserves the original indentation
+                // playerCommands: - The literal text that will replace "commands:"
+                fileContent = fileContent.replaceAll(pattern, replacement);
+
                 writer.write(fileContent);
             } finally {
                 writer.close();
