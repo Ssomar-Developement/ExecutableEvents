@@ -26,6 +26,10 @@ public class PlayerReceiveHitByEntityEvent implements Listener {
         if (e.getDamager() instanceof Projectile) {
             eInfo.setProjectile(Optional.of((Projectile) e.getDamager()));
         }
+        eInfo.getPlaceholders().put("%last_damage_taken_nonfinal%", String.valueOf(e.getEntityDamageEvent().getDamage()));
+        eInfo.getPlaceholders().put("%last_damage_taken_nonfinal_int%", String.valueOf((int) e.getEntityDamageEvent().getDamage()));
+        eInfo.getPlaceholders().put("%last_damage_taken_final%", String.valueOf(e.getEntityDamageEvent().getFinalDamage()));
+        eInfo.getPlaceholders().put("%last_damage_taken_final_int%", String.valueOf((int) e.getEntityDamageEvent().getFinalDamage()));
         eInfo.setOption(Option.PLAYER_RECEIVE_HIT_BY_ENTITY);
         EventsManager.getInstance().activeOption(eInfo);
     }
@@ -40,6 +44,10 @@ public class PlayerReceiveHitByEntityEvent implements Listener {
                 eInfo.setPlayer(Optional.of(e.getTarget()));
                 eInfo.setTargetEntity(Optional.of((Entity) projectile.getShooter()));
                 eInfo.setDamageCause(Optional.of(EntityDamageEvent.DamageCause.PROJECTILE));
+                eInfo.getPlaceholders().put("%last_damage_taken_nonfinal%", String.valueOf(e.getEntity().getLastDamageCause().getDamage()));
+                eInfo.getPlaceholders().put("%last_damage_taken_nonfinal_int%", String.valueOf((int) e.getEntity().getLastDamageCause().getDamage()));
+                eInfo.getPlaceholders().put("%last_damage_taken_final%", String.valueOf(e.getEntity().getLastDamageCause().getFinalDamage()));
+                eInfo.getPlaceholders().put("%last_damage_taken_final_int%", String.valueOf((int) e.getEntity().getLastDamageCause().getFinalDamage()));
                 eInfo.setOption(Option.PLAYER_RECEIVE_HIT_BY_ENTITY);
                 EventsManager.getInstance().activeOption(eInfo);
             }

@@ -17,6 +17,10 @@ public class PlayerReceiveHitGlobalEvent implements Listener {
         eInfo.setPlayer(Optional.of(e.getPlayer()));
         eInfo.setDamageCause(Optional.of(e.getDamageCause()));
         eInfo.setOption(Option.PLAYER_RECEIVE_HIT_GLOBAL);
+        eInfo.getPlaceholders().put("%last_damage_taken_nonfinal%", String.valueOf(e.getEntityDamageEvent().getDamage()));
+        eInfo.getPlaceholders().put("%last_damage_taken_nonfinal_int%", String.valueOf((int) e.getEntityDamageEvent().getDamage()));
+        eInfo.getPlaceholders().put("%last_damage_taken_final%", String.valueOf(e.getEntityDamageEvent().getFinalDamage()));
+        eInfo.getPlaceholders().put("%last_damage_taken_final_int%", String.valueOf((int) e.getEntityDamageEvent().getFinalDamage()));
         EventsManager.getInstance().activeOption(eInfo);
     }
 }
