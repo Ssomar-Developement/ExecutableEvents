@@ -26,6 +26,7 @@ import com.ssomar.executableevents.events.weather.custom.ThunderChangeListener;
 import com.ssomar.executableevents.events.weather.custom.WeatherChangeListener;
 import com.ssomar.executableevents.events.world.custom.ChunkLoadListener;
 import com.ssomar.executableevents.events.world.custom.ChunkUnLoadListener;
+import com.ssomar.executableevents.events.world.custom.PortalCreateListener;
 import com.ssomar.executableevents.events.world.custom.WorldCycleListener;
 import com.ssomar.executableevents.executableevents.activators.Option;
 import com.ssomar.score.SCore;
@@ -726,6 +727,9 @@ public class OptimizedEventsHandler {
 
                 case ENDERDRAGON_CHANGE_PHASE:
                     mainListerner = new EnderdragonChangePhaseListener();
+                    break;
+                case PORTAL_CREATE:
+                    mainListerner = new PortalCreateListener();
                     break;
             }
             if (mainListerner != null) {
