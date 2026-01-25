@@ -662,7 +662,9 @@ public class OptimizedEventsHandler {
                     mainListerner = new PlayerTakeLecternBookListener();
                     break;
                 case PLAYER_ADVANCEMENT:
-                    mainListerner = new PlayerAdvancementDoneListener();
+                    if (SCore.is1v12Plus()) {
+                        mainListerner = new PlayerAdvancementDoneListener();
+                    }
                     break;
 
                 case CAMPFIRE_START:
