@@ -20,15 +20,19 @@ public class PlayerAdvancementDoneListener implements Listener {
     public void onPlayerAdvancementDoneEvent(PlayerAdvancementDoneEvent e) {
         EventInfo eInfo = new EventInfo(e);
         eInfo.setPlayer(Optional.of(e.getPlayer()));
-        // 1.12 api doesn't return advancement's name
-        if (SCore.is1v13Less())
+        String advancement = "null";
+        // getDisplay() only got added at 1.19 api
+        if (SCore.is1v19Plus()) {
             try {
-                String advancement = "null";
                 advancement = PlainTextComponentSerializer.plainText().serialize(e.getAdvancement().getDisplay().displayName());
                 // remove the brackets
                 advancement = advancement.substring(1, advancement.length() - 1);
-                eInfo.getPlaceholders().put("%advancement%", advancement);
-            } catch (Exception exception) {}
+            } catch (Exception exception) {
+                // should never happen
+                SCore.plugin.getLogger().info(exception.getStackTrace().toString());
+            }
+        }
+        eInfo.getPlaceholders().put("%advancement%", advancement);
         eInfo.setOption(Option.PLAYER_ADVANCEMENT);
         EventsManager.getInstance().activeOption(eInfo);
     }
