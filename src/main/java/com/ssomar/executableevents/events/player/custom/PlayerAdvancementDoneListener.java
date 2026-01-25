@@ -5,13 +5,10 @@ import com.ssomar.executableevents.executableevents.activators.Option;
 import com.ssomar.score.SCore;
 import com.ssomar.score.sobject.sactivator.EventInfo;
 import net.kyori.adventure.text.serializer.plain.PlainTextComponentSerializer;
-import net.md_5.bungee.api.chat.BaseComponent;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerAdvancementDoneEvent;
-import net.md_5.bungee.api.chat.TextComponent;
 
-import java.util.Arrays;
 import java.util.Optional;
 
 public class PlayerAdvancementDoneListener implements Listener {
