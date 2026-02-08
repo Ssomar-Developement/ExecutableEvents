@@ -372,6 +372,7 @@ public enum Option implements SOption, Serializable {
         result.add(Option.PLAYER_TARGETED_BY_AN_ENTITY);
         result.add(Option.PLAYER_HIT_ENTITY);
         result.add(Option.PLAYER_PARTICIPATE_KILL_ENTITY);
+        result.add(Option.PLAYER_PICKUP_ITEM);
 
         /* The entity is the blop of the fishhook */
         result.add(Option.PLAYER_FISH_NOTHING);
