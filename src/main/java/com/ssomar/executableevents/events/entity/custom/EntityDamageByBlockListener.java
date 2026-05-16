@@ -21,6 +21,7 @@ public class EntityDamageByBlockListener implements Listener {
         EventInfo eInfo = new EventInfo(e);
         eInfo.setEntity(Optional.of(e.getEntity()));
         Block block = e.getDamager();
+        if (block == null) return; // getDamager() could be null due to tnt. Couldn't replicate it easily but some might accidentally pull it off
         eInfo.setTargetBlock(Optional.of(block));
         eInfo.setOldMaterialTargetBlock(Optional.of(block.getType()));
         if (!SCore.is1v12Less()) eInfo.setOldStatesTargetBlock(Optional.of(block.getBlockData().getAsString(true)));
