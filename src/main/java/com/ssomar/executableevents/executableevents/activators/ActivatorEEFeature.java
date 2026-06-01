@@ -423,7 +423,7 @@ public class ActivatorEEFeature extends SActivator<ActivatorEEFeature, Activator
         if (playerOpt.isPresent()) {
             player = playerOpt.get();
             sp.setPlayerPlcHldr(player.getUniqueId(), 0);
-
+            if (projOpt.isPresent()) sp.setShooterPlcHldr(player.getUniqueId());
             defautlWorld = player.getWorld();
         }
         //SsomarDev.testMsg("Activator 4.6 >> "+player, DEBUG);
