@@ -104,10 +104,98 @@
                     </execution>
                 </executions>
             </plugin>
+            <!-- Javadoc restricted to the public API (used by deploy-to-maven.sh, not bound to the build) -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>3.11.2</version>
+                <configuration>
+                    <sourceFileIncludes>
+                        <sourceFileInclude>com/ssomar/executableevents/api/**/*.java</sourceFileInclude>
+                        <sourceFileInclude>com/ssomar/executableevents/configs/api/**/*.java</sourceFileInclude>
+                    </sourceFileIncludes>
+                    <doclint>none</doclint>
+                    <failOnError>false</failOnError>
+                    <quiet>true</quiet>
+                    <notimestamp>true</notimestamp>
+                </configuration>
+            </plugin>
+            <!-- API-only jar published to repo.ssomar.com (the full premium jar is never published) -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>3.4.2</version>
+                <executions>
+                    <execution>
+                        <id>api-jar</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                        <configuration>
+                            <classifier>api</classifier>
+                            <includes>
+                                <include>com/ssomar/executableevents/api/**</include>
+                                <include>com/ssomar/executableevents/configs/api/**</include>
+                            </includes>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
         </plugins>
     </build>
 
     <profiles>
+        <!-- Optional: publish ONLY the -api jar + api javadoc to repo.ssomar.com (mvn deploy -Ppublish).
+             The full premium jar is never uploaded; the regular deploy goal is unbound. -->
+        <profile>
+            <id>publish</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-javadoc-plugin</artifactId>
+                        <version>3.11.2</version>
+                        <executions>
+                            <execution>
+                                <id>attach-javadoc</id>
+                                <goals>
+                                    <goal>jar</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-deploy-plugin</artifactId>
+                        <version>3.1.2</version>
+                        <executions>
+                            <execution>
+                                <id>default-deploy</id>
+                                <phase>none</phase>
+                            </execution>
+                            <execution>
+                                <id>deploy-api-only</id>
+                                <phase>deploy</phase>
+                                <goals>
+                                    <goal>deploy-file</goal>
+                                </goals>
+                                <configuration>
+                                    <file>${project.build.directory}/${project.artifactId}-${project.version}-api.jar</file>
+                                    <javadoc>${project.build.directory}/${project.artifactId}-${project.version}-javadoc.jar</javadoc>
+                                    <groupId>com.ssomar.executableevents</groupId>
+                                    <artifactId>${project.artifactId}-API</artifactId>
+                                    <version>${project.version}</version>
+                                    <packaging>jar</packaging>
+                                    <repositoryId>ssomar-repo</repositoryId>
+                                    <url>https://repo.ssomar.com/releases</url>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
         <!-- vvv This part is only for me (Ssomar) vvv -->
         <profile>
             <id>Ssomar</id>

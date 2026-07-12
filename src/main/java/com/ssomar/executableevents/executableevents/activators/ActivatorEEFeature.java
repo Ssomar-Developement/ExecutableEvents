@@ -204,6 +204,13 @@ public class ActivatorEEFeature extends SActivator<ActivatorEEFeature, Activator
     public void run(Object higherFormSObject, EventInfo eInfo) {
         ExecutableEvent executableEvent = (ExecutableEvent) higherFormSObject;
 
+        /* Public API event: lets third-party plugins observe or cancel the activation
+           (fired before the conditions/cooldowns of the activator are evaluated) */
+        com.ssomar.score.api.executableevents.events.ExecutableEventActivateEvent activateEvent =
+                new com.ssomar.score.api.executableevents.events.ExecutableEventActivateEvent(eInfo.getPlayer().orElse(null), executableEvent.getId(), getId(), eInfo.getEventSource());
+        Bukkit.getPluginManager().callEvent(activateEvent);
+        if (activateEvent.isCancelled()) return;
+
         if (!DebugMode.getInstance().getPlayersInDebugMode().isEmpty()) {
             for (Player debugP : DebugMode.getInstance().getPlayersInDebugMode()) {
                 SendMessage.sendMessageNoPlch(debugP, "§c[DEBUG] &7Activator: &e" + getId() + " &b(run but the check of cdts, cds in coming  1/2) &7of item: &6" + getParentObjectId());

@@ -4,6 +4,11 @@ import org.bukkit.event.Event;
 import org.bukkit.event.HandlerList;
 import org.jetbrains.annotations.NotNull;
 
+/**
+ * @deprecated listen to {@link com.ssomar.score.api.executableevents.load.ExecutableEventsPostLoadEvent}
+ * (public SCore API, fired in addition to this legacy event)
+ */
+@Deprecated
 public class ExecutableEventsPostLoadEvent extends Event {
 
     private static final HandlerList handlers = new HandlerList();

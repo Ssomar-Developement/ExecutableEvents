@@ -45,7 +45,7 @@ import java.util.*;
 
 @Getter
 @Setter
-public class ExecutableEvent extends SObjectWithFileEditable<ExecutableEvent, ExecutableEventEditor, ExecutableEventEditorManager> implements SObjectWithActivators {
+public class ExecutableEvent extends SObjectWithFileEditable<ExecutableEvent, ExecutableEventEditor, ExecutableEventEditorManager> implements com.ssomar.score.api.executableevents.config.ExecutableEventInterface, SObjectWithActivators {
 
     /**
      * Features

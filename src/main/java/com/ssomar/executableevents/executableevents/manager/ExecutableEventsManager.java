@@ -5,28 +5,40 @@ import com.ssomar.executableevents.events.optimize.OptimizedEventsHandler;
 import com.ssomar.executableevents.executableevents.ExecutableEvent;
 import com.ssomar.executableevents.executableevents.ExecutableEventLoader;
 import com.ssomar.executableevents.executableevents.activators.ActivatorEEFeature;
+import com.ssomar.score.api.executableevents.config.ExecutableEventsManagerInterface;
 import com.ssomar.score.features.custom.activators.activator.SActivator;
 import com.ssomar.score.sobject.SObjectManager;
 import com.ssomar.score.sobject.SObjectWithFileManager;
 import com.ssomar.score.sobject.sactivator.SOption;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-public class ExecutableEventsManager extends SObjectWithFileManager<ExecutableEvent> {
+public class ExecutableEventsManager extends SObjectWithFileManager<ExecutableEvent> implements ExecutableEventsManagerInterface {
 
-    private static ExecutableEventsManager instance;
+    private static volatile ExecutableEventsManager instance;
+
+    /** True once all ExecutableEvents configurations have been loaded */
+    @Getter
+    @Setter
+    private boolean loaded = false;
 
     public ExecutableEventsManager() {
         super(ExecutableEvents.plugin);
     }
 
     public static ExecutableEventsManager getInstance() {
-        if (instance == null) {
-            instance = new ExecutableEventsManager();
+        ExecutableEventsManager i = instance;
+        if (i == null) {
+            synchronized (ExecutableEventsManager.class) {
+                i = instance;
+                if (i == null) instance = i = new ExecutableEventsManager();
+            }
         }
-        return instance;
+        return i;
     }
 
     @Override
@@ -99,6 +111,14 @@ public class ExecutableEventsManager extends SObjectWithFileManager<ExecutableEv
             if (path.equalsIgnoreCase(folder)) executableItems.add(item);
         }
         return executableItems;
+    }
+
+    /**
+     * Get all ExecutableEvents (public API).
+     */
+    @Override
+    public List<ExecutableEvent> getAllExecutableEvents() {
+        return new ArrayList<>(this.getLoadedObjects());
     }
 
     public List<String> getExecutableEventIdsList() {

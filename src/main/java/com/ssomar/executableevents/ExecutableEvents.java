@@ -4,6 +4,7 @@ package com.ssomar.executableevents;
 import com.alessiodp.libby.BukkitLibraryManager;
 import com.alessiodp.libby.Library;
 import com.ssomar.executableevents.api.load.ExecutableEventsPostLoadEvent;
+import com.ssomar.executableevents.executableevents.manager.ExecutableEventsManager;
 import com.ssomar.executableevents.commands.CommandsClass;
 import com.ssomar.executableevents.configs.GeneralConfig;
 import com.ssomar.executableevents.configs.Message;
@@ -82,6 +83,9 @@ public class ExecutableEvents extends JavaPlugin {
         plugin = new SExecutableEvents(this);
         sendPluginName();
 
+        /* Expose the implementation through the public SCore API */
+        com.ssomar.score.api.executableevents.ExecutableEventsAPI.register(ExecutableEventsManager.getInstance());
+
         commandClass = new CommandsClass(plugin);
         plugin.getPlugin().saveDefaultConfig();
 
@@ -139,7 +143,11 @@ public class ExecutableEvents extends JavaPlugin {
 
         sendPluginName();
 
+        ExecutableEventsManager.getInstance().setLoaded(true);
+        /* Legacy plugin-side event, kept for backward compatibility */
         Bukkit.getPluginManager().callEvent(new ExecutableEventsPostLoadEvent());
+        /* Public SCore API event */
+        Bukkit.getPluginManager().callEvent(new com.ssomar.score.api.executableevents.load.ExecutableEventsPostLoadEvent(ExecutableEventsManager.getInstance()));
     }
 
     public void onReload(boolean PluginCommand) {
