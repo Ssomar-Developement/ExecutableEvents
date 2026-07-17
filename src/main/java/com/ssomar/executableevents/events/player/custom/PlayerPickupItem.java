@@ -36,8 +36,8 @@ public class PlayerPickupItem implements Listener {
 
         if (SCore.is1v21v4Plus()) {
             CustomModelDataComponent cmdataComp = e.getItem().getItemStack().getItemMeta().getCustomModelDataComponent();
-            eInfo.getPlaceholders().put("%item_cmdata_f_0%", !cmdataComp.getFloats().isEmpty() ? cmdataComp.getFloats().getFirst().toString() : "-1");
-            eInfo.getPlaceholders().put("%item_cmdata_s_0%", !cmdataComp.getStrings().isEmpty() ? cmdataComp.getStrings().getFirst() : "null");
+            eInfo.getPlaceholders().put("%item_cmdata_f_0%", !cmdataComp.getFloats().isEmpty() ? cmdataComp.getFloats().get(0).toString() : "-1");
+            eInfo.getPlaceholders().put("%item_cmdata_s_0%", !cmdataComp.getStrings().isEmpty() ? cmdataComp.getStrings().get(0) : "null");
         } else if (SCore.is1v14() || SCore.is1v15() || SCore.is1v16Plus()) { // Custom Model Data was implemented in 1.14
             ItemMeta itemmeta = e.getItem().getItemStack().getItemMeta();
             if (itemmeta != null && itemmeta.hasCustomModelData())
