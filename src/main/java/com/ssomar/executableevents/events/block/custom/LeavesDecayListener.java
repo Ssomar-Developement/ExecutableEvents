@@ -14,6 +14,7 @@ public class LeavesDecayListener implements Listener {
     public void onLeavesDecayEvent(LeavesDecayEvent e) {
         EventInfo eInfo = new EventInfo(e);
         eInfo.setBlock(Optional.of(e.getBlock()));
+        eInfo.setOldMaterialBlock(Optional.of(e.getBlock().getType()));
         eInfo.setOption(Option.LEAVES_DECAY);
         EventsManager.getInstance().activeOption(eInfo);
     }
