@@ -17,6 +17,10 @@ public class EntityTargetEntityListener implements Listener {
     @EventHandler
     public void onEntityTargetLivingEntityEvent(EntityTargetLivingEntityEvent e) {
 
+        // The target is null when the mob loses its target (TargetGoal.stop -> setTarget(null)),
+        // which happens for every mob: nothing to run in that case.
+        if (e.getTarget() == null) return;
+
         if(e.getTarget() instanceof Player) {
             if (!e.getTarget().hasMetadata("NPC")) return;
         }
