@@ -35,14 +35,13 @@ public class EventsManager {
     public void activeOption(EventInfo eInfo) {
 
         SsomarDev.testMsg("activeOption", DEBUG);
+        // Resolved once: the world does not depend on the ExecutableEvent being tested
+        World world = resolveWorld(eInfo);
         for (ExecutableEvent executableEvent : ExecutableEventsManager.getInstance().getAllObjects()) {
 
             if (!executableEvent.getEnabled().getValue()) continue;
 
-            World world = Bukkit.getWorlds().get(0);
-            if (eInfo.getPlayer().isPresent()) world = eInfo.getPlayer().get().getWorld();
-
-            if (!isValidWorld(eInfo.getWorld().orElse(world), executableEvent)) continue;
+            if (!isValidWorld(world, executableEvent)) continue;
 
             SsomarDev.testMsg("activeOption - isValidWorld >> " + executableEvent.getId(), DEBUG);
 
@@ -53,6 +52,25 @@ public class EventsManager {
                 activator.runWithException(executableEvent, eInfo);
             }
         }
+    }
+
+    /**
+     * Derives the world an event happened in, so that disabledWorlds is honored even by
+     * activators whose listener never calls setPlayer/setWorld (ENTITY_TARGET_PLAYER,
+     * ENTITY_TARGET_ENTITY, most custom entity/block events...). Order: explicit world,
+     * player, entity, block, target player, target entity, target block, projectile,
+     * and only then the default world (server-wide events that have no world at all).
+     */
+    public static World resolveWorld(EventInfo eInfo) {
+        if (eInfo.getWorld() != null && eInfo.getWorld().isPresent()) return eInfo.getWorld().get();
+        if (eInfo.getPlayer() != null && eInfo.getPlayer().isPresent()) return eInfo.getPlayer().get().getWorld();
+        if (eInfo.getEntity() != null && eInfo.getEntity().isPresent()) return eInfo.getEntity().get().getWorld();
+        if (eInfo.getBlock() != null && eInfo.getBlock().isPresent()) return eInfo.getBlock().get().getWorld();
+        if (eInfo.getTargetPlayer() != null && eInfo.getTargetPlayer().isPresent()) return eInfo.getTargetPlayer().get().getWorld();
+        if (eInfo.getTargetEntity() != null && eInfo.getTargetEntity().isPresent()) return eInfo.getTargetEntity().get().getWorld();
+        if (eInfo.getTargetBlock() != null && eInfo.getTargetBlock().isPresent()) return eInfo.getTargetBlock().get().getWorld();
+        if (eInfo.getProjectile() != null && eInfo.getProjectile().isPresent()) return eInfo.getProjectile().get().getWorld();
+        return Bukkit.getWorlds().get(0);
     }
 
     public boolean isValidWorld(World actual, ExecutableEvent item) {
