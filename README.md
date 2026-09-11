@@ -173,7 +173,7 @@ Before submitting:
 ## Support
 
 - **Discord**: [Join our Discord server](https://discord.com/invite/TRmSwJaYNv)
-- **Documentation**: [Official Wiki](https://docs.ssomar.com/executableevents/information-ee)
+- **Documentation**: [Official Wiki](https://splugins.net/docs/executableevents/information-ee)
 - **Issues**: Report bugs on our [GitHub Issues page](https://github.com/ssomar/ExecutableEvents/issues)
 
 ## License
@@ -206,3 +206,4 @@ For detailed version history and changes, please see our [Modrinth releases](htt
 ---
 
 **Made with ❤️ by the ExecutableEvents team**
+
